@@ -1,0 +1,140 @@
+/*
+  Stylesheet for BMo's personal landing page.
+
+  The design borrows cues from the minimalist blue pages of ONCE and the
+  enumerated manifesto of 37signals: bold typography, generous spacing and
+  focused content areas.  Sections alternate between very dark and slightly
+  lighter tones to separate the narrative without adding clutter.  Chat
+  bubbles echo your preferred WhatsApp writing style and keep the reader's
+  attention moving down the page.  Feel free to tweak colours, fonts or
+  spacing as your brand evolves.
+*/
+
+/* Reset some basic elements */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #f5f5f5;
+  background-color: #000;
+  line-height: 1.6;
+}
+
+/* Navigation bar fixed at the top on larger screens */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.site-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover {
+  color: #9aa9ff;
+}
+
+/* Hero banner */
+.hero-image {
+  width: 100%;
+  display: block;
+  margin-top: 3rem; /* offset to account for fixed nav */
+}
+
+/* Generic section styling */
+.section {
+  padding: 4rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-dark {
+  background-color: #000;
+}
+
+.section-light {
+  background-color: #0d0d0d;
+}
+
+.section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Chat message container */
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Each message bubble */
+.message {
+  background-color: #151515;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  max-width: 75%;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+/* Links inside messages */
+.message a {
+  color: #9aa9ff;
+  text-decoration: underline;
+}
+
+/* Footer styling */
+.footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 0.875rem;
+  background-color: #000;
+  color: #777;
+}
+
+/* Responsive adjustments */
+@media (min-width: 600px) {
+  .message {
+    font-size: 1.25rem;
+    max-width: 60%;
+  }
+}
+
+@media (min-width: 900px) {
+  .site-nav {
+    justify-content: center;
+    padding: 1rem 2rem;
+  }
+  .hero-image {
+    margin-top: 4rem;
+  }
+  .section {
+    padding: 6rem 1rem;
+  }
+  .section h2 {
+    font-size: 3rem;
+  }
+  .message {
+    font-size: 1.5rem;
+    max-width: 50%;
+  }
+}
