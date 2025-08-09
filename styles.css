@@ -1,140 +1,34 @@
-/*
-  Stylesheet for BMo's personal landing page.
-
-  The design borrows cues from the minimalist blue pages of ONCE and the
-  enumerated manifesto of 37signals: bold typography, generous spacing and
-  focused content areas.  Sections alternate between very dark and slightly
-  lighter tones to separate the narrative without adding clutter.  Chat
-  bubbles echo your preferred WhatsApp writing style and keep the reader's
-  attention moving down the page.  Feel free to tweak colours, fonts or
-  spacing as your brand evolves.
-*/
-
-/* Reset some basic elements */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root{
+  --bg:#0b0b0b;
+  --text:#f3f3f3;
+  --muted:#bdbdbd;
+  --max: 980px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font: 500 17px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  color: #f5f5f5;
-  background-color: #000;
-  line-height: 1.6;
-}
+.logo-wrap{position:fixed; inset:20px auto auto 20px; z-index:1000; display:block;}
+.logo{width:min(64px,16vw); height:auto; border-radius:12px; box-shadow:0 2px 18px rgba(0,0,0,.25)}
 
-/* Navigation bar fixed at the top on larger screens */
-.site-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: flex-end;
-  gap: 1.5rem;
-  z-index: 1000;
-  backdrop-filter: blur(4px);
-}
+.page{max-width:var(--max); margin:0 auto; padding:14vh 6vw 20vh}
 
-.site-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
+.block{margin:14vh 0}
 
-.site-nav a:hover {
-  color: #9aa9ff;
-}
+.xl{font-size:clamp(34px,7vw,84px); line-height:1.05; letter-spacing:-0.02em; margin:0 0 16px 0}
+.kicker{color:var(--muted); text-transform:uppercase; letter-spacing:.12em; font-size:12px; margin:0 0 18px}
+.line{font-size:clamp(21px,2.6vw,36px); margin:.25em 0}
+.cta a{display:inline-block; margin-top:10px; font-weight:700; color:var(--text); text-decoration:underline}
 
-/* Hero banner */
-.hero-image {
-  width: 100%;
-  display: block;
-  margin-top: 3rem; /* offset to account for fixed nav */
-}
+.foot{opacity:.55; font-size:13px; margin-top:20vh}
 
-/* Generic section styling */
-.section {
-  padding: 4rem 1rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.section-dark {
-  background-color: #000;
-}
-
-.section-light {
-  background-color: #0d0d0d;
-}
-
-.section h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Chat message container */
-.messages {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* Each message bubble */
-.message {
-  background-color: #151515;
-  padding: 1rem 1.5rem;
-  border-radius: 0.5rem;
-  max-width: 75%;
-  font-size: 1.125rem;
-  line-height: 1.4;
-}
-
-/* Links inside messages */
-.message a {
-  color: #9aa9ff;
-  text-decoration: underline;
-}
-
-/* Footer styling */
-.footer {
-  text-align: center;
-  padding: 3rem 1rem;
-  font-size: 0.875rem;
-  background-color: #000;
-  color: #777;
-}
-
-/* Responsive adjustments */
-@media (min-width: 600px) {
-  .message {
-    font-size: 1.25rem;
-    max-width: 60%;
-  }
-}
-
-@media (min-width: 900px) {
-  .site-nav {
-    justify-content: center;
-    padding: 1rem 2rem;
-  }
-  .hero-image {
-    margin-top: 4rem;
-  }
-  .section {
-    padding: 6rem 1rem;
-  }
-  .section h2 {
-    font-size: 3rem;
-  }
-  .message {
-    font-size: 1.5rem;
-    max-width: 50%;
-  }
+@media (max-width:640px){
+  .page{padding-top:12vh}
+  .block{margin:11vh 0}
 }

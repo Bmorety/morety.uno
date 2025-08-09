@@ -1,100 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BMo – Personal Brand &amp; Ghostwriting</title>
-    <!--
-      The HTML for your landing page intentionally stays lean.  
-      Large headings and lots of negative space draw the eye to the words, not the chrome.  
-      A dark backdrop echoes the black‑and‑white feel of your LinkedIn banner while the chat
-      bubbles and simple navigation borrow cues from Once and 37signals.  
-      Use the sections below as conversation starters – swap the text out for your own
-      WhatsApp‑style messages as your copy evolves.
-    -->
-    <!-- Google fonts provide elegant typography without hosting files yourself -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>morety.uno — BMo</title>
+    <meta name="description" content="Design‑driven ghostwriter for mobility leaders." />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Fixed navigation that appears on larger screens -->
-    <nav class="site-nav">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#writing">Writing</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <a class="logo-wrap" href="#top" aria-label="Home">
+      <img class="logo" src="images/logo.png" alt="BM logo" />
+    </a>
 
-    <!-- Hero section uses your LinkedIn banner for instant brand recognition -->
-    <header class="hero">
-      <img
-        src="images/banner.png"
-        alt="BMo Personal Brand banner showing your tagline"
-        class="hero-image"
-      />
-    </header>
+    <main id="top" class="page">
+      <section class="block">
+        <h1 class="xl">Turning mobility expertise into influence.</h1>
+        <p class="line">Short. Clear. Useful.</p>
+        <p class="line">Design that disappears,</p>
+        <p class="line">so the writing lands.</p>
+      </section>
 
-    <!-- About section: describe who you are and what drives you -->
-    <section id="about" class="section section-dark">
-      <h2>About</h2>
-      <div class="messages">
-        <div class="message">Hi, I'm BMo, a design‑driven ghostwriter.</div>
-        <div class="message">
-          I help mobility leaders speak in their own voice – succinct, sharp and impactful.
-        </div>
-        <div class="message">
-          This site is a living document.  Think of it as a chat between us.
-        </div>
-      </div>
-    </section>
+      <section class="block">
+        <p class="kicker">What I do</p>
+        <p class="line">Ghostwriting for mobility leaders.</p>
+        <p class="line">LinkedIn first. Stages and boards next.</p>
+        <p class="line">Strategy, then sentences.</p>
+      </section>
 
-    <!-- Services section: outline what you offer in short, focused bursts -->
-    <section id="services" class="section section-light">
-      <h2>Services</h2>
-      <div class="messages">
-        <div class="message">
-          <strong>Personal branding</strong> – craft a narrative that opens doors.
-        </div>
-        <div class="message">
-          <strong>Ghostwriting</strong> – essays, speeches and books that sound like you.
-        </div>
-        <div class="message">
-          <strong>LinkedIn strategy</strong> – turn posts into conversations and leads.
-        </div>
-      </div>
-    </section>
+      <section class="block">
+        <p class="kicker">How it reads</p>
+        <p class="line">One thought per line.</p>
+        <p class="line">Short sentences. Strong rhythm.</p>
+        <p class="line">No fluff. Just signal.</p>
+      </section>
 
-    <!-- Writing style section: explain how you work and what sets you apart -->
-    <section id="writing" class="section section-dark">
-      <h2>Writing Style</h2>
-      <div class="messages">
-        <div class="message">Short notes, one thought at a time.</div>
-        <div class="message">Always on the left – just like a chat app.</div>
-        <div class="message">
-          Designed for the busy reader: no fluff, just substance.
-        </div>
-      </div>
-    </section>
+      <section class="block">
+        <p class="kicker">For</p>
+        <p class="line">Founders. Product leads. Public officials.</p>
+        <p class="line">People shaping urban mobility.</p>
+      </section>
 
-    <!-- Contact section: encourage visitors to reach out -->
-    <section id="contact" class="section section-light">
-      <h2>Contact</h2>
-      <div class="messages">
-        <div class="message">
-          Let's talk. Send me a mail at
-          <a href="mailto:hello@example.com">hello@example.com</a>.
-        </div>
-        <div class="message">
-          Or connect on LinkedIn – I'm always up for a chat.
-        </div>
-      </div>
-    </section>
+      <section class="block">
+        <p class="kicker">What we make</p>
+        <p class="line">Weekly posts.</p>
+        <p class="line">Keynotes and op‑eds.</p>
+        <p class="line">Narratives that travel.</p>
+      </section>
 
-    <footer class="footer">
-      <p>© 2025 BMo. All rights reserved.</p>
-    </footer>
+      <section class="block">
+        <p class="kicker">Work with me</p>
+        <p class="line">Start with a 30‑minute call.</p>
+        <p class="line">Bring a project or a hunch.</p>
+        <p class="line">Leave with a plan.</p>
+        <p class="cta"><a href="mailto:hello@example.com">hello@example.com</a></p>
+      </section>
+
+      <footer class="foot">© <span id="year"></span> BMo — morety.uno</footer>
+    </main>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
