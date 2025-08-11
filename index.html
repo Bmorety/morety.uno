@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MORETY.UNO — Building Brands in Mobility</title>
+  <title>Morety.uno — Building Brands in Mobility</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
   <meta name="description" content="Bruno Morety — Brands for Mobility." />
 </head>
+
 <body>
+  <!-- Sticky logo -->
   <a class="logo-wrap" href="#top" aria-label="Home">
     <img class="logo" src="images/logo.png" alt="BM logo" />
   </a>
 
-  <main id="top" class="page">
-    <!-- Title & Links -->
-    <section class="block intro">
-      <h1 class="xl">Building Brands in Mobility</h1>
-      <p class="line">Turning Mobility Experts into Rockstars.</p>
-      <nav class="quick-links">
-        <a href="https://tidycal.com/bmorety/discovery" target="_blank" rel="noopener">Discovery Call</a>
-        <a href="https://www.linkedin.com/in/brunomorety/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#tools">Tools</a>
-        <a href="#collabs">Collabs</a>
-      </nav>
+  <!-- Fixed quick-links (bottom-left, always present) -->
+  <nav class="quick-links" aria-label="Quick links">
+    <a href="https://tidycal.com/bmorety/discovery" target="_blank" rel="noopener">Got 30 min?</a>
+    <a href="https://www.linkedin.com/in/brunomorety/" target="_blank" rel="noopener">DM me</a>
+    <a href="#tools">Toolbox</a>
+    <a href="#collabs">Collabs</a>
+  </nav>
+
+  <main id="top" class="page" role="main">
+    <!-- Title & subtitle (animated, centered) -->
+    <section class="block-intro">
+      <h1 class="xl" id="titleText">Building Brands in Mobility</h1>
+      <p class="line subtitle" id="subtitleText">Turning Mobility Experts into Rockstars.</p>
     </section>
 
-    <!-- Sections -->
-    <details class="block" id="manifesto">
-      <summary><span class="num">01</span> Manifesto | Create. Relentlessly.</summary>
+    <!-- Accordion sections (all closed by default) -->
+    <details class="block acc" id="manifesto">
+      <summary><span class="num">01.</span> Manifesto | Create. Relentlessly.</summary>
       <div class="content">
         <p>Urban-first creator in the mobility space —</p>
         <p>Cities keep us honest.</p>
@@ -62,8 +67,8 @@
       </div>
     </details>
 
-    <details class="block" id="services">
-      <summary><span class="num">02</span> Services — Personal branding & ghostwriting</summary>
+    <details class="block acc" id="services">
+      <summary><span class="num">02.</span> Services | Personal Branding & Ghostwriting</summary>
       <div class="content">
         <p><strong>What I do</strong></p>
         <p>Positioning. Then language.</p>
@@ -95,8 +100,8 @@
       </div>
     </details>
 
-    <details class="block" id="collabs">
-      <summary><span class="num">03</span> Voluntary work & collaborations</summary>
+    <details class="block acc" id="collabs">
+      <summary><span class="num">03.</span> Voluntary Work & Collaborations</summary>
       <div class="content">
         <p>Advising grassroots mobility campaigns.</p>
         <p>Mentoring early-stage founders in urban tech.</p>
@@ -107,8 +112,8 @@
       </div>
     </details>
 
-    <details class="block" id="thoughts">
-      <summary><span class="num">04</span> Thoughts — curated micro-posts</summary>
+    <details class="block acc" id="thoughts">
+      <summary><span class="num">04.</span> Thoughts | Curated Micro-Posts</summary>
       <div class="content">
         <p>Ideas from the street to the page — Not visibility. Useful authority.</p>
         <p>If everyone agrees — nobody remembers.</p>
@@ -123,8 +128,8 @@
       </div>
     </details>
 
-    <details class="block" id="tools">
-      <summary><span class="num">05</span> Tools — small utilities & projects</summary>
+    <details class="block acc" id="tools">
+      <summary><span class="num">05.</span> Tools | Small Utilities & Projects</summary>
       <div class="content">
         <p><strong>Banner blueprint</strong> — one-line formulas for LinkedIn headers.</p>
         <p><strong>Angle generator</strong> — 10 prompts to sharpen a post.</p>
@@ -135,8 +140,8 @@
       </div>
     </details>
 
-    <details class="block" id="voice">
-      <summary><span class="num">06</span> Voice & tone guardrails (for us)</summary>
+    <details class="block acc" id="voice">
+      <summary><span class="num">06.</span> Voice & Tone | Guardrails</summary>
       <div class="content">
         <p>One idea per line — Short. Clear. Useful.</p>
         <p>Unapologetic — never unkind.</p>
@@ -146,15 +151,67 @@
         <p>Ship weekly.</p>
       </div>
     </details>
-
-    <footer class="foot">
-      © <span id="year"></span> BMo — morety.uno ·
-      <a href="https://www.linkedin.com/in/brunomorety/" target="_blank" rel="noopener">LinkedIn</a>
-    </footer>
   </main>
 
+  <!-- Sticky footer (bottom-right) -->
+  <footer class="foot">
+    © <span id="year"></span> morety.uno | Bruno Morety
+  </footer>
+
+  <!-- Top-third fade overlay -->
+  <div class="fade-top" aria-hidden="true"></div>
+
+
+  <!-- Bottom-third fade overlay -->
+  <div class="fade-bottom" aria-hidden="true"></div>
+
+  <!-- Year, accordion logic, and title/subtitle + quick-links animations -->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', function () {
+      // Year
+      var y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+
+      // Accordion: close all on load, only one open at a time
+      const toggles = Array.from(document.querySelectorAll('details.acc'));
+      toggles.forEach(d => d.open = false);
+      toggles.forEach(d => {
+        d.addEventListener('toggle', () => {
+          // keep only one open at a time
+          if (d.open) toggles.forEach(o => { if (o !== d) o.open = false; });
+
+          // flip bg when #services is open
+          const services = document.getElementById('services');
+          document.body.classList.toggle('bg-linkedin', !!services && services.open);
+        });
+      });
+
+      // Title word-by-word animation (slower), then show subtitle + quick-links
+      const title = document.getElementById('titleText');
+      const subtitle = document.getElementById('subtitleText');
+      if (title) {
+        const words = title.textContent.trim().split(/\s+/);
+        title.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
+        const spans = Array.from(title.querySelectorAll('.w'));
+
+        const STEP = 180;      // ms between words
+        const DURATION = 500;  // match CSS .5s transition
+
+        spans.forEach((s, i) => {
+          s.style.transitionDelay = (i * STEP) + 'ms';
+          void s.offsetWidth;
+          s.classList.add('on');
+        });
+
+        const totalDelay = (spans.length - 1) * STEP + DURATION;
+        setTimeout(() => {
+          if (subtitle) subtitle.classList.add('show');
+          const links = document.querySelector('.quick-links');
+          if (links) links.classList.add('show');
+        }, totalDelay);
+      }
+    });
   </script>
 </body>
+
 </html>
