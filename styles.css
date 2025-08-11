@@ -31,7 +31,7 @@ body{
 
 /* Layout */
 .page{max-width:var(--max); margin:0 auto; padding:14vh 6vw 20vh}
-.block{margin:14vh 0}
+.block{margin:4vh 0}
 
 /* Type rhythm */
 .xl{
@@ -122,5 +122,5 @@ summary:focus-visible, a:focus-visible{
 /* Mobile tweaks */
 @media (max-width:640px){
   .page{padding-top:12vh}
-  .block{margin:11vh 0}
+  .block{margin:2vh 0}
 }
