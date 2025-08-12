@@ -5,7 +5,6 @@
   --muted: #bdbdbd;
   --max: 1024px;
   --rule: rgba(255, 255, 255, .14);
-
 }
 
 /* Links */
@@ -14,6 +13,10 @@ a {
   text-decoration: none;
   transition: color .2s ease-in-out;
   margin-right: 0px;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  /* match body */
+  letter-spacing: -0.05em;
+  /* mild tighten */
 }
 
 a:hover {
@@ -48,7 +51,7 @@ body {
   background: var(--bg) !important;
   background-color: var(--bg) !important;
   color: var(--text);
-  font: 500 17px/1.45 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font: 500 17px/1.45 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   transition: background-color .45s ease;
 
 }
@@ -79,13 +82,12 @@ body.bg-linkedin {
   left: 32px;
   bottom: 26px;
   z-index: 950;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 550;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   align-items: center;
-
   /* hidden until title finishes */
   opacity: 0;
   transform: translateY(16px);
@@ -133,7 +135,7 @@ body.bg-linkedin {
 
 /* Type rhythm */
 .xl {
-  font-size: clamp(34px, 7vw, 84px);
+  font-size: clamp(50px, 8vw, 110px);
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin: 0 0 16px 0;
@@ -208,7 +210,7 @@ details.block summary {
   gap: .6rem;
   font-weight: 700;
   padding: .2rem 0;
-  font-size: clamp(18px, 2.2vw, 26px);
+  font-size: clamp(26px, 2.4vw, 30px);
   outline: none;
 }
 
