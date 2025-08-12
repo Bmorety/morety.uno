@@ -22,8 +22,6 @@
   <nav class="quick-links" aria-label="Quick links">
     <a href="https://tidycal.com/bmorety/discovery" target="_blank" rel="noopener">Got 30 min?</a>
     <a href="https://www.linkedin.com/in/brunomorety/" target="_blank" rel="noopener">DM me</a>
-    <a href="#tools">Toolbox</a>
-    <a href="#collabs">Collabs</a>
   </nav>
 
   <main id="top" class="page" role="main">
@@ -137,12 +135,42 @@
         <p><strong>Post rhythm planner</strong> — simple weekly cadence tracker.</p>
         <p><strong>Mobility glossary</strong> (coming soon) — plain-English, no hype.</p>
         <p><strong>Headline sweeper</strong> (coming soon) — trim dead words from your hook.</p>
+        <p><strong>Banner blueprint</strong> — one-line formulas for LinkedIn headers.</p>
+        <p><strong>Angle generator</strong> — 10 prompts to sharpen a post.</p>
+        <p><strong>Talk title reframer</strong> — from dull to stage-ready in one line.</p>
+        <p><strong>Post rhythm planner</strong> — simple weekly cadence tracker.</p>
+        <p><strong>Mobility glossary</strong> (coming soon) — plain-English, no hype.</p>
+        <p><strong>Headline sweeper</strong> (coming soon) — trim dead words from your hook.</p>
+        <p><strong>Banner blueprint</strong> — one-line formulas for LinkedIn headers.</p>
+        <p><strong>Angle generator</strong> — 10 prompts to sharpen a post.</p>
+        <p><strong>Talk title reframer</strong> — from dull to stage-ready in one line.</p>
+        <p><strong>Post rhythm planner</strong> — simple weekly cadence tracker.</p>
+        <p><strong>Mobility glossary</strong> (coming soon) — plain-English, no hype.</p>
+        <p><strong>Headline sweeper</strong> (coming soon) — trim dead words from your hook.</p>
       </div>
     </details>
 
     <details class="block acc" id="voice">
       <summary><span class="num">06.</span> Voice & Tone | Guardrails</summary>
       <div class="content">
+        <p>One idea per line — Short. Clear. Useful.</p>
+        <p>Unapologetic — never unkind.</p>
+        <p>Urban before everything else.</p>
+        <p>Write to be cited — Not applauded.</p>
+        <p>Show — Don’t boast.</p>
+        <p>Ship weekly.</p>
+        <p>One idea per line — Short. Clear. Useful.</p>
+        <p>Unapologetic — never unkind.</p>
+        <p>Urban before everything else.</p>
+        <p>Write to be cited — Not applauded.</p>
+        <p>Show — Don’t boast.</p>
+        <p>Ship weekly.</p>
+        <p>One idea per line — Short. Clear. Useful.</p>
+        <p>Unapologetic — never unkind.</p>
+        <p>Urban before everything else.</p>
+        <p>Write to be cited — Not applauded.</p>
+        <p>Show — Don’t boast.</p>
+        <p>Ship weekly.</p>
         <p>One idea per line — Short. Clear. Useful.</p>
         <p>Unapologetic — never unkind.</p>
         <p>Urban before everything else.</p>
@@ -158,6 +186,14 @@
     Copyright © <span id="year"></span> morety.uno | All rights reserved.
   </footer>
 
+  <!-- Booking sheet -->
+  <div class="booking-sheet" id="bookingSheet" aria-hidden="true">
+    <button class="sheet-close" id="bookingClose" aria-label="Close booking">×</button>
+    <iframe id="bookingFrame" title="Book a call" src="https://tidycal.com/bmorety/discovery" loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin">
+    </iframe>
+  </div>
+
   <!-- Top-third fade overlay -->
   <div class="fade-top" aria-hidden="true"></div>
 
@@ -172,21 +208,56 @@
       var y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
 
-      // Accordion: close all on load, only one open at a time
+      // Accordion: close all on load, align on open/close like 37signals
       const toggles = Array.from(document.querySelectorAll('details.acc'));
-      toggles.forEach(d => d.open = false);
-      toggles.forEach(d => {
-        d.addEventListener('toggle', () => {
-          // keep only one open at a time
-          if (d.open) toggles.forEach(o => { if (o !== d) o.open = false; });
+      toggles.forEach(d => (d.open = false));
 
-          // flip bg when #services is open
+      // Baseline = where the title sits on first paint (fixed reference)
+      function getBaseline() {
+        const t = document.getElementById('titleText');
+        return t ? Math.round(t.getBoundingClientRect().top) : 0;
+      }
+      let baseline = getBaseline();
+      window.addEventListener('resize', () => { baseline = getBaseline(); });
+
+      // Only scroll for the panel the user actually clicked
+      let lastClicked = null;
+      toggles.forEach(d => {
+        const s = d.querySelector('summary');
+        if (!s) return;
+        s.addEventListener('click', () => { lastClicked = d; });
+      });
+
+      toggles.forEach(d => {
+        d.addEventListener('toggle', (evt) => {
+          // When opening one, close the rest
+          if (d.open) {
+            toggles.forEach(o => { if (o !== d) o.open = false; });
+          }
+
+          // Align the clicked summary to the baseline on BOTH open and close
+          if (lastClicked === d) {
+            const s = d.querySelector('summary');
+            if (s) {
+              // Wait a frame so the open/close layout settles, then scroll
+              requestAnimationFrame(() => {
+                const targetTop = s.getBoundingClientRect().top + window.pageYOffset - baseline;
+                const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                window.scrollTo({ top: targetTop, behavior: reduce ? 'auto' : 'smooth' });
+                if (s instanceof HTMLElement) s.focus({ preventScroll: true });
+              });
+            }
+            lastClicked = null;
+          }
+
+          // Keep the LinkedIn blue while Services is open
           const services = document.getElementById('services');
-          document.body.classList.toggle('bg-linkedin', !!services && services.open);
+          document.body.classList.toggle('bg-linkedin', !!(services && services.open));
         });
       });
 
-      // Title word-by-word animation (slower), then show subtitle + quick-links
+
+      // Title word-by-word animation, then show subtitle + quick-links (unchanged)
       const title = document.getElementById('titleText');
       const subtitle = document.getElementById('subtitleText');
       if (title) {
@@ -194,11 +265,11 @@
         title.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
         const spans = Array.from(title.querySelectorAll('.w'));
 
-        const STEP = 180;      // ms between words
+        const STEP = 150;      // ms between words
         const DURATION = 500;  // match CSS .5s transition
 
         spans.forEach((s, i) => {
-          s.style.transitionDelay = (i * STEP) + 'ms';
+          s.style.transitionDelay = i * STEP + 'ms';
           void s.offsetWidth;
           s.classList.add('on');
         });
@@ -211,7 +282,36 @@
         }, totalDelay);
       }
     });
+
+    // --- Booking sheet: open/close logic ---
+    const bookingSheet = document.getElementById('bookingSheet');
+    const bookingClose = document.getElementById('bookingClose');
+    // target the "Got 30 min?" link (first quick-link)
+    const bookLink = document.querySelector('.quick-links a[href*="tidycal"]');
+
+    function openSheet(e) {
+      if (e) e.preventDefault();
+      document.body.classList.add('sheet-open');
+      if (bookingSheet) bookingSheet.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeSheet() {
+      document.body.classList.remove('sheet-open');
+      if (bookingSheet) bookingSheet.setAttribute('aria-hidden', 'true');
+    }
+
+    if (bookLink) bookLink.addEventListener('click', openSheet);
+    if (bookingClose) bookingClose.addEventListener('click', closeSheet);
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.body.classList.contains('sheet-open')) {
+        closeSheet();
+      }
+    });
+
   </script>
+
 </body>
 
 </html>

@@ -46,12 +46,17 @@ html {
   /* kerning/ligatures in Firefox*/
 }
 
+/* Headroom when a summary is scrolled into view */
+details.acc {
+  scroll-margin-top: 14vh;
+}
+
 body {
   margin: 0;
   background: var(--bg) !important;
   background-color: var(--bg) !important;
   color: var(--text);
-  font: 500 17px/1.45 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font: 500 18px/1.40 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   transition: background-color .45s ease;
 
 }
@@ -104,7 +109,7 @@ body.bg-linkedin {
 }
 
 .quick-links a:hover {
-  color: #ffffff;
+  color: #e27396;
   text-decoration: underline;
 }
 
@@ -196,6 +201,8 @@ body.bg-linkedin {
 details.block {
   padding: 0 0;
   border-top: 0px solid var(--rule);
+  scroll-margin-top: 14vh;
+  /* when scrolled into view, keep this headroom */
 }
 
 details.block+details.block {
@@ -258,6 +265,77 @@ details.block .line {
   margin: .3rem 0;
 }
 
+/* Fullscreen sheet; centered on tall screens */
+.booking-sheet {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 1200;
+  /* above logo */
+  display: block;
+  place-items: center;
+  transform: translateY(100%);
+  transition: transform .45s cubic-bezier(.22, 1, .36, 1);
+  overflow: hidden;
+
+  /* hide any overflow */
+}
+
+/* When open, slide into view */
+body.sheet-open .booking-sheet {
+  transform: translateY(0);
+}
+
+/* Lock background scroll when sheet is open */
+body.sheet-open {
+  overflow: hidden;
+}
+
+/* The booking iframe fills the sheet */
+.booking-sheet iframe {
+  width: 100%;
+  height: 100vh;
+  /* default = full screen */
+  border: 0;
+  background: #000;
+}
+
+.booking-sheet::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+  background: var(--bg);
+}
+
+/* Close button inside the sheet */
+.sheet-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.sheet-close:hover {
+  background: rgba(255, 255, 255, 0.247);
+  color: #e27396;
+}
+
+.sheet-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 /* Open animation */
 @keyframes reveal {
   from {
@@ -273,7 +351,7 @@ details.block .line {
 
 details.block[open]>.body,
 details.block[open]>.content {
-  animation: reveal .18s ease-out both;
+  animation: reveal 0.18s ease-out both;
 }
 
 /* Focus rings */
@@ -331,6 +409,19 @@ a:focus-visible {
 @media (max-width: 640px) {
   .page {
     padding-top: 12vh;
+  }
+
+  .booking-sheet iframe {
+    height: min(920px, 100vh);
+    /* adjust this cap if you want tighter/looser centering */
+  }
+
+  details.acc {
+    scroll-margin-top: 12vh;
+  }
+
+  details.block {
+    scroll-margin-top: 12vh;
   }
 
   .block-intro {
