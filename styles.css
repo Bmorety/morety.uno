@@ -277,8 +277,8 @@ details.block .line {
   transform: translateY(100%);
   transition: transform .45s cubic-bezier(.22, 1, .36, 1);
   overflow: hidden;
-
   /* hide any overflow */
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 /* When open, slide into view */
@@ -294,10 +294,15 @@ body.sheet-open {
 /* The booking iframe fills the sheet */
 .booking-sheet iframe {
   width: 100%;
-  height: 100vh;
-  /* default = full screen */
+  /* visible viewport height on mobile; prevents being covered by browser UI */
+  height: 100svh;
+  /* primary */
+  min-height: 100dvh;
+  /* fallback / desktop correctness */
+  display: block;
   border: 0;
   background: #000;
+
 }
 
 .booking-sheet::after {
