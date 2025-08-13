@@ -295,7 +295,7 @@ body.sheet-open {
 .booking-sheet iframe {
   width: 100%;
   /* visible viewport height on mobile; prevents being covered by browser UI */
-  height: 100svh;
+  height: 100dvh;
   /* primary */
   min-height: 100dvh;
   /* fallback / desktop correctness */
@@ -410,15 +410,22 @@ a:focus-visible {
     );
 }
 
+
 /* Mobile */
 @media (max-width: 640px) {
   .page {
     padding-top: 12vh;
   }
 
+  .booking-sheet {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  /* make iframe use dynamic viewport height + safe area */
   .booking-sheet iframe {
-    height: min(920px, 100vh);
-    /* adjust this cap if you want tighter/looser centering */
+    height: calc(100dvh + env(safe-area-inset-bottom, 0));
+    width: 100%;
+    display: block;
   }
 
   details.acc {
