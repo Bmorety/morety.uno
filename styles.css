@@ -130,12 +130,13 @@ body.bg-linkedin {
   align-items: center;
   /* horizontal center */
   text-align: center;
-  margin-top: calc(-14vh);
+  margin-top: calc(-15vh);
   /* neutralize page's top padding for true centering */
 }
 
 .block {
   margin: 0 0;
+  margin-top: -7rem;
 }
 
 /* Type rhythm */
@@ -373,7 +374,7 @@ a:focus-visible {
   left: 0;
   right: 0;
   top: 0;
-  height: 33vh;
+  height: 36vh;
   /* match bottom */
   z-index: 940;
   /* below logo/links, above content */
