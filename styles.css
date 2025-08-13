@@ -130,7 +130,7 @@ body.bg-linkedin {
   align-items: center;
   /* horizontal center */
   text-align: center;
-  margin-top: calc(-15vh);
+  margin-top: calc(-14vh);
   /* neutralize page's top padding for true centering */
 }
 
@@ -488,6 +488,11 @@ a:focus-visible {
 
   details.acc {
     scroll-margin-top: 12vh;
+  }
+
+  .block-intro {
+    margin-top: calc(-16vh);
+    /* neutralize page's top padding for true centering */
   }
 }
 
