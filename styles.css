@@ -472,4 +472,8 @@ a:focus-visible {
     text-align: center;
     z-index: 960;
   }
+
+  details.acc {
+    scroll-margin-top: 12vh;
+  }
 }
