@@ -3,7 +3,7 @@
   /* ← change this to update background site-wide */
   --text: #f3f3f3;
   --muted: #bdbdbd;
-  --max: 1024px;
+  --max: 1088px;
   --rule: rgba(255, 255, 255, .14);
 }
 
@@ -145,6 +145,7 @@ body.bg-linkedin {
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin: 0 0 16px 0;
+
 }
 
 .kicker {
