@@ -489,3 +489,16 @@ a:focus-visible {
     scroll-margin-top: 12vh;
   }
 }
+
+@media (min-width: 641px) {
+  .booking-sheet::after {
+    display: none;
+
+  }
+
+  .booking-sheet iframe {
+    height: 100dvh;
+    /* full desktop viewport */
+
+  }
+}
