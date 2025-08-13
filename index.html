@@ -205,77 +205,72 @@
 
   <!-- Year, accordion logic, and title/subtitle + quick-links animations -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Year
-      var y = document.getElementById('year');
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1) Year (kept)
+      const y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
 
-      // Accordion: close all on load, align on open/close like 37signals
+      // 2) Collect accordions
       const toggles = Array.from(document.querySelectorAll('details.acc'));
       toggles.forEach(d => (d.open = false));
 
-      // Baseline = where the title sits on first paint (fixed reference)
-      function getBaseline() {
-        const t = document.getElementById('titleText');
-        return t ? Math.round(t.getBoundingClientRect().top) : 0;
-      }
-      let baseline = getBaseline();
-      window.addEventListener('resize', () => { baseline = getBaseline(); });
+      // 3) Fixed viewport pivot (e.g., 40% from the top)
+      const PIVOT = 0.33; // change to 0.35 / 0.5 if you like
+      let baseline = () => Math.round(window.innerHeight * PIVOT);
+      window.addEventListener('resize', () => { baseline = () => Math.round(window.innerHeight * PIVOT); });
 
-      // Only scroll for the panel the user actually clicked
+      // 4) Mark which panel the user actually tapped/clicked (robust on mobile)
       let lastClicked = null;
       toggles.forEach(d => {
         const s = d.querySelector('summary');
         if (!s) return;
-        s.addEventListener('click', () => { lastClicked = d; });
+        const mark = () => { lastClicked = d; };
+        s.addEventListener('pointerdown', mark, { passive: true });
+        s.addEventListener('touchstart', mark, { passive: true });
+        s.addEventListener('click', mark);
       });
 
+      // 5) Toggle handler: one open at a time + scroll to fixed viewport slot
       toggles.forEach(d => {
-        d.addEventListener('toggle', (evt) => {
-          // When opening one, close the rest
-          if (d.open) {
-            toggles.forEach(o => { if (o !== d) o.open = false; });
-          }
+        d.addEventListener('toggle', () => {
+          if (d.open) toggles.forEach(o => { if (o !== d) o.open = false; });
 
-          // Align the clicked summary to the baseline on BOTH open and close
+          // Only scroll for the panel the user interacted with
           if (lastClicked === d) {
             const s = d.querySelector('summary');
             if (s) {
-              // Wait a frame so the open/close layout settles, then scroll
+              // Wait for layout to settle (important on iOS)
               requestAnimationFrame(() => {
-                const targetTop = s.getBoundingClientRect().top + window.pageYOffset - baseline;
-                const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                window.scrollTo({ top: targetTop, behavior: reduce ? 'auto' : 'smooth' });
-                if (s instanceof HTMLElement) s.focus({ preventScroll: true });
+                requestAnimationFrame(() => {
+                  const target = s.getBoundingClientRect().top + window.pageYOffset - baseline();
+                  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                  window.scrollTo({ top: Math.max(0, target), behavior: reduce ? 'auto' : 'smooth' });
+                  if (s instanceof HTMLElement) s.focus({ preventScroll: true });
+                });
               });
             }
             lastClicked = null;
           }
 
-          // Keep the LinkedIn blue while Services is open
+          // Keep LinkedIn blue while #services is open
           const services = document.getElementById('services');
           document.body.classList.toggle('bg-linkedin', !!(services && services.open));
         });
       });
 
-
-      // Title word-by-word animation, then show subtitle + quick-links (unchanged)
+      // 6) Title → subtitle/links animation (kept)
       const title = document.getElementById('titleText');
       const subtitle = document.getElementById('subtitleText');
       if (title) {
         const words = title.textContent.trim().split(/\s+/);
         title.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
         const spans = Array.from(title.querySelectorAll('.w'));
-
-        const STEP = 150;      // ms between words
-        const DURATION = 500;  // match CSS .5s transition
-
-        spans.forEach((s, i) => {
-          s.style.transitionDelay = i * STEP + 'ms';
-          void s.offsetWidth;
-          s.classList.add('on');
+        const STEP = 150, DURATION = 500;
+        spans.forEach((span, i) => {
+          span.style.transitionDelay = (i * STEP) + 'ms';
+          void span.offsetWidth;
+          span.classList.add('on');
         });
-
         const totalDelay = (spans.length - 1) * STEP + DURATION;
         setTimeout(() => {
           if (subtitle) subtitle.classList.add('show');
@@ -284,35 +279,8 @@
         }, totalDelay);
       }
     });
-
-    // --- Booking sheet: open/close logic ---
-    const bookingSheet = document.getElementById('bookingSheet');
-    const bookingClose = document.getElementById('bookingClose');
-    // target the "Got 30 min?" link (first quick-link)
-    const bookLink = document.querySelector('.quick-links a[href*="tidycal"]');
-
-    function openSheet(e) {
-      if (e) e.preventDefault();
-      document.body.classList.add('sheet-open');
-      if (bookingSheet) bookingSheet.setAttribute('aria-hidden', 'false');
-    }
-
-    function closeSheet() {
-      document.body.classList.remove('sheet-open');
-      if (bookingSheet) bookingSheet.setAttribute('aria-hidden', 'true');
-    }
-
-    if (bookLink) bookLink.addEventListener('click', openSheet);
-    if (bookingClose) bookingClose.addEventListener('click', closeSheet);
-
-    // Close on ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && document.body.classList.contains('sheet-open')) {
-        closeSheet();
-      }
-    });
-
   </script>
+
 
 </body>
 
