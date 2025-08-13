@@ -215,7 +215,7 @@
       toggles.forEach(d => (d.open = false));
 
       // 3) Fixed viewport pivot (e.g., 40% from the top)
-      const PIVOT = 0.33; // change to 0.35 / 0.5 if you like
+      const PIVOT = 0.35; // change to 0.35 / 0.5 if you like
       let baseline = () => Math.round(window.innerHeight * PIVOT);
       window.addEventListener('resize', () => { baseline = () => Math.round(window.innerHeight * PIVOT); });
 
@@ -279,6 +279,35 @@
         }, totalDelay);
       }
     });
+
+    // --- Booking sheet: open/close logic ---
+    const bookingSheet = document.getElementById('bookingSheet');
+    const bookingClose = document.getElementById('bookingClose');
+    // target the "Got 30 min?" link (first quick-link)
+    const bookLink = document.querySelector('.quick-links a[href*="tidycal"]');
+
+    function openSheet(e) {
+      if (e) e.preventDefault();
+      document.body.classList.add('sheet-open');
+      if (bookingSheet) bookingSheet.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeSheet() {
+      document.body.classList.remove('sheet-open');
+      if (bookingSheet) bookingSheet.setAttribute('aria-hidden', 'true');
+    }
+
+    if (bookLink) bookLink.addEventListener('click', openSheet);
+    if (bookingClose) bookingClose.addEventListener('click', closeSheet);
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.body.classList.contains('sheet-open')) {
+        closeSheet();
+      }
+    });
+
+
   </script>
 
 
