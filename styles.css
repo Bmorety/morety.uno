@@ -2,7 +2,7 @@
   --bg: #000000;
   /* ← change this to update background site-wide */
   --text: #f3f3f3;
-  --muted: #bdbdbd;
+  --muted: #ffffff99;
   --max: 1088px;
   --rule: rgba(255, 255, 255, .14);
 }
@@ -13,9 +13,9 @@ a {
   text-decoration: none;
   transition: color .2s ease-in-out;
   margin-right: 0px;
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: "Inter Tight", Helvetica, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   /* match body */
-  letter-spacing: -0.05em;
+  letter-spacing: -0em;
   /* mild tighten */
 }
 
@@ -56,7 +56,7 @@ body {
   background: var(--bg) !important;
   background-color: var(--bg) !important;
   color: var(--text);
-  font: 500 18px/1.40 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font: 500 18px/1.40 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   transition: background-color .45s ease;
 
 }
@@ -90,7 +90,7 @@ body.bg-linkedin {
   font-size: 20px;
   font-weight: 550;
   display: flex;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
   align-items: center;
   /* hidden until title finishes */
@@ -157,7 +157,7 @@ body.bg-linkedin {
 }
 
 .line {
-  font-size: clamp(21px, 2.6vw, 36px);
+  font-size: clamp(22px, 2.4vw, 30px);
   margin: .25em 0;
 }
 
@@ -217,7 +217,7 @@ details.block summary {
   display: flex;
   align-items: baseline;
   gap: .6rem;
-  font-weight: 700;
+  font-weight: 550;
   padding: .2rem 0;
   font-size: clamp(26px, 2.4vw, 30px);
   outline: none;
@@ -473,6 +473,17 @@ a:focus-visible {
   .quick-links a {
     text-align: center;
   }
+
+  details.block>.content {
+
+    padding-left: calc(2ch + .6rem);
+  }
+
+  .line {
+    font-size: clamp(20px, 2.0vw, 26px);
+    margin: .25em 0;
+  }
+
 
 
   /* center footer at the bottom */
