@@ -321,6 +321,11 @@
     }
 
     if (bookLink) bookLink.addEventListener('click', openSheet);
+
+    // --- so the other link to tidycal in services also calls the overlay.
+    const servicesBookLink = document.querySelector('#services a[href*="tidycal"]');
+    if (servicesBookLink) servicesBookLink.addEventListener('click', openSheet);
+
     if (bookingClose) bookingClose.addEventListener('click', closeSheet);
 
     // Close on ESC
