@@ -28,6 +28,12 @@ a:visited {
   color: #ffffffca;
 }
 
+a:visited:hover {
+  color: #e27396;
+  text-decoration: underline;
+}
+
+
 * {
   box-sizing: border-box;
 }
