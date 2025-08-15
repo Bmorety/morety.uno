@@ -21,6 +21,7 @@ a {
 
 a:hover {
   color: #e27396;
+  text-decoration: underline;
 }
 
 a:visited {
@@ -157,7 +158,7 @@ body.bg-linkedin {
 }
 
 .line {
-  font-size: clamp(22px, 2.4vw, 30px);
+  font-size: clamp(20px, 2.0vw, 26px);
   margin: .25em 0;
 }
 
@@ -168,13 +169,13 @@ body.bg-linkedin {
 }
 
 .lineS {
-  font-size: clamp(19px, 2.2vw, 26px);
+  font-size: clamp(20px, 2.0vw, 26px);
   margin: .25em 0;
   font-weight: 650;
 }
 
 .line2 {
-  font-size: clamp(17px, 2.2vw, 24px);
+  font-size: clamp(20px, 2.0vw, 26px);
   margin: .25em 0;
 }
 
@@ -194,7 +195,8 @@ body.bg-linkedin {
 /* Subtitle slide-in (from right, after title completes) */
 .subtitle {
   opacity: 0;
-  font-weight: 550;
+  font-size: clamp(30px, 2.6vw, 36px);
+  font-weight: 400;
   transform: translateY(16px);
   transition: opacity .45s ease, transform .45s ease;
 }
@@ -275,7 +277,7 @@ details.block[open] summary::after {
 /* Body inside toggle */
 details.block>.body,
 details.block>.content {
-  margin-top: .6rem;
+  margin-top: 1rem;
   padding-left: calc(6ch + .6rem);
 }
 
