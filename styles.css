@@ -15,6 +15,7 @@
   gap: 0.5rem;
   margin-top: 2rem;
   margin-bottom: 3rem;
+  transform: translateX(-5%);
 
 }
 
@@ -69,6 +70,10 @@
 #thoughts .thoughts-carousel .t-btn:disabled {
   opacity: 0.2;
   cursor: default;
+}
+
+#thoughts .thoughts-carousel .t-rand {
+  display: none !important;
 }
 
 /* Links */
@@ -567,6 +572,14 @@ a:focus-visible {
 
     padding-left: calc(2ch + .6rem);
   }
+
+  #thoughts .thoughts-carousel {
+    width: 115%;
+    transform: translateX(-10%);
+
+  }
+
+
 
   .line {
     font-size: clamp(20px, 2.0vw, 26px);
