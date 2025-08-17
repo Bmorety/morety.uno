@@ -7,6 +7,58 @@
   --rule: rgba(255, 255, 255, .14);
 }
 
+/* Thoughts carousel */
+#thoughts .thoughts-carousel {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+#thoughts .thoughts-carousel .t-viewport {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  min-height: 6rem;
+  /* fallback; JS overwrites to tallest card */
+}
+
+#thoughts .thoughts-carousel .t-track {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+#thoughts .thoughts-carousel .t-card {
+  flex: 0 0 100%;
+  padding: 0.25rem 0;
+}
+
+#thoughts .thoughts-carousel .t-card p {
+  margin: 0;
+}
+
+#thoughts .thoughts-carousel .t-btn {
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+#thoughts .thoughts-carousel .t-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
 /* Links */
 a {
   color: #ffffff;
