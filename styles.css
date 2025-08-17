@@ -621,6 +621,10 @@ a:focus-visible {
 
   }
 
+  .foot {
+    text-align: right;
+  }
+
   .booking-sheet iframe {
     height: 100dvh;
     /* full desktop viewport */
