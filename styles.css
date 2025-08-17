@@ -21,6 +21,8 @@
   position: relative;
   width: 100%;
   min-height: 6rem;
+  height: 30vh;
+  align-items: center;
   /* fallback; JS overwrites to tallest card */
 }
 
@@ -29,11 +31,18 @@
   flex-wrap: nowrap;
   transition: transform 0.35s ease;
   will-change: transform;
+  align-items: center;
 }
 
 #thoughts .thoughts-carousel .t-card {
   flex: 0 0 100%;
   padding: 0.25rem 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: clamp(20px, 2.2vw, 30px);
+  margin: 0 0;
+  font-style: italic;
 }
 
 #thoughts .thoughts-carousel .t-card p {
@@ -44,7 +53,7 @@
   border: none;
   background: transparent;
   color: #ffffff;
-  font-size: 1.4rem;
+  font-size: 2rem;
   line-height: 1;
   cursor: pointer;
   padding: 0 0.5rem;
@@ -55,7 +64,7 @@
 }
 
 #thoughts .thoughts-carousel .t-btn:disabled {
-  opacity: 0.3;
+  opacity: 0.2;
   cursor: default;
 }
 
@@ -228,7 +237,7 @@ body.bg-linkedin {
 
 .lineS {
   font-size: clamp(20px, 2.0vw, 26px);
-  margin: .25em 0;
+  margin: .35em 0;
   font-weight: 650;
 }
 

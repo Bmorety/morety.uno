@@ -45,7 +45,7 @@
 
     <!-- Accordion sections (all closed by default) -->
     <details class="block acc" id="manifesto">
-      <summary><span class="num">01.</span> Manifesto | Create. Relentlessly.</summary>
+      <summary><span class="num">00.</span> Manifesto | Create. Relentlessly.</summary>
       <br>
       <div class="content">
         <p class="kicker">Who's Bruno Morety Anyways?</p>
@@ -73,7 +73,7 @@
     </details>
 
     <details class="block acc" id="services">
-      <summary><span class="num">02.</span> Services | Personal Branding & Ghostwriting</summary>
+      <summary><span class="num">01.</span> Services | Personal Branding & Ghostwriting</summary>
       <br>
       <div class="content">
         <p class="kicker">WHAT I DO</p>
@@ -133,7 +133,7 @@
     </details>
 
     <details class="block acc" id="speaking-advisory">
-      <summary><span class="num">03.</span> Speaking & Advisory</summary>
+      <summary><span class="num">02.</span> Speaking & Advisory</summary>
       <br>
       <div class="content">
         <p class="kicker">WHERE I SHOW UP</p>
@@ -164,7 +164,7 @@
     </details>
 
     <details class="block acc" id="thoughts">
-      <summary><span class="num">04.</span> Thoughts | Curated Micro-Posts</summary>
+      <summary><span class="num">03.</span> Thoughts | Curated Micro-Posts</summary>
       <div class="content">
         <p>Ideas from the street to the page — Not visibility. Useful authority.</p>
         <p>If everyone agrees — nobody remembers.</p>
@@ -196,7 +196,7 @@
     </details>
 
     <details class="block acc" id="tools">
-      <summary><span class="num">05.</span> Tools | Small Utilities & Projects</summary>
+      <summary><span class="num">04.</span> Tools | Small Utilities & Projects</summary>
       <br>
       <div class="content">
         <p class="kicker">TOOLS</p>
@@ -209,9 +209,8 @@
         <p class="lineS"> How to Linkedin for Personal Branding — <a
             href="https://chatgpt.com/g/g-686cde07f4188191aba311097ae5efa4-linked-blue-for-personal-branding"
             target="_blank" rel="noopener">GPT.</a></p>
-        <p class="line2">Your personal brand is your biggest career asset.</p>
-        <p class="line2">Turn LinkedIn into your opportunity engine.</p>
-        <p class="line2">Why? Why on LinkedIn? How to get started.</p>
+        <p class="line2">Your personal brand is your biggest career asset —</p>
+        <p class="line2">LinkedIn your opportunity engine.</p>
         <br>
         <br>
         <br>
@@ -230,265 +229,267 @@
         <p>Ship weekly.</p>
       </div>
     </details>
+     -->
+    <br>
   </main>
 
-  -->
-
-    <!-- Sticky footer (bottom-right) -->
-    <footer class="foot">
-      © <span id="year"></span> Morety.uno | All Rights Reserved.
-    </footer>
-
-    <!-- Booking sheet -->
-    <div class="booking-sheet" id="bookingSheet" aria-hidden="true">
-      <button class="sheet-close" id="bookingClose" aria-label="Close booking">×</button>
-      <iframe id="bookingFrame" title="Book a call" src="https://tidycal.com/bmorety/discovery" loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin">
-      </iframe>
-    </div>
-
-    <!-- Top-third fade overlay -->
-    <div class="fade-top" aria-hidden="true"></div>
 
 
-    <!-- Bottom-third fade overlay -->
-    <div class="fade-bottom" aria-hidden="true"></div>
+  <!-- Sticky footer (bottom-right) -->
+  <footer class="foot">
+    © <span id="year"></span> Morety.uno | All Rights Reserved.
+  </footer>
 
-    <!-- Year, accordion logic, and title/subtitle + quick-links animations -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        // 1) Year (kept)
-        const y = document.getElementById('year');
-        if (y) y.textContent = new Date().getFullYear();
+  <!-- Booking sheet -->
+  <div class="booking-sheet" id="bookingSheet" aria-hidden="true">
+    <button class="sheet-close" id="bookingClose" aria-label="Close booking">×</button>
+    <iframe id="bookingFrame" title="Book a call" src="https://tidycal.com/bmorety/discovery" loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin">
+    </iframe>
+  </div>
 
-        // 2) Collect accordions
-        const toggles = Array.from(document.querySelectorAll('details.acc'));
-        toggles.forEach(d => (d.open = false));
+  <!-- Top-third fade overlay -->
+  <div class="fade-top" aria-hidden="true"></div>
 
-        // 3) Fixed viewport pivot (e.g., 40% from the top)
-        const PIVOT = 0.35; // change to 0.35 / 0.5 if you like
-        let baseline = () => Math.round(window.innerHeight * PIVOT);
-        window.addEventListener('resize', () => { baseline = () => Math.round(window.innerHeight * PIVOT); });
 
-        // 4) Mark which panel the user actually tapped/clicked (robust on mobile)
-        let lastClicked = null;
-        toggles.forEach(d => {
-          const s = d.querySelector('summary');
-          if (!s) return;
-          const mark = () => { lastClicked = d; };
-          s.addEventListener('pointerdown', mark, { passive: true });
-          s.addEventListener('touchstart', mark, { passive: true });
-          s.addEventListener('click', mark);
-        });
+  <!-- Bottom-third fade overlay -->
+  <div class="fade-bottom" aria-hidden="true"></div>
 
-        // 5) Toggle handler: one open at a time + scroll to fixed viewport slot
-        toggles.forEach(d => {
-          d.addEventListener('toggle', () => {
-            if (d.open) toggles.forEach(o => { if (o !== d) o.open = false; });
+  <!-- Year, accordion logic, and title/subtitle + quick-links animations -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1) Year (kept)
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
 
-            // Only scroll for the panel the user interacted with
-            if (lastClicked === d) {
-              const s = d.querySelector('summary');
-              if (s) {
-                // Wait for layout to settle (important on iOS)
+      // 2) Collect accordions
+      const toggles = Array.from(document.querySelectorAll('details.acc'));
+      toggles.forEach(d => (d.open = false));
+
+      // 3) Fixed viewport pivot (e.g., 40% from the top)
+      const PIVOT = 0.35; // change to 0.35 / 0.5 if you like
+      let baseline = () => Math.round(window.innerHeight * PIVOT);
+      window.addEventListener('resize', () => { baseline = () => Math.round(window.innerHeight * PIVOT); });
+
+      // 4) Mark which panel the user actually tapped/clicked (robust on mobile)
+      let lastClicked = null;
+      toggles.forEach(d => {
+        const s = d.querySelector('summary');
+        if (!s) return;
+        const mark = () => { lastClicked = d; };
+        s.addEventListener('pointerdown', mark, { passive: true });
+        s.addEventListener('touchstart', mark, { passive: true });
+        s.addEventListener('click', mark);
+      });
+
+      // 5) Toggle handler: one open at a time + scroll to fixed viewport slot
+      toggles.forEach(d => {
+        d.addEventListener('toggle', () => {
+          if (d.open) toggles.forEach(o => { if (o !== d) o.open = false; });
+
+          // Only scroll for the panel the user interacted with
+          if (lastClicked === d) {
+            const s = d.querySelector('summary');
+            if (s) {
+              // Wait for layout to settle (important on iOS)
+              requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
-                  requestAnimationFrame(() => {
-                    const target = s.getBoundingClientRect().top + window.pageYOffset - baseline();
-                    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                    window.scrollTo({ top: Math.max(0, target), behavior: reduce ? 'auto' : 'smooth' });
-                    if (s instanceof HTMLElement) s.focus({ preventScroll: true });
-                  });
+                  const target = s.getBoundingClientRect().top + window.pageYOffset - baseline();
+                  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                  window.scrollTo({ top: Math.max(0, target), behavior: reduce ? 'auto' : 'smooth' });
+                  if (s instanceof HTMLElement) s.focus({ preventScroll: true });
                 });
-              }
-              lastClicked = null;
+              });
             }
+            lastClicked = null;
+          }
 
-            // Keep LinkedIn blue while #services is open
-            const services = document.getElementById('services');
-            document.body.classList.toggle('bg-linkedin', !!(services && services.open));
-          });
+          // Keep LinkedIn blue while #services is open
+          const services = document.getElementById('services');
+          document.body.classList.toggle('bg-linkedin', !!(services && services.open));
         });
+      });
 
-        // 6) Title → subtitle/links animation (kept)
-        const title = document.getElementById('titleText');
-        const subtitle = document.getElementById('subtitleText');
-        if (title) {
-          const words = title.textContent.trim().split(/\s+/);
-          title.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
-          const spans = Array.from(title.querySelectorAll('.w'));
-          const STEP = 150, DURATION = 500;
-          spans.forEach((span, i) => {
-            span.style.transitionDelay = (i * STEP) + 'ms';
-            void span.offsetWidth;
-            span.classList.add('on');
-          });
-          const totalDelay = (spans.length - 1) * STEP + DURATION;
-          setTimeout(() => {
-            if (subtitle) subtitle.classList.add('show');
-            const links = document.querySelector('.quick-links');
-            if (links) links.classList.add('show');
-          }, totalDelay);
+      // 6) Title → subtitle/links animation (kept)
+      const title = document.getElementById('titleText');
+      const subtitle = document.getElementById('subtitleText');
+      if (title) {
+        const words = title.textContent.trim().split(/\s+/);
+        title.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
+        const spans = Array.from(title.querySelectorAll('.w'));
+        const STEP = 150, DURATION = 500;
+        spans.forEach((span, i) => {
+          span.style.transitionDelay = (i * STEP) + 'ms';
+          void span.offsetWidth;
+          span.classList.add('on');
+        });
+        const totalDelay = (spans.length - 1) * STEP + DURATION;
+        setTimeout(() => {
+          if (subtitle) subtitle.classList.add('show');
+          const links = document.querySelector('.quick-links');
+          if (links) links.classList.add('show');
+        }, totalDelay);
+      }
+    });
+
+    // --- Booking sheet: open/close logic ---
+    const bookingSheet = document.getElementById('bookingSheet');
+    const bookingClose = document.getElementById('bookingClose');
+    // target the "Got 30 min?" link (first quick-link)
+    const bookLink = document.querySelector('.quick-links a[href*="tidycal"]');
+
+    function openSheet(e) {
+      if (e) e.preventDefault();
+      document.body.classList.add('sheet-open');
+      if (bookingSheet) bookingSheet.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeSheet() {
+      document.body.classList.remove('sheet-open');
+      if (bookingSheet) bookingSheet.setAttribute('aria-hidden', 'true');
+    }
+
+    if (bookLink) bookLink.addEventListener('click', openSheet);
+
+    // --- so the other link to tidycal in services also calls the overlay.
+    const servicesBookLink = document.querySelector('#services a[href*="tidycal"]');
+    if (servicesBookLink) servicesBookLink.addEventListener('click', openSheet);
+
+    if (bookingClose) bookingClose.addEventListener('click', closeSheet);
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.body.classList.contains('sheet-open')) {
+        closeSheet();
+      }
+    });
+
+
+  </script>
+  <!-- Thoughts carousel script -->
+  <script>
+    // Construct and operate a simple horizontal carousel for the Thoughts section.
+    document.addEventListener('DOMContentLoaded', () => {
+      const thoughtsContent = document.querySelector('#thoughts .content');
+      if (!thoughtsContent) return;
+      const paragraphs = Array.from(thoughtsContent.children).filter(el => el.tagName === 'P');
+      if (paragraphs.length === 0) return;
+
+      // Build carousel elements
+      const carousel = document.createElement('div');
+      carousel.className = 'thoughts-carousel';
+
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 't-btn t-prev';
+      prevBtn.setAttribute('aria-label', 'Previous thought');
+      prevBtn.innerHTML = '&lt;';
+
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 't-btn t-next';
+      nextBtn.setAttribute('aria-label', 'Next thought');
+      nextBtn.innerHTML = '&gt;';
+
+      const randBtn = document.createElement('button');
+      randBtn.className = 't-btn t-rand';
+      randBtn.setAttribute('aria-label', 'Random thought');
+      randBtn.innerHTML = '↻';
+
+      const viewport = document.createElement('div');
+      viewport.className = 't-viewport';
+      const track = document.createElement('div');
+      track.className = 't-track';
+
+      // Move each paragraph into a card
+      paragraphs.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 't-card';
+        card.appendChild(p);
+        track.appendChild(card);
+      });
+
+      viewport.appendChild(track);
+      carousel.appendChild(prevBtn);
+      carousel.appendChild(viewport);
+      carousel.appendChild(nextBtn);
+      carousel.appendChild(randBtn);
+      thoughtsContent.appendChild(carousel);
+
+      let current = 0;
+      const total = track.children.length;
+      carousel.tabIndex = 0;
+
+      function updateButtons() {
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === total - 1;
+      }
+
+      function updateSlide() {
+        const w = viewport.clientWidth;
+        track.style.transform = 'translateX(' + (-current * w) + 'px)';
+        updateButtons();
+      }
+
+      window.addEventListener('resize', updateSlide);
+
+      prevBtn.addEventListener('click', () => {
+        if (current > 0) {
+          current--;
+          updateSlide();
         }
       });
 
-      // --- Booking sheet: open/close logic ---
-      const bookingSheet = document.getElementById('bookingSheet');
-      const bookingClose = document.getElementById('bookingClose');
-      // target the "Got 30 min?" link (first quick-link)
-      const bookLink = document.querySelector('.quick-links a[href*="tidycal"]');
-
-      function openSheet(e) {
-        if (e) e.preventDefault();
-        document.body.classList.add('sheet-open');
-        if (bookingSheet) bookingSheet.setAttribute('aria-hidden', 'false');
-      }
-
-      function closeSheet() {
-        document.body.classList.remove('sheet-open');
-        if (bookingSheet) bookingSheet.setAttribute('aria-hidden', 'true');
-      }
-
-      if (bookLink) bookLink.addEventListener('click', openSheet);
-
-      // --- so the other link to tidycal in services also calls the overlay.
-      const servicesBookLink = document.querySelector('#services a[href*="tidycal"]');
-      if (servicesBookLink) servicesBookLink.addEventListener('click', openSheet);
-
-      if (bookingClose) bookingClose.addEventListener('click', closeSheet);
-
-      // Close on ESC
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && document.body.classList.contains('sheet-open')) {
-          closeSheet();
+      nextBtn.addEventListener('click', () => {
+        if (current < total - 1) {
+          current++;
+          updateSlide();
         }
       });
 
+      randBtn.addEventListener('click', () => {
+        if (total <= 1) return;
+        let newIndex;
+        do {
+          newIndex = Math.floor(Math.random() * total);
+        } while (newIndex === current);
+        current = newIndex;
+        updateSlide();
+      });
 
-    </script>
-    <!-- Thoughts carousel script -->
-    <script>
-      // Construct and operate a simple horizontal carousel for the Thoughts section.
-      document.addEventListener('DOMContentLoaded', () => {
-        const thoughtsContent = document.querySelector('#thoughts .content');
-        if (!thoughtsContent) return;
-        const paragraphs = Array.from(thoughtsContent.children).filter(el => el.tagName === 'P');
-        if (paragraphs.length === 0) return;
-
-        // Build carousel elements
-        const carousel = document.createElement('div');
-        carousel.className = 'thoughts-carousel';
-
-        const prevBtn = document.createElement('button');
-        prevBtn.className = 't-btn t-prev';
-        prevBtn.setAttribute('aria-label', 'Previous thought');
-        prevBtn.innerHTML = '&lt;';
-
-        const nextBtn = document.createElement('button');
-        nextBtn.className = 't-btn t-next';
-        nextBtn.setAttribute('aria-label', 'Next thought');
-        nextBtn.innerHTML = '&gt;';
-
-        const randBtn = document.createElement('button');
-        randBtn.className = 't-btn t-rand';
-        randBtn.setAttribute('aria-label', 'Random thought');
-        randBtn.innerHTML = '↻';
-
-        const viewport = document.createElement('div');
-        viewport.className = 't-viewport';
-        const track = document.createElement('div');
-        track.className = 't-track';
-
-        // Move each paragraph into a card
-        paragraphs.forEach(p => {
-          const card = document.createElement('div');
-          card.className = 't-card';
-          card.appendChild(p);
-          track.appendChild(card);
-        });
-
-        viewport.appendChild(track);
-        carousel.appendChild(prevBtn);
-        carousel.appendChild(viewport);
-        carousel.appendChild(nextBtn);
-        carousel.appendChild(randBtn);
-        thoughtsContent.appendChild(carousel);
-
-        let current = 0;
-        const total = track.children.length;
-        carousel.tabIndex = 0;
-
-        function updateButtons() {
-          prevBtn.disabled = current === 0;
-          nextBtn.disabled = current === total - 1;
-        }
-
-        function updateSlide() {
-          const w = viewport.clientWidth;
-          track.style.transform = 'translateX(' + (-current * w) + 'px)';
-          updateButtons();
-        }
-
-        window.addEventListener('resize', updateSlide);
-
-        prevBtn.addEventListener('click', () => {
+      carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' || e.key === 'Left') {
           if (current > 0) {
             current--;
             updateSlide();
           }
-        });
-
-        nextBtn.addEventListener('click', () => {
+        } else if (e.key === 'ArrowRight' || e.key === 'Right') {
           if (current < total - 1) {
             current++;
             updateSlide();
           }
-        });
-
-        randBtn.addEventListener('click', () => {
-          if (total <= 1) return;
-          let newIndex;
-          do {
-            newIndex = Math.floor(Math.random() * total);
-          } while (newIndex === current);
-          current = newIndex;
-          updateSlide();
-        });
-
-        carousel.addEventListener('keydown', (e) => {
-          if (e.key === 'ArrowLeft' || e.key === 'Left') {
-            if (current > 0) {
-              current--;
-              updateSlide();
-            }
-          } else if (e.key === 'ArrowRight' || e.key === 'Right') {
-            if (current < total - 1) {
-              current++;
-              updateSlide();
-            }
-          } else if (e.key === 'r' || e.key === 'R') {
-            if (total > 1) {
-              let newIndex;
-              do {
-                newIndex = Math.floor(Math.random() * total);
-              } while (newIndex === current);
-              current = newIndex;
-              updateSlide();
-            }
+        } else if (e.key === 'r' || e.key === 'R') {
+          if (total > 1) {
+            let newIndex;
+            do {
+              newIndex = Math.floor(Math.random() * total);
+            } while (newIndex === current);
+            current = newIndex;
+            updateSlide();
           }
-        });
-
-        // Calculate tallest card height and set viewport height
-        setTimeout(() => {
-          let maxHeight = 0;
-          track.querySelectorAll('.t-card').forEach(card => {
-            const h = card.getBoundingClientRect().height;
-            if (h > maxHeight) maxHeight = h;
-          });
-          viewport.style.height = maxHeight + 'px';
-          updateSlide();
-        });
+        }
       });
-    </script>
+
+      // Calculate tallest card height and set viewport height
+      setTimeout(() => {
+        let maxHeight = 0;
+        track.querySelectorAll('.t-card').forEach(card => {
+          const h = card.getBoundingClientRect().height;
+          if (h > maxHeight) maxHeight = h;
+        });
+        viewport.style.height = maxHeight + 'px';
+        updateSlide();
+      });
+    });
+  </script>
 
 
 </body>
