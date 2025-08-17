@@ -595,6 +595,11 @@ a:focus-visible {
     margin-top: calc(-16vh);
     /* neutralize page's top padding for true centering */
   }
+
+  #thoughts .thoughts-carousel .t-rand {
+    display: none !important;
+  }
+
 }
 
 @media (min-width: 641px) {
