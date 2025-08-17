@@ -166,32 +166,10 @@
     <details class="block acc" id="thoughts">
       <summary><span class="num">03.</span> Thoughts | Curated Micro-Posts</summary>
       <div class="content">
-        <p>Ideas from the street to the page — Not visibility. Useful authority.</p>
-        <p>If everyone agrees — nobody remembers.</p>
-        <p>Posture first. Then words.</p>
-        <p>One story. One example. One line people quote.</p>
+        <p>If everyone agrees — nobody remembers.<br>Be Bold.</p>
         <p>Write for the room you want to enter —</p>
-        <p>Polite is forgettable. Clear is memorable.</p>
-        <p>Publish when you have something — You have something every week.</p>
+        <p>Publish when you have something —<br> You have something every week.</p>
         <p>Metric is impact. Not likes.</p>
-        <p>Mate…
-          You’re killing your LinkedIn game — and it’s painfully easy to fix.
-          Blank banner? Rookie move.
-
-          Your banner is your billboard.
-          5 seconds to tell them what moves you.
-          Or who you help and how.
-
-          Go to Canva.
-          Search “LinkedIn banner.”
-          Pick your style.
-
-          Then drop this in:
-          Helping [your niched‑down audience] into [aspirational outcome] through [method/tool].
-
-          Upload it.
-          Boom — you just jumped ahead of 90% of profiles.</p>
-        <p>The city is the brief.</p>
       </div>
     </details>
 
@@ -414,7 +392,8 @@
       carousel.appendChild(randBtn);
       thoughtsContent.appendChild(carousel);
 
-      let current = 0;
+      let current = (track.children.length > 0) ? Math.floor(Math.random() * track.children.length) : 0;
+
       const total = track.children.length;
       carousel.tabIndex = 0;
 
