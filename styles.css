@@ -141,6 +141,11 @@ body.bg-linkedin {
   --bg: #0A66C2;
 }
 
+.container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 /* Sticky logo */
 .logo-wrap {
   position: fixed;
