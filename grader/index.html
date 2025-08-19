@@ -5,172 +5,436 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>LinkedIn Brand Grader · morety.uno</title>
-    <!-- Inter font -->
+    <!-- Inter font to match morety.uno vibe -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind Play CDN for fast iteration (swap to compiled Tailwind in prod) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        linkedin: { bg: '#F3F2EF', blue: '#0A66C2', dark: '#004182' }
+                        linkedin: {
+                            // UI background used by LinkedIn
+                            bg: '#F3F2EF',
+                            blue: '#0A66C2',
+                            dark: '#004182'
+                        }
                     },
-                    boxShadow: { soft: '0 4px 30px rgba(0,0,0,0.08)' }
+                    boxShadow: {
+                        soft: '0 4px 30px rgba(0,0,0,0.08)'
+                    },
+                    borderRadius: {
+                        xl2: '1.25rem'
+                    }
                 }
             }
         }
     </script>
     <style>
+        :root {
+            --brand-radius: 1.25rem;
+        }
+
+        html,
         body {
-            font-family: 'Inter', sans-serif;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
         }
     </style>
 </head>
 
 <body class="min-h-screen bg-linkedin-bg text-zinc-900">
     <main class="mx-auto max-w-3xl px-4 py-8">
+        <!-- Header -->
         <header class="mb-6 flex items-center gap-3">
-            <div class="h-10 w-10 rounded-2xl bg-linkedin-blue/10 flex items-center justify-center">
-                <span class="text-linkedin-blue text-xl font-extrabold">BM</span>
-            </div>
+            <div class="h-10 w-10 rounded-2xl bg-linkedin-blue/10 flex items-center justify-center"><span
+                    class="text-linkedin-blue text-xl font-extrabold">BM</span></div>
             <div>
-                <h1 class="text-2xl md:text-3xl font-extrabold">LinkedIn Brand Grader</h1>
-                <p class="text-sm text-zinc-600">One question at a time. Get an AI audit in your inbox.</p>
+                <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">LinkedIn Brand Grader</h1>
+                <p class="text-sm text-zinc-600">One question at a time. Paste your details. Get an AI audit in your
+                    inbox.</p>
             </div>
         </header>
 
         <!-- Progress -->
         <div class="mb-4">
             <div class="h-2 w-full bg-white rounded-full shadow-soft">
-                <div id="progressBar" class="h-2 bg-linkedin-blue rounded-full" style="width: 0%"></div>
+                <div id="progressBar" class="h-2 bg-linkedin-blue rounded-full transition-all" style="width: 0%"></div>
             </div>
-            <p class="mt-2 text-xs text-zinc-600">Step <span id="stepNow">1</span>/<span id="stepTotal">9</span></p>
+            <p id="progressLabel" class="mt-2 text-xs text-zinc-600">Step <span id="stepNow">1</span>/<span
+                    id="stepTotal">9</span></p>
         </div>
 
-        <!-- Form -->
+        <!-- Card -->
         <section class="bg-white rounded-2xl shadow-soft p-6 md:p-8" id="card">
-            <form id="graderForm" class="space-y-8">
+            <!-- Step container -->
+            <form id="graderForm" class="space-y-8" autocomplete="off">
                 <!-- Step 1: Contact -->
                 <div class="step" data-step="1">
-                    <label class="block">Your name <input name="name" required
-                            class="mt-1 w-full border rounded p-2"></label>
-                    <label class="block">Email <input name="email" type="email" required
-                            class="mt-1 w-full border rounded p-2"></label>
-                    <label class="block">LinkedIn URL (optional) <input name="li_url" type="url"
-                            class="mt-1 w-full border rounded p-2"></label>
+                    <h2 class="text-xl font-bold mb-2">Let’s start with the basics</h2>
+                    <p class="text-sm text-zinc-600 mb-6">We’ll email the audit here. Your LinkedIn URL is optional—no
+                        scraping.</p>
+                    <div class="grid gap-4">
+                        <label class="block">
+                            <span class="text-sm font-medium">Your name</span>
+                            <input required name="name" type="text"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="Jane Doe" />
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-medium">Email</span>
+                            <input required name="email" type="email"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="you@example.com" />
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-medium">LinkedIn profile URL (optional)</span>
+                            <input name="li_url" type="url"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="https://www.linkedin.com/in/your-handle" />
+                        </label>
+                    </div>
                 </div>
 
                 <!-- Step 2: Headline -->
                 <div class="step hidden" data-step="2">
-                    <label class="block">Headline
-                        <input name="headline" required class="mt-1 w-full border rounded p-2"
-                            placeholder="Helping X do Y via Z">
+                    <h2 class="text-xl font-bold mb-2">Headline</h2>
+                    <p class="text-sm text-zinc-600 mb-6">Who you help · With what · To achieve what. Keep it human.</p>
+                    <label class="block">
+                        <span class="text-sm font-medium">Your LinkedIn headline</span>
+                        <input required name="headline" type="text" maxlength="220"
+                            class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                            placeholder="Helping mobility leaders turn expertise into stages & board seats" />
                     </label>
                 </div>
 
                 <!-- Step 3: Banner -->
                 <div class="step hidden" data-step="3">
-                    <label class="block">Banner headline <input name="banner_headline"
-                            class="mt-1 w-full border rounded p-2"></label>
-                    <label class="block">Banner subheadline <input name="banner_sub"
-                            class="mt-1 w-full border rounded p-2"></label>
+                    <h2 class="text-xl font-bold mb-2">Banner message</h2>
+                    <p class="text-sm text-zinc-600 mb-6">We can’t read images, so paste the exact text you plan to put
+                        on your banner.</p>
+                    <div class="grid gap-4">
+                        <label class="block">
+                            <span class="text-sm font-medium">Banner headline (max ~80 chars)</span>
+                            <input name="banner_headline" type="text" maxlength="120"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="From Expert to Go-To Voice in Mobility" />
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-medium">Banner subheadline / CTA (max ~120 chars)</span>
+                            <input name="banner_sub" type="text" maxlength="160"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="Book 30 min: map your path to stages & advisory roles" />
+                        </label>
+                    </div>
                 </div>
 
                 <!-- Step 4: About -->
                 <div class="step hidden" data-step="4">
-                    <label class="block">About
-                        <textarea name="about" rows="6" class="mt-1 w-full border rounded p-2"></textarea>
+                    <h2 class="text-xl font-bold mb-2">About section</h2>
+                    <p class="text-sm text-zinc-600 mb-6">Paste your About (or draft). 3–8 short lines is perfect.</p>
+                    <label class="block">
+                        <span class="text-sm font-medium">About</span>
+                        <textarea required name="about" rows="8"
+                            class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                            placeholder="I help…"></textarea>
                     </label>
                 </div>
 
-                <!-- Step 5: Proof -->
+                <!-- Step 5: Proof & Cred -->
                 <div class="step hidden" data-step="5">
-                    <label class="block">Recommendations (count) <input name="recs" type="number"
-                            class="mt-1 w-full border rounded p-2"></label>
-                    <label class="block">Featured items (count) <input name="featured" type="number"
-                            class="mt-1 w-full border rounded p-2"></label>
-                    <label class="block">Experience highlights
-                        <textarea name="experience" rows="4" class="mt-1 w-full border rounded p-2"></textarea>
+                    <h2 class="text-xl font-bold mb-2">Proof & credibility</h2>
+                    <p class="text-sm text-zinc-600 mb-6">Summarize what builds trust. Links are optional.</p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <label class="block">
+                            <span class="text-sm font-medium">Recommendations (count)</span>
+                            <input name="recs" type="number" min="0"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="3" />
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-medium">Featured items (count)</span>
+                            <input name="featured" type="number" min="0"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="2" />
+                        </label>
+                        <label class="block md:col-span-2">
+                            <span class="text-sm font-medium">Experience highlights (1–3 bullets or short
+                                paragraph)</span>
+                            <textarea name="experience" rows="5"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="Ex-Head of…, Speaker at…, Board advisor to…"></textarea>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 6: Creator mode & badges -->
+                <div class="step hidden" data-step="6">
+                    <h2 class="text-xl font-bold mb-2">Creator Mode & badges</h2>
+                    <p class="text-sm text-zinc-600 mb-6">These aren’t mandatory but help positioning.</p>
+                    <div class="grid gap-4 md:grid-cols-2">
+                        <label class="inline-flex items-center gap-3 select-none">
+                            <input type="checkbox" name="creator_mode" class="h-5 w-5 rounded border-zinc-300" />
+                            <span class="text-sm">Creator Mode ON</span>
+                        </label>
+                        <label class="inline-flex items-center gap-3 select-none">
+                            <input type="checkbox" name="top_voice" class="h-5 w-5 rounded border-zinc-300" />
+                            <span class="text-sm">Top Voice / Community Top Voice badge</span>
+                        </label>
+                        <label class="inline-flex items-center gap-3 select-none">
+                            <input type="checkbox" name="newsletter_author" class="h-5 w-5 rounded border-zinc-300" />
+                            <span class="text-sm">You publish a LinkedIn Newsletter</span>
+                        </label>
+                        <label class="block md:col-span-2">
+                            <span class="text-sm font-medium">Creator topics / hashtags (comma‑separated)</span>
+                            <input name="topics" type="text"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="urban mobility, micromobility, public transport" />
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 7: Activity & network -->
+                <div class="step hidden" data-step="7">
+                    <h2 class="text-xl font-bold mb-2">Activity & network</h2>
+                    <p class="text-sm text-zinc-600 mb-6">Rough numbers are fine.</p>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <label class="block">
+                            <span class="text-sm font-medium">Posts per month</span>
+                            <input name="ppm" type="number" min="0"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="4" />
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-medium">Connections</span>
+                            <input name="connections" type="number" min="0"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="1500" />
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-medium">Followers</span>
+                            <input name="followers" type="number" min="0"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="2200" />
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 8: Last 3 posts -->
+                <div class="step hidden" data-step="8">
+                    <h2 class="text-xl font-bold mb-2">Your last 3 posts</h2>
+                    <p class="text-sm text-zinc-600 mb-6">Paste the full text (no need for images). Links optional.</p>
+                    <div class="grid gap-4">
+                        <div class="grid gap-2">
+                            <span class="text-sm font-medium">Post 1</span>
+                            <textarea name="post1" rows="5"
+                                class="w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="Paste post text here"></textarea>
+                            <input name="post1_url" type="url"
+                                class="w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="https://www.linkedin.com/posts/... (optional)" />
+                        </div>
+                        <div class="grid gap-2">
+                            <span class="text-sm font-medium">Post 2</span>
+                            <textarea name="post2" rows="5"
+                                class="w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="Paste post text here"></textarea>
+                            <input name="post2_url" type="url"
+                                class="w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="https://www.linkedin.com/posts/... (optional)" />
+                        </div>
+                        <div class="grid gap-2">
+                            <span class="text-sm font-medium">Post 3</span>
+                            <textarea name="post3" rows="5"
+                                class="w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="Paste post text here"></textarea>
+                            <input name="post3_url" type="url"
+                                class="w-full rounded-xl border border-zinc-200 p-3 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="https://www.linkedin.com/posts/... (optional)" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 9: Consent & Submit -->
+                <div class="step hidden" data-step="9">
+                    <h2 class="text-xl font-bold mb-2">Send to AI</h2>
+                    <p class="text-sm text-zinc-600 mb-6">We process what you pasted to generate your audit. Nothing is
+                        scraped.</p>
+                    <label class="inline-flex items-start gap-3 select-none">
+                        <input id="consent" type="checkbox" class="h-5 w-5 mt-1 rounded border-zinc-300" />
+                        <span class="text-sm">I agree to have my pasted content processed by AI for the purpose of
+                            generating a personal branding audit and to receive the results by email.</span>
                     </label>
                 </div>
 
-                <!-- Step 6: Creator -->
-                <div class="step hidden" data-step="6">
-                    <label><input type="checkbox" name="creator_mode"> Creator Mode</label><br>
-                    <label><input type="checkbox" name="top_voice"> Top Voice badge</label><br>
-                    <label><input type="checkbox" name="newsletter_author"> Newsletter</label><br>
-                    <label class="block">Topics <input name="topics" class="mt-1 w-full border rounded p-2"></label>
-                </div>
-
-                <!-- Step 7: Activity -->
-                <div class="step hidden" data-step="7">
-                    <label class="block">Posts per month <input name="ppm" type="number"
-                            class="mt-1 w-full border rounded p-2"></label>
-                    <label class="block">Connections <input name="connections" type="number"
-                            class="mt-1 w-full border rounded p-2"></label>
-                    <label class="block">Followers <input name="followers" type="number"
-                            class="mt-1 w-full border rounded p-2"></label>
-                </div>
-
-                <!-- Step 8: Posts -->
-                <div class="step hidden" data-step="8">
-                    <label class="block">Post 1 <textarea name="post1" rows="4"
-                            class="w-full border rounded p-2"></textarea></label>
-                    <label class="block">Post 2 <textarea name="post2" rows="4"
-                            class="w-full border rounded p-2"></textarea></label>
-                    <label class="block">Post 3 <textarea name="post3" rows="4"
-                            class="w-full border rounded p-2"></textarea></label>
-                </div>
-
-                <!-- Step 9: Consent -->
-                <div class="step hidden" data-step="9">
-                    <label><input id="consent" type="checkbox"> I agree to AI processing</label>
-                </div>
-
-                <!-- Buttons -->
-                <div class="flex justify-between">
-                    <button type="button" id="backBtn">Back</button>
-                    <button type="button" id="nextBtn">Next</button>
-                    <button type="submit" id="submitBtn" class="hidden">Send audit</button>
+                <!-- Nav buttons -->
+                <div class="flex items-center justify-between pt-2">
+                    <button type="button" id="backBtn"
+                        class="rounded-xl px-4 py-3 text-sm font-medium border border-zinc-200 text-zinc-700 hover:bg-zinc-50 disabled:opacity-40 disabled:pointer-events-none">Back</button>
+                    <div class="flex items-center gap-3">
+                        <button type="button" id="skipBtn"
+                            class="rounded-xl px-4 py-3 text-sm font-medium border border-zinc-200 text-zinc-700 hover:bg-zinc-50">Skip</button>
+                        <button type="button" id="nextBtn"
+                            class="rounded-xl px-5 py-3 text-sm font-semibold text-white bg-linkedin-blue hover:bg-linkedin-dark focus:outline-none focus:ring-2 focus:ring-linkedin-blue/30">Next</button>
+                        <button type="submit" id="submitBtn"
+                            class="hidden rounded-xl px-5 py-3 text-sm font-semibold text-white bg-linkedin-blue hover:bg-linkedin-dark focus:outline-none focus:ring-2 focus:ring-linkedin-blue/30">Send
+                            audit</button>
+                    </div>
                 </div>
             </form>
-            <div id="success" class="hidden text-center py-6">
-                <h3>Audit requested ✅</h3>
-                <p>Check your inbox shortly.</p>
+
+            <!-- Success screen -->
+            <div id="success" class="hidden text-center py-10">
+                <div class="mx-auto mb-4 h-14 w-14 rounded-full bg-emerald-100 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-600" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold">Audit requested</h3>
+                <p class="text-sm text-zinc-600">You’ll get your grade and playbook by email shortly. Check your spam
+                    just in case.</p>
+                <button type="button" id="startOver"
+                    class="mt-6 rounded-xl px-4 py-3 text-sm font-medium border border-zinc-200 text-zinc-700 hover:bg-zinc-50">Start
+                    over</button>
             </div>
         </section>
+
+        <!-- Footer note -->
+        <p class="mt-6 text-xs text-zinc-500">No automation, no scraping. You control what you paste. Built by BMo.</p>
     </main>
 
     <script>
-        const ENDPOINT_URL = "https://YOUR-WORKER.workers.dev/grade";
+        // ======== CONFIG ========
+        // Set this to your deployed Worker/Function endpoint
+        const ENDPOINT_URL = 'https://YOUR-WORKER.your-domain.workers.dev/grade';
+
+        // ======== STATE ========
         const steps = Array.from(document.querySelectorAll('.step'));
-        let stepIndex = 0; const data = {};
+        const formEl = document.getElementById('graderForm');
+        const stepTotal = steps.length;
+        const stepNowEl = document.getElementById('stepNow');
+        const stepTotalEl = document.getElementById('stepTotal');
+        const progressBar = document.getElementById('progressBar');
+        const nextBtn = document.getElementById('nextBtn');
+        const backBtn = document.getElementById('backBtn');
+        const skipBtn = document.getElementById('skipBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const consentEl = document.getElementById('consent');
+        const successEl = document.getElementById('success');
+
+        stepTotalEl.textContent = stepTotal;
+
+        let stepIndex = 0; // 0-based
+        const data = {};
 
         function showStep(i) {
-            steps.forEach((s, j) => s.classList.toggle('hidden', j !== i));
-            document.getElementById('stepNow').textContent = i + 1;
-            document.getElementById('progressBar').style.width = ((i) / (steps.length - 1)) * 100 + '%';
-            document.getElementById('nextBtn').classList.toggle('hidden', i === steps.length - 1);
-            document.getElementById('submitBtn').classList.toggle('hidden', i !== steps.length - 1);
+            steps.forEach((s, idx) => {
+                s.classList.toggle('hidden', idx !== i);
+            });
+            stepIndex = i;
+            stepNowEl.textContent = i + 1;
+            progressBar.style.width = (((i) / (stepTotal - 1)) * 100) + '%';
+            backBtn.disabled = i === 0;
+            // Toggle final submit
+            const onLast = i === stepTotal - 1;
+            nextBtn.classList.toggle('hidden', onLast);
+            submitBtn.classList.toggle('hidden', !onLast);
+            skipBtn.classList.toggle('hidden', onLast);
         }
-        function collectStep() {
-            const f = steps[stepIndex].querySelectorAll('input,textarea');
-            f.forEach(el => {
-                if (!el.name) return;
-                data[el.name] = el.type === 'checkbox' ? el.checked : el.value.trim();
+
+        function collectCurrentStep() {
+            const current = steps[stepIndex];
+            const fields = current.querySelectorAll('input, textarea');
+            fields.forEach(f => {
+                const key = f.name || f.id;
+                if (!key) return;
+                if (f.type === 'checkbox') {
+                    data[key] = !!f.checked;
+                } else {
+                    const val = f.value.trim();
+                    if (val.length > 0) data[key] = val;
+                }
             });
         }
-        document.getElementById('nextBtn').onclick = () => { collectStep(); if (stepIndex < steps.length - 1) showStep(++stepIndex); }
-        document.getElementById('backBtn').onclick = () => { if (stepIndex > 0) showStep(--stepIndex); }
-        document.getElementById('graderForm').onsubmit = async e => {
-            e.preventDefault(); collectStep();
-            if (!document.getElementById('consent').checked) { alert("Consent required"); return; }
-            const res = await fetch(ENDPOINT_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ contact: { name: data.name, email: data.email, li_url: data.li_url }, profile: { headline: data.headline, banner: { headline: data.banner_headline, sub: data.banner_sub }, about: data.about, creator_mode: data.creator_mode, top_voice_badge: data.top_voice, newsletter_author: data.newsletter_author, topics: (data.topics || '').split(',').map(t => t.trim()), recommendations: Number(data.recs || 0), featured_count: Number(data.featured || 0), experience: data.experience }, activity: { ppm: Number(data.ppm || 0), connections: Number(data.connections || 0), followers: Number(data.followers || 0) }, posts: [{ text: data.post1 || '' }, { text: data.post2 || '' }, { text: data.post3 || '' }] }) });
-            if (res.ok) { document.getElementById('graderForm').classList.add('hidden'); document.getElementById('success').classList.remove('hidden'); }
-            else alert("Error");
-        }
+
+        nextBtn.addEventListener('click', () => {
+            collectCurrentStep();
+            if (stepIndex < stepTotal - 1) showStep(stepIndex + 1);
+        });
+
+        backBtn.addEventListener('click', () => {
+            if (stepIndex > 0) showStep(stepIndex - 1);
+        });
+
+        skipBtn.addEventListener('click', () => {
+            if (stepIndex < stepTotal - 1) showStep(stepIndex + 1);
+        });
+
+        formEl.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            collectCurrentStep();
+            if (!consentEl.checked) {
+                alert('Please consent to AI processing to proceed.');
+                return;
+            }
+            nextBtn.disabled = true; backBtn.disabled = true; skipBtn.disabled = true; submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
+            try {
+                const res = await fetch(ENDPOINT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contact: { name: data.name, email: data.email, li_url: data.li_url || null },
+                        profile: {
+                            headline: data.headline || '',
+                            banner: { headline: data.banner_headline || '', sub: data.banner_sub || '' },
+                            about: data.about || '',
+                            creator_mode: !!data.creator_mode,
+                            top_voice_badge: !!data.top_voice,
+                            newsletter_author: !!data.newsletter_author,
+                            topics: (data.topics || '').split(',').map(t => t.trim()).filter(Boolean),
+                            recommendations: Number(data.recs || 0),
+                            featured_count: Number(data.featured || 0),
+                            experience: data.experience || ''
+                        },
+                        activity: {
+                            ppm: Number(data.ppm || 0),
+                            connections: Number(data.connections || 0),
+                            followers: Number(data.followers || 0)
+                        },
+                        posts: [
+                            { text: data.post1 || '', url: data.post1_url || '' },
+                            { text: data.post2 || '', url: data.post2_url || '' },
+                            { text: data.post3 || '', url: data.post3_url || '' }
+                        ]
+                    })
+                });
+                if (!res.ok) throw new Error('Request failed');
+                // Success screen
+                document.getElementById('card').querySelector('form').classList.add('hidden');
+                successEl.classList.remove('hidden');
+            } catch (err) {
+                console.error(err);
+                alert('Something went wrong. Please try again later.');
+            } finally {
+                submitBtn.textContent = 'Send audit';
+                nextBtn.disabled = false; backBtn.disabled = false; skipBtn.disabled = false; submitBtn.disabled = false;
+            }
+        });
+
+        document.getElementById('startOver').addEventListener('click', () => {
+            window.location.reload();
+        });
+
+        // init
         showStep(0);
     </script>
 </body>
