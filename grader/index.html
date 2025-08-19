@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LinkedIn Brand Grader · morety.uno</title>
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        linkedin: { bg: '#F3F2EF', blue: '#0A66C2', dark: '#004182' }
+                    },
+                    boxShadow: { soft: '0 4px 30px rgba(0,0,0,0.08)' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-linkedin-bg text-zinc-900">
+    <main class="mx-auto max-w-3xl px-4 py-8">
+        <header class="mb-6 flex items-center gap-3">
+            <div class="h-10 w-10 rounded-2xl bg-linkedin-blue/10 flex items-center justify-center">
+                <span class="text-linkedin-blue text-xl font-extrabold">BM</span>
+            </div>
+            <div>
+                <h1 class="text-2xl md:text-3xl font-extrabold">LinkedIn Brand Grader</h1>
+                <p class="text-sm text-zinc-600">One question at a time. Get an AI audit in your inbox.</p>
+            </div>
+        </header>
+
+        <!-- Progress -->
+        <div class="mb-4">
+            <div class="h-2 w-full bg-white rounded-full shadow-soft">
+                <div id="progressBar" class="h-2 bg-linkedin-blue rounded-full" style="width: 0%"></div>
+            </div>
+            <p class="mt-2 text-xs text-zinc-600">Step <span id="stepNow">1</span>/<span id="stepTotal">9</span></p>
+        </div>
+
+        <!-- Form -->
+        <section class="bg-white rounded-2xl shadow-soft p-6 md:p-8" id="card">
+            <form id="graderForm" class="space-y-8">
+                <!-- Step 1: Contact -->
+                <div class="step" data-step="1">
+                    <label class="block">Your name <input name="name" required
+                            class="mt-1 w-full border rounded p-2"></label>
+                    <label class="block">Email <input name="email" type="email" required
+                            class="mt-1 w-full border rounded p-2"></label>
+                    <label class="block">LinkedIn URL (optional) <input name="li_url" type="url"
+                            class="mt-1 w-full border rounded p-2"></label>
+                </div>
+
+                <!-- Step 2: Headline -->
+                <div class="step hidden" data-step="2">
+                    <label class="block">Headline
+                        <input name="headline" required class="mt-1 w-full border rounded p-2"
+                            placeholder="Helping X do Y via Z">
+                    </label>
+                </div>
+
+                <!-- Step 3: Banner -->
+                <div class="step hidden" data-step="3">
+                    <label class="block">Banner headline <input name="banner_headline"
+                            class="mt-1 w-full border rounded p-2"></label>
+                    <label class="block">Banner subheadline <input name="banner_sub"
+                            class="mt-1 w-full border rounded p-2"></label>
+                </div>
+
+                <!-- Step 4: About -->
+                <div class="step hidden" data-step="4">
+                    <label class="block">About
+                        <textarea name="about" rows="6" class="mt-1 w-full border rounded p-2"></textarea>
+                    </label>
+                </div>
+
+                <!-- Step 5: Proof -->
+                <div class="step hidden" data-step="5">
+                    <label class="block">Recommendations (count) <input name="recs" type="number"
+                            class="mt-1 w-full border rounded p-2"></label>
+                    <label class="block">Featured items (count) <input name="featured" type="number"
+                            class="mt-1 w-full border rounded p-2"></label>
+                    <label class="block">Experience highlights
+                        <textarea name="experience" rows="4" class="mt-1 w-full border rounded p-2"></textarea>
+                    </label>
+                </div>
+
+                <!-- Step 6: Creator -->
+                <div class="step hidden" data-step="6">
+                    <label><input type="checkbox" name="creator_mode"> Creator Mode</label><br>
+                    <label><input type="checkbox" name="top_voice"> Top Voice badge</label><br>
+                    <label><input type="checkbox" name="newsletter_author"> Newsletter</label><br>
+                    <label class="block">Topics <input name="topics" class="mt-1 w-full border rounded p-2"></label>
+                </div>
+
+                <!-- Step 7: Activity -->
+                <div class="step hidden" data-step="7">
+                    <label class="block">Posts per month <input name="ppm" type="number"
+                            class="mt-1 w-full border rounded p-2"></label>
+                    <label class="block">Connections <input name="connections" type="number"
+                            class="mt-1 w-full border rounded p-2"></label>
+                    <label class="block">Followers <input name="followers" type="number"
+                            class="mt-1 w-full border rounded p-2"></label>
+                </div>
+
+                <!-- Step 8: Posts -->
+                <div class="step hidden" data-step="8">
+                    <label class="block">Post 1 <textarea name="post1" rows="4"
+                            class="w-full border rounded p-2"></textarea></label>
+                    <label class="block">Post 2 <textarea name="post2" rows="4"
+                            class="w-full border rounded p-2"></textarea></label>
+                    <label class="block">Post 3 <textarea name="post3" rows="4"
+                            class="w-full border rounded p-2"></textarea></label>
+                </div>
+
+                <!-- Step 9: Consent -->
+                <div class="step hidden" data-step="9">
+                    <label><input id="consent" type="checkbox"> I agree to AI processing</label>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex justify-between">
+                    <button type="button" id="backBtn">Back</button>
+                    <button type="button" id="nextBtn">Next</button>
+                    <button type="submit" id="submitBtn" class="hidden">Send audit</button>
+                </div>
+            </form>
+            <div id="success" class="hidden text-center py-6">
+                <h3>Audit requested ✅</h3>
+                <p>Check your inbox shortly.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const ENDPOINT_URL = "https://YOUR-WORKER.workers.dev/grade";
+        const steps = Array.from(document.querySelectorAll('.step'));
+        let stepIndex = 0; const data = {};
+
+        function showStep(i) {
+            steps.forEach((s, j) => s.classList.toggle('hidden', j !== i));
+            document.getElementById('stepNow').textContent = i + 1;
+            document.getElementById('progressBar').style.width = ((i) / (steps.length - 1)) * 100 + '%';
+            document.getElementById('nextBtn').classList.toggle('hidden', i === steps.length - 1);
+            document.getElementById('submitBtn').classList.toggle('hidden', i !== steps.length - 1);
+        }
+        function collectStep() {
+            const f = steps[stepIndex].querySelectorAll('input,textarea');
+            f.forEach(el => {
+                if (!el.name) return;
+                data[el.name] = el.type === 'checkbox' ? el.checked : el.value.trim();
+            });
+        }
+        document.getElementById('nextBtn').onclick = () => { collectStep(); if (stepIndex < steps.length - 1) showStep(++stepIndex); }
+        document.getElementById('backBtn').onclick = () => { if (stepIndex > 0) showStep(--stepIndex); }
+        document.getElementById('graderForm').onsubmit = async e => {
+            e.preventDefault(); collectStep();
+            if (!document.getElementById('consent').checked) { alert("Consent required"); return; }
+            const res = await fetch(ENDPOINT_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ contact: { name: data.name, email: data.email, li_url: data.li_url }, profile: { headline: data.headline, banner: { headline: data.banner_headline, sub: data.banner_sub }, about: data.about, creator_mode: data.creator_mode, top_voice_badge: data.top_voice, newsletter_author: data.newsletter_author, topics: (data.topics || '').split(',').map(t => t.trim()), recommendations: Number(data.recs || 0), featured_count: Number(data.featured || 0), experience: data.experience }, activity: { ppm: Number(data.ppm || 0), connections: Number(data.connections || 0), followers: Number(data.followers || 0) }, posts: [{ text: data.post1 || '' }, { text: data.post2 || '' }, { text: data.post3 || '' }] }) });
+            if (res.ok) { document.getElementById('graderForm').classList.add('hidden'); document.getElementById('success').classList.remove('hidden'); }
+            else alert("Error");
+        }
+        showStep(0);
+    </script>
+</body>
+
+</html>
