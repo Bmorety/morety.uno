@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LinkedIn Brand Grader · morety.uno</title>
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        linkedin: { bg: '#F3F2EF', blue: '#0A66C2', dark: '#004182' }
+                    },
+                    boxShadow: { soft: '0 4px 30px rgba(0,0,0,0.08)' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-linkedin-bg text-zinc-900">
+    <main class="mx-auto max-w-3xl px-4 py-8">
+        <!-- Header -->
+        <header class="mb-6 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <!-- Your logo, same size as before -->
+                <img src="/images/logo.png" alt="BM logo"
+                    class="h-10 w-10 rounded-2xl object-contain bg-white p-1 shadow-soft">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">Brandkick: LinkedIn Starter Audit</h1>
+                    <p class="text-sm text-zinc-600">
+                        The quickest way to check if your LinkedIn, looks like a pro — or a placeholder. <br>Get your
+                        Brandkick in your inbox.<span class="font-medium"> (~5 mins.)</span>
+                    </p>
+                    <p class="text-xs text-zinc-500 mt-1">by <span class="font-semibold">Bruno Morety</span> · <a
+                            href="https://morety.uno" class="underline hover:no-underline" target="_blank"
+                            rel="noopener">morety.uno</a></p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Progress -->
+        <div class="mb-4">
+            <div class="h-2 w-full bg-white rounded-full shadow-soft">
+                <div id="progressBar" class="h-2 bg-linkedin-blue rounded-full transition-all" style="width: 0%"></div>
+            </div>
+            <p class="mt-2 text-xs text-zinc-600">Step <span id="stepNow">1</span>/<span id="stepTotal">5</span></p>
+        </div>
+
+        <!-- Card -->
+        <section class="bg-white rounded-2xl shadow-soft p-6 md:p-8" id="card">
+            <form id="graderForm" class="space-y-8" autocomplete="off">
+                <!-- STEP 1: Contact -->
+                <div class="step" data-step="1">
+                    <h2 class="text-xl font-bold mb-2">Basics</h2>
+                    <p class="text-sm text-zinc-600 mb-6">We’ll email the audit here. LinkedIn URL is optional—no
+                        scraping.</p>
+                    <div class="grid gap-4">
+                        <label class="block">
+                            <span class="text-sm font-medium">Your name</span>
+                            <input required name="name" type="text"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="Jane Doe" />
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-medium">Email</span>
+                            <input required name="email" type="email"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="you@example.com" />
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-medium">LinkedIn profile URL (optional)</span>
+                            <input name="li_url" type="url"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="https://www.linkedin.com/in/your-handle" />
+                        </label>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Example + Headline + Banner + Custom Link -->
+                <div class="step hidden" data-step="2">
+                    <h2 class="text-xl font-bold mb-4">Profile details</h2>
+
+                    <!-- Example image (place file at /images/profile-example.png) -->
+                    <figure class="mb-6">
+                        <img src="/images/profile-example.png" alt="Example profile"
+                            class="w-full rounded-xl border border-zinc-200">
+                        <figcaption class="mt-2 text-xs text-zinc-500">Example layout (for reference only).</figcaption>
+                    </figure>
+
+                    <div class="grid gap-4">
+                        <label class="block">
+                            <span class="text-sm font-medium">Headline</span>
+                            <p class="text-xs text-zinc-500">The line right under your photo. Paste exactly what your
+                                profile shows.</p>
+                            <input required name="headline" type="text" maxlength="220"
+                                placeholder="e.g., Personal Brand Architect for Mobility Leaders"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue" />
+                        </label>
+
+                        <label class="block">
+                            <span class="text-sm font-medium">Banner headline (if your banner image contains
+                                text)</span>
+                            <p class="text-xs text-zinc-500">Paste the exact text that appears on your banner image.</p>
+                            <input name="banner_headline" type="text" maxlength="220"
+                                placeholder="e.g., Turning Mobility Experts into Go-To Speakers"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue" />
+                        </label>
+
+                        <div class="grid gap-2">
+                            <label class="inline-flex items-center gap-3 select-none">
+                                <input type="checkbox" name="custom_profile_link" id="custom_profile_link"
+                                    class="h-5 w-5 rounded border-zinc-300">
+                                <span class="text-sm"><strong>Custom Profile Link</strong> — check this box if you have
+                                    a Custom Profile Link</span>
+                            </label>
+                            <label class="block hidden" id="custom_link_wrap">
+                                <span class="text-sm font-medium">Custom link text</span>
+                                <input name="custom_link_text" type="text" maxlength="30"
+                                    class="mt-1 w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                    placeholder="e.g., Book 30 — Craft your influence" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: About + Activity & Network -->
+                <div class="step hidden" data-step="3">
+                    <h2 class="text-xl font-bold mb-2">About & activity</h2>
+                    <div class="grid gap-6">
+                        <label class="block">
+                            <span class="text-sm font-medium">About</span>
+                            <p class="text-xs text-zinc-500">Paste exactly what’s on your profile.</p>
+                            <textarea required name="about" rows="8" maxlength="2600"
+                                class="mt-1 w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"></textarea>
+                        </label>
+
+                        <div class="grid md:grid-cols-3 gap-4 items-stretch">
+                            <!-- Posts per week -->
+                            <label class="block flex flex-col h-full">
+                                <span class="text-sm font-medium">Posts per week</span>
+                                <select name="weekly_cadence"
+                                    class="mt-1 w-full rounded-xl border border-zinc-200 p-3 bg-white text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue">
+                                    <option value="none">No weekly cadence</option>
+                                    <option value="1">1</option>
+                                    <option value="2-3">2 to 3</option>
+                                    <option value="4+">4+</option>
+                                </select>
+                            </label>
+
+                            <!-- Connections (range) -->
+                            <label class="block flex flex-col h-full">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm font-medium">Connections (range)</span>
+                                    <span class="relative inline-flex group">
+                                        <span
+                                            class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-zinc-300 text-[10px] leading-none text-zinc-500 select-none">i</span>
+                                        <span
+                                            class="pointer-events-none absolute left-1/2 top-full z-10 hidden -translate-x-1/2 translate-y-2 whitespace-nowrap rounded-md bg-zinc-900 px-2 py-1 text-xs text-white shadow-soft group-hover:block">
+                                            Top bar → My Network → left sidebar shows your total connections.
+                                        </span>
+                                    </span>
+                                </div>
+                                <select name="connections_range"
+                                    class="mt-1 w-full rounded-xl border border-zinc-200 p-3 bg-white text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue">
+                                    <option value="0-200">0–200</option>
+                                    <option value="200-1000">200–1000</option>
+                                    <option value="1k-5k">1K–5k</option>
+                                    <option value=">5k">&gt;5k</option>
+                                </select>
+                            </label>
+
+                            <!-- Followers (range) -->
+                            <label class="block flex flex-col h-full">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm font-medium">Followers (range)</span>
+                                    <span class="relative inline-flex group">
+                                        <span
+                                            class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-zinc-300 text-[10px] leading-none text-zinc-500 select-none">i</span>
+                                        <span
+                                            class="pointer-events-none absolute left-1/2 top-full z-10 hidden -translate-x-1/2 translate-y-2 whitespace-nowrap rounded-md bg-zinc-900 px-2 py-1 text-xs text-white shadow-soft group-hover:block">
+                                            Top bar → My Network → “Following & followers” → number under Followers tab.
+                                        </span>
+                                    </span>
+                                </div>
+                                <select name="followers_range"
+                                    class="mt-1 w-full rounded-xl border border-zinc-200 p-3 bg-white text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue">
+                                    <option value="0-200">0–200</option>
+                                    <option value="200-1000">200–1000</option>
+                                    <option value="1k-5k">1K–5k</option>
+                                    <option value=">5k">&gt;5k</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- STEP 4: Posts -->
+                <div class="step hidden" data-step="4">
+                    <h2 class="text-xl font-bold mb-2">Your posts</h2>
+                    <p class="text-sm text-zinc-600 mb-4">Paste the text of each post. Links optional.</p>
+                    <div class="grid gap-4">
+                        <div class="grid gap-2">
+                            <span class="text-sm font-medium">Latest post</span>
+                            <textarea name="post_latest" rows="5" type="text" maxlength="3000"
+                                class="w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="Paste post text here"></textarea>
+                            <input name="post_latest_url" type="url"
+                                class="w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="https://www.linkedin.com/posts/... (optional)" />
+                        </div>
+                        <div class="grid gap-2">
+                            <span class="text-sm font-medium">One of your best post</span>
+                            <textarea name="post_best" rows="5" type="text" maxlength="3000"
+                                class="w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="Paste post text here"></textarea>
+                            <input name="post_best_url" type="url"
+                                class="w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                                placeholder="https://www.linkedin.com/posts/... (optional)" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 5: Consent & Submit -->
+                <div class="step hidden" data-step="5">
+                    <h2 class="text-xl font-bold mb-2">Review & consent</h2>
+                    <div class="space-y-3 text-sm leading-6 text-zinc-700 mb-4">
+                        <p><strong>What happens next</strong></p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>morety.uno</strong> will process <em>only</em> the information you pasted into
+                                this form to generate your Brandkick report.</li>
+                            <li><strong>No data is scraped</strong> from your LinkedIn profile link.</li>
+                            <li>By submitting, you agree that morety.uno will <strong>store your name and email in Kit
+                                    (formerly ConvertKit)</strong> to send your Brandkick report and occasional related
+                                follow-ups. You can unsubscribe anytime.</li>
+                        </ul>
+                    </div>
+                    <label class="inline-flex items-start gap-3 select-none">
+                        <input id="consent" type="checkbox" class="h-5 w-5 mt-1 rounded border-zinc-300" />
+                        <span class="text-sm">
+                            I agree to the processing and storage described above, to generate my Brandkick report and
+                            receive it by email (with occasional related follow-ups).
+                        </span>
+                    </label>
+                </div>
+
+
+                <!-- Nav buttons -->
+                <div class="flex items-center justify-between pt-2">
+                    <button type="button" id="backBtn"
+                        class="rounded-xl px-4 py-3 text-sm font-medium border border-zinc-200 text-zinc-700 hover:bg-zinc-50 disabled:opacity-40 disabled:pointer-events-none">Back</button>
+                    <div class="flex items-center gap-3">
+                        <button type="button" id="skipBtn"
+                            class="rounded-xl px-4 py-3 text-sm font-medium border border-zinc-200 text-zinc-700 hover:bg-zinc-50">Skip</button>
+                        <button type="button" id="nextBtn"
+                            class="rounded-xl px-5 py-3 text-sm font-semibold text-white bg-linkedin-blue hover:bg-linkedin-dark focus:outline-none focus:ring-2 focus:ring-linkedin-blue/30">Next</button>
+                        <button type="submit" id="submitBtn"
+                            class="hidden rounded-xl px-5 py-3 text-sm font-semibold text-white bg-linkedin-blue hover:bg-linkedin-dark focus:outline-none focus:ring-2 focus:ring-linkedin-blue/30">Get
+                            my Brandkick report</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Success screen -->
+            <div id="success" class="hidden text-center py-10">
+                <div class="mx-auto mb-4 h-14 w-14 rounded-full bg-emerald-100 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-600" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold">Audit requested</h3>
+                <p class="text-sm text-zinc-600">You’ll get your grade and playbook by email shortly.</p>
+                <!-- countdown message -->
+                <p id="countdownText" class="mt-2 text-xs text-zinc-500"></p>
+                <button type="button" id="startOver"
+                    class="mt-6 rounded-xl px-4 py-3 text-sm font-medium border border-zinc-200 text-zinc-700 hover:bg-zinc-50">Start
+                    over</button>
+            </div>
+        </section>
+
+        <p class="mt-6 text-xs text-zinc-500">No scraping. You control what you paste. Built by Bruno Morety.</p>
+    </main>
+
+    <script>
+        // ======== CONFIG ========
+        const ENDPOINT_URL = 'https://YOUR-WORKER.your-domain.workers.dev/grade';
+
+        // ======== STATE ========
+        const steps = Array.from(document.querySelectorAll('.step'));
+        const formEl = document.getElementById('graderForm');
+        const stepTotal = steps.length;
+        document.getElementById('stepTotal').textContent = stepTotal;
+        const stepNowEl = document.getElementById('stepNow');
+        const progressBar = document.getElementById('progressBar');
+        const nextBtn = document.getElementById('nextBtn');
+        const backBtn = document.getElementById('backBtn');
+        const skipBtn = document.getElementById('skipBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const consentEl = document.getElementById('consent');
+        const successEl = document.getElementById('success');
+
+        // Toggle custom link text visibility
+        const customLinkCheckbox = document.getElementById('custom_profile_link');
+        const customLinkWrap = document.getElementById('custom_link_wrap');
+        if (customLinkCheckbox) {
+            customLinkCheckbox.addEventListener('change', () => {
+                customLinkWrap.classList.toggle('hidden', !customLinkCheckbox.checked);
+            });
+        }
+
+        let stepIndex = 0; // 0-based
+        const data = {};
+
+        function showStep(i) {
+            steps.forEach((s, idx) => s.classList.toggle('hidden', idx !== i));
+            stepIndex = i;
+            stepNowEl.textContent = i + 1;
+            progressBar.style.width = (((i) / (stepTotal - 1)) * 100) + '%';
+            backBtn.disabled = i === 0;
+            const onLast = i === stepTotal - 1;
+            nextBtn.classList.toggle('hidden', onLast);
+            submitBtn.classList.toggle('hidden', !onLast);
+            skipBtn.classList.toggle('hidden', onLast);
+        }
+
+        function collectCurrentStep() {
+            const current = steps[stepIndex];
+            const fields = current.querySelectorAll('input, textarea, select');
+            fields.forEach(f => {
+                const key = f.name || f.id;
+                if (!key) return;
+                if (f.type === 'checkbox') {
+                    data[key] = !!f.checked;
+                } else {
+                    const val = (f.value || '').trim();
+                    if (val.length > 0) data[key] = val;
+                }
+            });
+        }
+
+        // NEW: validate only the current step's required fields
+        function validateCurrentStep() {
+            const current = steps[stepIndex];
+            const requiredFields = current.querySelectorAll('[required]');
+            for (const f of requiredFields) {
+                if (!f.checkValidity() || !f.value.trim()) {
+                    f.reportValidity();
+                    f.focus();
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            // block advance if current step has required fields not filled
+            if (!validateCurrentStep()) return;
+            collectCurrentStep();
+            if (stepIndex < stepTotal - 1) showStep(stepIndex + 1);
+        });
+
+        backBtn.addEventListener('click', () => {
+            if (stepIndex > 0) showStep(stepIndex - 1);
+        });
+
+        skipBtn.addEventListener('click', () => {
+            if (stepIndex < stepTotal - 1) showStep(stepIndex + 1);
+        });
+
+        formEl.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // ensure last step also respects required rules
+            if (!formEl.checkValidity()) {
+                formEl.reportValidity();
+                return;
+            }
+
+            collectCurrentStep();
+            if (!consentEl.checked) { alert('Please confirm consent to process your pasted information to generate your Brandkick report and send it by email.'); return; }
+
+            nextBtn.disabled = true; backBtn.disabled = true; skipBtn.disabled = true; submitBtn.disabled = true;
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending…';
+
+            try {
+                const res = await fetch(ENDPOINT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contact: { name: data.name, email: data.email, li_url: data.li_url || null },
+                        profile: {
+                            headline: data.headline || '',
+                            banner: { headline: data.banner_headline || '' },
+                            custom_profile_link: !!data.custom_profile_link,
+                            custom_link_text: data.custom_link_text || '',
+                            about: data.about || ''
+                        },
+                        activity: {
+                            weekly_cadence: data.weekly_cadence || 'none',
+                            connections_range: data.connections_range || '',
+                            followers_range: data.followers_range || ''
+                        },
+                        posts: [
+                            { kind: 'latest', text: data.post_latest || '', url: data.post_latest_url || '' },
+                            { kind: 'best', text: data.post_best || '', url: data.post_best_url || '' },
+                            { kind: 'extra', text: data.post_extra || '', url: data.post_extra_url || '' }
+                        ]
+                    })
+                });
+                if (!res.ok) throw new Error('Request failed');
+
+                // Success screen
+                document.getElementById('card').querySelector('form').classList.add('hidden');
+                successEl.classList.remove('hidden');
+
+                // ===== 15s countdown + redirect to morety.uno =====
+                const countdownText = document.getElementById('countdownText');
+                let countdown = 15;
+                countdownText.textContent = `Redirecting to morety.uno in ${countdown} seconds…`;
+                const interval = setInterval(() => {
+                    countdown--;
+                    if (countdown > 0) {
+                        countdownText.textContent = `Redirecting to morety.uno in ${countdown} seconds…`;
+                    } else {
+                        clearInterval(interval);
+                        countdownText.textContent = 'You are being redirected to morety.uno …';
+                        window.location.href = 'https://morety.uno';
+                    }
+                }, 1000);
+
+            } catch (err) {
+                console.error(err);
+                alert('Something went wrong. Please try again later.');
+            } finally {
+                submitBtn.textContent = 'Get my Brandkick report';
+                nextBtn.disabled = false; backBtn.disabled = false; skipBtn.disabled = false; submitBtn.disabled = false;
+            }
+        });
+
+        // init
+        showStep(0);
+    </script>
+</body>
+
+</html>

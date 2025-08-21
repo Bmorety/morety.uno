@@ -64,7 +64,7 @@
         <p class="line">I put it to work for founders and pros—</p>
         <p class="line">Advocating Walking, Cycling, and Public Transport.</p>
         <br>-->
-        <p class="line">Cities deserve culture‑shaping stories— </p>
+        <p class="line">Cities deserve culture-shaping stories— </p>
         <p class="line">The people moving them deserve the stage.</p>
         <br>
         <br>
@@ -101,7 +101,7 @@
         <p class="lineB">THE BRAND LANE FRAMEWORK</p>
         <br>
         <br>
-        <p class="lineS">WEEK 1 – CLARITY KICK‑OFF</p>
+        <p class="lineS">WEEK 1 – CLARITY KICK-OFF</p>
         <p class="line2">Strip it back. Find your line. Make it land.</p>
         <br>
         <p class="lineS">WEEK 2 – LANES & LEVERAGE</p>
@@ -109,7 +109,7 @@
         <br>
 
         <p class="lineS">WEEK 3 - THE ANCHOR DROP</p>
-        <p class="line2">Your flagship — long‑form, high‑impact. </p>
+        <p class="line2">Your flagship — long-form, high-impact. </p>
         <br>
 
         <p class="lineS">WEEK 4 – THE SHIPPING SYSTEM</p>
@@ -132,8 +132,8 @@
       </div>
     </details>
 
-    <details class="block acc" id="speaking-advisory">
-      <summary><span class="num">02.</span> Speaking & Advisory</summary>
+    <details class="block acc" id="collabs">
+      <summary><span class="num">02.</span> Collabs | Speaking & Advisory</summary>
       <br>
       <div class="content">
         <p class="kicker">WHERE I SHOW UP</p>
@@ -148,10 +148,10 @@
 
         <p class="lineS">Collaborating & advising — <a href="https://bicizen.org" target="_blank"
             rel="noopener">BiciZen.org</a></p>
-        <p class="line2">BiciZen: crowd‑mapping streets for better bike cities.</p>
+        <p class="line2">BiciZen: crowd-mapping streets for better bike cities.</p>
         <p class="line2">Mission: crafting content, scaling user contributions.</p>
         <p class="line2">With <a href="https://www.linkedin.com/in/jordi-honey-rosés-2724424/" target="_blank"
-            rel="noopener">Jordi Honey‑Rosés</a>.</p>
+            rel="noopener">Jordi Honey-Rosés</a>.</p>
         <br>
         <p class="lineS">Advising in Facility
           Management — <a href="https://suadmin.cl" target="_blank" rel="noopener">Suadmin.cl</a></p>
@@ -325,6 +325,78 @@
           if (links) links.classList.add('show');
         }, totalDelay);
       }
+
+      // -------- Deep-link handler: open details by hash, or open booking ----------
+      // supports: #manifesto, #services, #collabs, #thoughts, #tools
+      // and: #book, #booking, #tidycal -> opens booking sheet
+      const aliasMap = {
+        'speak': 'collabs',
+        'speaking-advisory': 'collabs',
+        'speaking_advisory': 'collabs'
+      };
+
+      function openBookingFromHash() {
+        const sheet = document.getElementById('bookingSheet');
+        if (!sheet) return;
+        document.body.classList.add('sheet-open');
+        sheet.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeBookingFromHash() {
+        const sheet = document.getElementById('bookingSheet');
+        if (!sheet) return;
+        document.body.classList.remove('sheet-open');
+        sheet.setAttribute('aria-hidden', 'true');
+      }
+
+      function handleHash() {
+        const raw = (location.hash || '').replace(/^#/, '');
+        if (!raw) return;
+
+        const key = raw.toLowerCase();
+        // booking aliases
+        if (key === 'book' || key === 'booking' || key === 'tidycal') {
+          openBookingFromHash();
+          return;
+        } else {
+          // ensure booking is closed if we navigate to a section
+          closeBookingFromHash();
+        }
+
+        const mapped = aliasMap[key] || key;
+        const target = document.getElementById(mapped);
+        if (target && target.classList && target.classList.contains('acc')) {
+          // open target and close others
+          toggles.forEach(o => { o.open = (o === target); });
+
+          // scroll target summary into fixed viewport slot
+          const s = target.querySelector('summary');
+          if (s) {
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                const targetY = s.getBoundingClientRect().top + window.pageYOffset - baseline();
+                const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                window.scrollTo({ top: Math.max(0, targetY), behavior: reduce ? 'auto' : 'smooth' });
+                if (s instanceof HTMLElement) s.focus({ preventScroll: true });
+              });
+            });
+          }
+
+          // Keep LinkedIn blue while #services is open
+          const services = document.getElementById('services');
+          document.body.classList.toggle('bg-linkedin', !!(services && services.open));
+        }
+      }
+
+      // Run once on load
+      handleHash();
+
+      // Also respond to future hash changes
+      window.addEventListener('hashchange', () => {
+        handleHash();
+      });
+      // ---------------------------------------------------------------------------
+
     });
 
     // --- Booking sheet: open/close logic ---
