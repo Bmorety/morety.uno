@@ -43,7 +43,7 @@
                     <p class="text-sm text-zinc-600">
                         For founders & leaders — a quick check of your Profile: <br>
                         What’s working, what’s leaking value, and where to focus to win stages, board interest and
-                        clients. <span class="font-medium"> (~5 mins.)</span>
+                        clients. <span class="font-medium"><br> (~5 mins.)</span>
                     </p>
                     <p class="text-xs text-zinc-500 mt-1">by <span class="font-semibold">Bruno Morety</span> · <a
                             href="https://morety.uno" class="underline hover:no-underline" target="_blank"
@@ -220,18 +220,12 @@
                             <textarea name="post_latest" rows="5" type="text" maxlength="3000"
                                 class="w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
                                 placeholder="Paste post text here"></textarea>
-                            <input name="post_latest_url" type="url"
-                                class="w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
-                                placeholder="https://www.linkedin.com/posts/... (optional)" />
                         </div>
                         <div class="grid gap-2">
                             <span class="text-sm font-medium">One of your best post</span>
                             <textarea name="post_best" rows="5" type="text" maxlength="3000"
                                 class="w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
                                 placeholder="Paste post text here"></textarea>
-                            <input name="post_best_url" type="url"
-                                class="w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
-                                placeholder="https://www.linkedin.com/posts/... (optional)" />
                         </div>
                     </div>
                 </div>
@@ -285,8 +279,9 @@
                         <polyline points="22 4 12 14.01 9 11.01" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold">Audit requested</h3>
-                <p class="text-sm text-zinc-600">You’ll get your grade and playbook by email shortly.</p>
+                <h3 class="text-xl font-bold">>boom — Brandkick sent ✅</h3>
+                <p class="text-sm text-zinc-600">Grab a coffee —> Score + 3 quick wins landing in your inbox now (check
+                    spam.)</p>
                 <!-- countdown message -->
                 <p id="countdownText" class="mt-2 text-xs text-zinc-500"></p>
                 <button type="button" id="startOver"
@@ -295,7 +290,7 @@
             </div>
         </section>
 
-        <p class="mt-6 text-xs text-zinc-500">No scraping. You control what you paste. Built by Bruno Morety.</p>
+        <p class="mt-6 text-xs text-zinc-500">No scraping. You control what you paste. Built by BMorety.</p>
     </main>
 
     <script>
@@ -421,7 +416,6 @@
                         posts: [
                             { kind: 'latest', text: data.post_latest || '', url: data.post_latest_url || '' },
                             { kind: 'best', text: data.post_best || '', url: data.post_best_url || '' },
-                            { kind: 'extra', text: data.post_extra || '', url: data.post_extra_url || '' }
                         ]
                     })
                 });
