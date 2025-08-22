@@ -41,7 +41,7 @@
                     <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">Brandkick: value-first LinkedIn check
                     </h1>
                     <p class="text-sm text-zinc-600">
-                        For founders & leaders — a quick check of your Profile: <br>
+                        For founders & leaders — a quick check of your profile: <br>
                         What’s working, what’s leaking value, and where to focus to win stages, board interest and
                         clients. <span class="font-medium"><br> (~5 mins.)</span>
                     </p>
@@ -222,7 +222,7 @@
                                 placeholder="Paste post text here"></textarea>
                         </div>
                         <div class="grid gap-2">
-                            <span class="text-sm font-medium">One of your best post</span>
+                            <span class="text-sm font-medium">One of your best posts</span>
                             <textarea name="post_best" rows="5" type="text" maxlength="3000"
                                 class="w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
                                 placeholder="Paste post text here"></textarea>
@@ -236,19 +236,17 @@
                     <div class="space-y-3 text-sm leading-6 text-zinc-700 mb-4">
                         <p><strong>What happens next</strong></p>
                         <ul class="list-disc pl-5 space-y-1">
-                            <li><strong>morety.uno</strong> will process <em>only</em> the information you pasted into
-                                this form to generate your Brandkick report.</li>
-                            <li><strong>No data is scraped</strong> from your LinkedIn profile link.</li>
-                            <li>By submitting, you agree that morety.uno will <strong>store your name and email in Kit
-                                    (formerly ConvertKit)</strong> to send your Brandkick report and occasional related
-                                follow-ups. You can unsubscribe anytime.</li>
+                            <li><strong>Morety.uno</strong> will use <em>only</em> the info you pasted to create your
+                                Brandkick report.</li>
+                            <li><strong>No LinkedIn scrapping</strong></li>
+                            <li>Morety.uno will email the report and may send occasional follow-ups. <strong>Unsubscribe
+                                    anytime.</strong></li>
                         </ul>
                     </div>
                     <label class="inline-flex items-start gap-3 select-none">
                         <input id="consent" type="checkbox" class="h-5 w-5 mt-1 rounded border-zinc-300" />
                         <span class="text-sm">
-                            I agree to the processing and storage described above, to generate my Brandkick report and
-                            receive it by email (with occasional related follow-ups).
+                            Yep — send my Brandkick and occasional follow-ups from Morety.uno.
                         </span>
                     </label>
                 </div>
@@ -393,7 +391,7 @@
 
             nextBtn.disabled = true; backBtn.disabled = true; skipBtn.disabled = true; submitBtn.disabled = true;
             const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending…';
+            submitBtn.textContent = 'hold up — magic in progress ✨';
 
             try {
                 const res = await fetch(ENDPOINT_URL, {
