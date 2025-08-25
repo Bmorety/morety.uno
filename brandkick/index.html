@@ -27,6 +27,10 @@
             font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial;
         }
     </style>
+
+    <!-- Cloudflare Turnstile (renders widget via onTurnstileLoad) -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad" async defer></script>
+
 </head>
 
 <body class="min-h-screen bg-linkedin-bg text-zinc-900">
@@ -42,8 +46,7 @@
                     </h1>
                     <p class="text-sm text-zinc-600">
                         For founders & leaders — a quick check of your profile: <br>
-                        What’s working, what’s leaking value, and where to focus to win stages, board interest and
-                        clients. <span class="font-medium"><br> (~5 mins.)</span>
+                        What’s working and what’s leaking value. <span class="font-medium"><br> (~5 mins.)</span>
                     </p>
                     <p class="text-xs text-zinc-500 mt-1">by <span class="font-semibold">Bruno Morety</span> · <a
                             href="https://morety.uno" class="underline hover:no-underline" target="_blank"
@@ -243,6 +246,9 @@
                                     anytime.</strong></li>
                         </ul>
                     </div>
+                    <!-- Turnstile widget mount point -->
+                    <div id="turnstile_wrapper" class="mt-4"></div>
+
                     <label class="inline-flex items-start gap-3 select-none">
                         <input id="consent" type="checkbox" class="h-5 w-5 mt-1 rounded border-zinc-300" />
                         <span class="text-sm">
@@ -293,7 +299,13 @@
 
     <script>
         // ======== CONFIG ========
-        const ENDPOINT_URL = 'https://brandkick.bmorety.workers.dev/grade';
+        //const ENDPOINT_URL = 'https://brandkick.bmorety.workers.dev/grade';
+        const ENDPOINT_URL = 'http://localhost:8787/grade';
+
+        // --- Turnstile config (replace with your site key if not already set) ---
+        const TURNSTILE_SITEKEY = '0x4AAAAAABuUFc3jvgxGKSyT'; // ← ok if you already populated this
+        let turnstileWidgetId; // populated on onTurnstileLoad()
+
 
         // ======== STATE ========
         const steps = Array.from(document.querySelectorAll('.step'));
@@ -348,6 +360,19 @@
             });
         }
 
+        // called by the loaded Turnstile script
+        function onTurnstileLoad() {
+            const mount = document.getElementById('turnstile_wrapper');
+            if (!mount) return;
+            try {
+                // explicit render to allow reading token via turnstile.getResponse(widgetId)
+                turnstileWidgetId = turnstile.render(mount, { sitekey: TURNSTILE_SITEKEY });
+            } catch (err) {
+                console.warn('Turnstile render error', err);
+            }
+        }
+
+
         // NEW: validate only the current step's required fields
         function validateCurrentStep() {
             const current = steps[stepIndex];
@@ -393,11 +418,37 @@
             const originalBtnText = submitBtn.textContent;
             submitBtn.textContent = 'hold up — magic in progress ✨';
 
+            // === Turnstile: read token (must be completed by the user) ===
+            let turnstile_token = '';
+            try {
+                if (typeof turnstile !== 'undefined' && typeof turnstileWidgetId !== 'undefined') {
+                    turnstile_token = turnstile.getResponse(turnstileWidgetId) || '';
+                } else {
+                    // fallback: check if implicit field exists
+                    const el = document.querySelector('[name="cf-turnstile-response"]');
+                    turnstile_token = el ? (el.value || '') : '';
+                }
+            } catch (errToken) {
+                console.warn('Error reading Turnstile token', errToken);
+                turnstile_token = '';
+            }
+
+            if (!turnstile_token) {
+                alert('Please complete the verification (Turnstile) before submitting the form.');
+                // re-enable buttons & bail out
+                nextBtn.disabled = false; backBtn.disabled = false; skipBtn.disabled = false; submitBtn.disabled = false;
+                submitBtn.textContent = 'Get my Brandkick report';
+                return;
+            }
+
             try {
                 const res = await fetch(ENDPOINT_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
+                        // Turnstile token required by the worker
+                        turnstile_token: turnstile_token,
+
                         contact: { name: data.name, email: data.email, li_url: data.li_url || null },
                         profile: {
                             headline: data.headline || '',
@@ -419,9 +470,12 @@
                 });
                 if (!res.ok) throw new Error('Request failed');
 
+
                 // Success screen
                 document.getElementById('card').querySelector('form').classList.add('hidden');
                 successEl.classList.remove('hidden');
+
+
 
                 // ===== 15s countdown + redirect to morety.uno =====
                 const countdownText = document.getElementById('countdownText');
