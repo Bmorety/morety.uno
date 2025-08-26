@@ -258,6 +258,7 @@ body.bg-linkedin {
 .line2 {
   font-size: clamp(20px, 2.0vw, 26px);
   margin: .25em 0;
+  font-weight: 300;
 }
 
 /* Title word-by-word animation (slower) */

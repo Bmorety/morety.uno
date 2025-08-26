@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LinkedIn Brand Grader · morety.uno</title>
+    <title>BRANDKICK — Clarity first. CV later.</title>
     <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,11 +42,12 @@
                 <img src="/images/logo.png" alt="BM logo"
                     class="h-10 w-10 rounded-2xl object-contain bg-white p-1 shadow-soft">
                 <div>
-                    <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">Brandkick: value-first LinkedIn check
+                    <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">BRANDKICK — Fast LinkedIn clarity
+                        check.
                     </h1>
                     <p class="text-sm text-zinc-600">
-                        For founders & leaders — a quick check of your profile: What’s working and what’s leaking value.
-                        <span class="font-medium"><br> (~5 mins.)</span>
+                        Free · ~3 minutes · Score + 3 quick wins · sent to your inbox.
+                        <!-- <span class="font-medium"><br> (~3 mins.)</span> -->
                     </p>
                     <p class="text-xs text-zinc-500 mt-1">by <span class="font-semibold">Bruno Morety</span> · <a
                             href="https://morety.uno" class="underline hover:no-underline" target="_blank"
@@ -68,10 +69,15 @@
             <form id="graderForm" class="space-y-8" autocomplete="off">
                 <!-- STEP 1: Contact -->
                 <div class="step" data-step="1">
-                    <h2 class="text-xl font-bold mb-2">Basics</h2>
-                    <p class="text-sm text-zinc-600 mb-6">We’ll email your Brandkick Score here. LinkedIn URL is
-                        optional—no
-                        scraping.</p>
+                    <h2 class="text-xl font-bold mb-2">Who is this for?</h2>
+                    <p class="text-ml text-zinc-600 mb-6">Founders, Leaders and Specialists who want clarity — not a
+                        résumé polish.
+                        <br><br><strong>BRANDKICK</strong> scores how clearly your profile shows <span
+                            class="font-medium">what you do
+                            and who you help</span> and sends a short report with 3 quick wins to <span
+                            class="font-medium">start getting
+                            clients, stages and board invites.</span>
+                    </p>
                     <div class="grid gap-4">
                         <label class="block">
                             <span class="text-sm font-medium">Your name</span>
@@ -174,7 +180,7 @@
                                             class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-zinc-300 text-[10px] leading-none text-zinc-500 select-none">i</span>
                                         <span
                                             class="pointer-events-none absolute left-1/2 top-full z-10 hidden -translate-x-1/2 translate-y-2 whitespace-nowrap rounded-md bg-zinc-900 px-2 py-1 text-xs text-white shadow-soft group-hover:block">
-                                            Top bar → My Network → left sidebar shows your total connections.
+                                            LinkedIn top bar → My Network → left sidebar shows your total connections.
                                         </span>
                                     </span>
                                 </div>
@@ -196,7 +202,8 @@
                                             class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-zinc-300 text-[10px] leading-none text-zinc-500 select-none">i</span>
                                         <span
                                             class="pointer-events-none absolute left-1/2 top-full z-10 hidden -translate-x-1/2 translate-y-2 whitespace-nowrap rounded-md bg-zinc-900 px-2 py-1 text-xs text-white shadow-soft group-hover:block">
-                                            Top bar → My Network → “Following & followers” → number under Followers tab.
+                                            Linkedin top bar → My Network → “Following & followers” → number under
+                                            Followers tab.
                                         </span>
                                     </span>
                                 </div>
@@ -216,7 +223,8 @@
                 <!-- STEP 4: Posts -->
                 <div class="step hidden" data-step="4">
                     <h2 class="text-xl font-bold mb-2">Your posts</h2>
-                    <p class="text-sm text-zinc-600 mb-4">Paste the text of each post. Links optional.</p>
+                    <p class="text-sm text-zinc-600 mb-4">Paste the text. If you don’t have two posts to paste, go to
+                        the next step.</p>
                     <div class="grid gap-4">
                         <div class="grid gap-2">
                             <span class="text-sm font-medium">Latest post</span>
@@ -225,7 +233,7 @@
                                 placeholder="Paste post text here"></textarea>
                         </div>
                         <div class="grid gap-2">
-                            <span class="text-sm font-medium">One of your best posts</span>
+                            <span class="text-sm font-medium">The post your most proud of</span>
                             <textarea name="post_best" rows="5" type="text" maxlength="3000"
                                 class="w-full rounded-xl border border-zinc-200 p-3 text-zinc-700 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
                                 placeholder="Paste post text here"></textarea>
@@ -239,11 +247,12 @@
                     <div class="space-y-3 text-sm leading-6 text-zinc-700 mb-4">
                         <p><strong>What happens next</strong></p>
                         <ul class="list-disc pl-5 space-y-1">
-                            <li><strong>Morety.uno</strong> will use <em>only</em> the info you pasted to create your
-                                Brandkick report.</li>
-                            <li><strong>No LinkedIn scrapping</strong></li>
-                            <li>Morety.uno will email the report and may send occasional follow-ups. <strong>Unsubscribe
-                                    anytime.</strong></li>
+                            <li><strong>BRANDKICK</strong> will use <em>only</em> the info you pasted to create your
+                                report.</li>
+                            <li><strong>No LinkedIn scrapping </strong>— we do not fetch data from your LinkedIn
+                                account.</li>
+                            <li>You’ll receive <strong>your score + 3 quick wins by email.</strong> We may send
+                                occasional follow-ups. Unsubscribe anytime.</li>
                         </ul>
                     </div>
                     <!-- Turnstile widget mount point -->
@@ -252,7 +261,7 @@
                     <label class="inline-flex items-start gap-3 select-none">
                         <input id="consent" type="checkbox" class="h-5 w-5 mt-1 rounded border-zinc-300" />
                         <span class="text-sm">
-                            Yep — send my Brandkick and occasional follow-ups from Morety.uno.
+                            Yes — send my BRANDKICK report and occasional follow-ups.
                         </span>
                     </label>
                 </div>
@@ -269,7 +278,7 @@
                             class="rounded-xl px-5 py-3 text-sm font-semibold text-white bg-linkedin-blue hover:bg-linkedin-dark focus:outline-none focus:ring-2 focus:ring-linkedin-blue/30">Next</button>
                         <button type="submit" id="submitBtn"
                             class="hidden rounded-xl px-5 py-3 text-sm font-semibold text-white bg-linkedin-blue hover:bg-linkedin-dark focus:outline-none focus:ring-2 focus:ring-linkedin-blue/30">Get
-                            my Brandkick report</button>
+                            my BRANDKICK report</button>
                     </div>
                 </div>
             </form>
@@ -283,9 +292,15 @@
                         <polyline points="22 4 12 14.01 9 11.01" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold">>boom — Brandkick sent ✅</h3>
-                <p class="text-sm text-zinc-600">Grab a coffee —> Score + 3 quick wins landing in your inbox now (check
-                    spam.)</p>
+                <h3 class="text-xl font-bold">Boom — BRANDKICK sent ✅</h3>
+                <p class="text-sm text-zinc-600">Score + 3 quick wins emailed. Want results fast? Book a full LinkedIn
+                    optimisation at morety.uno/#services and I’ll convert these fixes into clients and speaking invites.
+                </p>
+                <br>
+                <p class="text-sm text-zinc-600">BRANDKICK CoPilot — coming soon. An email-first co-pilot that helps
+                    optimise your profile, reminds you to post, and supplies on-brand post ideas.
+                </p>
+                <br>
                 <!-- countdown message -->
                 <p id="countdownText" class="mt-2 text-xs text-zinc-500"></p>
                 <button type="button" id="startOver"
@@ -294,7 +309,8 @@
             </div>
         </section>
 
-        <p class="mt-6 text-xs text-zinc-500">No scraping. You control what you paste. Built by BMorety.</p>
+        <p class="mt-6 text-xs text-zinc-500">Free · ~3 minutes · Score + 3 quick wins · sent to your inbox · Built by
+            BMorety.</p>
     </main>
 
     <script>
