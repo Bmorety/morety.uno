@@ -101,7 +101,7 @@
 
                         <!-- Cloudflare Turnstile widget (replace data-sitekey) -->
                         <div class="mt-1">
-                            <div class="cf-turnstile" data-sitekey="0x4AAAAAABuUFc3jvgxGKSyT" data-theme="light"></div>
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAABvGoLuEnn7rA7OH" data-theme="light"></div>
                         </div>
 
                         <button id="bk-submit" type="submit"
@@ -113,7 +113,8 @@
                     </form>
 
                     <!-- Turnstile script (add once on the page) -->
-                    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+                    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+
 
                     <script>
                         (function () {
@@ -122,7 +123,8 @@
                             const note = document.getElementById('bk-form-note');
 
                             // Worker endpoint - change if you map to a different route
-                            const WORKER_ENDPOINT = '/api/waitlist';
+                            //const WORKER_ENDPOINT = 'http://localhost:8787/copilot';
+                            const WORKER_ENDPOINT = 'copilot-waitlist.bmorety.workers.dev/copilot';
 
                             form.addEventListener('submit', async (ev) => {
                                 ev.preventDefault();
@@ -131,40 +133,58 @@
                                 note.textContent = 'Working...';
 
                                 try {
-                                    // get the turnstile token. cf-turnstile provides grecaptcha-like API.
-                                    // The global `turnstile` object is defined by the loaded script.
-                                    const token = await new Promise((resolve, reject) => {
-                                        if (typeof turnstile === 'undefined') {
-                                            return reject('turnstile_not_loaded');
-                                        }
-                                        turnstile.ready(() => {
-                                            // execute the first widget on the page (if you have multiple use explicit widget ID)
-                                            turnstile.execute(); // will trigger an implicit token generation and 'onSuccess' callback via window.__turnstileCallback (see below)
-                                            // But safer approach: use render + callback. Use callback below:
-                                            resolve(turnstile.getResponse());
-                                        });
-                                        // Fallback in 5s
-                                        setTimeout(() => {
-                                            const t = turnstile.getResponse();
-                                            if (t) resolve(t);
-                                            else reject('turnstile_timeout');
-                                        }, 5000);
+                                    // 1) Wait for the turnstile library to exist
+                                    const waitForTurnstile = (timeout = 5000) => new Promise((resolve, reject) => {
+                                        const start = Date.now();
+                                        (function check() {
+                                            if (typeof window.turnstile !== 'undefined') return resolve(window.turnstile);
+                                            if (Date.now() - start > timeout) return reject(new Error('turnstile_not_loaded'));
+                                            setTimeout(check, 100);
+                                        })();
                                     });
 
-                                    // If the page doesn't have the getResponse API (depending on widget usage),
-                                    // you can also rely on the widget to insert an input with name 'cf-turnstile-response'.
-                                    let tokenValue = token;
-                                    if (!tokenValue) {
-                                        const el = document.querySelector('input[name="cf-turnstile-response"]');
-                                        if (el) tokenValue = el.value;
-                                    }
-                                    if (!tokenValue) throw new Error('no_turnstile_token');
+                                    await waitForTurnstile().catch(() => { /* continue, we'll prompt user */ });
 
+                                    // 2) Try to get an existing token quickly
+                                    let token = window.__BK_TURNSTILE_TOKEN || (typeof turnstile !== 'undefined' ? (turnstile.getResponse ? turnstile.getResponse() : null) : null);
+
+                                    // 3) If no token, attempt reset + execute and poll for a token
+                                    if (!token) {
+                                        try {
+                                            // reset widget (best-effort). Some embed versions accept no-arg reset.
+                                            if (typeof turnstile !== 'undefined' && typeof turnstile.reset === 'function') {
+                                                try { turnstile.reset(); } catch (e) { /* ignore reset failure */ }
+                                            }
+                                            // request a new token (best-effort)
+                                            if (typeof turnstile !== 'undefined' && typeof turnstile.execute === 'function') {
+                                                try { turnstile.execute(); } catch (e) { /* ignore execute failure */ }
+                                            }
+                                        } catch (e) {
+                                            console.warn('turnstile reset/execute attempt failed', e);
+                                        }
+
+                                        // poll for token up to timeout
+                                        const start = Date.now();
+                                        const maxWait = 8000;
+                                        while (!window.__BK_TURNSTILE_TOKEN && (Date.now() - start) < maxWait) {
+                                            // eslint-disable-next-line no-await-in-loop
+                                            await new Promise(r => setTimeout(r, 150));
+                                        }
+                                        token = window.__BK_TURNSTILE_TOKEN || (typeof turnstile !== 'undefined' && turnstile.getResponse ? turnstile.getResponse() : null);
+                                    }
+
+                                    if (!token) {
+                                        note.textContent = 'Please complete the verification above.';
+                                        submitBtn.disabled = false;
+                                        submitBtn.classList.remove('opacity-70');
+                                        return;
+                                    }
+
+                                    // 4) Build payload and POST to Worker
                                     const payload = {
                                         firstName: document.getElementById('bk-first').value || '',
                                         email: document.getElementById('bk-email').value,
-                                        turnstileToken: tokenValue,
-                                        // optional remote IP — usually not needed; worker can rely on request cf-connecting-ip header
+                                        turnstileToken: token
                                     };
 
                                     const res = await fetch(WORKER_ENDPOINT, {
@@ -173,7 +193,17 @@
                                         body: JSON.stringify(payload),
                                     });
 
-                                    const json = await res.json();
+                                    // 5) Defensive response parsing — avoid parsing HTML as JSON
+                                    const ct = res.headers.get('content-type') || '';
+                                    let json = null;
+                                    if (ct.includes('application/json')) {
+                                        json = await res.json();
+                                    } else {
+                                        const text = await res.text();
+                                        console.warn('Non-JSON response from worker:', text.slice(0, 1000));
+                                        throw new Error('Unexpected response from server');
+                                    }
+
                                     if (!res.ok) {
                                         console.error('waitlist error', json);
                                         note.textContent = json?.error || 'Something went wrong — try again.';
@@ -182,16 +212,13 @@
                                         return;
                                     }
 
-                                    // success: show your success anchor effect
-                                    // you already use #success anchor in page — show it:
-                                    // redirect to #success to reuse existing handler
+                                    // 6) success: show existing success UI
                                     window.location.hash = '#success';
-                                    // optionally scroll into view
                                     const s = document.getElementById('success');
                                     if (s) s.classList.remove('hidden');
-                                    // disable the form
                                     form.querySelectorAll('input,button').forEach(i => i.disabled = true);
                                     note.textContent = 'Nice — you’re on the CoPilot early list ✅';
+
                                 } catch (err) {
                                     console.error(err);
                                     note.textContent = 'Couldn’t submit — try again (or contact me).';
@@ -199,9 +226,9 @@
                                     submitBtn.classList.remove('opacity-70');
                                 }
                             });
+
                         })();
                     </script>
-
 
                     <!-- <p class="text-xs text-zinc-500 mt-3">
                         We’ll use this email for invites & updates — not spam. Unsubscribe anytime.
@@ -210,7 +237,7 @@
             </div>
         </section>
 
-        <!-- HOW IT WORKS / WANT IT DONE FOR YOU -->
+        <!-- Q&As -->
         <section class="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="bg-white p-4 rounded-xl border border-zinc-100">
                 <h4 class="text-sm font-medium">Q: Is CoPilot an app or a service?</h4>
