@@ -124,9 +124,11 @@
                             const submitBtn = document.getElementById('bk-submit');
                             const note = document.getElementById('bk-form-note');
 
-                            // Worker endpoint - change if you map to a different route
-                            //const WORKER_ENDPOINT = 'http://localhost:8787/copilot';
-                            const WORKER_ENDPOINT = 'copilot.bmorety.workers.dev';
+                            // inside your <script> where WORKER_ENDPOINT is defined
+                            const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+                            const WORKER_BASE = isLocal ? 'http://127.0.0.1:8787' : 'https://copilot.bmorety.workers.dev';
+                            const WORKER_ENDPOINT = `${WORKER_BASE}/copilot`;
+
 
                             form.addEventListener('submit', async (ev) => {
                                 ev.preventDefault();
