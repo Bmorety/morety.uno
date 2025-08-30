@@ -1,10 +1,12 @@
 :root {
-  --bg: #000000;
+  --bg: #f5f5f5;
   /* ← change this to update background site-wide */
-  --text: #f3f3f3;
-  --muted: #ffffff99;
+  --text: #090909;
+  --muted: #09090951;
+  --links: #090909;
+  --hover: #e27396;
   --max: 1200px;
-  --rule: rgba(255, 255, 255, .14);
+  --rule: rgba(255, 255, 255, 0.526);
 }
 
 /* Thoughts carousel */
@@ -56,7 +58,7 @@
 #thoughts .thoughts-carousel .t-btn {
   border: none;
   background: transparent;
-  color: #ffffff;
+  color: #090909;
   font-size: 2rem;
   line-height: 1;
   cursor: pointer;
@@ -78,7 +80,7 @@
 
 /* Links */
 a {
-  color: #ffffff;
+  color: var(--links);
   text-decoration: none;
   transition: color .2s ease-in-out;
   margin-right: 0px;
@@ -89,16 +91,16 @@ a {
 }
 
 a:hover {
-  color: #e27396;
+  color: var(--hover);
   text-decoration: underline;
 }
 
 a:visited {
-  color: #ffffffca;
+  color: var(--links);
 }
 
 a:visited:hover {
-  color: #e27396;
+  color: var(--hover);
   text-decoration: underline;
 }
 
@@ -139,6 +141,9 @@ body {
 
 body.bg-linkedin {
   --bg: #0A66C2;
+  --text: #ececeb;
+  --muted: #ececeb59;
+  --links: #ececeb;
 }
 
 .container {
@@ -187,11 +192,11 @@ body.bg-linkedin {
 }
 
 .quick-links a {
-  color: #fff;
+  color: var(--links);
 }
 
 .quick-links a:hover {
-  color: #e27396;
+  color: var(--hover);
   text-decoration: underline;
 }
 
@@ -404,8 +409,7 @@ body.sheet-open {
   /* fallback / desktop correctness */
   display: block;
   border: 0;
-  background: #000;
-
+  background: var(--bg);
 }
 
 .booking-sheet::after {
@@ -428,7 +432,7 @@ body.sheet-open {
   border: 0;
   border-radius: 999px;
   background: rgba(255, 255, 255, .08);
-  color: #fff;
+  color: #090909;
   font-size: 24px;
   line-height: 1;
   cursor: pointer;
@@ -436,11 +440,11 @@ body.sheet-open {
 
 .sheet-close:hover {
   background: rgba(255, 255, 255, 0.247);
-  color: #e27396;
+  color: var(--hover);
 }
 
 .sheet-close:focus-visible {
-  outline: 2px solid #fff;
+  outline: 2px solid #090909;
   outline-offset: 2px;
 }
 
