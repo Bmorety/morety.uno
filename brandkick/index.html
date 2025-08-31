@@ -285,28 +285,35 @@
 
             <!-- Success screen -->
             <div id="success" class="hidden text-center py-10">
-                <div class="mx-auto mb-4 h-14 w-14 rounded-full bg-emerald-100 flex items-center justify-center">
+                <div class="mx-auto mb-4 h-14 w-14 rounded-full bg-emerald-100 flex items-center justify-center"
+                    aria-hidden="true">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-600" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2">
+                        fill="none" stroke="currentColor" stroke-width="2" role="img" aria-labelledby="checkIconTitle">
+                        <title id="checkIconTitle">Success</title>
                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                         <polyline points="22 4 12 14.01 9 11.01" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold">Boom — BRANDKICK sent ✅</h3>
-                <p class="text-sm text-zinc-550">Score + 3 quick wins emailed. Want results fast? Book a full LinkedIn
-                    optimisation at morety.uno/#services and I’ll convert these fixes into clients and speaking invites.
-                </p>
+                <h3 class="text-xl font-bold">Boom — BRANDKICK report sent ✅</h3>
+                <p class="text-sm text-zinc-550">Score + 3 quick wins — emailed.</p>
                 <br>
-                <p class="text-sm text-zinc-550">BRANDKICK CoPilot — coming soon. An email-first co-pilot to grow your
-                    influence.
+                <p class="text-sm text-zinc-550">
+                    <strong>BRANDKICK CoPilot (coming soon)</strong><br>
+                    Turn your LinkedIn into your opportunity engine.
                 </p>
                 <br>
                 <!-- countdown message -->
-                <p id="countdownText" class="mt-2 text-xs text-zinc-500"></p>
-                <button type="button" id="startOver"
-                    class="mt-6 rounded-xl px-4 py-3 text-sm font-medium border border-zinc-200 text-zinc-700 hover:bg-zinc-50">Start
-                    over</button>
+                <p id="countdownText" class="mt-2 text-xs text-zinc-500" aria-live="polite"></p>
+
+                <!-- link styled as button -->
+                <a id="startOver" href="https://morety.uno/copilot" target="_blank" rel="noopener noreferrer"
+                    role="button"
+                    class="mt-6 inline-block rounded-xl px-4 py-3 text-sm font-medium border border-zinc-200 text-zinc-700 hover:bg-zinc-50"
+                    title="Brandkick CoPilot Early Access — opens in a new tab">
+                    Brandkick CoPilot Early Access
+                </a>
             </div>
+
         </section>
 
         <p class="mt-6 text-xs text-zinc-500">Free · ~3 minutes · Score + 3 quick wins · sent to your inbox · Built by
@@ -495,16 +502,16 @@
 
                 // ===== 15s countdown + redirect to morety.uno =====
                 const countdownText = document.getElementById('countdownText');
-                let countdown = 15;
+                let countdown = 30;
                 countdownText.textContent = `Redirecting to morety.uno in ${countdown} seconds…`;
                 const interval = setInterval(() => {
                     countdown--;
                     if (countdown > 0) {
-                        countdownText.textContent = `Redirecting to morety.uno in ${countdown} seconds…`;
+                        countdownText.textContent = `Redirecting to BRANDKICK CoPilot in ${countdown} seconds…`;
                     } else {
                         clearInterval(interval);
-                        countdownText.textContent = 'You are being redirected to morety.uno -> services …';
-                        window.location.href = 'https://morety.uno/#services';
+                        countdownText.textContent = 'You are being redirected to BRANDKICK CoPilot…';
+                        window.location.href = 'https://morety.uno/copilot';
                     }
                 }, 1000);
 
