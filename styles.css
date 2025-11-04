@@ -5,7 +5,7 @@
   --muted: #09090951;
   --links: #090909;
   --hover: #e27396;
-  --max: 1200px;
+  --max: 1500px;
   --rule: rgba(255, 255, 255, 0.526);
 }
 
@@ -223,7 +223,7 @@ body.bg-linkedin {
 
 .block {
   margin: 0 0;
-  margin-top: -7rem;
+  margin-top: 5rem;
 }
 
 /* Type rhythm */
@@ -232,8 +232,8 @@ body.bg-linkedin {
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin: 0 0 16px 0;
-
 }
+
 
 .kicker {
   color: var(--muted);
