@@ -9,6 +9,106 @@
   --rule: rgba(255, 255, 255, 0.526);
 }
 
+
+
+/* Full-width image strip below hero */
+.hero-strip {
+  width: 70vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: -10rem;
+  /* tweak to control gap between hero and image */
+  margin-bottom: 5rem;
+  /* space before section 00 */
+}
+
+.hero-strip img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gap-two-columns {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.gap-image {
+  display: flex;
+  justify-content: center;
+  /* or center */
+}
+
+
+.gap-image img {
+  width: 100%;
+  max-height: 620px;
+  /* <— limit height here */
+  object-fit: cover;
+  /* crop to fit the box */
+  object-position: top;
+  display: block;
+  border-radius: 8px;
+  /* opcional */
+}
+
+.sprint-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  /* left image | right text */
+  gap: 4rem;
+  align-items: start;
+}
+
+.sprint-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  /* opcional */
+}
+
+/* 02 - Three-column proof cards */
+.proof-three-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.proof-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.proof-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.proof-link {
+  font-weight: 450;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.proof-link:hover {
+  color: var(--hover);
+  text-decoration: underline;
+}
+
+/* Mobile fallback */
+@media (max-width: 768px) {
+  .proof-three-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* Thoughts carousel */
 #thoughts .thoughts-carousel {
   display: grid;
@@ -221,17 +321,23 @@ body.bg-linkedin {
   /* neutralize page's top padding for true centering */
 }
 
+.block-intro-seconday {
+  margin-top: calc(-14vh);
+  /* neutralize page's top padding for true centering */
+}
+
 .block {
   margin: 0 0;
   margin-top: 5rem;
 }
 
+
 /* Type rhythm */
 .xl {
-  font-size: clamp(50px, 8vw, 110px);
+  font-size: clamp(50px, 6vw, 76px);
   line-height: 1.05;
   letter-spacing: -0.02em;
-  margin: 0 0 16px 0;
+  margin: 0 0 20px 0;
 }
 
 
@@ -239,12 +345,12 @@ body.bg-linkedin {
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: .12em;
-  font-size: 12px;
+  font-size: 16px;
   margin: 18px 0 20px;
 }
 
 .line {
-  font-size: clamp(20px, 2.0vw, 26px);
+  font-size: clamp(20px, 2.0vw, 22px);
   margin: .25em 0;
 }
 
@@ -256,12 +362,12 @@ body.bg-linkedin {
 
 .lineS {
   font-size: clamp(20px, 2.0vw, 26px);
-  margin: .35em 0;
+  margin: .15em 0;
   font-weight: 650;
 }
 
 .line2 {
-  font-size: clamp(20px, 2.0vw, 26px);
+  font-size: clamp(16px, 2.0vw, 20px);
   margin: .25em 0;
   font-weight: 300;
 }
@@ -354,7 +460,7 @@ details.block summary::after {
   margin-left: auto;
   transform: rotate(90deg);
   transition: transform .15s ease, opacity .15s ease;
-  opacity: .2;
+  opacity: .5;
 }
 
 details.block[open] summary::after {
@@ -364,7 +470,8 @@ details.block[open] summary::after {
 /* Body inside toggle */
 details.block>.body,
 details.block>.content {
-  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
   padding-left: calc(6ch + .6rem);
 }
 
