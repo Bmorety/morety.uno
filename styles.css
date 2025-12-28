@@ -96,8 +96,6 @@
   }
 }
 
-
-
 @media (max-width: 720px) {
   #gap .gap-two-columns {
     grid-template-columns: 1fr;
@@ -365,13 +363,14 @@ body.bg-linkedin {
 
 }
 
-/* Sticky logo */
 .logo-wrap {
   position: fixed;
-  inset: 26px auto auto 32px;
+  inset: 26px 32px auto auto;
+  /* top-right */
   z-index: 1000;
   display: block;
 }
+
 
 .logo {
   width: min(64px, 16vw);

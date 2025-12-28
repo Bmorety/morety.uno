@@ -64,7 +64,7 @@
 
     <!-- Accordion sections (all closed by default) -->
     <details class="block acc" id="gap">
-      <summary><span class="num">00.</span> The Comms. Gap</summary>
+      <summary><span class="num">00.</span> The Message Gap</summary>
       <br>
       <div class="content gap-two-columns">
         <div class="gap-image">
@@ -111,7 +111,7 @@
 
 
     <details class="block acc" id="framework">
-      <summary><span class="num">01.</span> 15‑Day Sprint</summary>
+      <summary><span class="num">01.</span> 15‑Day Story Sprint</summary>
       <br>
       <div class="content sprint-two-columns">
         <div class="sprint-image">
@@ -404,6 +404,24 @@
           document.body.classList.toggle('bg-linkedin', !!(action && action.open));
         });
       });
+
+      // Logo cycle navigation: top → gap → framework → proof → about → action → top
+      const sections = ['top', 'gap', 'framework', 'proof', 'about', 'action'];
+      let logoClickCount = 0;
+
+      document.querySelector('.logo-wrap').addEventListener('click', (e) => {
+        e.preventDefault(); // Stop default #top scroll
+
+        logoClickCount = (logoClickCount + 1) % sections.length;
+        const targetSection = sections[logoClickCount];
+
+        // Update URL hash
+        location.hash = targetSection;
+
+        // Trigger your existing deep-link handler
+        handleHash();
+      });
+
 
       // 6) Title → subtitle/links animation (kept)
       const title = document.getElementById('titleText');
