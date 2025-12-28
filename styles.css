@@ -9,6 +9,7 @@
   --rule: rgba(255, 255, 255, 0.526);
 }
 
+
 /* ACTION section: image + copy */
 #action .cta-grid {
   display: grid;
@@ -73,6 +74,40 @@
 
   #about .about-left {
     max-width: 360px;
+  }
+
+  .hero-strip {
+    width: 100%;
+    position: static;
+    left: auto;
+    right: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  #gap .gap-two-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  #gap .gap-two-columns>*:first-child {
+    order: -1;
+    /* Image first on mobile */
+  }
+}
+
+/* Framework/Sprint section: mobile image on top */
+@media (max-width: 720px) {
+  #framework .sprint-two-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  #framework .sprint-two-columns>*:first-child {
+    order: -1;
+    /* Image first on mobile */
   }
 }
 
