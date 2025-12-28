@@ -424,14 +424,18 @@ body.bg-linkedin {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  /* vertical center */
-  align-items: center;
-  /* horizontal center */
-  text-align: center;
-  margin-top: calc(-14vh);
-  /* neutralize page's top padding for true centering */
+  justify-content: flex-start;
+  /* TOP */
+  align-items: flex-start;
+  /* LEFT */
+  text-align: left;
+  /* LEFT */
+  padding-top: 14vh;
+  /* space from top */
+  padding-left: 0vw;
+  /* space from left */
 }
+
 
 .block-intro-seconday {
   margin-top: calc(-14vh);
@@ -446,7 +450,7 @@ body.bg-linkedin {
 
 /* Type rhythm */
 .xl {
-  font-size: clamp(50px, 6vw, 76px);
+  font-size: clamp(50px, 12vw, 110px);
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin: 0 0 20px 0;
@@ -761,9 +765,25 @@ a:focus-visible {
     scroll-margin-top: 12vh;
   }
 
-  .block-intro {
-    margin-top: calc(-12vh);
+  /* Hero: center on mobile viewport */
+  @media (max-width: 720px) {
+    .block-intro {
+      min-height: 100vh;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      /* VERTICAL center */
+      align-items: left !important;
+      /* HORIZONTAL center */
+      text-align: left !important;
+      /* TEXT center */
+      padding-top: 12vh !important;
+      /* top spacing */
+      margin-top: calc(-12vh) !important;
+      /* neutralize page padding */
+    }
   }
+
 
   /* quick links: side-by-side, centered above footer */
   .quick-links {

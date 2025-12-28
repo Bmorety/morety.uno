@@ -40,13 +40,12 @@
   <main id="top" class="page" role="main">
     <!-- Title & subtitle (animated, centered) -->
     <section class="block-intro">
-      <h1 class="xl" id="titleText">Investor‑Ready Financial Narratives</h1>
+      <h1 class="xl" id="titleText">Investor‑Ready</h1>
+      <h1 class="xl" id="titleText">Financial Narratives ⇲</h1>
       <p class="line subtitle" id="subtitleText">
         <strong>| 15‑day Sprint |</strong> to turn your numbers into a story investors fund.<br>
         <strong>Story Map + Pitch Deck</strong>
       </p>
-
-
     </section>
 
     <section class="block-intro-secondary">
@@ -423,26 +422,30 @@
       });
 
 
-      // 6) Title → subtitle/links animation (kept)
-      const title = document.getElementById('titleText');
+      // 6. Title/subtitle + links animation (BOTH h1s)
+      const titles = document.querySelectorAll('#titleText');
       const subtitle = document.getElementById('subtitleText');
-      if (title) {
-        const words = title.textContent.trim().split(/\s+/);
+
+      titles.forEach(title => {
+        const words = title.textContent.trim().split(' ');
         title.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
+
         const spans = Array.from(title.querySelectorAll('.w'));
         const STEP = 150, DURATION = 500;
+
         spans.forEach((span, i) => {
-          span.style.transitionDelay = (i * STEP) + 'ms';
+          span.style.transitionDelay = `${i * STEP}ms`;
           void span.offsetWidth;
           span.classList.add('on');
         });
-        const totalDelay = (spans.length - 1) * STEP + DURATION;
-        setTimeout(() => {
-          if (subtitle) subtitle.classList.add('show');
-          const links = document.querySelector('.quick-links');
-          if (links) links.classList.add('show');
-        }, totalDelay);
-      }
+      });
+
+      const totalDelay = 1200; // Fixed delay for 2 lines
+      setTimeout(() => {
+        if (subtitle) subtitle.classList.add('show');
+        const links = document.querySelector('.quick-links');
+        if (links) links.classList.add('show');
+      }, totalDelay);
 
       // -------- Deep-link handler: open details by hash, or open booking ----------
       // supports: #manifesto, #services, #collabs, #thoughts, #tools
