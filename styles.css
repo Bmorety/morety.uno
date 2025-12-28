@@ -213,7 +213,7 @@
 }
 
 /* Mobile fallback */
-@media (max-width: 768px) {
+@media (max-width: 720px) {
   .proof-three-columns {
     grid-template-columns: 1fr;
   }
@@ -453,7 +453,7 @@ body.bg-linkedin {
   font-size: clamp(50px, 12vw, 110px);
   line-height: 1.05;
   letter-spacing: -0.02em;
-  margin: 0 0 20px 0;
+  margin: 0 0 0 0;
 }
 
 
@@ -507,6 +507,7 @@ body.bg-linkedin {
   font-weight: 400;
   transform: translateY(16px);
   transition: opacity .45s ease, transform .45s ease;
+  margin-top: 20px;
 }
 
 .subtitle.show {
