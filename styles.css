@@ -9,6 +9,72 @@
   --rule: rgba(255, 255, 255, 0.526);
 }
 
+/* ACTION section: image + copy */
+#action .cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+#action .cta-image {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 14px;
+}
+
+/* Mobile: image on top, CTA below */
+@media (max-width: 720px) {
+  #action .cta-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  #action .cta-grid>*:first-child {
+    order: -1;
+    /* Image first on mobile */
+  }
+}
+
+/* About section layout: left portrait, right stack */
+#about .about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr);
+  gap: 4rem;
+  align-items: center;
+}
+
+#about .about-photo {
+  width: 100%;
+  max-width: 640px;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+#about .about-left p {
+  margin-top: 0.25rem;
+}
+
+/* Right column: stack the three points */
+#about .stack-grid {
+  display: grid;
+
+  gap: 1.75rem;
+  align-items: center;
+}
+
+/* Mobile: stack everything vertically */
+@media (max-width: 720px) {
+  #about .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  #about .about-left {
+    max-width: 360px;
+  }
+}
 
 
 /* Full-width image strip below hero */
@@ -30,7 +96,7 @@
 
 .gap-two-columns {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
+  grid-template-columns: 1fr 1.4fr;
   gap: 6rem;
   align-items: center;
 }
@@ -44,7 +110,7 @@
 
 .gap-image img {
   width: 100%;
-  max-height: 620px;
+  max-height: 720px;
   /* <— limit height here */
   object-fit: cover;
   /* crop to fit the box */
@@ -367,9 +433,8 @@ body.bg-linkedin {
 }
 
 .line2 {
-  font-size: clamp(16px, 2.0vw, 20px);
+  font-size: clamp(16px, 2.0vw, 18px);
   margin: .25em 0;
-  font-weight: 300;
 }
 
 /* Title word-by-word animation (slower) */
