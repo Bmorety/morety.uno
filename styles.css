@@ -4,7 +4,7 @@
   --text: #090909;
   --muted: #09090951;
   --links: #090909;
-  --hover: #e27396;
+  --hover: #0070d2;
   --max: 1500px;
   --rule: rgba(255, 255, 255, 0.526);
 }
@@ -306,7 +306,7 @@ body {
 }
 
 body.bg-linkedin {
-  --bg: #0A66C2;
+  --bg: #859db6;
   --text: #ececeb;
   --muted: #ececeb59;
   --links: #ececeb;
