@@ -75,16 +75,28 @@
   #about .about-left {
     max-width: 360px;
   }
+}
 
+@media (max-width: 720px) {
   .hero-strip {
-    width: 100%;
-    position: static;
-    left: auto;
-    right: auto;
-    margin-left: 0;
-    margin-right: 0;
+    width: 100vw !important;
+    position: relative !important;
+    padding: 0 !important;
+    text-align: center !important;
+    /* Center the image */
+  }
+
+  .hero-strip img {
+    width: 100% !important;
+    height: auto;
+    display: block;
+    margin: 0 auto !important;
+    margin-top: 2rem !important;
+    /* Perfect horizontal center */
   }
 }
+
+
 
 @media (max-width: 720px) {
   #gap .gap-two-columns {
