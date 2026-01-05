@@ -192,6 +192,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  border-top: 2.5px solid #282828;
+  border-bottom: 2.5px solid #282828;
 }
 
 .proof-card img {
@@ -217,6 +219,7 @@
   .proof-three-columns {
     grid-template-columns: 1fr;
   }
+
 }
 
 
@@ -351,7 +354,7 @@ body {
 }
 
 body.bg-linkedin {
-  --bg: #859db6;
+  --bg: #0070d2;
   --text: #ececeb;
   --muted: #ececeb59;
   --links: #ececeb;
@@ -430,7 +433,7 @@ body.bg-linkedin {
   /* LEFT */
   text-align: left;
   /* LEFT */
-  padding-top: 14vh;
+  padding-top: 22vh;
   /* space from top */
   padding-left: 0vw;
   /* space from left */
