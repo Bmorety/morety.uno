@@ -506,8 +506,8 @@ body.bg-linkedin {
 /* Subtitle slide-in (from right, after title completes) */
 .subtitle {
   opacity: 0;
-  font-size: clamp(30px, 2.6vw, 36px);
-  font-weight: 400;
+  font-size: clamp(28px, 2.6vw, 32px);
+  font-weight: 350;
   transform: translateY(16px);
   transition: opacity .45s ease, transform .45s ease;
   margin-top: 20px;
