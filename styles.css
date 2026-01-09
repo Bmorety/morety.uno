@@ -884,4 +884,11 @@ a:focus-visible {
     /* full desktop viewport */
 
   }
+
+  @media (min-width: 1200px) {
+    .xl {
+      white-space: nowrap;
+      /* Prevent wrapping */
+    }
+  }
 }
