@@ -62,12 +62,58 @@ Planning to close in 30–90 days?" />
       <p class="lineS">PRIVATE EQUITY NEEDS FULL NARRATIVES FOR PREMIUM MULTIPLE DEALS.</p>
       <br>
       <p class="lineS">— NO PREP. = STUCK AT 3X. $500K+ LOST.</p>
+      <br>
 
-      <!-- Full-width hero image below the hero -->
+      <section class="valuation-calculator">
+        <div class="sales-input">
+          <p style="margin-bottom: -6px;" class="lineB">No‑Prep Penalty Calculator</p>
+          <p style="font-size: 14px;" class="lineB">Select your industry + revenue band. See the price of skipping
+            preparation.
+          </p>
+          <br>
+          <div class="industry-selection">
+            <p style="font-size: 18px;" class="lineB">Industry</p>
+            <select id="industry-select" class="line2">
+              <option style="font-size: 18px;" class="line2" value="">Choose an industry
+              </option>
+              <!-- Industry options will be dynamically generated -->
+            </select>
+          </div>
+
+          <p style="font-size: 18px;" class="lineB">Annual Revenue (USD)</p>
+          <div class="button-group">
+            <button class="sales-button lineS" data-value="100000">100K</button>
+            <button class="sales-button lineS" data-value="500000">500K</button>
+            <button class="sales-button lineS" data-value="1000000">1M</button>
+            <button class="sales-button lineS" data-value="5000000">5M</button>
+            <button class="sales-button lineS" data-value="10000000">10M</button>
+          </div>
+          <br>
+          <small class="disclaimer lineS">No data is stored or shared.<br>Estimates use industry-average EBITDA margins
+            and
+            baseline vs premium valuation multiples.</small>
+        </div>
+
+        <div class="results" style="display: none;">
+          <br>
+          <p class="lineB">Potential Value Left On The Table</p>
+          <p style="font-size: 46px;" class="lineB" id="value-gap"></p>
+          <strong>
+            <p class="line2">— here’s how you can prepare.
+            </p>
+          </strong>
+          <a href="#framework" style="font-size: 18px;" class="cta-button">See xMultiple Sprint</a>
+          <small class="disclaimer lineS">Directional estimate using industry benchmarks. Reference only—not a
+            guarantee.
+          </small>
+        </div>
+      </section>
+
+      <!-- Full-width hero image below the hero 
       <div class="hero-strip">
         <img src="images/hero_investor_narrative.png"
           alt="Boardroom image representing the communication gap between founders and investors">
-      </div>
+      </div>-->
     </section>
 
     <!-- Accordion sections (all closed by default) -->
@@ -254,7 +300,8 @@ Planning to close in 30–90 days?" />
               <p class="line2">Value drivers, risk answers,<br>and a clean “why pay a premium” case.
               </p><br>
               <p class="line2"><strong>Deal Materials + Negotiation Prep</strong></p>
-              <p class="line2">Tight materials for review and diligence,<br>plus prep to defend your price in the room.
+              <p class="line2">Tight materials for review and diligence,<br>plus prep to defend your price in the
+                room.
               </p>
               <br><br>
               <p class="line"><strong>You run the business.<br>I’ll make the case for the premium multiple.
@@ -700,6 +747,64 @@ Planning to close in 30–90 days?" />
         updateSlide();
       });
     });
+  </script>
+  <!-- Other existing scripts -->
+
+  <script>
+    const industries = [
+      { name: " SaaS (Recurring)", baselineMultiple: 5.0, premiumMultiple: 8.5, ebitdaMargin: 0.20 },
+      { name: " E-Commerce", baselineMultiple: 3.5, premiumMultiple: 6.2, ebitdaMargin: 0.12 },
+      { name: " Digital Agencies", baselineMultiple: 5.0, premiumMultiple: 8.0, ebitdaMargin: 0.20 },
+      { name: " Managed Services", baselineMultiple: 5.5, premiumMultiple: 8.5, ebitdaMargin: 0.15 },
+      { name: " Content/Niche Sites", baselineMultiple: 3.0, premiumMultiple: 5.5, ebitdaMargin: 0.28 },
+      { name: " Email/Newsletter", baselineMultiple: 4.0, premiumMultiple: 6.5, ebitdaMargin: 0.32 },
+      { name: " Digital Products (Courses)", baselineMultiple: 3.5, premiumMultiple: 5.5, ebitdaMargin: 0.40 },
+      { name: " Niche Marketplace", baselineMultiple: 4.0, premiumMultiple: 7.0, ebitdaMargin: 0.20 },
+      { name: " B2B Services (Productized)", baselineMultiple: 4.5, premiumMultiple: 7.0, ebitdaMargin: 0.25 },
+      { name: " Retail Hybrid (Online + Shop)", baselineMultiple: 3.0, premiumMultiple: 5.0, ebitdaMargin: 0.10 }
+    ];
+
+    const salesButtons = document.querySelectorAll('.sales-button');
+    const industrySelect = document.getElementById('industry-select');
+    const resultsDiv = document.querySelector('.results');
+
+    // Populate dropdown
+    industries.forEach(industry => {
+      let option = document.createElement("option");
+      option.value = industry.name;
+      option.textContent = industry.name;
+      industrySelect.appendChild(option);
+    });
+
+    salesButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        salesButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        calculateResults();
+      });
+    });
+
+    industrySelect.addEventListener('change', calculateResults);
+
+    function calculateResults() {
+      const selectedIndustry = industries.find(ind => ind.name === industrySelect.value);
+      const selectedSalesButton = document.querySelector('.sales-button.active');
+      const salesValue = selectedSalesButton ? Number(selectedSalesButton.dataset.value) : 0;
+
+      if (selectedIndustry && salesValue) {
+        const EBITDA = salesValue * selectedIndustry.ebitdaMargin;
+        const valuePrepared = EBITDA * selectedIndustry.premiumMultiple;
+        const gapLow = valuePrepared - (EBITDA * selectedIndustry.baselineMultiple);
+
+        // Format value for display
+        const formattedGap = gapLow >= 1000000
+          ? `$${(gapLow / 1000000).toFixed(1)}M`
+          : `$${(gapLow / 1000).toFixed(0)}K`;
+        document.getElementById('value-gap').textContent = formattedGap;
+
+        resultsDiv.style.display = 'flex'; // Show results
+      }
+    }
   </script>
 
   <!-- 100% privacy-first analytics -->

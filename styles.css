@@ -892,3 +892,156 @@ a:focus-visible {
     }
   }
 }
+
+.valuation-calculator {
+  display: flex;
+  /* Use flexbox for layout */
+  margin: 3rem 0;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  /* Remove borders and add shadow */
+}
+
+.sales-input,
+.industry-selection {
+  margin-bottom: 1rem;
+  flex: 1;
+  /* Takes up space proportionally for both columns */
+  text-align: left;
+  /* Align text to the left */
+}
+
+.results {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Align items vertically */
+  justify-content: center;
+  /* Align items horizontally */
+  text-align: center;
+  margin-left: 20px;
+  font-size: 24px;
+}
+
+/* Styles for inputs and dropdowns */
+input,
+select {
+  border: none;
+  /* No border for input and select elements */
+  background: transparent;
+  /* Transparent background */
+}
+
+select {
+  position: relative;
+  /* For positioning the custom arrow */
+  padding-right: 20px;
+  /* Space for custom arrow */
+}
+
+select::after {
+  content: '▼';
+  /* Custom dropdown arrow */
+  position: absolute;
+  right: 10px;
+  /* Adjust the position */
+  top: 50%;
+  /* Center vertically */
+  transform: translateY(-50%);
+  /* Adjust for centering */
+  pointer-events: none;
+  /* Disable pointer events for the arrow */
+}
+
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.sales-button {
+  padding: 0.5rem 1rem;
+  background: rgb(220, 220, 220);
+  /* inactive */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  /* Match your site's font size */
+}
+
+.sales-button.active {
+  background: #0070d2;
+  /* active color */
+  color: white;
+}
+
+.privacy-notice {
+  color: gray;
+  font-size: 0.9rem;
+}
+
+.disclaimer {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: rgb(163, 163, 163);
+}
+
+/* Mobile layout adjustments */
+@media (max-width: 720px) {
+  .valuation-calculator {
+    flex-direction: column;
+    /* Stack the columns vertically */
+    padding: 1rem;
+    /* Adjust padding for mobile */
+  }
+
+  .sales-input,
+  .industry-selection,
+  .results {
+    width: 100%;
+    /* Set to 100% to ensure they don't overflow */
+    box-sizing: border-box;
+    /* Ensure padding does not affect width */
+  }
+
+  .sales-input,
+  .industry-selection {
+    margin-bottom: 0.5rem;
+    /* Add space between stacked items */
+  }
+
+  .results {
+    margin-left: 0;
+    /* Remove left margin for results */
+    align-items: flex-start;
+    /* Align items correctly */
+    text-align: left;
+    /* Align text to the left */
+  }
+
+  /* To prevent inputs from going beyond the shadow box */
+  input,
+  select {
+    width: 100%;
+    /* Ensure inputs and selects are full width inside the container */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+  }
+
+  .button-group {
+    display: flex;
+    gap: 0.5rem;
+    /* Reduced gap between buttons */
+  }
+
+  .sales-button {
+    padding: 0.5rem 0.7rem;
+    font-size: 16px;
+    /* Match your site's font size */
+  }
+
+}
