@@ -58,10 +58,10 @@ Planning to close in 30–90 days?" />
     </section>
 
     <section class="block-intro-secondary">
-      <p class="lineS">SMB OWNERS BUILD PREMIUM BUSINESSES.</p>
-      <p class="lineS">PRIVATE EQUITY NEEDS FULL NARRATIVES FOR PREMIUM MULTIPLE DEALS.</p>
+      <p class="lineS">SMB owners build premium businesses.</p>
+      <p class="lineS">Private Equity needs full narratives for premium multiple deals.</p>
       <br>
-      <p class="lineS">— NO PREP. = STUCK AT 3X. $500K+ LOST.</p>
+      <p class="lineS">— No Prep. = Stuck at 3X. €500K+ Lost.</p>
       <br>
 
       <section class="valuation-calculator">
@@ -80,7 +80,7 @@ Planning to close in 30–90 days?" />
             </select>
           </div>
 
-          <p style="font-size: 18px;" class="lineB">Annual Revenue (USD)</p>
+          <p style="font-size: 18px;" class="lineB">Annual Revenue (EUR)</p>
           <div class="button-group">
             <button class="sales-button lineS" data-value="100000">100K</button>
             <button class="sales-button lineS" data-value="500000">500K</button>
@@ -798,8 +798,8 @@ Planning to close in 30–90 days?" />
 
         // Format value for display
         const formattedGap = gapLow >= 1000000
-          ? `$${(gapLow / 1000000).toFixed(1)}M`
-          : `$${(gapLow / 1000).toFixed(0)}K`;
+          ? `€${(gapLow / 1000000).toFixed(1)}M`
+          : `€${(gapLow / 1000).toFixed(0)}K`;
         document.getElementById('value-gap').textContent = formattedGap;
 
         resultsDiv.style.display = 'flex'; // Show results
