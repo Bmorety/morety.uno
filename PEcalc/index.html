@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PE Deal Calculator with Leverage</title>
+    <style>
+        :root {
+            --color-background: #f5f5f5;
+            --color-surface: #ffffff;
+            --color-primary: #0070d2;
+            --color-text: #1f2121;
+            --color-text-secondary: #626c7c;
+            --color-green: #27ace0;
+            --color-red: #fd7075;
+            --color-border: #e5e7eb;
+            --color-blue: #156382;
+            --color-amber-bg: #fff3cd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--color-background);
+            color: var(--color-text);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin-bottom: 24px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--color-surface);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--color-border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 10px;
+        }
+
+        .subtle {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            margin-top: -6px;
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input[type="number"],
+        input[type="range"],
+        select {
+            padding: 10px 12px;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            background: var(--color-surface);
+            color: var(--color-text);
+        }
+
+        input[type="number"] {
+            flex: 1;
+            min-width: 130px;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            padding: 0;
+            height: 6px;
+            border: none;
+            appearance: none;
+            background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 100%);
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .value-display {
+            font-weight: 600;
+            color: var(--color-primary);
+            min-width: 68px;
+            text-align: right;
+            font-size: 14px;
+        }
+
+        .toggle-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--color-border);
+            background: var(--color-surface);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 200ms;
+            color: var(--color-text-secondary);
+        }
+
+        .toggle-btn.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .leverage-breakdown {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 12px;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .leverage-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            font-size: 13px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .leverage-item:last-child {
+            border-bottom: none;
+        }
+
+        .leverage-label {
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+
+        .leverage-value {
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(59, 130, 246, 0.10);
+            color: #1d4ed8;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .result-box {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .result-label {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .result-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+
+        .result-sub {
+            margin-top: 6px;
+            font-size: 12px;
+            color: var(--color-text-secondary);
+        }
+
+        .result-box.positive .result-value {
+            color: var(--color-green);
+        }
+
+        .result-box.negative .result-value {
+            color: var(--color-red);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            font-size: 13px;
+        }
+
+        .comparison-table th {
+            background: #f9fafb;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .comparison-table tr:hover {
+            background: #f9fafb;
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--color-text);
+            width: 46%;
+        }
+
+        .metric-value {
+            text-align: right;
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        .metric-value.hit-target {
+            color: var(--color-green);
+        }
+
+        .metric-value.miss-target {
+            color: var(--color-red);
+        }
+
+        .warn-row {
+            background: var(--color-amber-bg);
+        }
+
+        .note {
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>PE Deal Returns Calculator (with Leverage)</h1>
+
+        <div class="grid">
+            <!-- INPUTS PANEL -->
+            <div class="card">
+                <h2>Deal Assumptions</h2>
+                <div class="subtle">Exit EV is based on exit multiple × exit EBITDA (EBITDA grows regardless of debt;
+                    debt affects equity returns via interest + remaining principal).</div>
+
+                <div class="form-group">
+                    <label class="form-label">Current EBITDA ($)</label>
+                    <input type="number" id="ebitda" value="1000000" min="0" step="100000" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Annual EBITDA Growth Rate (%)</label>
+                    <div class="input-group">
+                        <input type="range" id="growthSlider" value="15" min="-20" max="60" step="1" />
+                        <span class="value-display" id="growthDisplay">15%</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Hold Period</label>
+                    <div class="toggle-group">
+                        <button class="toggle-btn active" onclick="setHoldPeriod(3)">3 Years</button>
+                        <button class="toggle-btn" onclick="setHoldPeriod(5)">5 Years</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Entry Multiple (x EBITDA)</label>
+                    <div class="input-group">
+                        <input type="range" id="entrySlider" value="6" min="2" max="14" step="0.25" />
+                        <span class="value-display" id="entryDisplay">6.00x</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Exit Multiple (x EBITDA)</label>
+                    <div class="input-group">
+                        <input type="range" id="exitSlider" value="8" min="2" max="14" step="0.25" />
+                        <span class="value-display" id="exitDisplay">8.00x</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Target IRR (%)</label>
+                    <div class="input-group">
+                        <input type="range" id="irrSlider" value="20" min="5" max="40" step="1" />
+                        <span class="value-display" id="irrDisplay">20%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FINANCING PANEL -->
+            <div class="card">
+                <h2>Financing & Debt Service</h2>
+                <div class="subtle">Debt model: interest paid yearly; any remaining cash is used to repay principal;
+                    remaining principal is repaid at exit (bullet).</div>
+
+                <div class="form-group">
+                    <label class="form-label">Debt / Purchase Price (%)</label>
+                    <div class="input-group">
+                        <input type="range" id="leverageSlider" value="0" min="0" max="80" step="5" />
+                        <span class="value-display" id="leverageDisplay">0%</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Interest Rate on Debt (%)</label>
+                    <div class="input-group">
+                        <input type="number" id="interestRateInput" value="6" min="0" max="25" step="0.25" />
+                        <span class="value-display" id="interestRateDisplay">6.00%</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Cash Available for Debt Service (% of EBITDA)</label>
+                    <div class="input-group">
+                        <input type="range" id="cashConvSlider" value="70" min="0" max="120" step="5" />
+                        <span class="value-display" id="cashConvDisplay">70%</span>
+                    </div>
+                    <div class="note">This is a simplified proxy for free cash flow after taxes/capex/working capital.
+                        Higher % means faster debt paydown and typically higher equity returns.</div>
+                </div>
+
+                <div class="leverage-breakdown" id="leverageBreakdown"></div>
+
+                <div
+                    style="margin-top: 12px; padding: 14px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid var(--color-blue);">
+                    <div class="form-label" style="color: #0369a1; margin-bottom: 8px;">Debt Service (Selected Hold)
+                    </div>
+                    <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+                        <div><span class="pill" id="annualInterestPill">Annual Interest: $0</span></div>
+                        <div><span class="pill" id="totalInterestPill">Total Interest: $0</span></div>
+                        <div><span class="pill" id="totalDebtServicePill">Total Debt Service: $0</span></div>
+                    </div>
+                    <div class="note" id="debtFeasibilityNote"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="card">
+            <h2>Results (Selected Hold)</h2>
+            <div class="results-grid" id="resultsGrid"></div>
+            <div class="note">IRR is computed from equity invested at entry to equity proceeds at exit (no interim
+                distributions). This is a simplified educational model, not investment advice.</div>
+        </div>
+
+        <!-- COMPARISON TABLE -->
+        <div class="card" style="margin-top: 30px;">
+            <h2>3-Year vs 5-Year Comparison</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th style="text-align:right;">3-Year Hold</th>
+                        <th style="text-align:right;">5-Year Hold</th>
+                    </tr>
+                </thead>
+                <tbody id="comparisonBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let holdPeriod = 3;
+
+        function setHoldPeriod(years) {
+            holdPeriod = years;
+            document.querySelectorAll('.toggle-btn').forEach((btn, idx) => {
+                btn.classList.toggle('active', (idx === 0 && years === 3) || (idx === 1 && years === 5));
+            });
+            calculate();
+        }
+
+        function getInputs() {
+            return {
+                ebitda: parseFloat(document.getElementById('ebitda').value) || 0,
+                growth: (parseFloat(document.getElementById('growthSlider').value) || 0) / 100,
+                entryMultiple: parseFloat(document.getElementById('entrySlider').value) || 0,
+                exitMultiple: parseFloat(document.getElementById('exitSlider').value) || 0,
+                targetIrr: (parseFloat(document.getElementById('irrSlider').value) || 0) / 100,
+                leverage: (parseFloat(document.getElementById('leverageSlider').value) || 0) / 100,
+                interestRate: (parseFloat(document.getElementById('interestRateInput').value) || 0) / 100,
+                cashConv: (parseFloat(document.getElementById('cashConvSlider').value) || 0) / 100
+            };
+        }
+
+        function formatCurrency(val) {
+            if (!isFinite(val)) return '—';
+            return '$' + Math.round(val).toLocaleString();
+        }
+
+        function formatPercent(val) {
+            if (!isFinite(val)) return '—';
+            return (val * 100).toFixed(1) + '%';
+        }
+
+        function formatMultiple(val) {
+            if (!isFinite(val)) return '—';
+            return val.toFixed(2) + 'x';
+        }
+
+        function safePow(base, exp) {
+            if (base <= 0) return NaN;
+            return Math.pow(base, exp);
+        }
+
+        function simulateLeveredEquity(inputs, years, entryPrice) {
+            const { ebitda, growth, exitMultiple, leverage, interestRate, cashConv } = inputs;
+
+            const debt0 = entryPrice * leverage;
+            const equity0 = entryPrice * (1 - leverage);
+
+            let debt = debt0;
+            let totalInterest = 0;
+            let totalPrincipal = 0;
+            let feasible = true;
+
+            // Debt service each year from a simplified cash flow proxy
+            for (let t = 1; t <= years; t++) {
+                const ebitda_t = ebitda * Math.pow(1 + growth, t); // EBITDA grows regardless of leverage
+                const cashAvail = Math.max(0, cashConv * ebitda_t);
+                const interest = debt * interestRate;
+
+                if (cashAvail < interest - 1e-9) {
+                    feasible = false;
+                    totalInterest += cashAvail; // whatever could be paid
+                    continue;
+                }
+
+                totalInterest += interest;
+                let remaining = cashAvail - interest;
+
+                const principalPay = Math.min(debt, remaining);
+                debt -= principalPay;
+                totalPrincipal += principalPay;
+            }
+
+            // Exit enterprise value
+            const exitEbitda = ebitda * Math.pow(1 + growth, years);
+            const exitEV = exitEbitda * exitMultiple;
+
+            // Equity proceeds at exit: EV - remaining debt
+            const equityProceeds = exitEV - debt;
+
+            if (!feasible) {
+                return {
+                    feasible,
+                    debt0,
+                    equity0,
+                    debtEnd: debt,
+                    exitEbitda,
+                    exitEV,
+                    totalInterest,
+                    totalPrincipal,
+                    totalDebtService: totalInterest + totalPrincipal,
+                    equityProceeds,
+                    moic: NaN,
+                    irr: -1
+                };
+            }
+
+            const moic = equity0 > 0 ? (equityProceeds / equity0) : NaN;
+            const irr = equity0 > 0 && moic > 0 ? (safePow(moic, 1 / years) - 1) : NaN;
+
+            return {
+                feasible,
+                debt0,
+                equity0,
+                debtEnd: debt,
+                exitEbitda,
+                exitEV,
+                totalInterest,
+                totalPrincipal,
+                totalDebtService: totalInterest + totalPrincipal,
+                equityProceeds,
+                moic,
+                irr
+            };
+        }
+
+        function simulateAllEquity(inputs, years, entryPrice) {
+            const { ebitda, growth, exitMultiple } = inputs;
+            const exitEbitda = ebitda * Math.pow(1 + growth, years);
+            const exitEV = exitEbitda * exitMultiple;
+            const moic = entryPrice > 0 ? (exitEV / entryPrice) : NaN;
+            const irr = entryPrice > 0 && moic > 0 ? (safePow(moic, 1 / years) - 1) : NaN;
+            return { exitEbitda, exitEV, moic, irr };
+        }
+
+        function findMaxEntryPriceAllEquity(inputs, years) {
+            const { targetIrr, ebitda, growth, exitMultiple } = inputs;
+            const exitEbitda = ebitda * Math.pow(1 + growth, years);
+            const exitEV = exitEbitda * exitMultiple;
+            const requiredMoic = Math.pow(1 + targetIrr, years);
+            return requiredMoic > 0 ? (exitEV / requiredMoic) : NaN;
+        }
+
+        function findMaxEntryPriceLevered(inputs, years) {
+            const { ebitda, leverage } = inputs;
+
+            if (leverage <= 0) return findMaxEntryPriceAllEquity(inputs, years);
+
+            let low = 0;
+            let high = Math.max(1, ebitda * 30);
+            const tol = 1;
+
+            for (let i = 0; i < 25; i++) {
+                const sim = simulateLeveredEquity(inputs, years, high);
+                if (!sim.feasible) break;
+                if (isFinite(sim.irr) && sim.irr < inputs.targetIrr) break;
+                high *= 1.5;
+            }
+
+            for (let iter = 0; iter < 80 && (high - low) > tol; iter++) {
+                const mid = (low + high) / 2;
+                const sim = simulateLeveredEquity(inputs, years, mid);
+                if (!sim.feasible || !isFinite(sim.irr) || sim.irr < inputs.targetIrr) {
+                    high = mid;
+                } else {
+                    low = mid;
+                }
+            }
+
+            return (low + high) / 2;
+        }
+
+        function calculateScenario(inputs, years) {
+            const entryPrice = inputs.ebitda * inputs.entryMultiple;
+
+            const allEq = simulateAllEquity(inputs, years, entryPrice);
+            const lev = simulateLeveredEquity(inputs, years, entryPrice);
+
+            const maxPriceAllEq = findMaxEntryPriceAllEquity(inputs, years);
+            const maxMultAllEq = inputs.ebitda > 0 ? (maxPriceAllEq / inputs.ebitda) : NaN;
+
+            const maxPriceLev = findMaxEntryPriceLevered(inputs, years);
+            const maxMultLev = inputs.ebitda > 0 ? (maxPriceLev / inputs.ebitda) : NaN;
+
+            return {
+                entryPrice,
+                exitEbitda: allEq.exitEbitda,
+                exitEV: allEq.exitEV,
+                allEq,
+                lev,
+                maxPriceAllEq,
+                maxMultAllEq,
+                maxPriceLev,
+                maxMultLev
+            };
+        }
+
+        function calculate() {
+            const inputs = getInputs();
+
+            // Update display values
+            document.getElementById('growthDisplay').textContent = (inputs.growth * 100).toFixed(0) + '%';
+            document.getElementById('entryDisplay').textContent = formatMultiple(inputs.entryMultiple);
+            document.getElementById('exitDisplay').textContent = formatMultiple(inputs.exitMultiple);
+            document.getElementById('irrDisplay').textContent = Math.round(inputs.targetIrr * 100) + '%';
+            document.getElementById('leverageDisplay').textContent = Math.round(inputs.leverage * 100) + '%';
+            document.getElementById('interestRateDisplay').textContent = (inputs.interestRate * 100).toFixed(2) + '%';
+            document.getElementById('cashConvDisplay').textContent = Math.round(inputs.cashConv * 100) + '%';
+
+            const sc = calculateScenario(inputs, holdPeriod);
+
+            // Financing breakdown
+            const debtAmt = sc.entryPrice * inputs.leverage;
+            const eqAmt = sc.entryPrice * (1 - inputs.leverage);
+
+            document.getElementById('leverageBreakdown').innerHTML = `
+        <div class="leverage-item"><span class="leverage-label">Purchase Price (EV ≈ Equity + Debt)</span><span class="leverage-value">${formatCurrency(sc.entryPrice)}</span></div>
+        <div class="leverage-item"><span class="leverage-label">Debt at Close</span><span class="leverage-value">${formatCurrency(debtAmt)}</span></div>
+        <div class="leverage-item"><span class="leverage-label">Equity at Close</span><span class="leverage-value">${formatCurrency(eqAmt)}</span></div>
+        <div class="leverage-item"><span class="leverage-label">Debt Remaining at Exit (Selected Hold)</span><span class="leverage-value">${formatCurrency(sc.lev.debtEnd)}</span></div>
+      `;
+
+            // Debt service pills for selected hold
+            const annualInterestApprox = debtAmt * inputs.interestRate;
+            document.getElementById('annualInterestPill').textContent = `Annual Interest (Yr 1, approx): ${formatCurrency(annualInterestApprox)}`;
+            document.getElementById('totalInterestPill').textContent = `Total Interest (${holdPeriod} yrs): ${formatCurrency(sc.lev.totalInterest)}`;
+            document.getElementById('totalDebtServicePill').textContent = `Total Debt Service: ${formatCurrency(sc.lev.totalDebtService)}`;
+
+            const note = document.getElementById('debtFeasibilityNote');
+            if (inputs.leverage > 0 && !sc.lev.feasible) {
+                note.textContent = 'Not feasible: under the cash-conversion assumption, operating cash does not cover interest in at least one year.';
+                note.style.color = 'var(--color-red)';
+                note.style.marginTop = '10px';
+            } else {
+                note.textContent = inputs.leverage > 0 ? 'Feasible: interest covered each year under the cash-conversion assumption.' : 'No debt: debt service is $0.';
+                note.style.color = 'var(--color-text-secondary)';
+                note.style.marginTop = '10px';
+            }
+
+            // Results grid
+            const meetsTargetAll = isFinite(sc.allEq.irr) && sc.allEq.irr >= inputs.targetIrr;
+            const meetsTargetLev = isFinite(sc.lev.irr) && sc.lev.irr >= inputs.targetIrr;
+
+            document.getElementById('resultsGrid').innerHTML = `
+        <div class="result-box">
+          <div class="result-label">Exit EBITDA (Year ${holdPeriod})</div>
+          <div class="result-value">${formatCurrency(sc.exitEbitda)}</div>
+          <div class="result-sub">EBITDA0 × (1+g)^N</div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Exit Enterprise Value</div>
+          <div class="result-value">${formatCurrency(sc.exitEV)}</div>
+          <div class="result-sub">Exit EBITDA × Exit Multiple</div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Entry Price</div>
+          <div class="result-value">${formatCurrency(sc.entryPrice)}</div>
+          <div class="result-sub">EBITDA0 × Entry Multiple</div>
+        </div>
+
+        <div class="result-box ${meetsTargetAll ? 'positive' : 'negative'}">
+          <div class="result-label">IRR (All-Equity)</div>
+          <div class="result-value">${formatPercent(sc.allEq.irr)}</div>
+          <div class="result-sub">MOIC: ${formatMultiple(sc.allEq.moic)}</div>
+        </div>
+        <div class="result-box ${meetsTargetLev ? 'positive' : 'negative'}">
+          <div class="result-label">IRR (With Debt)</div>
+          <div class="result-value">${formatPercent(sc.lev.irr)}</div>
+          <div class="result-sub">MOIC: ${formatMultiple(sc.lev.moic)} | Debt end: ${formatCurrency(sc.lev.debtEnd)}</div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Total Debt Service</div>
+          <div class="result-value">${formatCurrency(sc.lev.totalDebtService)}</div>
+          <div class="result-sub">Interest: ${formatCurrency(sc.lev.totalInterest)} | Principal: ${formatCurrency(sc.lev.totalPrincipal)}</div>
+        </div>
+
+        <div class="result-box">
+          <div class="result-label">Max Entry Multiple (All-Equity)</div>
+          <div class="result-value">${formatMultiple(sc.maxMultAllEq)}</div>
+          <div class="result-sub">Hits target IRR assuming no debt</div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Max Entry Multiple (With Debt)</div>
+          <div class="result-value">${formatMultiple(sc.maxMultLev)}</div>
+          <div class="result-sub">Hits target IRR after interest & debt remaining</div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Multiple impact (Debt − All-Equity)</div>
+          <div class="result-value">${isFinite(sc.maxMultAllEq) && isFinite(sc.maxMultLev) ? formatMultiple(sc.maxMultLev - sc.maxMultAllEq) : '—'}</div>
+          <div class="result-sub">More negative = debt reduces max payable multiple more</div>
+        </div>
+      `;
+
+            // Comparison table
+            const sc3 = calculateScenario(inputs, 3);
+            const sc5 = calculateScenario(inputs, 5);
+
+            document.getElementById('comparisonBody').innerHTML = `
+        <tr>
+          <td class="metric-name">Exit EBITDA</td>
+          <td class="metric-value">${formatCurrency(sc3.exitEbitda)}</td>
+          <td class="metric-value">${formatCurrency(sc5.exitEbitda)}</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Exit Enterprise Value</td>
+          <td class="metric-value">${formatCurrency(sc3.exitEV)}</td>
+          <td class="metric-value">${formatCurrency(sc5.exitEV)}</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Total Interest Paid</td>
+          <td class="metric-value">${formatCurrency(sc3.lev.totalInterest)}</td>
+          <td class="metric-value">${formatCurrency(sc5.lev.totalInterest)}</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Total Principal Repaid</td>
+          <td class="metric-value">${formatCurrency(sc3.lev.totalPrincipal)}</td>
+          <td class="metric-value">${formatCurrency(sc5.lev.totalPrincipal)}</td>
+        </tr>
+        <tr class="warn-row">
+          <td class="metric-name">Total Debt Service (Interest + Principal)</td>
+          <td class="metric-value">${formatCurrency(sc3.lev.totalDebtService)}</td>
+          <td class="metric-value">${formatCurrency(sc5.lev.totalDebtService)}</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Debt Remaining at Exit</td>
+          <td class="metric-value">${formatCurrency(sc3.lev.debtEnd)}</td>
+          <td class="metric-value">${formatCurrency(sc5.lev.debtEnd)}</td>
+        </tr>
+        <tr>
+          <td class="metric-name">IRR (All-Equity) at current entry multiple</td>
+          <td class="metric-value ${isFinite(sc3.allEq.irr) && sc3.allEq.irr >= inputs.targetIrr ? 'hit-target' : 'miss-target'}">${formatPercent(sc3.allEq.irr)}</td>
+          <td class="metric-value ${isFinite(sc5.allEq.irr) && sc5.allEq.irr >= inputs.targetIrr ? 'hit-target' : 'miss-target'}">${formatPercent(sc5.allEq.irr)}</td>
+        </tr>
+        <tr>
+          <td class="metric-name">IRR (With Debt) at current entry multiple</td>
+          <td class="metric-value ${isFinite(sc3.lev.irr) && sc3.lev.irr >= inputs.targetIrr ? 'hit-target' : 'miss-target'}">${formatPercent(sc3.lev.irr)}</td>
+          <td class="metric-value ${isFinite(sc5.lev.irr) && sc5.lev.irr >= inputs.targetIrr ? 'hit-target' : 'miss-target'}">${formatPercent(sc5.lev.irr)}</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Max Entry Multiple (All-Equity) to hit target IRR</td>
+          <td class="metric-value">${formatMultiple(sc3.maxMultAllEq)}</td>
+          <td class="metric-value">${formatMultiple(sc5.maxMultAllEq)}</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Max Entry Multiple (With Debt) to hit target IRR</td>
+          <td class="metric-value">${formatMultiple(sc3.maxMultLev)}</td>
+          <td class="metric-value">${formatMultiple(sc5.maxMultLev)}</td>
+        </tr>
+        <tr class="warn-row">
+          <td class="metric-name"><strong>Multiple impact (Debt − All-Equity)</strong></td>
+          <td class="metric-value"><strong>${isFinite(sc3.maxMultAllEq) && isFinite(sc3.maxMultLev) ? formatMultiple(sc3.maxMultLev - sc3.maxMultAllEq) : '—'}</strong></td>
+          <td class="metric-value"><strong>${isFinite(sc5.maxMultAllEq) && isFinite(sc5.maxMultLev) ? formatMultiple(sc5.maxMultLev - sc5.maxMultAllEq) : '—'}</strong></td>
+        </tr>
+      `;
+        }
+
+        // Listeners
+        document.getElementById('ebitda').addEventListener('input', calculate);
+        document.getElementById('growthSlider').addEventListener('input', calculate);
+        document.getElementById('entrySlider').addEventListener('input', calculate);
+        document.getElementById('exitSlider').addEventListener('input', calculate);
+        document.getElementById('irrSlider').addEventListener('input', calculate);
+        document.getElementById('leverageSlider').addEventListener('input', calculate);
+        document.getElementById('interestRateInput').addEventListener('input', calculate);
+        document.getElementById('cashConvSlider').addEventListener('input', calculate);
+
+        calculate();
+    </script>
+    <script>
+        function checkPassword() {
+            // Create a div for the password prompt
+            const passwordPrompt = document.createElement("div");
+            passwordPrompt.style.position = "fixed";
+            passwordPrompt.style.top = "0";
+            passwordPrompt.style.left = "0";
+            passwordPrompt.style.width = "100%";
+            passwordPrompt.style.height = "100%";
+            passwordPrompt.style.backgroundColor = "rgba(255, 255, 255, 1)";
+            passwordPrompt.style.display = "flex";
+            passwordPrompt.style.justifyContent = "center";
+            passwordPrompt.style.alignItems = "center";
+            passwordPrompt.style.zIndex = "1000";
+
+            // Create the password input and button
+            const inputHTML = `
+        <div style="text-align: center; font-size: 1.5em;">
+            <h2 style="font-size: 1.5em;">Please enter the password to access PEcalc:</h2>
+            <input type="password" id="passwordInput" style="font-size: 1em;" />
+            <button id="submitPassword" padding="5px" style="font-size: 1em;">Submit</button>
+        </div>
+        `;
+            passwordPrompt.innerHTML = inputHTML;
+            document.body.appendChild(passwordPrompt);
+
+            // Button click event
+            document.getElementById("submitPassword").onclick = function () {
+                const enteredPassword = document.getElementById("passwordInput").value;
+                if (enteredPassword === "MoretyBruno") {
+                    passwordPrompt.remove(); // Remove the password prompt
+                } else {
+                    alert("Incorrect password!");
+                    window.location.href = "https://morety.uno"; // Redirect to your main website or any other page
+                }
+            };
+
+            // Add event listener for "keydown" to the password input
+            document.getElementById("passwordInput").addEventListener("keydown", function (event) {
+                if (event.key === "Enter") {
+                    // Trigger the button click
+                    document.getElementById("submitPassword").click();
+                }
+            });
+        }
+
+        // Call the password check function on page load
+        window.onload = checkPassword;
+    </script>
+
+</body>
+
+</html>
