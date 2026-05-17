@@ -3,811 +3,628 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Morety.uno| Exit Prep for SMB Owners</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <!-- Primary -->
+  <title>Bruno Morety | Financial Narratives for Founders</title>
+  <meta name="description"
+    content="I help Series A/B founders turn their financial data into the story that gets their next round done. Based in Munich." />
+  <meta name="author" content="Bruno Morety" />
+  <link rel="canonical" href="https://morety.uno" />
+
+  <!-- Open Graph (LinkedIn, Facebook, WhatsApp) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://morety.uno" />
+  <meta property="og:site_name" content="Bruno Morety" />
+  <meta property="og:title" content="Bruno Morety | Financial Narratives for Founders" />
+  <meta property="og:description"
+    content="I help Series A/B founders turn their financial data into the story that gets their next round done. Based in Munich." />
+  <meta property="og:image" content="https://morety.uno/favicon.jpg" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bruno Morety | Financial Narratives for Founders" />
+  <meta name="twitter:description"
+    content="I help Series A/B founders turn their financial data into the story that gets their next round done. Based in Munich." />
+  <meta name="twitter:image" content="https://morety.uno/favicon.jpg" />
+
+  <!-- Browser chrome -->
+  <meta name="theme-color" content="#0049D1" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=2" />
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
-  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
 
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css?v=15" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-  <meta name="description" content="Get Paid at a Premium:
-For business owners preparing an exit or raise with private equity investors.​
-Best for sub-$5M deal value businesses.
-Planning to close in 30–90 days?" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="favicon.jpg" />
+  <link rel="apple-touch-icon" href="favicon.jpg" />
 </head>
 
 <body>
-  <!-- Sticky logo -->
-  <a class="logo-wrap" href="#top" aria-label="Home">
-    <img class="logo" src="images/logo.png" alt="BM logo" />
-  </a>
 
-  <!-- Fixed quick-links (bottom-left, always present) -->
-  <nav class="quick-links" aria-label="Quick links">
-    <a href="https://tidycal.com/bmorety/discovery" target="_blank" rel="noopener">Book a Call</a>
-    <a href="mailto:bruno@morety.uno" target="_blank" target="_blank" rel="noopener"> Email</a>
-    <a href="https://www.linkedin.com/in/brunomorety/" target="_blank" rel="noopener">LinkedIn</a>
-  </nav>
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
 
-  <main id="top" class="page" role="main">
-    <!-- Title & subtitle (animated, centered) -->
-    <section class="block-intro">
-      <h1 class="xl" id="titleText">Get Paid at a Premium ⇲</h1>
-      <!-- <h1 class="xl" id="titleText">Private Equity Standards ⇲</h1>-->
-      <p class="line subtitle" id="subtitleText">
-        <strong>For owners preparing an exit or raise with private equity investors.</strong>
-        ​<br>
-        <em>Best for sub-$5M deal value businesses.</em>
-        <br><br>
-        <strong>
-          Planning to close in 30–90 days?
-          <a href="https://tidycal.com/bmorety/discovery" target="_blank" rel="noopener"> 📅 Book a
-            Call</a></strong>
-      </p>
-    </section>
-
-    <section class="block-intro-secondary">
-      <p class="lineS">SMB owners build premium businesses.</p>
-      <p class="lineS">Private Equity needs full narratives for premium multiple deals.</p>
-      <br>
-      <p class="lineS">— No Prep. = Stuck at 3X. €500K+ Lost.</p>
-      <br>
-
-      <section class="valuation-calculator">
-        <div class="sales-input">
-          <p style="margin-bottom: -6px;" class="lineB">No‑Prep Penalty Calculator</p>
-          <p style="font-size: 14px;" class="lineB">Select your industry + revenue band. See the price of skipping
-            preparation.
-          </p>
-          <br>
-          <div class="industry-selection">
-            <p style="font-size: 18px;" class="lineB">Industry</p>
-            <select id="industry-select" class="line2">
-              <option style="font-size: 18px;" class="line2" value="">Choose an industry
-              </option>
-              <!-- Industry options will be dynamically generated -->
-            </select>
-          </div>
-
-          <p style="font-size: 18px;" class="lineB">Annual Revenue (EUR)</p>
-          <div class="button-group">
-            <button class="sales-button lineS" data-value="100000">100K</button>
-            <button class="sales-button lineS" data-value="500000">500K</button>
-            <button class="sales-button lineS" data-value="1000000">1M</button>
-            <button class="sales-button lineS" data-value="5000000">5M</button>
-            <button class="sales-button lineS" data-value="10000000">10M</button>
-          </div>
-          <br>
-          <small class="disclaimer lineS">No data is stored or shared.<br>Estimates use industry-average EBITDA margins
-            and
-            baseline vs premium valuation multiples.</small>
-        </div>
-
-        <div class="results" style="display: none;">
-          <br>
-          <p class="lineB">Potential Value Left On The Table</p>
-          <p style="font-size: 46px;" class="lineB" id="value-gap"></p>
-          <strong>
-            <p class="line2">— here’s how you can prepare.
-            </p>
-          </strong>
-          <a href="#framework" style="font-size: 18px;" class="cta-button">See xMultiple Sprint</a>
-          <small class="disclaimer lineS">Directional estimate using industry benchmarks. Reference only—not a
-            guarantee.
-          </small>
-        </div>
-      </section>
-
-      <!-- Full-width hero image below the hero 
-      <div class="hero-strip">
-        <img src="images/hero_investor_narrative.png"
-          alt="Boardroom image representing the communication gap between founders and investors">
-      </div>-->
-    </section>
-
-    <!-- Accordion sections (all closed by default) -->
-    <details class="block acc" id="gap">
-      <summary><span class="num">00.</span> The Valuation Gap</summary>
-      <br>
-      <div class="content gap-two-columns">
-        <div class="gap-image">
-          <img src="images/communication_gap.jpg"
-            alt="Boardroom symbolizing the communication gap between financial data and investor narrative">
-        </div>
-        <div class="gap-text">
-          <p class="lineB">
-            SMB owners build solid, cash‑flowing businesses.<br>PE doesn’t always see the full value.<br>— most
-            deals end up lowballed.
-          </p>
-          <br>
-          <p class="kicker">WHERE VALUE‑BUILDERS GET UNDERPRICED:</p>
-
-          <p class="line2"><strong>STRONG PERFORMANCE, UNDERPREPARED POSITIONING.</strong></p>
-          <p class="line2">
-            You thrive in daily ops metrics that prove execution;<br>but alone, they don't do justice to your business
-            value.
-
-          </p>
-          <br>
-          <p class="line2"><strong>NO ONE PACKAGES YOUR VALUE END-TO-END.</strong></p>
-          <p class="line2">
-            You're busy building ops, running dashboards.<br>
-            But no one builds PE-ready models, docs, and narratives.<br>— value stays trapped.
-          </p>
-          <br>
-          <p class="line2"><strong>POSITIONING MAKES OR BREAKS YOUR DEAL.</strong></p>
-          <p class="line2">
-            Good numbers get you in the room.<br>But if your value isn’t packaged and defensible,<br>buyers smell risk
-            and discount it — fast.
-            <br>
-          </p>
-          <br>
-          <p class="line"><strong>PE moves fast and set multiples early.
-              <br>Show up unprepared, and you’re priced like everyone else.
-              <br>— show up positioned, and you get paid.</strong></p>
-        </div>
-      </div>
-    </details>
-
-    <details class="block acc" id="framework">
-      <summary><span class="num">01.</span>The xMultiple Sprint</summary>
-      <br>
-      <div class="content sprint-two-columns">
-        <div class="sprint-image">
-          <img src="images/investor_narrative_sprint.jpg" alt="Visual outline of the 15-day investor narrative sprint">
-        </div>
-
-        <div class="sprint-text">
-          <p class="lineB">
-            A focused sprint to make your business PE‑ready.<br>Defend a premium multiple for your deal.
-          </p>
-          <br>
-          <p class="kicker"><strong>Who is it for</strong></p>
-          <p class="line2">
-            <strong>Sub‑$5M deal value. </strong> Profitable, cash‑flowing.<br>
-            <strong>SaaS, eCommerce, B2B services, productized platforms</strong> and similar.<br>
-            Owners planning an <strong>exit or raise in the next 30 to 90 days.</strong>
-          </p>
-          <br>
-          <p class="kicker"><strong>What you walk away with</strong></p>
-          <p class="line2">
-            <strong>Financial Model:</strong> Normalized + defensible projection PE can underwrite.
-          </p>
-          <p class="line2">
-            <strong>Narrative Map:</strong> The value + risk story buyers need to get to “yes.”
-          </p>
-          <p class="line2">
-            <strong>Deal Deck:</strong> A clean deck built for review, diligence, and negotiation.
-          </p>
-          <br>
-          <p class="kicker"><strong>How the sprint runs</strong></p>
-          <p class="line2">
-            <strong>Phase 1: Financial Deep Dive.</strong> <br>
-            Normalize EBITDA, surface value drivers, and quantify risk.
-          </p>
-          <p class="line2">
-            <strong>Phase 2: Build the Narrative Hook.</strong><br>
-            Turn your numbers into a buyer-grade storyline: why it’s solid, why now.
-          </p>
-          <p class="line2">
-            <strong>Phase 3: Deal Materials.</strong><br>
-            Package it into a PE‑ready deck and talking points you can use in every call.
-          </p>
-          <br>
-          <p class="line">
-            <strong>High‑touch, limited slots — because leaving money on the table is the most expensive way to exit.
-            </strong>
-          </p>
-        </div>
-      </div>
-    </details>
-
-
-    <details class="block acc" id="proof">
-      <summary><span class="num">02.</span> 3 Deal Bottlenecks</summary>
-      <br>
-      <p class="lineB" style="margin-left: 2rem;">
-        Representative scenarios<br>Same full‑stack sprint —focus shifts by deal.
-      </p>
-      <div class="content proof-three-columns">
-        <div class="proof-card">
-          <!--<img src="images/proof-of-concept/bruno_pitch_deck_slide1.jpg"
-            alt="First slide of Bruno Morety's financial narrative pitch deck"> -->
-          <p class="line"><strong>eCommerce<br>No Clear EBITDA</strong></p>
-          <p class="line2">
-            <strong>Revenue looks solid. Earnings are a guess.</strong>
-            <br>You know your sales.<br>Your spreadsheets are chaos.<br>Buyers can't audit EBITDA—so they won't
-            price it. — Default discount applied.
-            <br><br><strong>The Sprint focus:</strong><br>
-            Normalize earnings. Build a model PE can underwrite.
-            <br>Suddenly there's a number to negotiate from.
-          </p>
-          <p class="kicker">Always full stack.<br>Different bottleneck.
-          </p>
-        </div>
-
-        <!-- Column 2: Bankruptcy Reset Case Study -->
-        <div class="proof-card">
-          <!--  <img src="images/proof-of-concept/bankruptcy_reset_slide1.jpg"
-            alt="Case study slide: bankruptcy reset narrative">-->
-          <p class="line"><strong>B2B Service<br>Owner‑Dependent Ops
-            </strong></p>
-          <p class="line2">
-            <strong>The business is real. But you're in it.</strong>
-            <br>You've crushed execution.<br>Playbooks live in your head.<br>Buyers see key‑person risk—and price
-            transition at a discount.
-            <br><br><strong>The Sprint focus:</strong><br>
-            Surface team + org structure. Map KPIs that run independent of you.
-            <br>Define the playbook plan. Package it into a credible risk narrative.
-          </p>
-          <p class="kicker">Always full stack.<br>Different bottleneck.
-          </p>
-        </div>
-
-        <!-- Column 3: Startup Due Diligence Case Study -->
-        <div class="proof-card">
-          <!-- <img src="images/proof-of-concept/startup_fundraise_slide1.jpg"
-            alt="Case study slide: startup due diligence narrative">-->
-          <p class="line"><strong>SaaS<br>Crowded Market, Baseline Multiple
-            </strong></p>
-          <p class="line2">
-            <strong>Strong metrics. But so does everyone else.</strong>
-            <br>In a commodity market, you're priced like one.<br>Stuck at 3x when the market pays 5–6x for the right
-            story.
-
-            <br><br><strong>The Sprint focus:</strong><br>
-            Surface the real value drivers. Frame the narrative.
-            <br>Diferenciate: baseline offer vs.Defend the premium multiple.
-          </p>
-          <p class="kicker">Always full stack.<br>Different bottleneck.
-          </p>
-        </div>
-      </div>
-    </details>
-
-    <details class="block acc" id="about">
-      <summary><span class="num">03.</span> About</summary>
-      <div class="content">
-
-        <div class="about-grid">
-          <!-- Left: portrait + name line -->
-          <div class="about-left">
-            <img src="images/about-portrait2.png" alt="Bruno Morety — Exit preparation partner." class="about-photo">
-            <p class="kicker"><strong>Bruno Morety</strong> – Exit preparation partner (EU).
-            </p>
-          </div>
-
-          <!-- Right: three points stacked -->
-          <div class="about-right stack-grid">
-            <p class="lineB">Corporate Finance turned<br>Exit Preparation Partner.</p>
-            <div>
-              <p class="kicker">Why owners work with me for premium exit multiples:</p>
-              <p class="line2"><strong>Corporate Finance Rigor</strong></p>
-              <p class="line2">5+ years in corporate finance.<br>I translate operator numbers into buyer-grade
-                clarity.</p><br>
-              <p class="line2"><strong>Narrative & Risk Framing</strong></p>
-              <p class="line2">Value drivers, risk answers,<br>and a clean “why pay a premium” case.
-              </p><br>
-              <p class="line2"><strong>Deal Materials + Negotiation Prep</strong></p>
-              <p class="line2">Tight materials for review and diligence,<br>plus prep to defend your price in the
-                room.
-              </p>
-              <br><br>
-              <p class="line"><strong>You run the business.<br>I’ll make the case for the premium multiple.
-                </strong></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </details>
-
-
-
-
-    <details class="block acc" id="action">
-      <summary><span class="num">04.</span> Get in Touch</summary>
-      <div class="content">
-        <div class="cta-grid">
-          <!-- Left: image (top on mobile) -->
-          <div>
-            <img src="images/contact-pitch.jpg" alt="Private Equity deal preparation" class="cta-image">
-          </div>
-
-          <!-- Right: urgency + value-first CTAs -->
-          <div>
-            <p class="lineB">Preparing an exit or raise with private equity buyers — but too busy running the business
-              to prepare properly?<br>Planning your deal in the next 30–90 days?</p>
-            <br>
-            <p class="line2">Don’t let your business get priced at a baseline 3x because the case wasn’t prepared.
-              Let's talk today.</p>
-            <br>
-            <p class="line2">Free 30‑minute diagnostic — we’ll review your timeline and pinpoint the multiple uplift
-              opportunity.</p>
-            <br>
-
-            <!-- Three value-first CTAs -->
-            <div style="display:flex;flex-direction:column;gap:1rem;">
-              <p class="line2">
-                <a href="https://tidycal.com/bmorety/discovery" target="_blank" rel="noopener"><strong>📅 Free 30min
-                    diagnostic call</strong></a>
-              </p>
-              <p class="line2">
-                <a href="mailto:bruno@morety.uno" target="_blank"><strong>✉️ Email: bruno@morety.uno</strong></a>
-              </p>
-              <p class="line2">
-                <a href="https://www.linkedin.com/in/brunomorety" target="_blank" rel="noopener"><strong>💼 DM on
-                    LinkedIn</strong></a>
-              </p>
-            </div>
-
-            <br>
-            <p class="line"><strong>Let’s build the premium 6x+ story buyers can underwrite.</strong></p>
-          </div>
-        </div>
-      </div>
-    </details>
-
-
-    <!--
-    <details class="block acc" id="voice">
-      <summary><span class="num">06.</span> Voice & Tone | Guardrails</summary>
-      <div class="content">
-        <p>One idea per line — Short. Clear. Useful.</p>
-        <p>Unapologetic — never unkind.</p>
-        <p>Urban before everything else.</p>
-        <p>Write to be cited — Not applauded.</p>
-        <p>Show — Don’t boast.</p>
-        <p>Ship weekly.</p>
-      </div>
-    </details>
-     -->
-    <br>
-  </main>
-
-
-
-  <!-- Sticky footer (bottom-right) -->
-  <footer class="foot">
-    © <span id="year"></span> Bruno Morety
-    <!-- Legal & Privacy links (opens in new tabs) -->
-    <nav class="footer-legal" aria-label="Legal and privacy links">
-      <nav class="footer-legal" aria-label="Legal and privacy links">
-        <a href="/legal.html" target="_blank" rel="noopener noreferrer" title="LEGAL NOTICE (Impressum)"
-          aria-label="Legal notice — Impressum">
-          Impressum
-        </a>
-
-        <span class="sep">·</span>
-
-        <a href="/privacy.html" target="_blank" rel="noopener noreferrer" title="PRIVACY POLICY (Datenschutzerklärung)"
-          aria-label="Privacy policy — Datenschutzerklärung">
-          Datenschutzerklärung
-        </a>
-      </nav>
+  <!-- ═══ NAV ══════════════════════════════════════════════════════ -->
+  <header class="nav" id="mainNav" role="banner">
+    <a class="nav-brand" href="#hero" aria-label="Bruno Morety — Home">
+      <img class="nav-logo" src="logocorto.png" alt="Bruno Morety" />
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#gap" class="hide-mobile">The Narrative Gap</a>
+      <a href="#brief" class="hide-mobile">Finance Brief</a>
+      <a href="#engagements" class="hide-mobile">Engagements</a>
+      <a href="#contact" class="nav-cta">Book a Call →</a>
     </nav>
+  </header>
 
+  <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-inner">
+
+        <div class="hero-eyebrow reveal">
+          <span class="hero-eyebrow-line"></span>
+          <span class="hero-eyebrow-text">The Finance Brief™ · Series A/B Founders</span>
+        </div>
+
+        <h1 class="hero-title reveal">
+          <span class="hero-static">Financial Narratives for founders with </span><span class="hero-rotating"
+            id="rotatingPhrase">no financial signal your team can act on.</span>
+        </h1>
+
+        <p class="hero-thought reveal" id="rotatingThought" style="display:none">Every team is working hard. Just not toward the same story.
+        </p>
+
+        <p class="hero-sub reveal">
+          Turn your financials from anxiety into a leadership tool.<br>Munich. Europe.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a class="cta-circle" href="#contact" id="heroBookBtn" aria-label="Book a diagnostic call">
+            <span class="cta-circle-arrow">↗</span>
+            <span>Book a<br>Call</span>
+          </a>
+          <a class="hero-meta" href="mailto:bruno@morety.uno">or write directly → bruno@morety.uno</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PAIN ══════════════════════════════════════════════════════ -->
+  <section id="pain">
+    <div class="container">
+      <div class="pain-inner">
+        <p class="pain-lead reveal-left">A quick gut check.</p>
+        <div class="pain-questions">
+          <p class="pain-question reveal-left" style="transition-delay:0s">If you asked your board to recap last quarter — would they say exactly what you said?</p>
+          <p class="pain-question reveal-left" style="transition-delay:0.15s">Does your team know which KPIs to move this quarter — and what moving them actually means?</p>
+          <p class="pain-question reveal-left" style="transition-delay:0.3s">Can you tell your next investor exactly which numbers their capital will move — and by how much?</p>
+        </div>
+        <p class="pain-closing reveal" style="transition-delay:0.15s">Uncomfortable? That's the gap.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ THE NARRATIVE GAP ════════════════════════════════════════ -->
+  <section id="gap">
+    <div class="container">
+
+      <div class="gap-header reveal">
+        <div class="section-label">
+          <span class="section-label-line"></span>
+          <span class="label">The Narrative Gap</span>
+        </div>
+        <h2>Talking is not communicating.<br>Spreadsheets are not finance.</h2>
+        <p>Having the data isn't the problem.<br>Not knowing how to make it work for you is.</p>
+      </div>
+
+      <div class="gap-grid">
+
+        <div class="gap-card reveal">
+          <div class="gap-card-num">01</div>
+          <div class="gap-card-title">Your finance tracks. It doesn't lead.</div>
+          <p class="gap-card-body">Reporting tells you where you've been. Leadership finance tells your team where to go. Right now, you probably only have one.</p>
+        </div>
+
+        <div class="gap-card reveal">
+          <div class="gap-card-num">02</div>
+          <div class="gap-card-title">Unintentional finance messaging creates doubt.</div>
+          <p class="gap-card-body">When no one owns the financial message, it doesn't disappear — it gets filled in. Your team fills the gaps with assumptions. Your board with skepticism. Your investors with doubt.</p>
+        </div>
+
+        <div class="gap-card reveal">
+          <div class="gap-card-num">03</div>
+          <div class="gap-card-title">Finance is the final test.</div>
+          <p class="gap-card-body">When your financial narrative is clear, it becomes the hardest argument to challenge. Not because the numbers are perfect — but because the story around them is. That's what puts you in control of the conversation.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATEMENT ═════════════════════════════════════════════════ -->
+  <div class="statement-section">
+    <div class="container">
+      <div class="statement-text" id="statementText">
+        <span class="line-reveal"><span class="line-reveal-inner gradient-text">Finance your team acts on.</span></span>
+        <span class="line-reveal"><span class="line-reveal-inner gradient-text">Your board believes in.</span></span>
+        <span class="line-reveal"><span class="line-reveal-inner gradient-text">Your investors fund.</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ THE FINANCE BRIEF ════════════════════════════════════════ -->
+  <section id="brief">
+    <div class="container">
+
+      <div class="brief-header reveal">
+        <div class="section-label">
+          <span class="section-label-line"></span>
+          <span class="label">The Framework · 4 weeks</span>
+        </div>
+        <h2 class="brief-title">The Finance Brief.</h2>
+        <p class="brief-sub">I get into your business — your numbers, your challenges, your gaps. The financial foundation your whole company communicates from.</p>
+      </div>
+
+      <div class="accordion-list" role="list">
+
+        <div class="accordion-item reveal" role="listitem">
+          <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+            <span class="accordion-number">01</span>
+            <div class="accordion-title-group">
+              <span class="accordion-title">Excavate.</span>
+              <span class="accordion-teaser">You know your business better than anyone. No prep needed — I ask the questions that surface what matters most.</span>
+            </div>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <p class="accordion-session">Week 1 · Discovery Meeting · 60 min</p>
+              <ul class="accordion-what">
+                <li>No preparation needed — you know your business better than any deck could show</li>
+                <li>I dig deep and ask the questions that surface what's actually going on</li>
+                <li>Spreadsheets come after — you send them post-meeting for my review</li>
+              </ul>
+              <div class="accordion-outcome">
+                <span class="outcome-tag">What this unlocks</span>
+                <p class="outcome-text">The foundation of the entire engagement — surfaced in a single conversation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal" role="listitem">
+          <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+            <span class="accordion-number">02</span>
+            <div class="accordion-title-group">
+              <span class="accordion-title">Architect.</span>
+              <span class="accordion-teaser">I adapt the framework to your business — async. This is where the material gets built.</span>
+            </div>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <p class="accordion-session">Weeks 2–4 · Async Work</p>
+              <ul class="accordion-what">
+                <li>Your Financial Identity — the narrative logic of your business, built from your actual numbers</li>
+                <li>Your Metrics That Matter — 4–6 numbers defined, contextualized, and framed per audience</li>
+                <li>Your Audience Map — how the message shifts for your team, your board, and your investors</li>
+              </ul>
+              <div class="accordion-outcome">
+                <span class="outcome-tag">What this unlocks</span>
+                <p class="outcome-text">The structured foundation your whole company communicates from — not just for fundraising, but for every conversation you have.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal" role="listitem">
+          <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+            <span class="accordion-number">03</span>
+            <div class="accordion-title-group">
+              <span class="accordion-title">Deliver.</span>
+              <span class="accordion-teaser">We meet again. I walk you through everything — what was built and how to use it.</span>
+            </div>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <p class="accordion-session">Final Meeting · 90 min</p>
+              <ul class="accordion-what">
+                <li>Financial Narrative Document — written, sharp, yours</li>
+                <li>2–3 Messaging Templates — reusable structures for investor updates, board prep, and team communications</li>
+                <li>Talking points calibrated for every audience</li>
+                <li>Your 60-second financial summary — rehearsed and owned</li>
+              </ul>
+              <div class="accordion-outcome">
+                <span class="outcome-tag">What you walk away with</span>
+                <p class="outcome-text">Four deliverables. Ready to use from day one — in every conversation, with every audience.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="brief-cta-row reveal">
+        <a class="engagement-cta" href="#contact" id="briefCta">Start with the Finance Brief →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ ENGAGEMENTS ══════════════════════════════════════════════ -->
+  <section id="engagements">
+    <div class="container">
+
+      <div class="engagements-header reveal">
+        <div class="section-label">
+          <span class="section-label-line"></span>
+          <span class="label">Engagements</span>
+        </div>
+        <h2>Built for the long game.<br>How we keep working together.</h2>
+        <p class="engagements-sub">Your business evolves. The narrative should too.</p>
+      </div>
+
+      <div class="engagements-grid">
+
+        <div class="engagement-card reveal">
+          <span class="engagement-tag">monthly retainer</span>
+          <div class="engagement-title">Narrative Ongoing</div>
+          <p class="engagement-desc">
+            Your narrative evolves as your numbers do. Each month: one session, one communication piece delivered — investor update, board prep, or team message — and continuous async support. In person when we can.
+          </p>
+          <div class="engagement-details">1 session/month · 1 deliverable/month · Async support<br>Building for coherence, conviction and trust.</div>
+        </div>
+
+        <div class="engagement-card reveal">
+          <span class="engagement-tag">event-driven</span>
+          <div class="engagement-title">Narrative Sprint</div>
+          <p class="engagement-desc">
+            One aim. Full focus. 3 to 6 months of concentrated work toward a fundraising round, a board moment, or a strategic shift — with the narrative built and tested for it.
+          </p>
+          <div class="engagement-details">3–6 months · Building toward one defining moment.<br>Finance Brief credited in full if taken immediately after</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═════════════════════════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-inner">
+
+        <div class="about-sidebar reveal-left">
+          <div class="section-label">
+            <span class="section-label-line"></span>
+            <span class="label">Why Morety</span>
+          </div>
+          <h2 class="about-sidebar-heading">Finance.<br>Narrative.<br>Conviction.</h2>
+        </div>
+
+        <div class="about-main">
+          <div class="about-portrait-row reveal">
+            <img class="about-portrait" src="images/about-portrait2.png" alt="Bruno Morety" />
+            <div>
+              <div class="about-portrait-name">Bruno Morety</div>
+              <div class="about-portrait-role">Financial Narrative Partner · Munich</div>
+              <div class="about-portrait-role">English · German · Spanish</div>
+            </div>
+          </div>
+
+          <div class="about-items">
+
+            <div class="about-item reveal">
+              <span class="about-num">01</span>
+              <div>
+                <div class="about-item-title">Insider. Real scale.</div>
+                <p class="about-item-desc">Forecasting and steering financial plans up to €260M a year. Been at the table when businesses with weaker numbers got backed — and stronger ones didn't. Never the data. Always the story. That's the standard I bring.</p>
+              </div>
+            </div>
+
+            <div class="about-item reveal">
+              <span class="about-num">02</span>
+              <div>
+                <div class="about-item-title">Sharp numbers. Deep craft.</div>
+                <p class="about-item-desc">Unit economics, built from years inside real P&Ls. Narrative craft, built from ghostwriting and building my own products. Most people bring one. I built both on purpose.</p>
+              </div>
+            </div>
+
+            <div class="about-item reveal">
+              <span class="about-num">03</span>
+              <div>
+                <div class="about-item-title">Built, not advised.</div>
+                <p class="about-item-desc">I've built a SaaS, run my own services, and written for founders. I know what it takes to communicate financial reality to people who need to believe in it — because I've had to do it myself.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══════════════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+
+        <div class="contact-left">
+          <div class="contact-label reveal">
+            <span class="contact-label-line"></span>
+            <span class="contact-label-text">Start here</span>
+          </div>
+          <h2 class="contact-title reveal">Financials that lead.<br>A narrative that builds trust.</h2>
+          <p class="contact-body reveal">
+            One honest conversation. We look at where your financial narrative stands — what's working, what isn't, and what it would take to make it land in every room. No pitch. If it makes sense to work together, we'll know.
+          </p>
+        </div>
+
+        <div class="contact-right reveal-right">
+          <a class="contact-email-link" href="https://www.linkedin.com/in/brunomorety/" target="_blank" rel="noopener">LinkedIn →</a>
+          <a class="contact-email-link" href="mailto:bruno@morety.uno">bruno@morety.uno →</a>
+          <a class="cta-circle" href="#book" id="contactBookBtn" aria-label="Book a diagnostic call">
+            <span class="cta-circle-arrow">↗</span>
+            <span>Book a<br>Call</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Bruno Morety</div>
+          <p class="footer-tagline">Financial narrative for Series A/B founders. Munich. Europe.</p>
+        </div>
+        <div>
+          <span class="footer-col-label">Navigate</span>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="#gap">The Narrative Gap</a>
+            <a href="#brief">Finance Brief</a>
+            <a href="#engagements">Engagements</a>
+            <a href="#about">About</a>
+          </nav>
+        </div>
+        <div>
+          <span class="footer-col-label">Contact</span>
+          <a class="footer-contact-link" href="https://www.linkedin.com/in/brunomorety/" target="_blank"
+            rel="noopener">LinkedIn</a>
+          <a class="footer-contact-link" href="mailto:bruno@morety.uno">bruno@morety.uno</a>
+          <a class="footer-contact-link" href="https://tidycal.com/bmorety/discovery" target="_blank"
+            rel="noopener">Book a Call</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© <span id="year"></span> Bruno Morety</span>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="/legal.html" target="_blank" rel="noopener noreferrer">Impressum</a>
+          <a href="/privacy.html" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>
+        </nav>
+      </div>
+    </div>
   </footer>
 
-  <!-- Booking sheet -->
+  <!-- ═══ BOOKING SHEET ═════════════════════════════════════════════ -->
   <div class="booking-sheet" id="bookingSheet" aria-hidden="true">
     <button class="sheet-close" id="bookingClose" aria-label="Close booking">×</button>
     <iframe id="bookingFrame" title="Book a call" src="https://tidycal.com/bmorety/discovery" loading="lazy"
-      referrerpolicy="strict-origin-when-cross-origin">
-    </iframe>
+      referrerpolicy="strict-origin-when-cross-origin"></iframe>
   </div>
 
-  <!-- Top-third fade overlay -->
-  <div class="fade-top" aria-hidden="true"></div>
-
-
-  <!-- Bottom-third fade overlay -->
-  <div class="fade-bottom" aria-hidden="true"></div>
-
-  <!-- Year, accordion logic, and title/subtitle + quick-links animations -->
+  <!-- ═══ SCRIPT ════════════════════════════════════════════════════ -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1) Year (kept)
-      const y = document.getElementById('year');
-      if (y) y.textContent = new Date().getFullYear();
+    // ── 0. YEAR ──────────────────────────────────────────────────────
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // 2) Collect accordions
-      const toggles = Array.from(document.querySelectorAll('details.acc'));
-      toggles.forEach(d => (d.open = false));
-
-      // 3) Fixed viewport pivot (e.g., 40% from the top)
-      const PIVOT = 0.35; // change to 0.35 / 0.5 if you like
-      let baseline = () => Math.round(window.innerHeight * PIVOT);
-      window.addEventListener('resize', () => { baseline = () => Math.round(window.innerHeight * PIVOT); });
-
-      // 4) Mark which panel the user actually tapped/clicked (robust on mobile)
-      let lastClicked = null;
-      toggles.forEach(d => {
-        const s = d.querySelector('summary');
-        if (!s) return;
-        const mark = () => { lastClicked = d; };
-        s.addEventListener('pointerdown', mark, { passive: true });
-        s.addEventListener('touchstart', mark, { passive: true });
-        s.addEventListener('click', mark);
-      });
-
-      // 5) Toggle handler: one open at a time + scroll to fixed viewport slot
-      toggles.forEach(d => {
-        d.addEventListener('toggle', () => {
-          if (d.open) toggles.forEach(o => { if (o !== d) o.open = false; });
-
-          // Only scroll for the panel the user interacted with
-          if (lastClicked === d) {
-            const s = d.querySelector('summary');
-            if (s) {
-              // Wait for layout to settle (important on iOS)
-              requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                  const target = s.getBoundingClientRect().top + window.pageYOffset - baseline();
-                  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                  window.scrollTo({ top: Math.max(0, target), behavior: reduce ? 'auto' : 'smooth' });
-                  if (s instanceof HTMLElement) s.focus({ preventScroll: true });
-                });
-              });
-            }
-            lastClicked = null;
-          }
-
-          // Keep LinkedIn blue while #action is open
-          const action = document.getElementById('action');
-          document.body.classList.toggle('bg-linkedin', !!(action && action.open));
-        });
-      });
-
-      // Logo cycle navigation: top → gap → framework → proof → about → action → top
-      const sections = ['top', 'gap', 'framework', 'proof', 'about', 'action'];
-      let logoClickCount = 0;
-
-      document.querySelector('.logo-wrap').addEventListener('click', (e) => {
-        e.preventDefault(); // Stop default #top scroll
-
-        logoClickCount = (logoClickCount + 1) % sections.length;
-        const targetSection = sections[logoClickCount];
-
-        // Update URL hash
-        location.hash = targetSection;
-
-        // Trigger your existing deep-link handler
-        handleHash();
-      });
-
-
-      // 6. Title/subtitle + links animation (BOTH h1s)
-      const titles = document.querySelectorAll('#titleText');
-      const subtitle = document.getElementById('subtitleText');
-
-      titles.forEach(title => {
-        const words = title.textContent.trim().split(' ');
-        title.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
-
-        const spans = Array.from(title.querySelectorAll('.w'));
-        const STEP = 150, DURATION = 500;
-
-        spans.forEach((span, i) => {
-          span.style.transitionDelay = `${i * STEP}ms`;
-          void span.offsetWidth;
-          span.classList.add('on');
-        });
-      });
-
-      const totalDelay = 1200; // Fixed delay for 2 lines
-      setTimeout(() => {
-        if (subtitle) subtitle.classList.add('show');
-        const links = document.querySelector('.quick-links');
-        if (links) links.classList.add('show');
-      }, totalDelay);
-
-      // -------- Deep-link handler: open details by hash, or open booking ----------
-      // supports: #manifesto, #services, #collabs, #thoughts, #tools
-      // and: #book, #booking, #tidycal -> opens booking sheet
-      const aliasMap = {
-        gap: 'gap',
-        framework: 'framework',
-        proof: 'proof',
-        portfolio: 'proof',
-        about: 'about',
-        action: 'action',
-        contact: 'action'
-      };
-
-      function openBookingFromHash() {
-        const sheet = document.getElementById('bookingSheet');
-        if (!sheet) return;
-        document.body.classList.add('sheet-open');
-        sheet.setAttribute('aria-hidden', 'false');
+    // ── 1. ROTATING HEADLINE ─────────────────────────────────────────
+    const slides = [
+      {
+        phrase: 'no financial signal your team can act on.',
+        thought: 'Every team is working hard. Just not toward the same story.'
+      },
+      {
+        phrase: 'no narrative your board keeps believing in.',
+        thought: 'Last quarter you said €2M by June. Today it´s €1.6M. Did you frame why?'
+      },
+      {
+        phrase: 'no story your next investors can get behind.',
+        thought: 'Burn is up 40% — no story behind it. They start calculating your runway.'
       }
+    ];
+    let phraseIndex = 0;
+    const rotatingEl = document.getElementById('rotatingPhrase');
+    const thoughtEl = document.getElementById('rotatingThought');
+    if (rotatingEl) {
+      setInterval(() => {
+        rotatingEl.classList.add('fade');
+        if (thoughtEl) thoughtEl.classList.add('fade');
+        setTimeout(() => {
+          phraseIndex = (phraseIndex + 1) % slides.length;
+          rotatingEl.textContent = slides[phraseIndex].phrase;
+          if (thoughtEl) thoughtEl.textContent = slides[phraseIndex].thought;
+          rotatingEl.classList.remove('fade');
+          if (thoughtEl) setTimeout(() => thoughtEl.classList.remove('fade'), 600);
+        }, 600);
+      }, 5750);
+    }
 
-      function closeBookingFromHash() {
-        const sheet = document.getElementById('bookingSheet');
-        if (!sheet) return;
-        document.body.classList.remove('sheet-open');
-        sheet.setAttribute('aria-hidden', 'true');
+    // ── 2. NAV SHADOW + SCROLL PROGRESS ──────────────────────────────
+    const nav = document.getElementById('mainNav');
+    const scrollBar = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+      if (scrollBar) {
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        scrollBar.style.width = (window.scrollY / total * 100) + '%';
       }
+    }, { passive: true });
 
-      function handleHash() {
-        const raw = (location.hash || '').replace(/^#/, '');
-        if (!raw) return;
+    // ── 3. SCROLL REVEAL ─────────────────────────────────────────────
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => e.target.classList.toggle('is-visible', e.isIntersecting));
+    }, { threshold: 0.1, rootMargin: '-15px 0px' });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObs.observe(el));
 
-        const key = raw.toLowerCase();
-        // booking aliases
-        if (key === 'book' || key === 'booking' || key === 'tidycal') {
-          openBookingFromHash();
-          return;
-        } else {
-          // ensure booking is closed if we navigate to a section
-          closeBookingFromHash();
-        }
-
-        const mapped = aliasMap[key] || key;
-        const target = document.getElementById(mapped);
-        if (target && target.classList && target.classList.contains('acc')) {
-          // open target and close others
-          toggles.forEach(o => { o.open = (o === target); });
-
-          // scroll target summary into fixed viewport slot
-          const s = target.querySelector('summary');
-          if (s) {
-            requestAnimationFrame(() => {
-              requestAnimationFrame(() => {
-                const targetY = s.getBoundingClientRect().top + window.pageYOffset - baseline();
-                const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                window.scrollTo({ top: Math.max(0, targetY), behavior: reduce ? 'auto' : 'smooth' });
-                if (s instanceof HTMLElement) s.focus({ preventScroll: true });
-              });
+    // ── 4. STATEMENT LINE REVEAL ──────────────────────────────────────
+    const statementEl = document.getElementById('statementText');
+    if (statementEl) {
+      const lineObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const lines = Array.from(entry.target.querySelectorAll('.line-reveal-inner'));
+            const fromTop = entry.boundingClientRect.top < 0;
+            const ordered = fromTop ? [...lines].reverse() : lines;
+            ordered.forEach((line, i) => {
+              setTimeout(() => line.classList.add('is-visible'), i * 220);
+            });
+          } else {
+            entry.target.querySelectorAll('.line-reveal-inner').forEach(line => {
+              line.classList.remove('is-visible');
             });
           }
+        });
+      }, { threshold: 0.25 });
+      lineObs.observe(statementEl);
+    }
 
-          // Keep LinkedIn blue while #services is open
-          const services = document.getElementById('services');
-          document.body.classList.toggle('bg-linkedin', !!(services && services.open));
-        }
-      }
+    // ── 5. PAIN BORDER GROW ───────────────────────────────────────────
+    const painInner = document.querySelector('.pain-inner');
+    if (painInner) {
+      const borderObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          e.target.classList.remove('border-grown', 'border-grown-up');
+          if (e.isIntersecting) {
+            const fromTop = e.boundingClientRect.top < 0;
+            e.target.classList.add(fromTop ? 'border-grown-up' : 'border-grown');
+          }
+        });
+      }, { threshold: 0.1 });
+      borderObs.observe(painInner);
+    }
 
-      // Run once on load
-      handleHash();
-
-      // Also respond to future hash changes
-      window.addEventListener('hashchange', () => {
-        handleHash();
-      });
-      // ---------------------------------------------------------------------------
-
+    // ── 6. ABOUT NUMBERS COUNT-UP ─────────────────────────────────────
+    document.querySelectorAll('.about-num').forEach((el, i) => {
+      const target = i + 1;
+      const pad = n => String(n).padStart(2, '0');
+      let timer = null;
+      const numObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            clearInterval(timer);
+            let count = 0;
+            el.textContent = pad(0);
+            timer = setInterval(() => {
+              count++;
+              el.textContent = pad(count);
+              if (count >= target) clearInterval(timer);
+            }, 90);
+          } else {
+            clearInterval(timer);
+            el.textContent = pad(0);
+          }
+        });
+      }, { threshold: 0.5 });
+      numObs.observe(el);
     });
 
-    // --- Booking sheet: open/close logic ---
-    const bookingSheet = document.getElementById('bookingSheet');
-    const bookingClose = document.getElementById('bookingClose');
-    // target the "Got 30 min?" link (first quick-link)
-    const bookLink = document.querySelector('.quick-links a[href*="tidycal"]');
+    // ── 7. ACCORDION — hover on desktop, click on touch ───────────────
+    const hasFine = () => window.matchMedia('(pointer: fine)').matches;
+
+    document.querySelectorAll('.accordion-item').forEach(item => {
+      const header = item.querySelector('.accordion-header');
+      let closeTimer = null;
+
+      function openItem() {
+        clearTimeout(closeTimer);
+        document.querySelectorAll('.accordion-item').forEach(i => {
+          if (i !== item) {
+            i.classList.remove('is-open');
+            i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+          }
+        });
+        item.classList.add('is-open');
+        header.setAttribute('aria-expanded', 'true');
+      }
+
+      function scheduleClose() {
+        closeTimer = setTimeout(() => {
+          item.classList.remove('is-open');
+          header.setAttribute('aria-expanded', 'false');
+        }, 220);
+      }
+
+      item.addEventListener('mouseenter', () => { if (hasFine()) { clearTimeout(closeTimer); openItem(); } });
+      item.addEventListener('mouseleave', () => { if (hasFine()) scheduleClose(); });
+
+      header.addEventListener('click', () => {
+        if (!hasFine()) {
+          const wasOpen = item.classList.contains('is-open');
+          document.querySelectorAll('.accordion-item').forEach(i => {
+            i.classList.remove('is-open');
+            i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+          });
+          if (!wasOpen) openItem();
+        }
+      });
+
+      header.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const wasOpen = item.classList.contains('is-open');
+          document.querySelectorAll('.accordion-item').forEach(i => {
+            i.classList.remove('is-open');
+            i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+          });
+          if (!wasOpen) openItem();
+        }
+      });
+    });
+
+    // ── 8. BOOKING SHEET ──────────────────────────────────────────────
+    const sheet = document.getElementById('bookingSheet');
+    const sheetClose = document.getElementById('bookingClose');
 
     function openSheet(e) {
       if (e) e.preventDefault();
       document.body.classList.add('sheet-open');
-      if (bookingSheet) bookingSheet.setAttribute('aria-hidden', 'false');
+      if (sheet) sheet.setAttribute('aria-hidden', 'false');
     }
-
     function closeSheet() {
       document.body.classList.remove('sheet-open');
-      if (bookingSheet) bookingSheet.setAttribute('aria-hidden', 'true');
+      if (sheet) sheet.setAttribute('aria-hidden', 'true');
     }
 
-    if (bookLink) bookLink.addEventListener('click', openSheet);
-
-    // --- so the other link to tidycal in services also calls the overlay.
-    const servicesBookLink = document.querySelector('#services a[href*="tidycal"]');
-    if (servicesBookLink) servicesBookLink.addEventListener('click', openSheet);
-
-    if (bookingClose) bookingClose.addEventListener('click', closeSheet);
-
-    // Close on ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && document.body.classList.contains('sheet-open')) {
-        closeSheet();
+    // Trigger on any nav-cta or cta-circle or engagement-cta pointing to #contact or #book
+    document.querySelectorAll('a.nav-cta, a.cta-circle, a.engagement-cta').forEach(el => {
+      const href = el.getAttribute('href') || '';
+      if (href === '#contact' || href === '#book') {
+        el.addEventListener('click', openSheet);
       }
     });
 
-
-  </script>
-  <!-- Thoughts carousel script -->
-  <script>
-    // Construct and operate a simple horizontal carousel for the Thoughts section.
-    document.addEventListener('DOMContentLoaded', () => {
-      const thoughtsContent = document.querySelector('#thoughts .content');
-      if (!thoughtsContent) return;
-      const paragraphs = Array.from(thoughtsContent.children).filter(el => el.tagName === 'P');
-      if (paragraphs.length === 0) return;
-
-      // Build carousel elements
-      const carousel = document.createElement('div');
-      carousel.className = 'thoughts-carousel';
-
-      const prevBtn = document.createElement('button');
-      prevBtn.className = 't-btn t-prev';
-      prevBtn.setAttribute('aria-label', 'Previous thought');
-      prevBtn.innerHTML = '&lt;';
-
-      const nextBtn = document.createElement('button');
-      nextBtn.className = 't-btn t-next';
-      nextBtn.setAttribute('aria-label', 'Next thought');
-      nextBtn.innerHTML = '&gt;';
-
-      const randBtn = document.createElement('button');
-      randBtn.className = 't-btn t-rand';
-      randBtn.setAttribute('aria-label', 'Random thought');
-      randBtn.innerHTML = '↻';
-
-      const viewport = document.createElement('div');
-      viewport.className = 't-viewport';
-      const track = document.createElement('div');
-      track.className = 't-track';
-
-      // Move each paragraph into a card
-      paragraphs.forEach(p => {
-        const card = document.createElement('div');
-        card.className = 't-card';
-        card.appendChild(p);
-        track.appendChild(card);
-      });
-
-      viewport.appendChild(track);
-      carousel.appendChild(prevBtn);
-      carousel.appendChild(viewport);
-      carousel.appendChild(nextBtn);
-      carousel.appendChild(randBtn);
-      thoughtsContent.appendChild(carousel);
-
-      let current = (track.children.length > 0) ? Math.floor(Math.random() * track.children.length) : 0;
-
-      const total = track.children.length;
-      carousel.tabIndex = 0;
-
-      function updateButtons() {
-        prevBtn.disabled = current === 0;
-        nextBtn.disabled = current === total - 1;
-      }
-
-      function updateSlide() {
-        const w = viewport.clientWidth;
-        track.style.transform = 'translateX(' + (-current * w) + 'px)';
-        updateButtons();
-      }
-
-      window.addEventListener('resize', updateSlide);
-
-      prevBtn.addEventListener('click', () => {
-        if (current > 0) {
-          current--;
-          updateSlide();
-        }
-      });
-
-      nextBtn.addEventListener('click', () => {
-        if (current < total - 1) {
-          current++;
-          updateSlide();
-        }
-      });
-
-      randBtn.addEventListener('click', () => {
-        if (total <= 1) return;
-        let newIndex;
-        do {
-          newIndex = Math.floor(Math.random() * total);
-        } while (newIndex === current);
-        current = newIndex;
-        updateSlide();
-      });
-
-      carousel.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft' || e.key === 'Left') {
-          if (current > 0) {
-            current--;
-            updateSlide();
-          }
-        } else if (e.key === 'ArrowRight' || e.key === 'Right') {
-          if (current < total - 1) {
-            current++;
-            updateSlide();
-          }
-        } else if (e.key === 'r' || e.key === 'R') {
-          if (total > 1) {
-            let newIndex;
-            do {
-              newIndex = Math.floor(Math.random() * total);
-            } while (newIndex === current);
-            current = newIndex;
-            updateSlide();
-          }
-        }
-      });
-
-      // Calculate tallest card height and set viewport height
-      setTimeout(() => {
-        let maxHeight = 0;
-        track.querySelectorAll('.t-card').forEach(card => {
-          const h = card.getBoundingClientRect().height;
-          if (h > maxHeight) maxHeight = h;
-        });
-        viewport.style.height = maxHeight + 'px';
-        updateSlide();
-      });
+    if (sheetClose) sheetClose.addEventListener('click', closeSheet);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && document.body.classList.contains('sheet-open')) closeSheet();
     });
   </script>
-  <!-- Other existing scripts -->
 
-  <script>
-    const industries = [
-      { name: " B2C SaaS (Recurring)", baselineMultiple: 5.0, premiumMultiple: 8.5, ebitdaMargin: 0.20 },
-      { name: " B2B SaaS Tools (SMB-focused)", baselineMultiple: 5.0, premiumMultiple: 8.5, ebitdaMargin: 0.18 },
-      { name: " B2B Services (Productized)", baselineMultiple: 4.0, premiumMultiple: 7.0, ebitdaMargin: 0.25 },
-      { name: " E-Commerce (Shopify + Amazon)", baselineMultiple: 2.8, premiumMultiple: 5.5, ebitdaMargin: 0.12 },
-      { name: " Digital Agencies (UX/UI, Dev, SEO)", baselineMultiple: 4.5, premiumMultiple: 7.5, ebitdaMargin: 0.22 },
-      { name: " Managed Services (MSP/IT Services)", baselineMultiple: 5.0, premiumMultiple: 8.0, ebitdaMargin: 0.18 },
-      { name: " Content / Niche Publishing Sites", baselineMultiple: 2.5, premiumMultiple: 5.0, ebitdaMargin: 0.32 },
-      { name: " Email / Newsletter / Subscription", baselineMultiple: 4.0, premiumMultiple: 7.0, ebitdaMargin: 0.35 },
-      { name: " Digital Products (Courses, Templates, Plugins)", baselineMultiple: 3.0, premiumMultiple: 5.5, ebitdaMargin: 0.42 },
-      { name: " Niche Marketplace / Platform", baselineMultiple: 3.5, premiumMultiple: 6.5, ebitdaMargin: 0.22 }
-    ];
-
-    const salesButtons = document.querySelectorAll('.sales-button');
-    const industrySelect = document.getElementById('industry-select');
-    const resultsDiv = document.querySelector('.results');
-
-    // Populate dropdown
-    industries.forEach(industry => {
-      let option = document.createElement("option");
-      option.value = industry.name;
-      option.textContent = industry.name;
-      industrySelect.appendChild(option);
-    });
-
-    salesButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        salesButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        calculateResults();
-      });
-    });
-
-    industrySelect.addEventListener('change', calculateResults);
-
-    function calculateResults() {
-      const selectedIndustry = industries.find(ind => ind.name === industrySelect.value);
-      const selectedSalesButton = document.querySelector('.sales-button.active');
-      const salesValue = selectedSalesButton ? Number(selectedSalesButton.dataset.value) : 0;
-
-      if (selectedIndustry && salesValue) {
-        const EBITDA = salesValue * selectedIndustry.ebitdaMargin;
-        const valuePrepared = EBITDA * selectedIndustry.premiumMultiple;
-        const gapLow = valuePrepared - (EBITDA * selectedIndustry.baselineMultiple);
-
-        // Format value for display
-        const formattedGap = gapLow >= 1000000
-          ? `€${(gapLow / 1000000).toFixed(1)}M`
-          : `€${(gapLow / 1000).toFixed(0)}K`;
-        document.getElementById('value-gap').textContent = formattedGap;
-
-        resultsDiv.style.display = 'flex'; // Show results
-      }
-    }
-  </script>
-
-  <!-- 100% privacy-first analytics -->
+  <!-- Privacy-first analytics -->
   <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 
 </body>
