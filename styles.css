@@ -593,12 +593,14 @@ p {
   position: relative;
 }
 .accordion-what li::before {
-  content: '—';
+  content: '';
   position: absolute;
   left: 0;
-  color: var(--primary);
-  font-size: 0.7em;
-  top: 0.5em;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--primary);
 }
 
 .accordion-outcome {
