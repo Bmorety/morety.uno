@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A guided financial narrative exercise prepared for Marco Brizzolara at Elvio Robotics.">
+  <title>One KPI. Two rooms. — Elvio Robotics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="icon" type="image/jpeg" href="../favicon.jpg">
+</head>
+<body>
+  <a class="skip-link" href="#experience">Skip to the experience</a>
+
+  <header class="topbar">
+    <a class="brand" href="https://morety.uno" target="_blank" rel="noopener" aria-label="Open Morety.uno in a new tab">
+      <span class="brand-mark">M.</span>
+      <span class="brand-lockup">FINANCE ×<br>NARRATIVE</span>
+    </a>
+    <p class="prepared">PREPARED FOR <span data-prospect>MARCO BRIZZOLARA</span> · <span data-company>ELVIO ROBOTICS</span></p>
+    <div class="header-actions">
+      <a class="site-link" href="https://morety.uno" target="_blank" rel="noopener">morety.uno <span>↗</span></a>
+      <button class="soundless-reset" id="resetExperience" type="button">Restart</button>
+    </div>
+  </header>
+
+  <main id="experience" class="experience">
+    <div class="scene-track" id="sceneTrack">
+      <section class="scene scene--opening is-active" data-scene="0" aria-labelledby="opening-title">
+        <div class="scene-inner opening-layout">
+          <div class="opening-copy">
+            <p class="welcome-line"><span>01</span><strong>Hey Marco.</strong> <em>Check this out.</em></p>
+            <h1 id="opening-title">One KPI.<br><em>Two rooms.</em><br>Two different stories.</h1>
+            <p class="lede">A quick glimpse of what we could build together: one of Elvio’s KPIs, shaped into a story for two different rooms.</p>
+            <button class="primary-action" type="button" data-next>Build the story <span>→</span></button>
+          </div>
+          <aside class="opening-note" aria-label="What we will do">
+            <span class="note-number">01</span>
+            <p>Choose the signal</p>
+            <span class="note-number">02</span>
+            <p>Expose the gap</p>
+            <span class="note-number">03</span>
+            <p>Shape the decision</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--signal" data-scene="1" aria-labelledby="signal-title" inert>
+        <div class="scene-inner signal-layout">
+          <div class="signal-copy">
+            <p class="eyebrow"><span>02</span> Choose the signal</p>
+            <h2 id="signal-title">Start with the number that carries the most <em>business tension.</em></h2>
+            <p class="lede compact">For this exercise, we selected the KPI whose impact appears most consequential from the outside.</p>
+
+            <div class="kpi-definition">
+              <p class="micro-label">THE KPI</p>
+              <h3>Deployment-to-revenue days</h3>
+              <p>Days from installation to SLA-accepted reliable operation.</p>
+            </div>
+
+            <blockquote>
+              “The lease starts only when the system runs reliably.”
+              <cite>Elvio Robotics</cite>
+            </blockquote>
+          </div>
+
+          <form class="number-lab" id="numberForm">
+            <div class="lab-header">
+              <span class="micro-label">ILLUSTRATIVE SCENARIO</span>
+              <span class="editable-label">Editable</span>
+            </div>
+            <label class="number-field">
+              <span>What is</span>
+              <span class="input-wrap"><input id="currentDays" name="current" type="number" min="2" max="999" step="1" value="90" inputmode="numeric"><small>days</small></span>
+              <small>Current activation time</small>
+            </label>
+            <div class="field-divider" aria-hidden="true"><span>TO</span></div>
+            <label class="number-field number-field--target">
+              <span>What it could be</span>
+              <span class="input-wrap"><input id="targetDays" name="target" type="number" min="1" max="998" step="1" value="60" inputmode="numeric"><small>days</small></span>
+              <small>Target activation time</small>
+            </label>
+            <p class="form-error" id="formError" role="alert"></p>
+            <button class="primary-action full" type="submit">Expose the business gap <span>→</span></button>
+          </form>
+        </div>
+      </section>
+
+      <section class="scene scene--gap" data-scene="2" aria-labelledby="gap-title" inert>
+        <div class="scene-inner gap-layout">
+          <div class="gap-copy">
+            <p class="eyebrow"><span>03</span> Call to Adventure</p>
+            <h2 id="gap-title">The story begins when the <em>gap opens.</em></h2>
+            <p class="lede compact">Put What Is next to What Could Be. The distance between them gives the KPI meaning.</p>
+          </div>
+
+          <div class="gap-stage" id="gapStage">
+            <div class="state state--current">
+              <span class="micro-label">WHAT IS</span>
+              <strong><span data-current>90</span> days</strong>
+              <small>before rental revenue begins</small>
+            </div>
+            <div class="gap-bridge">
+              <span class="bridge-line"></span>
+              <div class="gap-result">
+                <span class="micro-label">THE BUSINESS GAP</span>
+                <strong><span data-saved>30</span> days</strong>
+                <span><span data-reduction>33</span>% shorter cycle</span>
+              </div>
+              <span class="bridge-line"></span>
+            </div>
+            <div class="state state--target">
+              <span class="micro-label">WHAT IT COULD BE</span>
+              <strong><span data-target>60</span> days</strong>
+              <small>to SLA-accepted operation</small>
+            </div>
+          </div>
+
+          <aside class="financial-layer">
+            <span class="finance-index">€</span>
+            <div>
+              <strong>There is money behind this gap.</strong>
+              <p>A simple sequential model moves from <span data-current-capacity>4.1</span> to <span data-target-capacity>6.1</span> deployment cycles a year. With contract value, deployment cost and rollout volume, this becomes a monetary story. For now, we’ll keep it to time and annualized capacity.</p>
+            </div>
+          </aside>
+
+          <button class="primary-action" type="button" data-next>Choose the room <span>→</span></button>
+        </div>
+      </section>
+
+      <section class="scene scene--audience" data-scene="3" aria-labelledby="audience-title" inert>
+        <div class="scene-inner audience-layout">
+          <div class="audience-copy">
+            <p class="eyebrow"><span>04</span> Make the audience the hero</p>
+            <h2 id="audience-title">The same KPI asks different people to make <em>different decisions.</em></h2>
+            <p class="lede compact">Choose the room. We’ll shape the stakes and the ask around what that audience can actually change.</p>
+          </div>
+
+          <form id="audienceForm" class="audience-form">
+            <fieldset>
+              <legend>Who needs to move?</legend>
+              <label class="audience-card is-selected">
+                <input type="radio" name="audience" value="board" checked>
+                <span class="selection-mark" aria-hidden="true"></span>
+                <span class="audience-index">01</span>
+                <strong>Board</strong>
+                <span>Risk, direction and trade-offs.</span>
+                <small>They need to decide what the business should prioritize.</small>
+              </label>
+              <label class="audience-card">
+                <input type="radio" name="audience" value="team">
+                <span class="selection-mark" aria-hidden="true"></span>
+                <span class="audience-index">02</span>
+                <strong>Operations team</strong>
+                <span>Ownership, constraints and action.</span>
+                <small>They need to know what must change in the work.</small>
+              </label>
+            </fieldset>
+            <button class="primary-action" type="submit">Shape this narrative <span>→</span></button>
+          </form>
+        </div>
+      </section>
+
+      <section class="scene scene--story" data-scene="4" aria-labelledby="story-title" inert>
+        <div class="scene-inner story-layout">
+          <div class="story-header">
+            <div>
+              <p class="eyebrow"><span>05</span> The contour of communication</p>
+              <h2 id="story-title">Alternate the two realities.<br><em>Let the tension do the work.</em></h2>
+            </div>
+            <div class="room-badge" id="roomBadge" data-audience="board">
+              <span>YOU’RE SHAPING THIS FOR</span>
+              <strong id="roomName">Board</strong>
+              <small id="roomFocus">Risk · direction · trade-offs</small>
+            </div>
+          </div>
+
+          <div class="contour-shell">
+            <svg class="contour" viewBox="0 0 1000 330" role="img" aria-labelledby="contourTitle contourDesc">
+              <title id="contourTitle">The contour of communication</title>
+              <desc id="contourDesc">A stepped line alternates between what is and what could be, then ends at a higher business outcome.</desc>
+              <line class="turning-guide" x1="205" y1="22" x2="205" y2="288"></line>
+              <line class="turning-guide" x1="765" y1="22" x2="765" y2="288"></line>
+              <path class="contour-ghost" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path>
+              <path class="contour-live" id="contourLive" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path>
+              <circle class="outcome-dot" cx="976" cy="40" r="7"></circle>
+              <g class="contour-labels">
+                <text x="24" y="280">WHAT IS</text>
+                <text x="226" y="76">WHAT COULD BE</text>
+                <text x="410" y="280">WHAT IS</text>
+                <text x="552" y="76">WHAT COULD BE</text>
+                <text x="698" y="280">WHAT IS</text>
+                <text class="label-blue" x="788" y="25">WHAT IT COULD BE · BUSINESS OUTCOME</text>
+              </g>
+              <g class="turning-labels">
+                <text x="205" y="312" text-anchor="middle">CALL TO ADVENTURE</text>
+                <text x="765" y="312" text-anchor="middle">CALL TO ACTION</text>
+              </g>
+            </svg>
+
+            <div class="story-beat" id="storyBeat" aria-live="polite">
+              <span class="beat-number" id="beatNumber">01 / 07</span>
+              <div>
+                <div class="beat-meta">
+                  <span class="beat-audience" id="beatAudience">BOARD</span>
+                  <span class="micro-label" id="beatFramework">WHAT IS</span>
+                </div>
+                <p id="beatText">Elvio carries deployment cost for 90 days before rental revenue begins.</p>
+                <p class="beat-thought" id="beatThought">We’re spending money. We’re not earning yet.</p>
+              </div>
+            </div>
+
+            <div class="beat-controls">
+              <button class="text-action" id="beatBack" type="button" disabled>← Previous</button>
+              <div class="beat-dots" id="beatDots" aria-label="Story beats"></div>
+              <button class="primary-action small" id="beatNext" type="button">Next contrast <span>→</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--compare" data-scene="5" aria-labelledby="compare-title" inert>
+        <div class="scene-inner compare-layout">
+          <div class="compare-header">
+            <p class="eyebrow"><span>06</span> One number, shaped for every room</p>
+            <h2 id="compare-title">Same KPI.<br><em>Different decision.</em></h2>
+            <p class="lede compact">Nothing about the number changed. The hero, stakes and call to action did.</p>
+          </div>
+
+          <div class="comparison">
+            <a class="room-panel room-panel--board" data-room-panel="board" data-replay-room="board" href="#narrative-board" aria-label="Replay the Board narrative from the beginning">
+              <header><span>BOARD</span><small>Risk · direction · trade-offs</small></header>
+              <dl>
+                <div><dt>What is</dt><dd>Elvio carries deployment cost for <span data-current>90</span> days before rental revenue begins.</dd></div>
+                <div><dt>Call to Adventure</dt><dd>Back a 30-day sprint to redesign the process from installation to SLA acceptance.</dd></div>
+                <div><dt>Call to Action</dt><dd>Protect the sprint and introduce hospital, integration and financing partners who can remove constraints.</dd></div>
+                <div class="decision-row"><dt>Business Outcome</dt><dd>The same capacity could unlock <span data-additional>about 2</span> additional deployment cycles a year.</dd></div>
+              </dl>
+            </a>
+
+            <div class="same-number" aria-hidden="true"><span>same</span><strong><span data-saved>30</span></strong><span>days</span></div>
+
+            <a class="room-panel room-panel--team" data-room-panel="team" data-replay-room="team" href="#narrative-team" aria-label="Replay the Operations Team narrative from the beginning">
+              <header><span>OPERATIONS TEAM</span><small>Ownership · constraints · action</small></header>
+              <dl>
+                <div><dt>What is</dt><dd>Every day before reliable operation keeps the deployment team tied to the same site.</dd></div>
+                <div><dt>Call to Adventure</dt><dd>Use a 30-day sprint to dissect every handoff and rebuild the activation protocol.</dd></div>
+                <div><dt>Call to Action</dt><dd>Map every handoff, rebuild the protocol, assign each delay an owner and test it on the next deployment.</dd></div>
+                <div class="decision-row"><dt>Business Outcome</dt><dd>Reliable operation becomes repeatable—and the same team can activate more hospitals.</dd></div>
+              </dl>
+            </a>
+          </div>
+
+          <div class="closing-strip">
+            <div>
+              <span class="micro-label">THE FINANCE BRIEF</span>
+              <p>That was one KPI. Let’s build the 4–6 numbers that should lead Elvio—and the narrative each room needs to act.</p>
+            </div>
+            <a class="primary-action closing-cta" href="https://calls.morety.uno/elvio" target="_blank" rel="noopener">Let’s build the real version together <span>↗</span></a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="experience-footer">
+    <button class="back-button" id="sceneBack" type="button" aria-label="Go to previous scene">←</button>
+    <div class="progress-wrap">
+      <span class="progress-label" id="progressLabel">THE PREMISE</span>
+      <div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div>
+      <span class="progress-count"><span id="progressCurrent">01</span> / 06</span>
+    </div>
+    <p class="credit">Bruno Morety · Financial Narrative Partner</p>
+  </footer>
+
+  <noscript><p class="noscript">This guided exercise requires JavaScript to move between its narrative scenes.</p></noscript>
+  <script src="script.js?v=1"></script>
+</body>
+</html>
