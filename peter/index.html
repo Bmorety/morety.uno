@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A guided financial narrative exercise prepared for Peter Rose at Mapular.">
+  <title>One KPI. Two rooms. | Mapular</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../elvio/styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="icon" type="image/jpeg" href="../favicon.jpg">
+</head>
+<body>
+  <a class="skip-link" href="#experience">Skip to the experience</a>
+
+  <header class="topbar">
+    <a class="brand" href="https://morety.uno" target="_blank" rel="noopener" aria-label="Open Morety.uno in a new tab">
+      <span class="brand-mark">M.</span>
+      <span class="brand-lockup">FINANCE ×<br>NARRATIVE</span>
+    </a>
+    <p class="prepared">PREPARED FOR PETER ROSE · MAPULAR</p>
+    <div class="header-actions">
+      <a class="site-link" href="https://morety.uno" target="_blank" rel="noopener">morety.uno <span>↗</span></a>
+      <button class="soundless-reset" id="resetExperience" type="button">Restart</button>
+    </div>
+  </header>
+
+  <main id="experience" class="experience">
+    <div class="scene-track" id="sceneTrack">
+      <section class="scene scene--opening is-active" data-scene="0" aria-labelledby="opening-title">
+        <div class="scene-inner opening-layout">
+          <div class="opening-copy">
+            <p class="welcome-line"><span>01</span><strong>Fair point, Peter.</strong> <em>So no pitch.</em></p>
+            <h1 id="opening-title">I used one number already sitting on <em>Mapular’s website.</em></h1>
+            <p class="lede">A two-minute look at the financial story in Mapular’s move from custom work to reusable IP.</p>
+            <button class="primary-action" type="button" data-next>Show me <span>→</span></button>
+          </div>
+          <aside class="opening-note" aria-label="What we will do">
+            <span class="note-number">01</span><p>Find the KPI</p>
+            <span class="note-number">02</span><p>Expose the tension</p>
+            <span class="note-number">03</span><p>Shape it for the room</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--signal" data-scene="1" aria-labelledby="signal-title" inert>
+        <div class="scene-inner signal-layout signal-layout--mapular">
+          <div class="signal-copy">
+            <p class="eyebrow"><span>02</span> Find what moves the business</p>
+            <h2 id="signal-title">The strategic shift is already visible in <em>your own language.</em></h2>
+            <p class="lede compact">Mapular is turning accumulated expertise into fixed-price offers, reusable data and repeatable delivery.</p>
+            <div class="evidence-stack">
+              <p><span>01</span>“Packaged products with fixed pricing.”</p>
+              <p><span>02</span>“The methodology is standardized, the data pipelines are built.”</p>
+              <p><span>03</span>“Small team, global reach.”</p>
+            </div>
+          </div>
+          <aside class="kpi-card">
+            <span class="micro-label">THE KPI TO LEAD</span>
+            <h3>Revenue powered by reusable IP</h3>
+            <p class="kpi-formal">Productized Revenue Share</p>
+            <p>How much revenue comes from repeatable products, data pipelines and standardized delivery, rather than work rebuilt from zero?</p>
+            <div class="price-proof">
+              <span><small>ONE-OFF</small><strong>€3k</strong></span>
+              <b>→</b>
+              <span><small>ANNUAL RELATIONSHIP</small><strong>€10k</strong></span>
+            </div>
+            <small class="source-note">Public pricing · Retail Opportunity Mapping</small>
+            <button class="primary-action full" type="button" data-next>Model the economics <span>→</span></button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--forecast" data-scene="2" aria-labelledby="forecast-title" inert>
+        <div class="scene-inner forecast-layout">
+          <div class="forecast-head">
+            <div>
+              <p class="eyebrow"><span>03</span> Expose the business gap</p>
+              <h2 id="forecast-title">From custom delivery to productized revenue.<br><em>That’s where the gap opens.</em></h2>
+            </div>
+            <p class="lede compact">The more Mapular can reuse its IP, the slower delivery costs rise. Margins improve and revenue becomes more predictable.</p>
+          </div>
+
+          <form class="forecaster" id="forecastForm">
+            <div class="forecast-controls">
+              <div class="control-heading"><span class="micro-label">SIMPLE FORECASTER</span><span>Illustrative · editable</span></div>
+              <label class="money-input"><span>Annual revenue</span><span><b>€</b><input id="annualRevenue" type="number" min="100000" max="100000000" step="100000" value="1000000"></span></label>
+              <label class="range-control">
+                <span><b>Productized share · today</b><output id="currentShareOut">20%</output></span>
+                <input id="currentShare" type="range" min="0" max="90" step="5" value="20">
+              </label>
+              <label class="range-control range-control--target">
+                <span><b>Productized share · target</b><output id="targetShareOut">40%</output></span>
+                <input id="targetShare" type="range" min="5" max="100" step="5" value="40">
+              </label>
+              <div class="margin-controls">
+                <label><span>Custom gross margin</span><span><input id="customMargin" type="number" min="0" max="95" value="40"><b>%</b></span></label>
+                <label><span>Productized gross margin</span><span><input id="productMargin" type="number" min="0" max="95" value="65"><b>%</b></span></label>
+              </div>
+              <p class="assumption-note">No Mapular financials are assumed. Replace these inputs with the real model.</p>
+            </div>
+
+            <div class="gap-model" aria-live="polite">
+              <div class="model-topline"><span class="micro-label">REVENUE CEILING</span><strong data-revenue>€1.0m</strong></div>
+              <div class="model-bars">
+                <div class="model-state">
+                  <div class="revenue-bar" id="currentBar">
+                    <div class="contribution-area"><span>CONTRIBUTION</span><strong id="currentContribution">€463k</strong></div>
+                    <div class="cost-area"><span>DELIVERY COST</span><strong id="currentCost">€538k</strong></div>
+                  </div>
+                  <p>Today · <b id="currentShareLabel">20%</b> productized<br><b id="currentBlendedMargin">45.0%</b> margin</p>
+                </div>
+                <div class="gap-arrow"><span id="gapDirection">THE GAP OPENS</span><b>→</b></div>
+                <div class="model-state model-state--target">
+                  <div class="revenue-bar" id="targetBar">
+                    <div class="contribution-area"><span>CONTRIBUTION</span><strong id="targetContribution">€513k</strong></div>
+                    <div class="cost-area"><span>DELIVERY COST</span><strong id="targetCost">€488k</strong></div>
+                  </div>
+                  <p>Target · <b id="targetShareLabel">40%</b> productized<br><b id="targetBlendedMargin">50.0%</b> margin</p>
+                </div>
+              </div>
+              <div class="model-result">
+                <span><small>REVENUE SHIFTED TO REUSABLE IP</small><strong id="revenueShift">€200k</strong></span>
+                <span><small>GROSS CONTRIBUTION CREATED</small><strong id="contributionGain">+€50k</strong></span>
+                <span><small>MARGIN EXPANSION</small><strong id="marginGain">+5.0 pts</strong></span>
+              </div>
+            </div>
+          </form>
+          <div class="forecast-footer">
+            <p><strong>The tension:</strong> productized revenue only scales if delivery becomes repeatable too.</p>
+            <button class="primary-action" type="button" data-next>Choose the room <span>→</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--audience" data-scene="3" aria-labelledby="audience-title" inert>
+        <div class="scene-inner audience-layout">
+          <div class="audience-copy">
+            <p class="eyebrow"><span>04</span> Make the audience the hero</p>
+            <h2 id="audience-title">One KPI. Different people need to make <em>different moves.</em></h2>
+            <p class="lede compact">Choose the room. The number stays the same; the stakes, language and decision change.</p>
+          </div>
+          <form id="audienceForm" class="audience-form">
+            <fieldset>
+              <legend>Who needs to move?</legend>
+              <label class="audience-card is-selected">
+                <input type="radio" name="audience" value="board" checked>
+                <span class="selection-mark" aria-hidden="true"></span><span class="audience-index">01</span>
+                <strong>Board</strong><span>Risk, direction and trade-offs.</span>
+                <small>They need to protect the strategic experiment and its economic guardrails.</small>
+              </label>
+              <label class="audience-card">
+                <input type="radio" name="audience" value="team">
+                <span class="selection-mark" aria-hidden="true"></span><span class="audience-index">02</span>
+                <strong>Delivery team</strong><span>Ownership, process and action.</span>
+                <small>They need to turn project knowledge into a reusable system.</small>
+              </label>
+            </fieldset>
+            <button class="primary-action" type="submit">Shape this narrative <span>→</span></button>
+          </form>
+        </div>
+      </section>
+
+      <section class="scene scene--story" data-scene="4" aria-labelledby="story-title" inert>
+        <div class="scene-inner story-layout">
+          <div class="story-header">
+            <div>
+              <p class="eyebrow"><span>05</span> Build the narrative</p>
+              <h2 id="story-title">Alternate the two realities.<br><em>Let the tension do the work.</em></h2>
+            </div>
+            <div class="room-badge" id="roomBadge" data-audience="board">
+              <span>YOU’RE SHAPING THIS FOR</span><strong id="roomName">Board</strong><small id="roomFocus">Risk · direction · trade-offs</small>
+            </div>
+          </div>
+          <div class="contour-shell">
+            <svg class="contour" viewBox="0 0 1000 330" role="img" aria-labelledby="contourTitle contourDesc">
+              <title id="contourTitle">The contour of communication</title>
+              <desc id="contourDesc">A stepped line alternates between what is and what could be, then ends at a higher business outcome.</desc>
+              <line class="turning-guide" x1="205" y1="22" x2="205" y2="288"></line><line class="turning-guide" x1="765" y1="22" x2="765" y2="288"></line>
+              <path class="contour-ghost" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path>
+              <path class="contour-live" id="contourLive" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path>
+              <circle class="outcome-dot" cx="976" cy="40" r="7"></circle>
+              <g class="contour-labels"><text x="24" y="280">WHAT IS</text><text x="226" y="76">WHAT COULD BE</text><text x="410" y="280">WHAT IS</text><text x="552" y="76">WHAT COULD BE</text><text x="698" y="280">WHAT IS</text><text class="label-blue" x="788" y="25">WHAT IT COULD BE · BUSINESS OUTCOME</text></g>
+              <g class="turning-labels"><text x="205" y="312" text-anchor="middle">CALL TO ADVENTURE</text><text x="765" y="312" text-anchor="middle">CALL TO ACTION</text></g>
+            </svg>
+            <div class="story-beat" id="storyBeat" aria-live="polite">
+              <span class="beat-number" id="beatNumber">01 / 07</span>
+              <div><div class="beat-meta"><span class="beat-audience" id="beatAudience">BOARD</span><span class="micro-label" id="beatFramework">WHAT IS</span></div><p id="beatText"></p><p class="beat-thought" id="beatThought"></p></div>
+            </div>
+            <div class="beat-controls"><button class="text-action" id="beatBack" type="button" disabled>← Previous</button><div class="beat-dots" id="beatDots" aria-label="Story beats"></div><button class="primary-action small" id="beatNext" type="button">Next contrast <span>→</span></button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--compare" data-scene="5" aria-labelledby="compare-title" inert>
+        <div class="scene-inner compare-layout">
+          <div class="compare-header">
+            <p class="eyebrow"><span>06</span> Room-specific narrative</p>
+            <h2 id="compare-title">Same KPI.<br><em>Different decision.</em></h2>
+            <p class="lede compact">The Finance Brief finds what moves the business, exposes the tension and shapes the story for the people who need to act.</p>
+          </div>
+          <div class="comparison">
+            <a class="room-panel room-panel--board" data-room-panel="board" data-replay-room="board" href="#narrative-board" aria-label="Replay the Board narrative">
+              <header><span>BOARD</span><small>Risk · direction · trade-offs</small></header>
+              <dl><div><dt>The KPI</dt><dd>Revenue powered by reusable IP.</dd></div><div><dt>The tension</dt><dd>Recurring revenue does not create leverage when delivery effort grows at the same rate.</dd></div><div><dt>Call to Action</dt><dd>Approve a 90-day test with a margin floor and clear limits on exceptions.</dd></div><div class="decision-row"><dt>Business Outcome</dt><dd>Reusable IP becomes a larger part of Mapular’s revenue.</dd></div></dl>
+            </a>
+            <div class="same-number" aria-hidden="true"><span>same</span><strong id="compareShare">40%</strong><span>KPI</span></div>
+            <a class="room-panel room-panel--team" data-room-panel="team" data-replay-room="team" href="#narrative-team" aria-label="Replay the Delivery Team narrative">
+              <header><span>DELIVERY TEAM</span><small>Ownership · process · action</small></header>
+              <dl><div><dt>The KPI</dt><dd>Revenue powered by reusable IP.</dd></div><div><dt>The tension</dt><dd>Small exceptions can turn a repeatable offer back into a custom project.</dd></div><div><dt>Call to Action</dt><dd>Label every delivery step as automate, template or expert-only. Then capture the next reusable asset.</dd></div><div class="decision-row"><dt>Business Outcome</dt><dd>The same team supports more revenue. Each project improves the next one.</dd></div></dl>
+            </a>
+          </div>
+          <div class="closing-strip">
+            <div><span class="micro-label">THE FINANCE BRIEF</span><p>I find the KPI that truly moves the business, identify the tension and build a narrative for the room. Then I help you present it with confidence.</p></div>
+            <a class="primary-action closing-cta" href="https://tidycal.com/bmorety/peter" target="_blank" rel="noopener">Talk through Mapular’s real model <span>↗</span></a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="experience-footer">
+    <button class="back-button" id="sceneBack" type="button" aria-label="Go to previous scene">←</button>
+    <div class="progress-wrap"><span class="progress-label" id="progressLabel">THE PREMISE</span><div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div><span class="progress-count"><span id="progressCurrent">01</span> / 06</span></div>
+    <p class="credit">Bruno Morety · Financial Narrative Partner</p>
+  </footer>
+  <noscript><p class="noscript">This guided exercise requires JavaScript.</p></noscript>
+  <script src="script.js?v=1"></script>
+</body>
+</html>
