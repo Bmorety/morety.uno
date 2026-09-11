@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A guided financial narrative exercise prepared for Matúš Koleják at MeltFlex AI.">
+  <title>From integration to recurring margin | MeltFlex AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../elvio/styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="icon" type="image/jpeg" href="../favicon.jpg">
+</head>
+<body>
+  <a class="skip-link" href="#experience">Skip to the experience</a>
+
+  <header class="topbar">
+    <a class="brand" href="https://morety.uno" target="_blank" rel="noopener" aria-label="Open Morety.uno in a new tab">
+      <span class="brand-mark">M.</span>
+      <span class="brand-lockup">FINANCE ×<br>NARRATIVE</span>
+    </a>
+    <p class="prepared">PREPARED FOR MATÚŠ KOLEJÁK · MELTFLEX AI</p>
+    <div class="header-actions">
+      <a class="site-link" href="https://morety.uno" target="_blank" rel="noopener">morety.uno <span>↗</span></a>
+      <button class="soundless-reset" id="resetExperience" type="button">Restart</button>
+    </div>
+  </header>
+
+  <main id="experience" class="experience">
+    <div class="scene-track" id="sceneTrack">
+      <section class="scene scene--opening is-active" data-scene="0" aria-labelledby="opening-title">
+        <div class="scene-inner opening-layout">
+          <div class="opening-copy">
+            <p class="welcome-line"><span>01</span><strong>Hey Matúš.</strong> <em>I followed the economics.</em></p>
+            <h1 id="opening-title">A B2B partner starts custom.<br><em>What happens next?</em></h1>
+            <p class="lede">A two-minute look at how MeltFlex could turn catalogue integrations into predictable recurring margin.</p>
+            <button class="primary-action" type="button" data-next>Show me <span>→</span></button>
+          </div>
+          <aside class="opening-note" aria-label="What we will do">
+            <span class="note-number">01</span><p>Find the KPI</p>
+            <span class="note-number">02</span><p>Model the economics</p>
+            <span class="note-number">03</span><p>Shape the decision</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--signal" data-scene="1" aria-labelledby="signal-title" inert>
+        <div class="scene-inner signal-layout signal-layout--meltflex">
+          <div class="signal-copy">
+            <p class="eyebrow"><span>02</span> Find what moves the business</p>
+            <h2 id="signal-title">The B2B model is already visible in <em>your own product.</em></h2>
+            <p class="lede compact">The same engine runs under a partner’s brand. The catalogue and integration change; the core product does not.</p>
+            <div class="evidence-stack">
+              <p><span>01</span>White-label experience under the partner’s brand.</p>
+              <p><span>02</span>Catalogue connection and deeper flows scoped per partner.</p>
+              <p><span>03</span>Partner pricing is based on use and volume.</p>
+            </div>
+            <p class="source-row">Based on MeltFlex’s public B2B offer. <a href="https://www.meltflexai.com/embed-ai-interior-design" target="_blank" rel="noopener">View source ↗</a></p>
+          </div>
+          <aside class="kpi-card kpi-card--meltflex">
+            <span class="micro-label">THE KPI TO LEAD</span>
+            <h3>Time to profitable partner</h3>
+            <p class="kpi-formal">CATALOGUE INTEGRATION PAYBACK</p>
+            <p>How many months of recurring partner margin does it take to recover the initial integration work?</p>
+            <div class="payback-proof">
+              <span><small>CURRENT EXAMPLE</small><strong>4.5</strong><b>months</b></span>
+              <i>→</i>
+              <span><small>TARGET EXAMPLE</small><strong>2.5</strong><b>months</b></span>
+            </div>
+            <p class="hypothesis-note">Illustrative economic hypothesis. No private MeltFlex financials are assumed.</p>
+            <button class="primary-action full" type="button" data-next>Test the economics <span>→</span></button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--forecast" data-scene="2" aria-labelledby="forecast-title" inert>
+        <div class="scene-inner forecast-layout">
+          <div class="forecast-head">
+            <div>
+              <p class="eyebrow"><span>03</span> Model the financial opportunity</p>
+              <h2 id="forecast-title">Revenue keeps compounding.<br><em>The cost should not.</em></h2>
+            </div>
+            <p class="lede compact">White-glove work helps win the partner. Standardizing catalogue ingestion, mapping and QA determines how soon that partner becomes profitable.</p>
+          </div>
+
+          <form class="forecaster" id="forecastForm">
+            <div class="forecast-controls">
+              <div class="control-heading"><span class="micro-label">PARTNER ECONOMICS</span><span>Illustrative · editable</span></div>
+              <label class="money-input"><span>Monthly partner revenue</span><span><b>€</b><input id="monthlyRevenue" type="number" min="500" max="1000000" step="500" value="6000"></span></label>
+              <label class="money-input"><span>Monthly delivery cost</span><span><b>€</b><input id="monthlyCost" type="number" min="0" max="1000000" step="250" value="2000"></span></label>
+              <div class="integration-inputs">
+                <label><span>Integration cost · today</span><span><b>€</b><input id="currentSetup" type="number" min="0" max="1000000" step="1000" value="18000"></span></label>
+                <label><span>Integration cost · target</span><span><b>€</b><input id="targetSetup" type="number" min="0" max="1000000" step="1000" value="10000"></span></label>
+              </div>
+              <label class="range-control range-control--partners">
+                <span><b>New partners in year one</b><output id="partnerCountOut">6</output></span>
+                <input id="partnerCount" type="range" min="1" max="20" step="1" value="6">
+              </label>
+              <p class="assumption-note">Use the controls to replace the example with the real commercial model.</p>
+            </div>
+
+            <div class="payback-model" aria-live="polite">
+              <div class="scenario-switch" role="group" aria-label="Choose economic scenario">
+                <button type="button" class="is-active" data-scenario="current">Current model</button>
+                <button type="button" data-scenario="target">More productized</button>
+              </div>
+              <div class="chart-heading">
+                <div><span class="micro-label">CUMULATIVE PARTNER ECONOMICS</span><strong id="chartScenario">Current integration model</strong></div>
+                <div class="chart-legend"><span class="legend-revenue">Revenue</span><span class="legend-cost">Delivery cost</span></div>
+              </div>
+              <div class="chart-wrap">
+                <svg id="economicsChart" viewBox="0 0 760 280" role="img" aria-labelledby="chartTitle chartDesc">
+                  <title id="chartTitle">Cumulative partner revenue and delivery cost</title>
+                  <desc id="chartDesc">Revenue and cost lines cross at the payback point, after which the gap represents cumulative contribution profit.</desc>
+                  <g class="chart-grid" id="chartGrid"></g>
+                  <path class="profit-area" id="profitArea"></path>
+                  <path class="revenue-line" id="revenueLine"></path>
+                  <path class="cost-line" id="costLine"></path>
+                  <line class="payback-line" id="paybackLine" y1="22" y2="242"></line>
+                  <circle class="payback-dot" id="paybackDot" r="5"></circle>
+                  <text class="payback-label" id="paybackLabel" text-anchor="middle"></text>
+                  <text class="profit-label" id="profitLabel"></text>
+                </svg>
+              </div>
+              <div class="model-result model-result--payback">
+                <span><small>TIME TO PROFITABLE PARTNER</small><strong id="paybackResult">4.5 months</strong></span>
+                <span><small>YEAR-ONE CONTRIBUTION · EACH PARTNER</small><strong id="partnerProfit">€30k</strong></span>
+                <span><small>YEAR-ONE CONTRIBUTION · PORTFOLIO</small><strong id="portfolioProfit">€180k</strong></span>
+              </div>
+            </div>
+          </form>
+          <div class="forecast-footer">
+            <p><strong>The financial opportunity:</strong> keep the tailored edge, remove repeated work behind every launch.</p>
+            <button class="primary-action" type="button" data-next>Choose the room <span>→</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--audience" data-scene="3" aria-labelledby="audience-title" inert>
+        <div class="scene-inner audience-layout">
+          <div class="audience-copy">
+            <p class="eyebrow"><span>04</span> Make the audience the hero</p>
+            <h2 id="audience-title">Same economics.<br><em>Different decision.</em></h2>
+            <p class="lede compact">Choose the room. The KPI stays the same; what those people need to do changes.</p>
+          </div>
+          <form id="audienceForm" class="audience-form">
+            <fieldset>
+              <legend>Who needs to move?</legend>
+              <label class="audience-card is-selected">
+                <input type="radio" name="audience" value="board" checked>
+                <span class="selection-mark" aria-hidden="true"></span><span class="audience-index">01</span>
+                <strong>Board</strong><span>Investment, risk and commercial direction.</span>
+                <small>They need to back the operating change and help create qualified partner volume.</small>
+              </label>
+              <label class="audience-card">
+                <input type="radio" name="audience" value="team">
+                <span class="selection-mark" aria-hidden="true"></span><span class="audience-index">02</span>
+                <strong>Integration team</strong><span>Process, ownership and delivery economics.</span>
+                <small>They need to shorten every launch without weakening the partner experience.</small>
+              </label>
+            </fieldset>
+            <button class="primary-action" type="submit">Build this narrative <span>→</span></button>
+          </form>
+        </div>
+      </section>
+
+      <section class="scene scene--story" data-scene="4" aria-labelledby="story-title" inert>
+        <div class="scene-inner story-layout">
+          <div class="story-header">
+            <div>
+              <p class="eyebrow"><span>05</span> Build the financial narrative</p>
+              <h2 id="story-title">Move between today’s economics<br><em>and the target economics.</em></h2>
+            </div>
+            <div class="room-badge" id="roomBadge" data-audience="board">
+              <span>YOU’RE SHAPING THIS FOR</span><strong id="roomName">Board</strong><small id="roomFocus">Investment · risk · direction</small>
+            </div>
+          </div>
+          <div class="contour-shell">
+            <svg class="contour" viewBox="0 0 1000 330" role="img" aria-labelledby="contourTitle contourDesc">
+              <title id="contourTitle">The contour of the financial narrative</title>
+              <desc id="contourDesc">A stepped line alternates between current and target economics, then ends at a higher expected business impact.</desc>
+              <line class="turning-guide" x1="205" y1="22" x2="205" y2="288"></line><line class="turning-guide" x1="765" y1="22" x2="765" y2="288"></line>
+              <path class="contour-ghost" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path>
+              <path class="contour-live" id="contourLive" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path>
+              <circle class="outcome-dot" cx="976" cy="40" r="7"></circle>
+              <g class="contour-labels"><text x="24" y="280">CURRENT ECONOMICS</text><text x="226" y="76">TARGET ECONOMICS</text><text x="410" y="280">CURRENT CONSTRAINT</text><text x="552" y="76">TARGET ECONOMICS</text><text x="698" y="280">CURRENT RISK</text><text class="label-blue" x="788" y="25">EXPECTED BUSINESS IMPACT</text></g>
+              <g class="turning-labels"><text x="205" y="312" text-anchor="middle">FINANCIAL OPPORTUNITY</text><text x="765" y="312" text-anchor="middle">DECISION REQUIRED</text></g>
+            </svg>
+            <div class="story-beat" id="storyBeat" aria-live="polite">
+              <span class="beat-number" id="beatNumber">01 / 07</span>
+              <div><div class="beat-meta"><span class="beat-audience" id="beatAudience">BOARD</span><span class="micro-label" id="beatFramework">CURRENT ECONOMICS</span></div><p id="beatText"></p><p class="beat-thought" id="beatThought"></p></div>
+            </div>
+            <div class="beat-controls"><button class="text-action" id="beatBack" type="button" disabled>← Previous</button><div class="beat-dots" id="beatDots" aria-label="Narrative steps"></div><button class="primary-action small" id="beatNext" type="button">Next contrast <span>→</span></button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--compare" data-scene="5" aria-labelledby="compare-title" inert>
+        <div class="scene-inner compare-layout">
+          <div class="compare-header">
+            <p class="eyebrow"><span>06</span> Room-specific narrative</p>
+            <h2 id="compare-title">Same KPI.<br><em>Different move.</em></h2>
+            <p class="lede compact">The Finance Brief finds what moves the business, models the tension and turns it into a decision for the room.</p>
+          </div>
+          <div class="comparison">
+            <a class="room-panel room-panel--board" data-room-panel="board" data-replay-room="board" href="#narrative-board" aria-label="Replay the Board narrative">
+              <header><span>BOARD</span><small>Investment · risk · direction</small></header>
+              <dl><div><dt>The KPI</dt><dd>Time to profitable partner.</dd></div><div><dt>Financial opportunity</dt><dd>Preserve contract value while reducing the cost before recurring margin compounds.</dd></div><div><dt>Decision required</dt><dd>Back a six-month integration program with a below-three-month payback target. Help secure the next anchor partners.</dd></div><div class="decision-row"><dt>Expected impact</dt><dd id="boardImpact">Six partners generate €48k more first-year contribution profit.</dd></div></dl>
+            </a>
+            <div class="same-number" aria-hidden="true"><span>target</span><strong id="comparePayback">2.5</strong><span>months</span></div>
+            <a class="room-panel room-panel--team" data-room-panel="team" data-replay-room="team" href="#narrative-team" aria-label="Replay the Integration Team narrative">
+              <header><span>INTEGRATION TEAM</span><small>Process · ownership · economics</small></header>
+              <dl><div><dt>The KPI</dt><dd>Time to profitable partner.</dd></div><div><dt>Financial opportunity</dt><dd>Keep the tailored partner experience while removing repeated work behind it.</dd></div><div><dt>Decision required</dt><dd>Standardize catalogue ingestion, mapping and QA. Track hours and exceptions on every launch.</dd></div><div class="decision-row"><dt>Expected impact</dt><dd>Each integration reaches recurring margin sooner, and makes the next launch easier.</dd></div></dl>
+            </a>
+          </div>
+          <div class="compare-transition">
+            <div><span class="micro-label">ONE NUMBER · TWO ROOMS</span><p>Both narratives use the same economics. What changed was the role the audience needed to play.</p></div>
+            <button class="primary-action" type="button" data-next>See what we just did <span>→</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--method" data-scene="6" aria-labelledby="method-title" inert>
+        <div class="scene-inner method-layout">
+          <div class="method-intro">
+            <p class="eyebrow"><span>07</span> What just happened</p>
+            <h2 id="method-title">One KPI became a decision people can <em>understand, repeat and support.</em></h2>
+            <p class="lede compact">We did not add more financial information. We gave one number a clear job.</p>
+          </div>
+
+          <div class="method-chain" aria-label="The financial narrative method">
+            <article>
+              <span>01 · FOCUS</span>
+              <strong>Find what really moves the business.</strong>
+              <p>Time to profitable partner became the number worth following.</p>
+            </article>
+            <i aria-hidden="true">→</i>
+            <article>
+              <span>02 · TENSION</span>
+              <strong>Make the financial gap visible.</strong>
+              <p>Today’s integration cost sat beside the target economics.</p>
+            </article>
+            <i aria-hidden="true">→</i>
+            <article>
+              <span>03 · ROOM</span>
+              <strong>Give the audience a role in closing it.</strong>
+              <p>The board supports the investment. The team changes the process.</p>
+            </article>
+          </div>
+
+          <div class="hero-principle">
+            <span class="principle-mark">M.</span>
+            <div><span class="micro-label">FINANCE BUILT FOR STORYTELLING</span><p>The audience is not asked to admire the model. They can see the better outcome and how their support helps create it.</p></div>
+          </div>
+
+          <aside class="real-call">
+            <span class="micro-label">THE REAL VERSION</span>
+            <h3>Bring the challenge behind your next important room.</h3>
+            <p>In the call, we will:</p>
+            <ol>
+              <li><span>01</span>Understand the specific business and communication challenge.</li>
+              <li><span>02</span>Pressure-test the KPI and economics using your real numbers.</li>
+              <li><span>03</span>Outline the narrative your board, investors or team needs to act on.</li>
+            </ol>
+            <a class="primary-action full" href="https://calls.morety.uno/discovery" target="_blank" rel="noopener">Build the real version <span>↗</span></a>
+          </aside>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="experience-footer">
+    <button class="back-button" id="sceneBack" type="button" aria-label="Go to previous scene">←</button>
+    <div class="progress-wrap"><span class="progress-label" id="progressLabel">THE PREMISE</span><div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div><span class="progress-count"><span id="progressCurrent">01</span> / 07</span></div>
+    <p class="credit">Bruno Morety · Financial Narrative Partner</p>
+  </footer>
+  <noscript><p class="noscript">This guided exercise requires JavaScript.</p></noscript>
+  <script src="script.js?v=1"></script>
+</body>
+</html>
