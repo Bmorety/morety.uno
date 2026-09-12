@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A guided financial narrative exercise prepared for Bosse Rothe Frossard at Holy Technologies.">
+  <title>From proven technology to profitable scale | Holy Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../elvio/styles.css?v=2">
+  <link rel="stylesheet" href="../meltflex/styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="icon" type="image/jpeg" href="../favicon.jpg">
+</head>
+<body>
+  <a class="skip-link" href="#experience">Skip to the experience</a>
+  <header class="topbar">
+    <a class="brand" href="https://morety.uno" target="_blank" rel="noopener" aria-label="Open Morety.uno in a new tab"><span class="brand-mark">M.</span><span class="brand-lockup">FINANCE ×<br>NARRATIVE</span></a>
+    <p class="prepared">PREPARED FOR BOSSE ROTHE FROSSARD · HOLY TECHNOLOGIES</p>
+    <div class="header-actions"><a class="site-link" href="https://morety.uno" target="_blank" rel="noopener">morety.uno <span>↗</span></a><button class="soundless-reset" id="resetExperience" type="button">Restart</button></div>
+  </header>
+
+  <main id="experience" class="experience">
+    <div class="scene-track" id="sceneTrack">
+      <section class="scene scene--opening is-active" data-scene="0" aria-labelledby="opening-title">
+        <div class="scene-inner opening-layout">
+          <div class="opening-copy">
+            <p class="welcome-line"><span>01</span><strong>Hey Bosse.</strong> <em>I followed the factory economics.</em></p>
+            <h1 id="opening-title">The technology is proven.<br><em>Now the factory must prove the economics.</em></h1>
+            <p class="lede">Twelve components in serial production is real progress. The financial story is how contracted volume moves the new factory through break-even.</p>
+            <button class="primary-action" type="button" data-next>Turn one KPI into a story <span>→</span></button>
+          </div>
+          <aside class="opening-note opening-problem" aria-label="The communication gap">
+            <span class="problem-kicker">THE COMMUNICATION GAP</span>
+            <div><small>THE UPDATE SHOWS</small><strong>More customers.<br>More parts.<br>More capacity.</strong></div>
+            <span class="problem-line" aria-hidden="true"></span>
+            <div><small>THE CAPITAL ROOM ASKS</small><strong>When does this become profitable scale?</strong></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--signal" data-scene="1" aria-labelledby="signal-title" inert>
+        <div class="scene-inner signal-layout signal-layout--meltflex">
+          <div class="signal-copy">
+            <p class="eyebrow"><span>02</span> Find what moves the business</p>
+            <h2 id="signal-title">The move from proof to scale is already visible in <em>your own numbers.</em></h2>
+            <p class="lede compact">Holy has built the process, launched the factory and entered serial production. The next question is how much of that fixed operating base is covered by contracted production.</p>
+            <div class="evidence-stack">
+              <p><span>01</span>0 → 12 customer components in serial production.</p>
+              <p><span>02</span>50 to 200,000+ parts supported from pilot to high volume.</p>
+              <p><span>03</span>2026 is explicitly about scaling intelligently to larger volumes.</p>
+            </div>
+            <p class="source-row">Based on Holy Technologies’ public reporting and services. <a href="https://www.holy-technologies.com/de/learn/2025-in-numbers-eoy-report" target="_blank" rel="noopener">View source ↗</a></p>
+          </div>
+          <aside class="kpi-card kpi-card--holy">
+            <span class="micro-label">THE KPI TO LEAD</span>
+            <h3>Serial production coverage</h3>
+            <p class="kpi-formal">CONTRACTED CONTRIBUTION ÷ FACTORY COST</p>
+            <p>How much of the factory’s annual operating cost is covered by contribution from contracted serial-production volume?</p>
+            <div class="payback-proof">
+              <span><small>CURRENT EXAMPLE</small><strong>58%</strong><b>covered</b></span><i>→</i><span><small>TARGET EXAMPLE</small><strong>146%</strong><b>covered</b></span>
+            </div>
+            <p class="hypothesis-note">Illustrative economic hypothesis. No private Holy Technologies financials are assumed.</p>
+            <button class="primary-action full" type="button" data-next>Test the economics <span>→</span></button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--forecast" data-scene="2" aria-labelledby="forecast-title" inert>
+        <div class="scene-inner forecast-layout">
+          <div class="forecast-head">
+            <div><p class="eyebrow"><span>03</span> Model the financial opportunity</p><h2 id="forecast-title">Contracted volume closes the gap.<br><em>Profitable volume opens it.</em></h2></div>
+            <p class="lede compact">Contribution per part already accounts for variable production cost. That lets us focus on one question: when does serial production cover the factory?</p>
+          </div>
+          <form class="forecaster" id="forecastForm">
+            <div class="forecast-controls">
+              <div class="control-heading"><span class="micro-label">FACTORY ECONOMICS</span><span>Illustrative · editable</span></div>
+              <div class="integration-inputs volume-inputs">
+                <label><span>Committed parts · today</span><span><input id="currentVolume" type="number" min="0" max="1000000" step="1000" value="20000"></span></label>
+                <label><span>Committed parts · target</span><span><input id="targetVolume" type="number" min="0" max="1000000" step="1000" value="50000"></span></label>
+              </div>
+              <label class="money-input"><span>Contribution per part</span><span><b>€</b><input id="unitContribution" type="number" min="1" max="100000" step="5" value="35"></span></label>
+              <label class="money-input"><span>Annual factory cost</span><span><b>€</b><input id="factoryCost" type="number" min="10000" max="100000000" step="50000" value="1200000"></span></label>
+              <div class="input-explainer"><span>WHY ONLY FOUR INPUTS?</span><p>Contribution per part is selling price less material and variable production cost. We keep the model focused on the decision, not the spreadsheet.</p></div>
+              <p class="assumption-note">Replace these example assumptions with the real operating model.</p>
+            </div>
+            <div class="payback-model" aria-live="polite">
+              <div class="scenario-switch" role="group" aria-label="Choose economic scenario"><button type="button" class="is-active" data-scenario="current">Current volume</button><button type="button" data-scenario="target">Target volume</button></div>
+              <div class="chart-heading"><div><span class="micro-label">ANNUAL FACTORY ECONOMICS</span><strong id="chartScenario">Current committed volume</strong></div><div class="chart-legend"><span class="legend-revenue">Serial contribution</span><span class="legend-cost">Factory cost</span></div></div>
+              <div class="chart-wrap"><svg id="economicsChart" viewBox="0 0 760 280" role="img" aria-labelledby="chartTitle chartDesc"><title id="chartTitle">Serial production contribution and annual factory cost</title><desc id="chartDesc">Serial contribution rises with committed volume and crosses the factory cost at break-even. The gap after that point represents annual factory contribution profit.</desc><g class="chart-grid" id="chartGrid"></g><path class="profit-area" id="profitArea"></path><path class="revenue-line" id="contributionLine"></path><path class="cost-line" id="factoryLine"></path><line class="payback-line" id="breakEvenLine" y1="22" y2="242"></line><circle class="payback-dot" id="scenarioDot" r="5"></circle><text class="payback-label" id="breakEvenLabel" text-anchor="middle"></text><text class="profit-label" id="profitLabel"></text></svg></div>
+              <div class="model-result"><span><small>SERIAL PRODUCTION COVERAGE</small><strong id="coverageResult">58%</strong></span><span><small>ANNUAL FACTORY CONTRIBUTION</small><strong id="profitResult">−€500k</strong></span><span><small>BREAK-EVEN VOLUME</small><strong id="breakEvenResult">34.3k parts</strong></span></div>
+            </div>
+          </form>
+          <div class="forecast-footer"><p><strong>The financial opportunity:</strong> move contracted serial contribution beyond the factory’s fixed operating base.</p><button class="primary-action" type="button" data-next>Choose the room <span>→</span></button></div>
+        </div>
+      </section>
+
+      <section class="scene scene--audience" data-scene="3" aria-labelledby="audience-title" inert>
+        <div class="scene-inner audience-layout">
+          <div class="audience-copy"><p class="eyebrow"><span>04</span> Make the audience the hero</p><h2 id="audience-title">Same economics.<br><em>Different responsibility.</em></h2><p class="lede compact">Choose the room. The KPI stays the same; the support needed to close the factory gap changes.</p></div>
+          <form id="audienceForm" class="audience-form"><fieldset><legend>Who needs to move?</legend>
+            <label class="audience-card is-selected"><input type="radio" name="audience" value="capital" checked><span class="selection-mark" aria-hidden="true"></span><span class="audience-index">01</span><strong>Capital room</strong><span>Board · current and future investors.</span><small>They need to back the conversion plan, set capital guardrails and help unlock strategic volume.</small></label>
+            <label class="audience-card"><input type="radio" name="audience" value="team"><span class="selection-mark" aria-hidden="true"></span><span class="audience-index">02</span><strong>Commercial &amp; Production</strong><span>Pipeline · prioritization · execution.</span><small>They need to focus on the programs that close the coverage gap fastest.</small></label>
+          </fieldset><button class="primary-action" type="submit">Build this narrative <span>→</span></button></form>
+        </div>
+      </section>
+
+      <section class="scene scene--story" data-scene="4" aria-labelledby="story-title" inert>
+        <div class="scene-inner story-layout">
+          <div class="story-header"><div><p class="eyebrow"><span>05</span> Build the financial narrative</p><h2 id="story-title">Move between today’s economics<br><em>and the target economics.</em></h2></div><div class="room-badge" id="roomBadge" data-audience="capital"><span>YOU’RE SHAPING THIS FOR</span><strong id="roomName">Capital room</strong><small id="roomFocus">Investment · risk · direction</small></div></div>
+          <div class="contour-shell">
+            <svg class="contour" viewBox="0 0 1000 330" role="img" aria-labelledby="contourTitle contourDesc"><title id="contourTitle">The contour of the financial narrative</title><desc id="contourDesc">A stepped line alternates between current and target economics, then ends at a higher expected business impact.</desc><line class="turning-guide" x1="205" y1="22" x2="205" y2="288"></line><line class="turning-guide" x1="765" y1="22" x2="765" y2="288"></line><path class="contour-ghost" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path><path class="contour-live" id="contourLive" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path><circle class="outcome-dot" cx="976" cy="40" r="7"></circle><g class="contour-labels"><text x="24" y="280">CURRENT ECONOMICS</text><text x="226" y="76">TARGET ECONOMICS</text><text x="410" y="280">CURRENT CONSTRAINT</text><text x="552" y="76">TARGET ECONOMICS</text><text x="698" y="280">CURRENT RISK</text><text class="label-blue" x="788" y="25">EXPECTED BUSINESS IMPACT</text></g><g class="turning-labels"><text x="205" y="312" text-anchor="middle">FINANCIAL OPPORTUNITY</text><text x="765" y="312" text-anchor="middle">DECISION REQUIRED</text></g></svg>
+            <div class="story-beat" id="storyBeat" aria-live="polite"><span class="beat-number" id="beatNumber">01 / 07</span><div><div class="beat-meta"><span class="beat-audience" id="beatAudience">CAPITAL ROOM</span><span class="micro-label" id="beatFramework">CURRENT ECONOMICS</span></div><p id="beatText"></p><p class="beat-thought" id="beatThought"></p></div></div>
+            <div class="beat-controls"><button class="text-action" id="beatBack" type="button" disabled>← Previous</button><div class="beat-dots" id="beatDots" aria-label="Narrative steps"></div><button class="primary-action small" id="beatNext" type="button">Next contrast <span>→</span></button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--compare" data-scene="5" aria-labelledby="compare-title" inert>
+        <div class="scene-inner compare-layout">
+          <div class="compare-header"><p class="eyebrow"><span>06</span> Room-specific narrative</p><h2 id="compare-title">Same KPI.<br><em>Different move.</em></h2><p class="lede compact">The Finance Brief finds what moves the business, models the financial tension and turns it into a decision for the room.</p></div>
+          <div class="comparison">
+            <a class="room-panel room-panel--board" data-room-panel="capital" data-replay-room="capital" href="#narrative-capital" aria-label="Replay the Capital Room narrative"><header><span>CAPITAL ROOM</span><small>Board · current and future investors</small></header><dl><div><dt>The KPI</dt><dd>Serial production coverage.</dd></div><div><dt>Financial opportunity</dt><dd>Convert factory capacity into contracted contribution before adding the next layer of cost.</dd></div><div><dt>Decision required</dt><dd>Back the serial-conversion plan and release future capacity investment against coverage milestones.</dd></div><div class="decision-row"><dt>Expected impact</dt><dd id="capitalImpact">Target volume covers 146% of annual factory cost.</dd></div></dl></a>
+            <div class="same-number" aria-hidden="true"><span>target</span><strong id="compareCoverage">146%</strong><span>covered</span></div>
+            <a class="room-panel room-panel--team" data-room-panel="team" data-replay-room="team" href="#narrative-team" aria-label="Replay the Commercial and Production narrative"><header><span>COMMERCIAL &amp; PRODUCTION</span><small>Pipeline · priority · execution</small></header><dl><div><dt>The KPI</dt><dd>Serial production coverage.</dd></div><div><dt>Financial opportunity</dt><dd>Concentrate effort on the programs that close the factory gap fastest.</dd></div><div><dt>Decision required</dt><dd>Rank every program by contribution, readiness and conversion probability. Give each priority program an owner.</dd></div><div class="decision-row"><dt>Expected impact</dt><dd>The factory crosses break-even with volume the team can deliver profitably.</dd></div></dl></a>
+          </div>
+          <div class="compare-transition"><div><span class="micro-label">ONE NUMBER · TWO ROOMS</span><p>Both narratives use the same factory economics. What changed was the responsibility each room needed to take.</p></div><button class="primary-action" type="button" data-next>See what we just did <span>→</span></button></div>
+        </div>
+      </section>
+
+      <section class="scene scene--method" data-scene="6" aria-labelledby="method-title" inert>
+        <div class="scene-inner method-layout">
+          <div class="method-intro"><p class="eyebrow"><span>07</span> What just happened</p><h2 id="method-title">The model found the story.<br><em>The real work is what you say in the room.</em></h2><p class="lede compact">This mini experience only demonstrates the method. The Finance Brief is a narrative built for a specific board meeting, investor update, leadership session or event where people need to decide and act.</p></div>
+          <div class="method-chain" aria-label="The financial narrative method"><article><span>01 · EVENT</span><strong>Start with the room and the decision.</strong><p>Who must move, and what do you need them to do?</p></article><i aria-hidden="true">→</i><article><span>02 · FOCUS</span><strong>Find the KPI and financial tension.</strong><p>Use the real numbers to reveal what matters now.</p></article><i aria-hidden="true">→</i><article><span>03 · NARRATIVE</span><strong>Build what you will say in that room.</strong><p>Sequence the evidence, stakes and ask. Then present it with confidence.</p></article></div>
+          <div class="hero-principle"><span class="principle-mark">M.</span><div><span class="micro-label">NOT A DASHBOARD SERVICE</span><p>The model supports the narrative; it is not the product. The work is the story, visual evidence and decision shaped for a real event.</p></div></div>
+          <aside class="real-call"><span class="micro-label">THE REAL VERSION</span><h3>Bring the next room you need to win.</h3><p>In the call, we will:</p><ol><li><span>01</span>Define the upcoming event, audience and decision.</li><li><span>02</span>Work through the real numbers to find the KPI and tension.</li><li><span>03</span>Shape the narrative and how you will present it with confidence.</li></ol><a class="primary-action full" href="https://calls.morety.uno/discovery" target="_blank" rel="noopener">Talk through your next room <span>↗</span></a></aside>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="experience-footer"><button class="back-button" id="sceneBack" type="button" aria-label="Go to previous scene">←</button><div class="progress-wrap"><span class="progress-label" id="progressLabel">THE PREMISE</span><div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div><span class="progress-count"><span id="progressCurrent">01</span> / 07</span></div><p class="credit">Bruno Morety · Financial Narrative Partner</p></footer>
+  <noscript><p class="noscript">This guided exercise requires JavaScript.</p></noscript>
+  <script src="script.js?v=1"></script>
+</body>
+</html>
