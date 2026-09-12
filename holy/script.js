@@ -116,22 +116,22 @@ function storyBeats() {
   const m = model();
   const currentCoverage = `${Math.round(m.currentCoverage)}%`, targetCoverage = `${Math.round(m.targetCoverage)}%`;
   if (selectedAudience === "team") return [
-    ["CURRENT ECONOMICS", "Holy has moved twelve customer components into serial production, but programs differ in volume, contribution and production readiness.", "A full pipeline is not the same as a covered factory."],
-    ["FINANCIAL OPPORTUNITY", `Move serial production coverage from ${currentCoverage} to ${targetCoverage} by converting the right programs into contracted volume.`, "Focus on the volume that actually closes the gap."],
-    ["TARGET ECONOMICS", `At ${parts(m.targetVolume)} contracted parts and ${money(m.unitContribution)} contribution per part, serial programs generate ${money(m.targetVolume * m.unitContribution)} before factory cost.`, "Now every program has a visible job in the model."],
-    ["CURRENT CONSTRAINT", "Low-volume complexity can consume engineering and production capacity without moving the factory materially toward break-even.", "Busy is not the same as profitable."],
-    ["TARGET ECONOMICS", "One coverage model connects quotations, production planning and delivery priorities to the same financial outcome.", "Commercial and production can finally pull in the same direction."],
-    ["DECISION REQUIRED", "Rank every program by annual contribution, readiness and conversion probability. Assign one owner and next milestone to each priority program.", "Move the programs that close the gap fastest."],
-    ["EXPECTED BUSINESS IMPACT", `At target volume, the factory reaches ${targetCoverage} coverage and leaves ${money(m.targetProfit)} after annual factory cost.`, "The team knows which work creates profitable scale."]
+    ["WHAT IS", `Today’s committed volume covers about ${currentCoverage} of the factory cost.`, "We are producing. But the factory is not paying for itself yet."],
+    ["WHAT COULD BE", `At ${parts(m.targetVolume)} contracted parts, coverage rises to ${targetCoverage}.`, "Imagine every additional serial program adding profit, not just activity."],
+    ["THE GAP", `We still need enough profitable serial volume to move from ${currentCoverage} to ${targetCoverage}.`, "This is the distance we have to close together."],
+    ["WHAT IS", "Some programs use scarce engineering and production time without closing that gap fast enough.", "Being busy can hide the work that really matters."],
+    ["WHAT COULD BE", "Commercial and production focus on the programs with the strongest contribution and clearest path to volume.", "If we choose together, the same effort moves the business further."],
+    ["DECISION REQUIRED", "Prioritize the programs that close the gap, give each one an owner and remove its next constraint.", "This only happens if you make the priorities real."],
+    ["BUSINESS OUTCOME", `The factory reaches ${targetCoverage} coverage and leaves ${money(m.targetProfit)} after annual factory cost.`, "You turn a promising factory into a repeatable, profitable operation."]
   ];
   return [
-    ["CURRENT ECONOMICS", "Holy has proven IFP in serial production. The new factory creates an operating cost base before contracted volume fully absorbs it.", "The technology risk is falling. The scale economics still need to be demonstrated."],
-    ["FINANCIAL OPPORTUNITY", `Move contracted serial contribution from ${currentCoverage} to ${targetCoverage} of annual factory cost.`, "Turn capacity into visible financial leverage."],
-    ["TARGET ECONOMICS", `At ${parts(m.targetVolume)} contracted parts, the example produces ${money(m.targetVolume * m.unitContribution)} of annual serial contribution.`, "The factory crosses break-even before another layer of capacity is added."],
-    ["CURRENT CONSTRAINT", "More volume can still destroy value when pricing, complexity or customer-specific work consumes too much contribution.", "A busy factory can still be a bad business."],
-    ["TARGET ECONOMICS", "Contracted contribution coverage creates a shared guardrail for customer selection, capacity investment and the timing of the next raise.", "Capital follows evidence, not activity."],
-    ["DECISION REQUIRED", "Back a two-quarter serial-conversion plan. Release future capacity investment against coverage milestones and help secure anchor customers or financing partners.", "Give the team focus, guardrails and access to the right rooms."],
-    ["EXPECTED BUSINESS IMPACT", `At target volume, serial production covers ${targetCoverage} of factory cost and leaves ${money(m.targetProfit)} after it.`, "The next unit of volume widens the profit gap instead of only filling capacity."]
+    ["WHAT IS", `Today’s committed volume covers about ${currentCoverage} of the factory cost.`, "We have built the capacity. The revenue still needs to catch up."],
+    ["WHAT COULD BE", `At ${parts(m.targetVolume)} contracted parts, coverage rises to ${targetCoverage}.`, "Imagine the factory beyond break-even, with every new program widening profit."],
+    ["THE GAP", `We still need enough profitable serial volume to move from ${currentCoverage} to ${targetCoverage}.`, "This is the value still waiting to be unlocked."],
+    ["WHAT IS", "Without focus, new capacity and complex programs can add cost faster than contribution.", "Growth alone will not save the economics."],
+    ["WHAT COULD BE", "A focused conversion plan secures anchor programs before the next layer of capacity is added.", "We can make scale fund the next step."],
+    ["DECISION REQUIRED", "Back the conversion plan, tie new investment to coverage milestones and help open the right customer and financing doors.", "This is where we need you."],
+    ["BUSINESS OUTCOME", `The factory reaches ${targetCoverage} coverage and leaves ${money(m.targetProfit)} after annual factory cost.`, "Your support turns proven technology into profitable scale."]
   ];
 }
 
