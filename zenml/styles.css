@@ -1,0 +1,24 @@
+.scene--opening h1 { max-width: 920px; font-size: clamp(3.1rem, 6.25vw, 6.15rem); }
+.scene--opening .lede { max-width: 720px; }
+.kpi-card--holy::before { content: "PRO"; position: absolute; right: -1rem; top: -2.5rem; color: rgba(255,255,255,.035); font-size: 7rem; font-weight: 800; letter-spacing: -.08em; }
+.kpi-card--holy .payback-proof strong { font-size: 1.65rem; }
+.volume-inputs input { width: 6.7ch; font-size: 1rem; }
+.volume-inputs label > span:last-child { color: var(--ink); }
+#averageAcv { width: 7.2ch; }
+.input-explainer { margin-top: .8rem; padding: .72rem; border-left: 2px solid var(--blue); background: white; }
+.input-explainer span { color: var(--blue); font-size: .49rem; font-weight: 800; letter-spacing: .1em; }
+.input-explainer p { margin: .3rem 0 0; color: var(--muted); font-size: .56rem; line-height: 1.4; }
+.payback-model .profit-area { fill: rgba(0,73,209,.13); }
+.room-badge[data-audience="capital"] { background: var(--ink); border-left-color: #7fa3ff; }
+.story-layout:has(.room-badge[data-audience="capital"]) .beat-audience { background: var(--ink); }
+
+@media (max-width: 620px) {
+  .scene--opening h1 { font-size: clamp(2.65rem, 11.4vw, 3.2rem); }
+  .volume-inputs input { width: 6.3ch; }
+  .audience-card strong { font-size: 1.48rem; }
+}
+
+@media (max-height: 760px) and (min-width: 901px) {
+  .scene--opening h1 { font-size: 4.5rem; }
+  .input-explainer { display: none; }
+}
