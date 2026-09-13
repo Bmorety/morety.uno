@@ -1,0 +1,30 @@
+:root { --freda-red: #e3372c; --freda-cream: #fff8ef; }
+.scene--opening h1 { max-width: 1040px; font-size: clamp(3rem, 5.85vw, 5.8rem); }
+.scene--opening .lede { max-width: 760px; }
+.scene--opening.is-active h1 { animation-delay: 1.35s; }
+.scene--opening.is-active .lede { animation-delay: 1.62s; }
+.scene--opening.is-active .primary-action { animation-delay: 1.82s; }
+.scene--opening.is-active .opening-note { animation-delay: 1.95s; }
+.kpi-card--freda::before { content: "1000+"; position: absolute; right: -1.1rem; top: -2.8rem; color: rgba(255,255,255,.035); font-size: 7rem; font-weight: 800; letter-spacing: -.08em; }
+.kpi-card--freda .payback-proof strong { font-size: 1.65rem; }
+.volume-inputs input { width: 7.1ch; font-size: 1rem; }
+.volume-inputs label > span:last-child { color: var(--ink); }
+#unitContribution { width: 5.4ch; }
+.guardrails { margin-top: .8rem; padding: .68rem .72rem; border-left: 2px solid var(--blue); background: white; }
+.guardrails .micro-label { margin-bottom: .34rem; font-size: .48rem; }
+.guardrails p { display: flex; justify-content: space-between; gap: .8rem; margin: .15rem 0; color: var(--muted); font-size: .54rem; }
+.guardrails b { color: var(--ink); }
+.payback-model .profit-area { fill: rgba(0,73,209,.13); }
+.room-badge[data-audience="board"] { background: var(--ink); border-left-color: #7fa3ff; }
+.story-layout:has(.room-badge[data-audience="board"]) .beat-audience { background: var(--ink); }
+
+@media (max-width: 620px) {
+  .scene--opening h1 { font-size: clamp(2.55rem, 10.8vw, 3.15rem); }
+  .volume-inputs input { width: 6.5ch; }
+  .audience-card strong { font-size: 1.42rem; }
+}
+
+@media (max-height: 760px) and (min-width: 901px) {
+  .scene--opening h1 { font-size: 4.15rem; }
+  .guardrails { display: none; }
+}

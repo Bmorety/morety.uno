@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A guided financial narrative exercise prepared for Philipp Kraiss at Freda.">
+  <title>From retail presence to productive distribution | Freda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../elvio/styles.css?v=2">
+  <link rel="stylesheet" href="../meltflex/styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="icon" type="image/jpeg" href="../favicon.jpg">
+</head>
+<body>
+  <a class="skip-link" href="#experience">Skip to the experience</a>
+  <header class="topbar">
+    <a class="brand" href="https://morety.uno" target="_blank" rel="noopener" aria-label="Open Morety.uno in a new tab"><span class="brand-mark">M.</span><span class="brand-lockup">FINANCE ×<br>NARRATIVE</span></a>
+    <p class="prepared">PREPARED FOR PHILIPP KRAISS · FREDA</p>
+    <div class="header-actions"><a class="site-link" href="https://morety.uno" target="_blank" rel="noopener">morety.uno <span>↗</span></a><button class="soundless-reset" id="resetExperience" type="button">Restart</button></div>
+  </header>
+
+  <main id="experience" class="experience">
+    <div class="scene-track" id="sceneTrack">
+      <section class="scene scene--opening is-active" data-scene="0" aria-labelledby="opening-title">
+        <div class="scene-inner opening-layout">
+          <div class="opening-copy">
+            <p class="welcome-line"><span>01</span><strong>Hey Philipp.</strong> <em>I think I found a number for your post-funding retail plan: productive points of distribution.</em></p>
+            <h1 id="opening-title">Can Freda scale the shelf<br><em>without scaling away the quality?</em></h1>
+            <p class="lede">Here is how weekly sell-through can connect retail expansion, in-house production and one clear decision for the room.</p>
+            <button class="primary-action" type="button" data-next>Turn one KPI into a story <span>→</span></button>
+          </div>
+          <aside class="opening-note opening-problem" aria-label="The communication gap">
+            <span class="problem-kicker">THE ROOM TO WIN · POST-FUNDING BOARD REVIEW</span>
+            <div><small>WHAT THE ROOM MUST SEE</small><strong>Funding can buy distribution. Only productive distribution proves the expansion works.</strong></div>
+            <span class="problem-line" aria-hidden="true"></span>
+            <div><small>THE DECISION TO WIN</small><strong>Fund the retail rollout at a pace production can serve without weakening quality.</strong></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--signal" data-scene="1" aria-labelledby="signal-title" inert>
+        <div class="scene-inner signal-layout signal-layout--meltflex">
+          <div class="signal-copy">
+            <p class="eyebrow"><span>02</span> Find what moves the business</p>
+            <h2 id="signal-title">The tension is already visible in <em>Freda’s own growth story.</em></h2>
+            <p class="lede compact">Freda has raised fresh capital to expand retail. But the quality that earned the listing still depends on controlled production in Passau. The next proof is not more doors alone. It is sell-through those doors can sustain.</p>
+            <div class="evidence-stack">
+              <p><span>01</span>More than €5m revenue in the last twelve months.</p>
+              <p><span>02</span>More than 1,000 retail points across Germany and Austria.</p>
+              <p><span>03</span>€2.319m raised to expand retail, products and channels.</p>
+            </div>
+            <p class="source-row">Public signals, not private Freda data. <a href="https://www.companisto.com/de/investment/freda-spv" target="_blank" rel="noopener">Funding ↗</a> · <a href="https://www.eatfreda.com/pages/mehr" target="_blank" rel="noopener">Retail footprint ↗</a> · <a href="https://www.eatfreda.com/pages/faq" target="_blank" rel="noopener">Production ↗</a></p>
+          </div>
+          <aside class="kpi-card kpi-card--freda">
+            <span class="micro-label">THE KPI TO LEAD</span>
+            <h3>Weekly sell-through</h3>
+            <p class="kpi-formal">UNITS SOLD ÷ ACTIVE POINTS OF DISTRIBUTION ÷ WEEKS</p>
+            <p>How many units does each active supermarket sell per week, while availability and quality remain on target?</p>
+            <div class="payback-proof"><span><small>CURRENT EXAMPLE</small><strong>8</strong><b>units / week</b></span><i>→</i><span><small>TARGET EXAMPLE</small><strong>12</strong><b>units / week</b></span></div>
+            <p class="hypothesis-note">Only the 1,000+ retail footprint is public. Velocity, availability and quality inputs below are illustrative.</p>
+            <button class="primary-action full" type="button" data-next>Test the retail gap <span>→</span></button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--forecast" data-scene="2" aria-labelledby="forecast-title" inert>
+        <div class="scene-inner forecast-layout">
+          <div class="forecast-head">
+            <div><p class="eyebrow"><span>03</span> Model the operating opportunity</p><h2 id="forecast-title">The listing creates presence.<br><em>Sell-through earns the rollout.</em></h2></div>
+            <p class="lede compact">Use Freda’s real internal inputs later. For now, test how a small weekly change compounds across the current footprint.</p>
+          </div>
+          <form class="forecaster" id="forecastForm">
+            <div class="forecast-controls">
+              <div class="control-heading"><span class="micro-label">RETAIL PRODUCTIVITY</span><span>Illustrative · editable</span></div>
+              <div class="integration-inputs volume-inputs">
+                <label><span>Active points of distribution</span><span><input id="distributionPoints" type="number" min="1" max="50000" step="50" value="1000"></span></label>
+                <label><span>Contribution per unit</span><span>€<input id="unitContribution" type="number" min="0" max="20" step="0.10" value="1.00"></span></label>
+              </div>
+              <label class="money-input"><span>Weekly sell-through · today</span><span><input id="currentVelocity" type="number" min="0" max="200" step="1" value="8"><b>units</b></span></label>
+              <label class="money-input"><span>Weekly sell-through · target</span><span><input id="targetVelocity" type="number" min="0" max="200" step="1" value="12"><b>units</b></span></label>
+              <div class="guardrails"><span class="micro-label">QUALITY GUARDRAILS</span><p><b>≥98%</b> on-shelf availability</p><p><b>≤2</b> quality complaints / 1,000 units</p></div>
+              <p class="assumption-note">The footprint is rounded from Freda’s public reporting. Velocity, contribution and guardrails are illustrative, not company facts.</p>
+            </div>
+            <div class="payback-model" aria-live="polite">
+              <div class="scenario-switch" role="group" aria-label="Choose retail scenario"><button type="button" class="is-active" data-scenario="current">Current path</button><button type="button" data-scenario="target">Productive path</button></div>
+              <div class="chart-heading"><div><span class="micro-label">ANNUAL UNITS ACROSS THE ACTIVE FOOTPRINT</span><strong id="chartScenario">Current sell-through path</strong></div><div class="chart-legend"><span class="legend-revenue">Target</span><span class="legend-cost">Current</span></div></div>
+              <div class="chart-wrap"><svg id="economicsChart" viewBox="0 0 760 280" role="img" aria-labelledby="chartTitle chartDesc"><title id="chartTitle">Annual retail units by points of distribution</title><desc id="chartDesc">The gap between current and target units grows as active distribution expands.</desc><g class="chart-grid" id="chartGrid"></g><path class="profit-area" id="profitArea"></path><path class="revenue-line" id="targetLine"></path><path class="cost-line" id="currentLine"></path><circle class="payback-dot" id="scenarioDot" r="5"></circle><text class="profit-label" id="profitLabel"></text></svg></div>
+              <div class="model-result"><span><small>WEEKLY SELL-THROUGH</small><strong id="velocityResult">8 units</strong></span><span><small>ANNUAL RETAIL UNITS</small><strong id="annualUnits">416k</strong></span><span><small>ILLUSTRATIVE CONTRIBUTION</small><strong id="annualContribution">€416k</strong></span></div>
+            </div>
+          </form>
+          <div class="forecast-footer"><p><strong>The financial opportunity:</strong> make the existing footprint more productive while quality and availability stay intact.</p><button class="primary-action" type="button" data-next>Choose the room <span>→</span></button></div>
+        </div>
+      </section>
+
+      <section class="scene scene--audience" data-scene="3" aria-labelledby="audience-title" inert>
+        <div class="scene-inner audience-layout">
+          <div class="audience-copy"><p class="eyebrow"><span>04</span> Make the audience the hero</p><h2 id="audience-title">Show the same gap.<br><em>Change who must close it.</em></h2><p class="lede compact">The Board controls the capital and pace. The retail buyer controls the next listing and shelf space.</p></div>
+          <form id="audienceForm" class="audience-form"><fieldset><legend>Who needs to move?</legend>
+            <label class="audience-card is-selected"><input type="radio" name="audience" value="board" checked><span class="selection-mark" aria-hidden="true"></span><span class="audience-index">01</span><strong>Board review</strong><span>Capital · capacity · milestones.</span><small>We need the Board to fund expansion against evidence that distribution stays productive and quality-controlled.</small></label>
+            <label class="audience-card"><input type="radio" name="audience" value="buyer"><span class="selection-mark" aria-hidden="true"></span><span class="audience-index">02</span><strong>National retail buyer</strong><span>Category value · rollout · shelf space.</span><small>We need the buyer to approve a larger rollout because Freda can earn its space and supply it reliably.</small></label>
+          </fieldset><button class="primary-action" type="submit">Build this narrative <span>→</span></button></form>
+        </div>
+      </section>
+
+      <section class="scene scene--story" data-scene="4" aria-labelledby="story-title" inert>
+        <div class="scene-inner story-layout">
+          <div class="story-header"><div><p class="eyebrow"><span>05</span> Build the financial narrative</p><h2 id="story-title">Protect what earned the shelf.<br><em>Prove what earns the rollout.</em></h2></div><div class="room-badge" id="roomBadge" data-audience="board"><span>YOU’RE SHAPING THIS FOR</span><strong id="roomName">Board review</strong><small id="roomFocus">Capital · capacity · milestones</small></div></div>
+          <div class="contour-shell">
+            <svg class="contour" viewBox="0 0 1000 330" role="img" aria-labelledby="contourTitle contourDesc"><title id="contourTitle">The contour of the financial narrative</title><desc id="contourDesc">A stepped line alternates between what is and what could be, then ends at a higher business outcome.</desc><line class="turning-guide" x1="205" y1="22" x2="205" y2="288"></line><line class="turning-guide" x1="765" y1="22" x2="765" y2="288"></line><path class="contour-ghost" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path><path class="contour-live" id="contourLive" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path><circle class="outcome-dot" cx="976" cy="40" r="7"></circle><g class="contour-labels"><text x="24" y="280">WHAT IS</text><text x="226" y="76">WHAT COULD BE</text><text x="410" y="280">WHAT IS</text><text x="552" y="76">WHAT COULD BE</text><text x="698" y="280">WHAT IS</text><text class="label-blue" x="788" y="25">WHAT COULD BE · BUSINESS OUTCOME</text></g><g class="turning-labels"><text x="205" y="312" text-anchor="middle">FINANCIAL OPPORTUNITY</text><text x="765" y="312" text-anchor="middle">DECISION REQUIRED</text></g></svg>
+            <div class="story-beat" id="storyBeat" aria-live="polite"><span class="beat-number" id="beatNumber">01 / 07</span><div><div class="beat-meta"><span class="beat-audience" id="beatAudience">BOARD REVIEW</span><span class="micro-label" id="beatFramework">WHAT IS</span></div><p id="beatText"></p><p class="beat-thought" id="beatThought"></p></div></div>
+            <div class="beat-controls"><button class="text-action" id="beatBack" type="button" disabled>← Previous</button><div class="beat-dots" id="beatDots" aria-label="Narrative steps"></div><button class="primary-action small" id="beatNext" type="button">Next contrast <span>→</span></button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--compare" data-scene="5" aria-labelledby="compare-title" inert>
+        <div class="scene-inner compare-layout">
+          <div class="compare-header"><p class="eyebrow"><span>06</span> Room-specific narrative</p><h2 id="compare-title">Same retail gap.<br><em>Different decision.</em></h2><p class="lede compact">Click either room to replay its story from the beginning.</p></div>
+          <div class="comparison">
+            <a class="room-panel room-panel--board" data-room-panel="board" data-replay-room="board" href="#narrative-board" aria-label="Replay the Board narrative"><header><span>BOARD REVIEW</span><small>Capital · capacity · milestones</small></header><dl><div><dt>The event</dt><dd>Set the post-funding retail plan and its investment gates.</dd></div><div><dt>Call to adventure</dt><dd>What if the current footprint funds part of the next rollout through higher productivity?</dd></div><div><dt>Call to action</dt><dd>Approve capacity, inventory and trade investment against sell-through, availability and quality milestones.</dd></div><div class="decision-row"><dt>Business outcome</dt><dd id="boardImpact">The productive path creates 208k additional annual units.</dd></div></dl></a>
+            <div class="same-number" aria-hidden="true"><span>target</span><strong id="compareVelocity">12</strong><span>units / week</span></div>
+            <a class="room-panel room-panel--team" data-room-panel="buyer" data-replay-room="buyer" href="#narrative-buyer" aria-label="Replay the retail buyer narrative"><header><span>NATIONAL RETAIL BUYER</span><small>Category value · rollout · shelf space</small></header><dl><div><dt>The event</dt><dd>Decide whether Freda earns a wider national rollout.</dd></div><div><dt>Call to adventure</dt><dd>What if premium frozen food grows category value without sacrificing availability?</dd></div><div><dt>Call to action</dt><dd>Approve a measured rollout with agreed stores, SKUs, facings and a weekly velocity threshold.</dd></div><div class="decision-row"><dt>Business outcome</dt><dd>Quality becomes productive shelf space for the retailer.</dd></div></dl></a>
+          </div>
+          <div class="compare-transition"><div><span class="micro-label">ONE NUMBER · TWO ROOMS</span><p>The Board decides how fast Freda can fund the expansion. The buyer decides how far that distribution can go.</p></div><button class="primary-action" type="button" data-next>See what we just did <span>→</span></button></div>
+        </div>
+      </section>
+
+      <section class="scene scene--method" data-scene="6" aria-labelledby="method-title" inert>
+        <div class="scene-inner method-layout">
+          <div class="method-intro"><p class="eyebrow"><span>07</span> What just happened</p><h2 id="method-title">The model found the tension.<br><em>The real work is the room.</em></h2><p class="lede compact">We used Freda’s public signals to connect funding, retail expansion and in-house quality control. With the real numbers, this becomes Philipp’s actual post-funding narrative.</p></div>
+          <div class="method-chain" aria-label="The financial narrative method"><article><span>01 · EVENT</span><strong>Start with the decision.</strong><p>Who must move, and what must they approve?</p></article><i aria-hidden="true">→</i><article><span>02 · FOCUS</span><strong>Find the KPI and tension.</strong><p>Connect sell-through to production, quality and capital.</p></article><i aria-hidden="true">→</i><article><span>03 · NARRATIVE</span><strong>Build what you will say.</strong><p>Sequence the evidence, opportunity and specific ask.</p></article></div>
+          <div class="hero-principle"><span class="principle-mark">M.</span><div><span class="micro-label">NOT A DASHBOARD SERVICE</span><p>The calculator supports the narrative. The work is the financial story and decision shaped for a real event.</p></div></div>
+          <aside class="real-call"><span class="micro-label">THE REAL VERSION</span><h3>Bring the next room you need to win.</h3><p>In the call, we will:</p><ol><li><span>01</span>Define the post-funding event, audience and decision.</li><li><span>02</span>Use the real retail and production numbers to find the gap.</li><li><span>03</span>Shape the narrative and how you will present it with confidence.</li></ol><a class="primary-action full" href="https://calls.morety.uno/discovery" target="_blank" rel="noopener">Build the real Freda narrative <span>↗</span></a></aside>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="experience-footer"><button class="back-button" id="sceneBack" type="button" aria-label="Go to previous scene">←</button><div class="progress-wrap"><span class="progress-label" id="progressLabel">THE PREMISE</span><div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div><span class="progress-count"><span id="progressCurrent">01</span> / 07</span></div><p class="credit">Bruno Morety · Financial Narrative Partner</p></footer>
+  <noscript><p class="noscript">This guided exercise requires JavaScript.</p></noscript>
+  <script src="script.js?v=1"></script>
+</body>
+</html>
