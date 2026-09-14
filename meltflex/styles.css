@@ -11,7 +11,7 @@
 .opening-problem div small { display: block; color: #8f9bab; margin-bottom: .35rem; font-size: .5rem; font-weight: 800; letter-spacing: .11em; }
 .opening-problem div strong { display: block; font-size: 1.15rem; line-height: 1.35; letter-spacing: -.02em; }
 .opening-problem .problem-line { display: block; height: 1px; margin: 1.2rem 0; background: rgba(255,255,255,.16); position: relative; }
-.opening-problem .problem-line::after { content: "THE GAP"; position: absolute; right: 0; top: 50%; transform: translateY(-50%); padding-left: .55rem; background: var(--ink); color: #8eafff; font-size: .48rem; font-weight: 800; letter-spacing: .1em; }
+.opening-problem .problem-line::after { content: "THE NARRATIVE GAP"; position: absolute; right: 0; top: 50%; transform: translateY(-50%); padding-left: .55rem; background: var(--ink); color: #8eafff; font-size: .48rem; font-weight: 800; letter-spacing: .1em; }
 
 .signal-layout--meltflex { grid-template-columns: 1fr .82fr; }
 .evidence-stack { margin-top: 1.8rem; border-top: 1px solid var(--line); }
