@@ -1,26 +1,14 @@
-:root {
-  --blue: #e45d1a;
-  --ink: #14242c;
-  --muted: #617078;
-  --pale: #fff1df;
-  --line: #e7e4dc;
-  --paper: #fffdf7;
-  --offwhite: #f8f5ed;
-}
-
-body { background: var(--paper); }
-.topbar, .experience-footer { background: rgba(255,253,247,.97); }
 .scene--opening h1 { max-width: 940px; font-size: clamp(3rem, 6.05vw, 6rem); }
 .scene--opening .lede { max-width: 720px; }
 .opening-layout { position: relative; z-index: 1; }
 .opening-problem { background: var(--ink); }
-.opening-problem .problem-line::after { background: var(--ink); color: #ffc77e; }
-.opening-problem .problem-kicker, .kpi-card .micro-label, .payback-proof i, .room-panel--board header span, .room-panel--board dt, .real-call .micro-label, .real-call li span { color: #ffc77e; }
+.opening-problem .problem-line::after { background: var(--ink); color: #8eafff; }
+.opening-problem .problem-kicker, .kpi-card .micro-label, .payback-proof i, .room-panel--board header span, .room-panel--board dt, .real-call .micro-label, .real-call li span { color: #8eafff; }
 
 .sky-field { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-.sky-field::before { content: ""; position: absolute; width: 42vw; height: 42vw; right: 5vw; top: 50%; transform: translateY(-50%); border-radius: 50%; background: radial-gradient(circle, rgba(255,186,85,.42) 0 18%, rgba(255,204,128,.14) 19% 43%, transparent 44%); }
-.sky-field::after { content: ""; position: absolute; inset: 0; opacity: .38; background-image: linear-gradient(rgba(20,36,44,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(20,36,44,.08) 1px, transparent 1px); background-size: 54px 54px; mask-image: linear-gradient(90deg, transparent 25%, #000 72%); }
-.sky-field span { position: absolute; right: -5vw; height: 1px; background: rgba(228,93,26,.32); transform-origin: right; }
+.sky-field::before { content: ""; position: absolute; width: 42vw; height: 42vw; right: 5vw; top: 50%; transform: translateY(-50%); border-radius: 50%; background: radial-gradient(circle, rgba(0,73,209,.20) 0 18%, rgba(0,73,209,.07) 19% 43%, transparent 44%); }
+.sky-field::after { content: ""; position: absolute; inset: 0; opacity: .38; background-image: linear-gradient(rgba(13,27,42,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(13,27,42,.08) 1px, transparent 1px); background-size: 54px 54px; mask-image: linear-gradient(90deg, transparent 25%, #000 72%); }
+.sky-field span { position: absolute; right: -5vw; height: 1px; background: rgba(0,73,209,.25); transform-origin: right; }
 .sky-field span:nth-child(1) { width: 48vw; top: 36%; transform: rotate(-9deg); }
 .sky-field span:nth-child(2) { width: 55vw; top: 50%; transform: rotate(2deg); }
 .sky-field span:nth-child(3) { width: 46vw; top: 64%; transform: rotate(12deg); }
@@ -34,12 +22,12 @@ body { background: var(--paper); }
 .value-inputs b, .money-input b { margin-left: .22rem; color: var(--muted); font-size: .54rem; text-transform: none; }
 .money-input > span:last-child > b:first-child { margin: 0 .2rem 0 0; color: var(--blue); font-size: .72rem; }
 .input-explainer { border-left-color: var(--blue); background: var(--paper); }
-.payback-model .profit-area { fill: rgba(228,93,26,.14); }
+.payback-model .profit-area { fill: rgba(0,73,209,.13); }
 .revenue-line { stroke: var(--blue); }
 .room-panel--board { background: var(--ink); border-color: var(--ink); }
-.room-panel--board:hover, .room-panel--board:focus-visible { background: #1a313b; border-color: #ffc77e; }
+.room-panel--board:hover, .room-panel--board:focus-visible { background: #10243a; border-color: #7fa3ff; }
 .room-panel--investor { background: var(--paper); }
-.room-badge[data-audience="customer"] { background: var(--ink); border-left-color: #ffc77e; }
+.room-badge[data-audience="customer"] { background: var(--ink); border-left-color: #7fa3ff; }
 .room-badge[data-audience="investor"] { background: var(--blue); border-left-color: var(--ink); }
 .story-layout:has(.room-badge[data-audience="customer"]) .beat-audience { background: var(--ink); }
 .story-layout:has(.room-badge[data-audience="investor"]) .beat-audience { background: var(--blue); }
