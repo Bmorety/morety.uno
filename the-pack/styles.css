@@ -1,0 +1,34 @@
+:root { --pack-orange: #ff6534; --pack-cream: #fff7ef; }
+
+body::before {
+  content: ""; position: fixed; inset: var(--header-h) 0 var(--footer-h); pointer-events: none; z-index: -1;
+  background: linear-gradient(90deg, transparent 0 64%, rgba(255,101,52,.035) 64% 64.12%, transparent 64.12%), radial-gradient(circle at 88% 14%, rgba(255,101,52,.07), transparent 25%);
+}
+.scene--opening h1 { max-width: 990px; font-size: clamp(3rem, 5.85vw, 5.75rem); }
+.scene--opening .lede { max-width: 760px; }
+.kpi-card--pack::before { content: "FR"; position: absolute; right: -1.2rem; top: -3.6rem; color: rgba(255,255,255,.035); font-size: 10rem; font-weight: 800; letter-spacing: -.09em; }
+.kpi-card--pack { box-shadow: 16px 16px 0 var(--pack-cream); }
+.kpi-card--pack .payback-proof strong { color: #fff; font-size: 1.85rem; }
+.kpi-card--pack .payback-proof span:last-child strong { color: #ff9a77; }
+.money-input input { width: 5.5ch; }
+.money-input > span:last-child { gap: .12rem; }
+.payback-model .profit-area { fill: rgba(255,101,52,.12); }
+.payback-model .profit-label { fill: var(--pack-orange); }
+.payback-model .payback-dot { stroke: var(--pack-orange); }
+.scene--forecast .revenue-line { stroke: var(--pack-orange); }
+.chart-legend .legend-revenue::before { background: var(--pack-orange); }
+.room-panel--board { box-shadow: 9px 9px 0 var(--pack-cream); }
+.same-number strong { color: var(--pack-orange); }
+.principle-mark { background: var(--pack-orange); }
+
+@media (max-width: 620px) {
+  .scene--opening h1 { font-size: clamp(2.4rem, 10.8vw, 3.05rem); }
+  .money-input input { width: 5ch; }
+  .audience-card strong { font-size: 1.38rem; }
+  .kpi-card--pack { box-shadow: none; }
+}
+
+@media (max-height: 760px) and (min-width: 901px) {
+  .scene--opening h1 { font-size: 4.1rem; }
+  .input-explainer { display: none; }
+}

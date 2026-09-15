@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A guided financial narrative exercise prepared for Pietro Maria Picogna at Pack.">
+  <title>When France funds its own growth | Pack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../elvio/styles.css?v=2">
+  <link rel="stylesheet" href="../meltflex/styles.css?v=3">
+  <link rel="stylesheet" href="../sereact/styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="icon" type="image/jpeg" href="../favicon.jpg">
+</head>
+<body>
+  <a class="skip-link" href="#experience">Skip to the experience</a>
+  <header class="topbar">
+    <a class="brand" href="https://morety.uno" target="_blank" rel="noopener" aria-label="Open Morety.uno in a new tab"><span class="brand-mark">M.</span><span class="brand-lockup">FINANCE ×<br>NARRATIVE</span></a>
+    <p class="prepared">PREPARED FOR PIETRO MARIA PICOGNA · PACK</p>
+    <div class="header-actions"><a class="site-link" href="https://morety.uno" target="_blank" rel="noopener">morety.uno <span>↗</span></a><button class="soundless-reset" id="resetExperience" type="button">Restart</button></div>
+  </header>
+
+  <main id="experience" class="experience">
+    <div class="scene-track" id="sceneTrack">
+      <section class="scene scene--opening is-active" data-scene="0" aria-labelledby="opening-title">
+        <div class="scene-inner opening-layout">
+          <div class="opening-copy">
+            <p class="welcome-line"><span>01</span><strong>Hey Pietro.</strong> <em>Picture the next Board update after the France launch. The market-entry numbers are on screen.</em></p>
+            <h1 id="opening-title">France is open.<br><em>What does the Board need to see before investing more?</em></h1>
+            <p class="lede">France ARR payback shows when the new market begins to fund its own growth, and when the next resource decision becomes credible.</p>
+            <button class="primary-action" type="button" data-next>Turn one KPI into a story <span>→</span></button>
+          </div>
+          <aside class="opening-note opening-problem" aria-label="The narrative gap">
+            <span class="problem-kicker">THE ROOM TO WIN · NEXT FRANCE BOARD UPDATE</span>
+            <div><small>THE UPDATE HAS THE NUMBERS</small><strong>Customers and pipeline.<br>Local hiring.<br>Paris market activity.</strong></div>
+            <span class="problem-line" aria-hidden="true"></span>
+            <div><small>THE FINANCIAL STORY IS MISSING</small><strong>How much ARR follows the investment?<br>When does France reach payback?<br>What should the Board unlock next?</strong></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--signal" data-scene="1" aria-labelledby="signal-title" inert>
+        <div class="scene-inner signal-layout signal-layout--meltflex">
+          <div class="signal-copy">
+            <p class="eyebrow"><span>02</span> Find what moves the business</p>
+            <h2 id="signal-title">The growth question is already visible in <em>Pack’s own story.</em></h2>
+            <p class="lede compact">Pack has moved from an Italian startup to a European company. France can now prove whether a new market becomes a repeatable ARR engine without losing capital discipline.</p>
+            <div class="evidence-stack">
+              <p><span>01</span>Nearly 50 people, more than $8M raised and close to $5M ARR.</p>
+              <p><span>02</span>Q1 revenue grew 105% year on year.</p>
+              <p><span>03</span>Pietro moved to Paris as Pack builds the French enterprise market.</p>
+            </div>
+            <p class="source-row">Based on Pack and Pietro’s public reporting. <a href="https://www.linkedin.com/in/pietromariapicogna/" target="_blank" rel="noopener">Scale signals ↗</a> · <a href="https://www.linkedin.com/posts/pietromariapicogna_105-growth-yoy-and-many-pizzas-together-activity-7447174568592543745-PAAc" target="_blank" rel="noopener">Q1 growth ↗</a> · <a href="https://www.linkedin.com/posts/pietromariapicogna_i-am-thrilled-to-announce-that-we-are-opening-activity-7378687431895699456-Zx4h" target="_blank" rel="noopener">France launch ↗</a></p>
+          </div>
+          <aside class="kpi-card kpi-card--pack">
+            <span class="micro-label">THE KPI TO LEAD</span>
+            <h3>France ARR payback</h3>
+            <p class="kpi-formal">CUMULATIVE FRANCE INVESTMENT ÷ MONTHLY GROSS PROFIT FROM FRANCE ARR</p>
+            <p>How many months does signed France ARR need to recover the investment made to open the market?</p>
+            <div class="payback-proof">
+              <span><small>CURRENT EXAMPLE</small><strong>30</strong><b>months</b></span><i>→</i><span><small>TARGET EXAMPLE</small><strong>12</strong><b>months</b></span>
+            </div>
+            <p class="hypothesis-note">Illustrative model. No private Pack investment, ARR or margin data is assumed.</p>
+            <button class="primary-action full" type="button" data-next>Test the payback <span>→</span></button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--forecast" data-scene="2" aria-labelledby="forecast-title" inert>
+        <div class="scene-inner forecast-layout">
+          <div class="forecast-head">
+            <div><p class="eyebrow"><span>03</span> Model the financial opportunity</p><h2 id="forecast-title">Market activity opens France.<br><em>ARR payback proves the business.</em></h2></div>
+            <p class="lede compact">The model asks one simple question: when does gross profit from France ARR recover the market-entry investment?</p>
+          </div>
+          <form class="forecaster" id="forecastForm">
+            <div class="forecast-controls">
+              <div class="control-heading"><span class="micro-label">FRANCE GROWTH ECONOMICS</span><span>Illustrative · editable</span></div>
+              <label class="money-input"><span>Cumulative France investment</span><span>€<input id="franceInvestment" type="number" min="1" max="100000" step="25" value="600"><b>k</b></span></label>
+              <label class="money-input"><span>France ARR · current</span><span>€<input id="currentArr" type="number" min="1" max="100000" step="25" value="300"><b>k</b></span></label>
+              <label class="money-input"><span>France ARR · target</span><span>€<input id="targetArr" type="number" min="1" max="100000" step="25" value="750"><b>k</b></span></label>
+              <label class="money-input"><span>Gross margin</span><span><input id="grossMargin" type="number" min="1" max="100" step="1" value="80"><b>%</b></span></label>
+              <div class="input-explainer"><span>WHY THIS MODEL?</span><p>It translates a new-market launch into ARR, gross profit and capital recovery without prescribing how Pack should run France.</p></div>
+              <p class="assumption-note">All four inputs are illustrative. Replace them with Pack’s actual France economics to prepare the real Board narrative.</p>
+            </div>
+            <div class="payback-model" aria-live="polite">
+              <div class="scenario-switch" role="group" aria-label="Choose economic scenario"><button type="button" class="is-active" data-scenario="current">Current path</button><button type="button" data-scenario="target">Target path</button></div>
+              <div class="chart-heading"><div><span class="micro-label">CUMULATIVE FRANCE GROSS PROFIT</span><strong id="chartScenario">Current ARR path</strong></div><div class="chart-legend"><span class="legend-revenue">Gross profit</span><span class="legend-cost">Market investment</span></div></div>
+              <div class="chart-wrap"><svg id="economicsChart" viewBox="0 0 760 280" role="img" aria-labelledby="chartTitle chartDesc"><title id="chartTitle">France ARR gross-profit payback</title><desc id="chartDesc">Cumulative gross profit from France ARR rises until it recovers the illustrative market-entry investment.</desc><g class="chart-grid" id="chartGrid"></g><path class="profit-area" id="profitArea"></path><path class="revenue-line" id="grossProfitLine"></path><path class="cost-line" id="investmentLine"></path><circle class="payback-dot" id="scenarioDot" r="5"></circle><text class="profit-label" id="profitLabel"></text></svg></div>
+              <div class="model-result"><span><small>ARR PAYBACK</small><strong id="paybackResult">30 months</strong></span><span><small>ARR EFFICIENCY</small><strong id="efficiencyResult">0.50×</strong></span><span><small>ARR FOR 12-MONTH PAYBACK</small><strong id="requiredArr">€750k</strong></span></div>
+            </div>
+          </form>
+          <div class="forecast-footer"><p><strong>The financial opportunity:</strong> make France the repeatable economic model for Pack’s next European markets.</p><button class="primary-action" type="button" data-next>Choose the room <span>→</span></button></div>
+        </div>
+      </section>
+
+      <section class="scene scene--audience" data-scene="3" aria-labelledby="audience-title" inert>
+        <div class="scene-inner audience-layout">
+          <div class="audience-copy"><p class="eyebrow"><span>04</span> Make the audience the hero</p><h2 id="audience-title">Show them the payback gap.<br><em>Then show why you need them.</em></h2><p class="lede compact">Choose the room. The France economics stay the same; the decision required from the audience changes.</p></div>
+          <form id="audienceForm" class="audience-form"><fieldset><legend>Who needs to move?</legend>
+            <label class="audience-card is-selected"><input type="radio" name="audience" value="capital" checked><span class="selection-mark" aria-hidden="true"></span><span class="audience-index">01</span><strong>Board &amp; existing investors</strong><span>Capital · evidence · market access.</span><small>We need the Board to release the next resource tranche and help open senior French doors against clear payback evidence.</small></label>
+            <label class="audience-card"><input type="radio" name="audience" value="team"><span class="selection-mark" aria-hidden="true"></span><span class="audience-index">02</span><strong>Executive &amp; France Growth</strong><span>Definition · reporting · ownership.</span><small>We need leadership to bring one consistent monthly bridge from France investment to ARR, gross profit and payback.</small></label>
+          </fieldset><button class="primary-action" type="submit">Build this narrative <span>→</span></button></form>
+        </div>
+      </section>
+
+      <section class="scene scene--story" data-scene="4" aria-labelledby="story-title" inert>
+        <div class="scene-inner story-layout">
+          <div class="story-header"><div><p class="eyebrow"><span>05</span> Build the financial narrative</p><h2 id="story-title">Show what is.<br><em>Then make them see what could be.</em></h2></div><div class="room-badge" id="roomBadge" data-audience="capital"><span>YOU’RE SHAPING THIS FOR</span><strong id="roomName">Board &amp; existing investors</strong><small id="roomFocus">Capital · evidence · market access</small></div></div>
+          <div class="contour-shell">
+            <svg class="contour" viewBox="0 0 1000 330" role="img" aria-labelledby="contourTitle contourDesc"><title id="contourTitle">The contour of the financial narrative</title><desc id="contourDesc">A stepped line alternates between what is and what could be, then ends at a higher business outcome.</desc><line class="turning-guide" x1="205" y1="22" x2="205" y2="288"></line><line class="turning-guide" x1="765" y1="22" x2="765" y2="288"></line><path class="contour-ghost" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path><path class="contour-live" id="contourLive" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path><circle class="outcome-dot" cx="976" cy="40" r="7"></circle><g class="contour-labels"><text x="24" y="280">WHAT IS</text><text x="226" y="76">WHAT COULD BE</text><text x="410" y="280">WHAT IS</text><text x="552" y="76">WHAT COULD BE</text><text x="698" y="280">WHAT IS</text><text class="label-blue" x="788" y="25">WHAT COULD BE · BUSINESS OUTCOME</text></g><g class="turning-labels"><text x="205" y="312" text-anchor="middle">FINANCIAL OPPORTUNITY</text><text x="765" y="312" text-anchor="middle">DECISION REQUIRED</text></g></svg>
+            <div class="story-beat" id="storyBeat" aria-live="polite"><span class="beat-number" id="beatNumber">01 / 07</span><div><div class="beat-meta"><span class="beat-audience" id="beatAudience">BOARD &amp; EXISTING INVESTORS</span><span class="micro-label" id="beatFramework">WHAT IS</span></div><p id="beatText"></p><p class="beat-thought" id="beatThought"></p></div></div>
+            <div class="beat-controls"><button class="text-action" id="beatBack" type="button" disabled>← Previous</button><div class="beat-dots" id="beatDots" aria-label="Narrative steps"></div><button class="primary-action small" id="beatNext" type="button">Next contrast <span>→</span></button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--compare" data-scene="5" aria-labelledby="compare-title" inert>
+        <div class="scene-inner compare-layout">
+          <div class="compare-header"><p class="eyebrow"><span>06</span> Room-specific narrative</p><h2 id="compare-title">Same KPI.<br><em>Different move.</em></h2><p class="lede compact">The Finance Brief turns France’s growth tension into a different decision for each room.</p></div>
+          <div class="comparison">
+            <a class="room-panel room-panel--board" data-room-panel="capital" data-replay-room="capital" href="#narrative-capital" aria-label="Replay the Board and existing investors narrative"><header><span>BOARD &amp; EXISTING INVESTORS</span><small>Capital · evidence · access</small></header><dl><div><dt>The event</dt><dd>Review France after the market launch and decide what support comes next.</dd></div><div><dt>Financial opportunity</dt><dd>France becomes the repeatable economic template for Pack’s next European markets.</dd></div><div><dt>Decision required</dt><dd>Release the next resource tranche against a payback threshold and open qualified CHRO introductions.</dd></div><div class="decision-row"><dt>Business outcome</dt><dd id="capitalImpact">The target path reaches gross-profit payback in 12 months, 18 months earlier.</dd></div></dl></a>
+            <div class="same-number" aria-hidden="true"><span>target</span><strong id="comparePayback">12</strong><span>months</span></div>
+            <a class="room-panel room-panel--team" data-room-panel="team" data-replay-room="team" href="#narrative-team" aria-label="Replay the Executive and France Growth narrative"><header><span>EXECUTIVE &amp; FRANCE GROWTH</span><small>Definition · reporting · ownership</small></header><dl><div><dt>The event</dt><dd>Prepare the monthly France growth narrative for the next Board update.</dd></div><div><dt>Financial opportunity</dt><dd>Turn customers, pipeline and hiring into one clear view of ARR and capital recovery.</dd></div><div><dt>Decision required</dt><dd>Agree the KPI definition, data owner and monthly bridge from investment to ARR, margin and payback.</dd></div><div class="decision-row"><dt>Business outcome</dt><dd>France activity becomes a consistent, decision-ready growth story.</dd></div></dl></a>
+          </div>
+          <div class="compare-transition"><div><span class="micro-label">ONE NUMBER · TWO ROOMS</span><p>Both narratives use the same payback gap. What changed was the responsibility each room needed to take.</p></div><button class="primary-action" type="button" data-next>See what we just did <span>→</span></button></div>
+        </div>
+      </section>
+
+      <section class="scene scene--method" data-scene="6" aria-labelledby="method-title" inert>
+        <div class="scene-inner method-layout">
+          <div class="method-intro"><p class="eyebrow"><span>07</span> What just happened</p><h2 id="method-title">The model found the story.<br><em>The real work is what you say in the room.</em></h2><p class="lede compact">A Finance Brief starts with a real business event. Here, we used Pack’s public growth signals to focus the France update on one financial question and shape the decision for two rooms.</p></div>
+          <div class="method-chain" aria-label="The financial narrative method"><article><span>01 · EVENT</span><strong>Start with the room and the decision.</strong><p>Who must move, and what do you need them to do?</p></article><i aria-hidden="true">→</i><article><span>02 · FOCUS</span><strong>Find the KPI and financial tension.</strong><p>Use the real numbers to reveal what matters now.</p></article><i aria-hidden="true">→</i><article><span>03 · NARRATIVE</span><strong>Build what you will say in that room.</strong><p>Sequence the evidence, stakes and ask. Then present it with confidence.</p></article></div>
+          <div class="hero-principle"><span class="principle-mark">M.</span><div><span class="micro-label">NOT A MARKET-ENTRY STRATEGY</span><p>The model does not tell Pack how to run France. It makes the growth economics, future scenario and required audience decision easy to understand.</p></div></div>
+          <aside class="real-call"><span class="micro-label">THE REAL VERSION</span><h3>Bring the next room you need to win.</h3><p>In the call, we will:</p><ol><li><span>01</span>Define the upcoming event, audience and decision.</li><li><span>02</span>Work through the real numbers to find the KPI and tension.</li><li><span>03</span>Shape the narrative and how you will present it with confidence.</li></ol><a class="primary-action full" href="https://calls.morety.uno/discovery" target="_blank" rel="noopener">Talk through your next room <span>↗</span></a></aside>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="experience-footer"><button class="back-button" id="sceneBack" type="button" aria-label="Go to previous scene">←</button><div class="progress-wrap"><span class="progress-label" id="progressLabel">THE PREMISE</span><div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div><span class="progress-count"><span id="progressCurrent">01</span> / 07</span></div><p class="credit">Bruno Morety · Financial Narrative Partner</p></footer>
+  <noscript><p class="noscript">This guided exercise requires JavaScript.</p></noscript>
+  <script src="script.js?v=1"></script>
+</body>
+</html>
