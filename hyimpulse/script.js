@@ -43,8 +43,8 @@ function updateModel() {
   document.getElementById("windowValue").textContent = formatEuro(target ? m.targetValue : m.currentValue);
   document.getElementById("revenueValue").textContent = formatEuro(target ? m.targetRevenue : m.currentRevenue);
   document.getElementById("compareCoverage").textContent = `${Math.round(m.targetRate * 100)}%`;
-  document.getElementById("commercialOpportunity").textContent = `Imagine ${formatEuro(m.targetValue)} tied to launch windows. If ${Math.round(m.realizationRate * 100)}% is delivered and recorded as revenue, the example reaches ${formatEuro(m.targetRevenue)}.`;
-  document.getElementById("investorOpportunity").textContent = `The target represents ${formatEuro(Math.abs(m.gap))} ${m.gap >= 0 ? "more" : "less"} value with launch windows and ${formatEuro(Math.abs(m.revenueGap))} ${m.revenueGap >= 0 ? "more" : "less"} illustrative revenue than the current example.`;
+  document.getElementById("commercialOpportunity").textContent = `Imagine ${formatEuro(m.targetValue)} tied to launch windows. If ${Math.round(m.realizationRate * 100)}% is delivered and recorded as revenue, that is ${formatEuro(m.targetRevenue)} over 24 months.`;
+  document.getElementById("investorOpportunity").textContent = `Moving to ${Math.round(m.targetRate * 100)}% coverage puts ${formatEuro(Math.abs(m.gap))} ${m.gap >= 0 ? "more" : "less"} order value on a delivery path and changes the revenue scenario by ${formatEuro(m.revenueGap, true)}.`;
   renderChart(m);
   if (sceneIndex === 4) renderBeat();
 }
@@ -66,25 +66,26 @@ document.getElementById("audienceForm").addEventListener("submit",event => { eve
 document.querySelectorAll("[data-replay-room]").forEach(panel => panel.addEventListener("click",event => { event.preventDefault(); selectedAudience = panel.dataset.replayRoom; document.querySelector(`input[value="${selectedAudience}"]`).checked = true; syncAudienceCards(); goToScene(4); }));
 function storyBeats() {
   const m = model(), current = `${Math.round(m.currentRate * 100)}%`, target = `${Math.round(m.targetRate * 100)}%`, targetEuro = formatEuro(m.targetValue), uplift = formatEuro(Math.abs(m.gap)), revenue = formatEuro(m.targetRevenue), revenueUplift = formatEuro(Math.abs(m.revenueGap)), delivery = `${Math.round(m.realizationRate * 100)}%`, direction = m.gap >= 0 ? "more" : "less", outcomeDirection = m.revenueGap >= 0 ? "above" : "below";
-  const change = `${Math.abs(Math.round((m.targetRate - m.currentRate) * 100))} percentage points ${m.gap >= 0 ? "more" : "less"}`;
-  const smallStep = Math.abs(Math.round((m.targetRate - m.currentRate) * 100)) <= 10 ? "just " : "";
+  const pointChange = Math.abs(Math.round((m.targetRate - m.currentRate) * 100));
+  const change = `${pointChange} percentage ${pointChange === 1 ? "point" : "points"}`;
+  const smallStep = pointChange <= 10 ? "just " : "";
   if (selectedAudience === "investors") return [
-    ["WHAT IS","HyImpulse has more than €350m in reported orders and new capital for commercial launch operations. The next question is how that demand becomes missions.","The scale is exciting. The delivery path needs to be equally clear."],
-    ["FINANCIAL OPPORTUNITY",`Imagine ${smallStep}${change} of the order book tied to launch windows. In this example, that means ${uplift} ${direction} order value with a delivery path and ${revenueUplift} ${direction} illustrative revenue.`,"A small movement in the rate creates a large movement in euros."],
-    ["WHAT IS","Getting there is hard. A customer agreement still depends on vehicle readiness, launch access and the right timing.","We cannot treat the whole order book as money already earned."],
-    ["WHAT COULD BE",`One measure makes progress visible: the share of order value with a customer, launch window and next milestone. The example moves from ${current} to ${target}.`,"Now we can see whether spending is moving demand toward delivery."],
-    ["WHAT IS","Production and tests consume capital before missions are delivered. Delays move potential revenue and cash further into the future.","The gap has a cost, even when demand is strong."],
-    ["DECISION REQUIRED","Back a 90-day plan for the next production and launch steps, tied to clear customer milestones. Help open the customer and launch-site relationships that matter most.","Your capital and access can help turn the plan into missions."],
-    ["BUSINESS OUTCOME",`If ${delivery} of the ${targetEuro} order value with launch windows is delivered and recorded as revenue within 24 months, this illustrative scenario reaches ${revenue}, ${revenueUplift} ${outcomeDirection} the current example.`,"That is what focused support could help unlock."]
+    ["WHAT IS","We have reported more than €350m in orders and raised new capital to scale launch operations. Now we need to turn that demand into missions.","You have backed the ambition. Let me show you the next step."],
+    ["FINANCIAL OPPORTUNITY",`Imagine moving launch-window coverage from ${current} to ${target}. That puts ${uplift} ${direction} order value on a delivery path. If we deliver and record ${delivery} of that value as revenue, it means ${revenueUplift} ${direction} revenue over 24 months.`,"A modest shift could move millions of euros."],
+    ["WHAT IS","I know that is difficult. A customer commitment, rocket readiness and launch access must come together. An order is not yet a completed mission.","The work between a signed order and a launch is real."],
+    ["WHAT COULD BE","We have one number that can keep us focused: order value with a customer, a credible launch window and a clear next milestone.","You can see whether our capital is moving demand closer to delivery."],
+    ["WHAT IS","Production and tests use cash before missions are delivered. Each delay moves the related revenue further into the future.","That is why the sequence matters."],
+    ["DECISION REQUIRED","I am asking you to back how we put the new capital to work over the next 90 days: production and launch steps tied to customer milestones. Help us reach the customers and launch partners who can move those missions forward.","Your support gives the next steps a real chance."],
+    ["BUSINESS OUTCOME",`At ${target} coverage, ${targetEuro} of orders would have launch windows. If we deliver and record ${delivery} of that value as revenue within 24 months, that is ${revenue}, ${revenueUplift} ${outcomeDirection} the ${current} path. Please back the 90-day plan.`,"This is the future I am asking you to help build."]
   ];
   return [
-    ["WHAT IS","HyImpulse has more than €350m in reported orders and is meeting potential customers across the industry. The room still needs to see how those conversations become missions.","The interest is real. What happens after the meeting?"],
-    ["FINANCIAL OPPORTUNITY",`Imagine ${smallStep}${change} of the order book with launch windows. In this example, that means ${uplift} ${direction} order value with a delivery path and ${revenueUplift} ${direction} illustrative revenue.`,"Just one change in the rate could move a lot of euros."],
-    ["WHAT IS","That move is difficult. Customer requirements, vehicle readiness and launch access all have to meet at the same time.","A good conversation is still far from a launch date."],
-    ["WHAT COULD BE",`The lever is launch-window coverage: order value with a customer, a window and a next milestone. The example moves from ${current} to ${target}.`,"One number tells us whether commercial work is getting closer to delivery."],
-    ["WHAT IS","The team has limited time and capacity. Spreading effort across every opportunity can slow the missions closest to a decision.","We need to choose where our effort can matter now."],
-    ["DECISION REQUIRED","For the next 90 days, choose the opportunities to advance, agree the customer evidence each needs and give every next commitment an owner.","Give the best conversations a path to a real decision."],
-    ["BUSINESS OUTCOME",`If ${delivery} of the ${targetEuro} order value with launch windows is delivered and recorded as revenue within 24 months, this illustrative scenario reaches ${revenue}, ${revenueUplift} ${outcomeDirection} the current example.`,`That is what ${change} could mean for HyImpulse.`]
+    ["WHAT IS","We have reported more than €350m in orders. We are meeting customers across the industry. Now we need to turn the best conversations into missions.","What happens after each meeting?"],
+    ["FINANCIAL OPPORTUNITY",`Imagine moving launch-window coverage from ${current} to ${target}, ${smallStep}${change}. That puts ${uplift} ${direction} order value on a delivery path. If we deliver and record ${delivery} of that value as revenue, it means ${revenueUplift} ${direction} revenue over 24 months.`,"A small shift could mean a very different business."],
+    ["WHAT IS","That is hard. Customers need a date they can rely on. Our vehicles and launch sites must be ready for it. A good conversation is not yet a mission.","We know how much work sits between interest and launch."],
+    ["WHAT COULD BE","We have one number to move: order value with a customer, a credible launch window and a clear next milestone.","We can see whether our work is getting closer to delivery."],
+    ["WHAT IS","We cannot give every opportunity the same time and capacity. If we try, the missions closest to a decision may wait.","Focus is part of making this real."],
+    ["DECISION REQUIRED","For the next 90 days, I need us to choose which opportunities to advance, agree what each customer needs to decide and name one owner for every next step.","Let us leave this room with clear priorities."],
+    ["BUSINESS OUTCOME",`At ${target} coverage, ${targetEuro} of orders would have launch windows. If we deliver and record ${delivery} of that value as revenue within 24 months, that is ${revenue}, ${revenueUplift} ${outcomeDirection} the ${current} path. Let us commit to the 90-day plan today.`,"This is the future we can work towards together."]
   ];
 }
 const pathProgress = [.101,.19,.29,.46,.64,.765,1], contourPath = document.getElementById("contourLive"), contourLength = contourPath.getTotalLength();
