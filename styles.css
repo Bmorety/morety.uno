@@ -656,7 +656,38 @@ p {
   max-width: 580px;
   line-height: 1.6em;
 }
-.brief-sub strong { color: var(--dark); font-weight: 600; }
+.brief-value {
+  max-width: 700px;
+  font-size: clamp(25px, 3.2vw, 38px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+.brief-scope {
+  max-width: 580px;
+  margin-top: 1.25rem;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.brief-scope strong { color: var(--dark); font-weight: 600; }
+.brief-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding: 0;
+  margin: 1.75rem 0 0;
+  list-style: none;
+}
+.brief-benefits li {
+  max-width: 180px;
+  padding-left: 1rem;
+  border-left: 2px solid var(--primary);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--dark);
+}
 .brief-cta-row {
   margin-top: 3.5rem;
 }
