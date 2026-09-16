@@ -635,6 +635,14 @@ p {
   font-weight: 400;
   color: var(--muted);
 }
+.brief-price-addon {
+  max-width: 580px;
+  margin-top: 0.85rem;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--dark);
+}
+.brief-price-addon strong { color: var(--primary); }
 .brief-price-note {
   font-size: 12px;
   color: var(--muted);
@@ -648,6 +656,7 @@ p {
   max-width: 580px;
   line-height: 1.6em;
 }
+.brief-sub strong { color: var(--dark); font-weight: 600; }
 .brief-cta-row {
   margin-top: 3.5rem;
 }
@@ -656,7 +665,7 @@ p {
 .accordion-list { margin-bottom: 3rem; }
 
 .accordion-item {
-  max-height: 8.5rem;
+  max-height: 10rem;
   overflow: hidden;
   border-bottom: 1px solid rgba(0, 73, 209, 0.15);
   transition: max-height 0.9s var(--ease);
@@ -664,7 +673,7 @@ p {
 .accordion-item:first-child {
   border-top: 1px solid rgba(0, 73, 209, 0.15);
 }
-.accordion-item.is-open { max-height: 600px; }
+.accordion-item.is-open { max-height: 1100px; }
 
 .accordion-header {
   display: flex;
@@ -1238,6 +1247,7 @@ body.sheet-open { overflow: hidden; }
   .engagements-grid { grid-template-columns: 1fr; }
 
   .accordion-title { font-size: 22px; }
+  .accordion-item { max-height: 12rem; }
   .accordion-body-inner { padding-left: 0; }
 
   .contact-inner { flex-direction: column; gap: 2.5rem; }
