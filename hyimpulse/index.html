@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A financial narrative exercise prepared for Christian Schmierer at HyImpulse.">
+  <title>From demand to launch windows | HyImpulse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../elvio/styles.css?v=2">
+  <link rel="stylesheet" href="../meltflex/styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="icon" type="image/jpeg" href="../favicon.jpg">
+</head>
+<body>
+  <a class="skip-link" href="#experience">Skip to the experience</a>
+  <header class="topbar">
+    <a class="brand" href="https://morety.uno" target="_blank" rel="noopener" aria-label="Open Morety.uno in a new tab"><span class="brand-mark">M.</span><span class="brand-lockup">FINANCE ×<br>NARRATIVE</span></a>
+    <p class="prepared">PREPARED FOR CHRISTIAN SCHMIERER · HYIMPULSE</p>
+    <div class="header-actions"><a class="site-link" href="https://morety.uno" target="_blank" rel="noopener">morety.uno <span>↗</span></a><button class="soundless-reset" id="resetExperience" type="button">Restart</button></div>
+  </header>
+
+  <main id="experience" class="experience">
+    <div class="scene-track" id="sceneTrack">
+      <section class="scene scene--opening is-active" data-scene="0" aria-labelledby="opening-title">
+        <div class="scene-inner opening-layout">
+          <div class="opening-copy">
+            <p class="welcome-line"><span>01</span><strong>Hey Christian.</strong> <em>Picture the next commercial planning meeting after the funding round.</em></p>
+            <h1 id="opening-title">The demand is visible.<br><em>What should the team commit to next?</em></h1>
+            <p class="lede">One number can connect the order book, launch readiness and commercial effort to a future the room can see in euros.</p>
+            <button class="primary-action" type="button" data-next>Find that number <span>→</span></button>
+          </div>
+          <aside class="opening-note opening-problem" aria-label="The narrative gap">
+            <span class="problem-kicker">THE ROOM TO WIN · COMMERCIAL PLANNING</span>
+            <div><small>THE UPDATE HAS THE NUMBERS</small><strong>More than €350m in orders.<br>New funding.<br>SR75 and SL1 milestones.</strong></div>
+            <span class="problem-line" aria-hidden="true"></span>
+            <div><small>THE FINANCIAL STORY IS MISSING</small><strong>Which order value has a credible launch window?<br>What could that mean for future revenue and cash?<br>Which commitments should the team make now?</strong></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--signal" data-scene="1" aria-labelledby="signal-title" inert>
+        <div class="scene-inner signal-layout signal-layout--meltflex">
+          <div class="signal-copy">
+            <p class="eyebrow"><span>02</span> Find what moves the business</p>
+            <h2 id="signal-title">HyImpulse is moving from <em>technical proof to commercial scale.</em></h2>
+            <p class="lede compact">The public order book shows demand. The next financial story connects that demand to launch windows, delivery milestones and the resources needed to serve customers.</p>
+            <div class="evidence-stack">
+              <p><span>01</span>HyImpulse reports an order book above €350m across suborbital and orbital programmes.</p>
+              <p><span>02</span>It raised over €50m to scale commercial launch operations.</p>
+              <p><span>03</span>It is hiring for marketing work with Business Development, proposals and trade shows.</p>
+            </div>
+            <p class="source-row">Public signals: <a href="https://www.hyimpulse.de/blog" target="_blank" rel="noopener">funding announcement ↗</a> · <a href="https://hyimpulse-technologies-gmbh.jobs.personio.com/job/2748877" target="_blank" rel="noopener">marketing role ↗</a> · <a href="https://www.linkedin.com/company/hyimpulse/" target="_blank" rel="noopener">company updates ↗</a></p>
+          </div>
+          <aside class="kpi-card kpi-card--holy">
+            <span class="micro-label">THE KPI TO LEAD</span>
+            <h3>Launch-window coverage</h3>
+            <p class="kpi-formal">ORDER VALUE WITH A CREDIBLE LAUNCH WINDOW ÷ TOTAL ORDER VALUE</p>
+            <p>What share of the order book can be connected to a customer, a launch window within 24 months and the next delivery milestone?</p>
+            <div class="payback-proof"><span><small>CURRENT EXAMPLE</small><strong>20%</strong><b>covered</b></span><i>→</i><span><small>TARGET EXAMPLE</small><strong>35%</strong><b>covered</b></span></div>
+            <p class="hypothesis-note">Illustrative rates. HyImpulse has not published this KPI or its underlying contract schedule.</p>
+            <button class="primary-action full" type="button" data-next>See the value in euros <span>→</span></button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--forecast" data-scene="2" aria-labelledby="forecast-title" inert>
+        <div class="scene-inner forecast-layout">
+          <div class="forecast-head"><div><p class="eyebrow"><span>03</span> Model the financial opportunity</p><h2 id="forecast-title">Orders show demand.<br><em>Launch windows show the path to revenue.</em></h2></div><p class="lede compact">Change the assumptions to see order value with a delivery window in the next 24 months, and a possible euro revenue scenario.</p></div>
+          <form class="forecaster" id="forecastForm">
+            <div class="forecast-controls">
+              <div class="control-heading"><span class="micro-label">ORDER VALUE TO LAUNCH WINDOW</span><span>Illustrative · editable</span></div>
+              <label class="money-input"><span>Order book floor</span><span><b>€</b><input id="orderBook" type="number" min="1" max="100000" step="10" value="350"><b>m</b></span></label>
+              <label class="money-input"><span>Coverage · current example</span><span><input id="currentCoverage" type="number" min="0" max="100" step="1" value="20"><b>%</b></span></label>
+              <label class="money-input"><span>Coverage · target example</span><span><input id="targetCoverage" type="number" min="0" max="100" step="1" value="35"><b>%</b></span></label>
+              <label class="money-input"><span>Delivered and recognised · example</span><span><input id="realizationRate" type="number" min="0" max="100" step="1" value="70"><b>%</b></span></label>
+              <div class="input-explainer"><span>WHY THIS MODEL?</span><p>It puts a euro value on the move from reported demand to missions with a credible delivery window.</p></div>
+              <p class="assumption-note">€350m is a floor from HyImpulse's public “over €350m” order book. All percentages are illustrative. The revenue scenario assumes the stated share of scheduled mission value is delivered and recognised within 24 months. It is not a HyImpulse forecast. Contract terms, margins and cash timing are private.</p>
+            </div>
+            <div class="payback-model" aria-live="polite">
+              <div class="scenario-switch" role="group" aria-label="Choose commercial scenario"><button type="button" class="is-active" data-scenario="current">Current example</button><button type="button" data-scenario="target">Target example</button></div>
+              <div class="chart-heading"><div><span class="micro-label">ORDER VALUE WITH A WINDOW IN 24 MONTHS · € MILLION</span><strong id="chartScenario">Current coverage example</strong></div><div class="chart-legend"><span class="legend-revenue">Target</span><span class="legend-cost">Current</span></div></div>
+              <div class="chart-wrap"><svg id="economicsChart" viewBox="0 0 760 280" role="img" aria-labelledby="chartTitle chartDesc"><title id="chartTitle">Illustrative order value with a launch window in euro millions</title><desc id="chartDesc">Current and target coverage rates applied to a public order book floor. Values are scenarios, not revenue forecasts.</desc><g class="chart-grid" id="chartGrid"></g><path class="profit-area" id="profitArea"></path><path class="revenue-line" id="targetLine"></path><path class="cost-line" id="currentLine"></path><circle class="payback-dot" id="scenarioDot" r="5"></circle><text class="profit-label" id="profitLabel"></text></svg></div>
+              <div class="model-result"><span><small>LAUNCH-WINDOW COVERAGE</small><strong id="coverageResult">20%</strong></span><span><small>VALUE IN WINDOW</small><strong id="windowValue">€70m</strong></span><span><small>REVENUE SCENARIO</small><strong id="revenueValue">€49m</strong></span></div>
+            </div>
+          </form>
+          <div class="forecast-footer"><p><strong>The financial opportunity:</strong> at the target settings, more missions reach a launch window and the illustrative revenue scenario rises. Actual revenue and cash depend on delivery and contracts.</p><button class="primary-action" type="button" data-next>Choose the room <span>→</span></button></div>
+        </div>
+      </section>
+
+      <section class="scene scene--audience" data-scene="3" aria-labelledby="audience-title" inert>
+        <div class="scene-inner audience-layout"><div class="audience-copy"><p class="eyebrow"><span>04</span> Make the audience the hero</p><h2 id="audience-title">The same € gap.<br><em>Two different decisions.</em></h2><p class="lede compact">Choose the room. The economic opportunity stays the same, but each audience has a different part to play.</p></div>
+          <form id="audienceForm" class="audience-form"><fieldset><legend>Who needs to move?</legend>
+            <label class="audience-card is-selected"><input type="radio" name="audience" value="commercial" checked><span class="selection-mark" aria-hidden="true"></span><span class="audience-index">01</span><strong>Commercial leadership</strong><span>Business Development · marketing · programmes</span><small>Agree which opportunities to advance and what evidence each customer needs before a launch window can be committed.</small></label>
+            <label class="audience-card"><input type="radio" name="audience" value="investors"><span class="selection-mark" aria-hidden="true"></span><span class="audience-index">02</span><strong>Existing investors</strong><span>Capital · milestones · execution</span><small>Understand how the new capital supports a measurable route from orders to missions and future cash.</small></label>
+          </fieldset><button class="primary-action" type="submit">Build this narrative <span>→</span></button></form>
+        </div>
+      </section>
+
+      <section class="scene scene--story" data-scene="4" aria-labelledby="story-title" inert>
+        <div class="scene-inner story-layout"><div class="story-header"><div><p class="eyebrow"><span>05</span> Build the financial narrative</p><h2 id="story-title">Show what is.<br><em>Then show what could be.</em></h2></div><div class="room-badge" id="roomBadge" data-audience="commercial"><span>YOU’RE SHAPING THIS FOR</span><strong id="roomName">Commercial leadership</strong><small id="roomFocus">Customers · windows · ownership</small></div></div>
+          <div class="contour-shell"><svg class="contour" viewBox="0 0 1000 330" role="img" aria-labelledby="contourTitle contourDesc"><title id="contourTitle">The contour of the financial narrative</title><desc id="contourDesc">A stepped line alternates between what is and what could be, then ends at a higher business outcome.</desc><line class="turning-guide" x1="205" y1="22" x2="205" y2="288"></line><line class="turning-guide" x1="765" y1="22" x2="765" y2="288"></line><path class="contour-ghost" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path><path class="contour-live" id="contourLive" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path><circle class="outcome-dot" cx="976" cy="40" r="7"></circle><g class="contour-labels"><text x="24" y="280">WHAT IS</text><text x="226" y="76">WHAT COULD BE</text><text x="410" y="280">WHAT IS</text><text x="552" y="76">WHAT COULD BE</text><text x="698" y="280">WHAT IS</text><text class="label-blue" x="788" y="25">WHAT COULD BE · BUSINESS OUTCOME</text></g><g class="turning-labels"><text x="205" y="312" text-anchor="middle">FINANCIAL OPPORTUNITY</text><text x="765" y="312" text-anchor="middle">DECISION REQUIRED</text></g></svg>
+            <div class="story-beat" id="storyBeat" aria-live="polite"><span class="beat-number" id="beatNumber">01 / 07</span><div><div class="beat-meta"><span class="beat-audience" id="beatAudience">COMMERCIAL LEADERSHIP</span><span class="micro-label" id="beatFramework">WHAT IS</span></div><p id="beatText"></p><p class="beat-thought" id="beatThought"></p></div></div>
+            <div class="beat-controls"><button class="text-action" id="beatBack" type="button" disabled>← Previous</button><div class="beat-dots" id="beatDots" aria-label="Narrative steps"></div><button class="primary-action small" id="beatNext" type="button">Next contrast <span>→</span></button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--compare" data-scene="5" aria-labelledby="compare-title" inert>
+        <div class="scene-inner compare-layout"><div class="compare-header"><p class="eyebrow"><span>06</span> Room-specific narrative</p><h2 id="compare-title">One KPI.<br><em>Two clear roles.</em></h2><p class="lede compact">The launch-window coverage gap carries a financial opportunity. The action changes with the room. Select a card to replay its story.</p></div>
+          <div class="comparison">
+            <a class="room-panel room-panel--board" data-room-panel="commercial" data-replay-room="commercial" href="#narrative-commercial" aria-label="Replay the Commercial Leadership narrative"><header><span>COMMERCIAL LEADERSHIP</span><small>Customers · windows · ownership</small></header><dl><div><dt>The event</dt><dd>Set the commercial plan after the new financing.</dd></div><div><dt>Financial opportunity</dt><dd id="commercialOpportunity">Move €122.5m into launch windows, with an illustrative €85.8m revenue scenario if 70% is delivered and recognised.</dd></div><div><dt>Decision required</dt><dd>Prioritise opportunities, agree customer evidence and assign one owner to each next commitment.</dd></div><div class="decision-row"><dt>Economic path</dt><dd>More dated missions can create a clearer path to revenue and customer cash, subject to contract terms.</dd></div></dl></a>
+            <div class="same-number" aria-hidden="true"><span>target</span><strong id="compareCoverage">35%</strong><span>covered</span></div>
+            <a class="room-panel room-panel--team" data-room-panel="investors" data-replay-room="investors" href="#narrative-investors" aria-label="Replay the Existing Investors narrative"><header><span>EXISTING INVESTORS</span><small>Capital · milestones · execution</small></header><dl><div><dt>The event</dt><dd>Explain how the new capital supports commercial execution.</dd></div><div><dt>Financial opportunity</dt><dd id="investorOpportunity">The target adds €52.5m in scheduled order value and €36.8m in the illustrative revenue scenario.</dd></div><div><dt>Decision required</dt><dd>Back milestone-based capacity and help open institutional customer and launch-site relationships.</dd></div><div class="decision-row"><dt>Economic path</dt><dd>Visible milestones make future revenue timing and capital needs easier to assess.</dd></div></dl></a>
+          </div>
+          <div class="compare-transition"><div><span class="micro-label">ONE NUMBER · TWO ROOMS</span><p>The commercial team turns opportunities into commitments. Investors help fund and connect the milestones needed to deliver them.</p></div><button class="primary-action" type="button" data-next>See what we just did <span>→</span></button></div>
+        </div>
+      </section>
+
+      <section class="scene scene--method" data-scene="6" aria-labelledby="method-title" inert>
+        <div class="scene-inner method-layout"><div class="method-intro"><p class="eyebrow"><span>07</span> What just happened</p><h2 id="method-title">The euro scenario made the future visible.<br><em>The real work is the story in the room.</em></h2><p class="lede compact">This example uses public HyImpulse signals and illustrative rates. A real Finance Brief would use your contract schedule, mission economics and the decision you need the room to make.</p></div>
+          <div class="method-chain" aria-label="The financial narrative method"><article><span>01 · EVENT</span><strong>Choose the decision.</strong><p>Define the meeting, audience and action required.</p></article><i aria-hidden="true">→</i><article><span>02 · ECONOMICS</span><strong>Connect one KPI to euros.</strong><p>Show what the current and target paths mean for the business.</p></article><i aria-hidden="true">→</i><article><span>03 · NARRATIVE</span><strong>Make the room's role clear.</strong><p>Sequence the evidence, financial future and decision.</p></article></div>
+          <div class="hero-principle"><span class="principle-mark">M.</span><div><span class="micro-label">FINANCE × NARRATIVE</span><p>The calculator illustrates the method. The service is a financial story built for your real event, numbers and audience.</p></div></div>
+          <aside class="real-call"><span class="micro-label">THE REAL VERSION</span><h3>Bring the next room you need to win.</h3><p>In the call, we will:</p><ol><li><span>01</span>Define the commercial event and the decision it requires.</li><li><span>02</span>Use your actual order, launch and cash data to find the number that matters.</li><li><span>03</span>Build the narrative you will present to that room.</li></ol><a class="primary-action full" href="https://calls.morety.uno/discovery" target="_blank" rel="noopener">Talk through your next room <span>↗</span></a></aside>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="experience-footer"><button class="back-button" id="sceneBack" type="button" aria-label="Go to previous scene">←</button><div class="progress-wrap"><span class="progress-label" id="progressLabel">THE PREMISE</span><div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div><span class="progress-count"><span id="progressCurrent">01</span> / 07</span></div><p class="credit">Bruno Morety · Financial Narrative Partner</p></footer>
+  <noscript><p class="noscript">This guided exercise requires JavaScript.</p></noscript>
+  <script src="script.js?v=1"></script>
+</body>
+</html>

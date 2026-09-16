@@ -1,0 +1,24 @@
+.scene--opening h1 { max-width: 940px; font-size: clamp(3.05rem, 5.9vw, 5.8rem); }
+.scene--opening .lede { max-width: 720px; }
+.kpi-card--holy::before { content: "€"; position: absolute; right: -.5rem; top: -3.6rem; color: rgba(255,255,255,.035); font-size: 11rem; font-weight: 800; }
+.kpi-card--holy .payback-proof strong { font-size: 1.65rem; }
+.input-explainer { margin-top: .8rem; padding: .72rem; border-left: 2px solid var(--blue); background: white; }
+.input-explainer span { color: var(--blue); font-size: .49rem; font-weight: 800; letter-spacing: .1em; }
+.input-explainer p { margin: .3rem 0 0; color: var(--muted); font-size: .56rem; line-height: 1.4; }
+.payback-model .profit-area { fill: rgba(0,73,209,.13); }
+#orderBook { width: 6ch; }
+.forecaster { grid-template-columns: 350px 1fr; }
+.money-input > span:last-child { gap: .12rem; white-space: nowrap; }
+.room-badge[data-audience="commercial"] { background: var(--ink); border-left-color: #7fa3ff; }
+.room-badge[data-audience="investors"] { background: var(--blue); border-left-color: var(--ink); }
+.story-layout:has(.room-badge[data-audience="commercial"]) .beat-audience { background: var(--ink); }
+.story-layout:has(.room-badge[data-audience="investors"]) .beat-audience { background: var(--blue); }
+.room-panel--board { background: var(--ink); }
+.room-panel header { flex-wrap: wrap; }
+.room-panel header small { line-height: 1.35; }
+.room-panel dd { font-size: .67rem; }
+.contour-labels text { font-size: 12px; }
+@media (max-width: 900px) { .forecaster { grid-template-columns: 300px 1fr; } }
+@media (max-width: 720px) { .forecaster { display: block; } }
+@media (max-width: 620px) { .scene--opening h1 { font-size: clamp(2.55rem, 11vw, 3.2rem); } .audience-card strong { font-size: 1.35rem; } .model-result strong { font-size: .9rem; } }
+@media (max-height: 760px) and (min-width: 901px) { .scene--opening h1 { font-size: 4.35rem; } .input-explainer { display: none; } }
