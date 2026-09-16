@@ -64,21 +64,21 @@ function storyBeats() {
   const m = model(), currentRate = `${Math.round(m.currentRate * 100)}%`, targetRate = `${Math.round(m.targetRate * 100)}%`;
   if (selectedAudience === "team") return [
     ["WHAT IS","Sereact can make robots perform in production. But every new US site still has to earn customer trust.","A successful go-live is the beginning, not the commercial finish."],
-    ["OPERATING OPPORTUNITY",`What if every first site proves the business case for the next fleet? At ${targetRate} expansion, the example cohort creates ${Math.round(m.targetSystems)} additional live systems.`,"Design the first deployment to make the next decision easy."],
-    ["THE GAP",`The example moves from ${currentRate} to ${targetRate} deployment expansion.`,"Technical performance still needs to become a rollout decision."],
+    ["OPERATING OPPORTUNITY",`Imagine moving deployment expansion from ${currentRate} to ${targetRate}. The same first-deployment cohort could create ${Math.round(m.targetSystems)} additional live systems.`,"Each first site could become the start of a larger fleet."],
+    ["THE GAP","That move is hard. A robot can perform well without giving the customer a clear reason to commit to the next site.","Technical proof still needs a buying decision."],
     ["WHAT IS","Throughput, uptime and autonomy can look strong without giving the customer a clear trigger for the next site.","Good KPIs do not automatically create the next order."],
     ["WHAT COULD BE","One 90-day scorecard connects operational performance to customer savings and a pre-agreed expansion trigger.","The proof, timing and next move are visible before go-live."],
-    ["TEAM ACTION","Agree the scorecard and rollout trigger before go-live. Give every account one commercial and deployment owner.","You turn the first installation into an expansion motion."],
-    ["BUSINESS OUTCOME",`The target path adds ${Math.round(m.systemsGap)} live systems above the current path. Add Sereact’s license economics to translate that fleet gap into contracted value.`,"Every successful deployment creates the next fleet opportunity."]
+    ["TEAM ACTION","I need us to agree the scorecard and rollout trigger before each go-live, and give every account one commercial and deployment owner.","Let us make the next customer decision visible from day one."],
+    ["BUSINESS OUTCOME",`At ${targetRate} expansion, the cohort reaches ${Math.round(m.targetSystems)} additional systems, ${Math.round(m.systemsGap)} above the ${currentRate} path. With our real license terms, those systems become a larger contracted revenue base. Let us commit to the rollout trigger now.`,"Every successful first site can earn the next fleet."],
   ];
   return [
     ["WHAT IS","Sereact has proven Cortex across hundreds of live systems and billions of real production picks.","The technology risk is falling. The scale decision is here."],
-    ["FINANCIAL OPPORTUNITY",`What if every successful first deployment becomes the entry point to a much larger fleet? At ${targetRate} expansion, the example cohort creates ${Math.round(m.targetSystems)} additional live systems.`,"Imagine US growth compounding from each customer already won."],
-    ["THE GAP",`The example moves from ${currentRate} to ${targetRate} deployment expansion.`,"This is the commercial proof the next phase of investment must create."],
+    ["FINANCIAL OPPORTUNITY",`Imagine moving deployment expansion from ${currentRate} to ${targetRate}. The same US cohort could create ${Math.round(m.targetSystems)} additional systems, turning first sites into larger paid fleets.`,"Growth can come from customers we have already won."],
+    ["THE GAP","That move is hard. Strong technical results do not automatically produce a multi-site buying decision.","Expansion is the commercial proof the next investment must create."],
     ["WHAT IS","US expansion adds commercial and deployment cost before every first site proves it can scale.","More deployments alone do not yet prove a repeatable growth engine."],
     ["WHAT COULD BE","Expansion milestones connect capital deployment to larger customer fleets, more live data and a stronger Cortex moat.","The same outcome strengthens revenue and the model."],
-    ["BOARD DECISION","Tie the next phase of US investment to deployment-expansion milestones and help secure multi-site anchor partners.","This is where we need your discipline, capital and access."],
-    ["BUSINESS OUTCOME",`The target path adds ${Math.round(m.systemsGap)} live systems above the current path. Add Sereact’s license economics to translate that fleet gap into contracted value.`,"You turn a successful US entry into a repeatable fleet-expansion engine."]
+    ["BOARD DECISION","I am asking you to tie the next phase of US investment to deployment-expansion milestones and help us secure multi-site anchor partners.","Your capital and access can help the first sites become fleets."],
+    ["BUSINESS OUTCOME",`At ${targetRate} expansion, the cohort reaches ${Math.round(m.targetSystems)} additional systems, ${Math.round(m.systemsGap)} above the ${currentRate} path. At our real license terms, that is a larger contracted revenue base. Please back the milestones that make this repeatable.`,"A successful US entry can become a fleet business."]
   ];
 }
 const pathProgress = [.101,.19,.29,.46,.64,.765,1], contourPath = document.getElementById("contourLive"), contourLength = contourPath.getTotalLength();

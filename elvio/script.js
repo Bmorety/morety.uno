@@ -152,22 +152,22 @@ function storyBeats() {
   if (selectedAudience === "team") {
     return [
       ["WHAT IS", `Every day before reliable operation keeps the deployment team tied to the same site—today, ${currentDays} days.`, "We’re spending too long getting each site over the line."],
-      ["THE BUSINESS GAP · CALL TO ADVENTURE", `What if we run a 30-day sprint to dissect every handoff from installation to acceptance—and rebuild the process around ${targetDays} days?`, "Let’s take one month and rebuild this properly."],
+      ["THE BUSINESS GAP · CALL TO ADVENTURE", `Imagine reliable operation in ${targetDays} days instead of ${currentDays}. We would free ${saved} days of team capacity on every deployment and start billing earlier.`, "That is time we can give to the next hospital."],
       ["WHAT IT COULD BE", `A shared protocol makes the ${saved}-day opportunity concrete: fewer waits, clearer ownership and earlier billing.`, "Less waiting. Clearer owners. Faster go-live."],
       ["WHAT IS", "Site-specific integrations, acceptance criteria and handovers keep pulling the work back into today’s cycle.", "The robot isn’t the only problem. The handoffs are."],
       ["WHAT IT COULD BE", "Standardize what repeats. Isolate the exceptions. Prove reliable operation against the same acceptance protocol every time.", "Repeat what works. Surface what doesn’t."],
-      ["THE DECISION · CALL TO ACTION", "Map every handoff, rebuild the protocol, assign each delay an owner and test it on the next deployment.", "Find where the days disappear. Put a name next to each one."],
-      ["BUSINESS OUTCOME · WHAT IT COULD BE", "Reliable operation becomes repeatable—and the same team creates capacity to activate more hospitals.", "Get good at this once. Then do it faster every time."]
+      ["THE DECISION · CALL TO ACTION", "I need us to spend the next 30 days mapping every handoff, naming an owner for each delay and testing a faster protocol on the next deployment.", "Let us leave with a clear owner for every day we want back."],
+      ["BUSINESS OUTCOME · WHAT IT COULD BE", `If we hold the ${targetDays}-day cycle, the same team can complete ${additional} additional deployment cycles a year. Let us commit to the 30-day sprint now.`, "The next hospital gets a faster path to operation, and we gain room to grow."]
     ];
   }
   return [
     ["WHAT IS", `Elvio carries deployment cost for ${currentDays} days before rental revenue begins.`, "We’re spending money. We’re not earning yet."],
-    ["THE BUSINESS GAP · CALL TO ADVENTURE", `What if Elvio runs a 30-day sprint to dissect the full deployment process—and rebuilds its protocols around a ${targetDays}-day target?`, `${currentDays} days is too long. We can do better.`],
+    ["THE BUSINESS GAP · CALL TO ADVENTURE", `Imagine billing ${saved} days earlier on every deployment. The same team could move from ${currentCapacity.toFixed(1)} to ${targetCapacity.toFixed(1)} deployment cycles a year.`, "The capacity we need may already be inside the process."],
     ["WHAT IT COULD BE", `The exposure window becomes ${reduction}% shorter. Billing begins ${saved} days earlier on every deployment.`, `${saved} days back. Every deployment.`],
     ["WHAT IS", "Until acceptance, capital is committed while revenue and operational proof are still waiting.", "Every delay traps cash in a site that isn’t live."],
     ["WHAT IT COULD BE", `On a simple sequential basis, the same capacity moves from ${currentCapacity.toFixed(1)} to ${targetCapacity.toFixed(1)} deployment cycles a year.`, `Same team. Same capital. ${additional.charAt(0).toUpperCase() + additional.slice(1)} more deployments a year.`],
-    ["THE DECISION · CALL TO ACTION", "Protect the sprint. Introduce hospital, integration and financing partners who can remove constraints.", "Give us the month—and help us clear the road."],
-    ["BUSINESS OUTCOME · WHAT IT COULD BE", `If the new cycle holds, the same deployment capacity could unlock ${additional} additional deployments a year.`, "This is how we scale before adding more cost."]
+    ["THE DECISION · CALL TO ACTION", "I am asking you to protect a 30-day deployment sprint and help us remove the hospital, integration and financing constraints it reveals.", "Give us the month and the right introductions."],
+    ["BUSINESS OUTCOME · WHAT IT COULD BE", `If the ${targetDays}-day cycle holds, the same capacity could unlock ${additional} additional deployments a year. Please back the sprint.`, "This is how we grow before adding more cost."]
   ];
 }
 

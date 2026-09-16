@@ -161,6 +161,7 @@ blockquote cite { display: block; color: var(--muted); font-size: .65rem; font-s
 .story-layout { display: flex; flex-direction: column; justify-content: center; padding-block: 1rem; }
 .story-header { display: flex; justify-content: space-between; gap: 2rem; align-items: end; }
 .story-header h2 { font-size: clamp(2rem, 3.7vw, 3.8rem); margin-bottom: .5rem; }
+.story-header .scenario-note { max-width: 710px; margin: .15rem 0 .55rem; color: var(--muted); font-size: .66rem; line-height: 1.4; }
 .story-header .eyebrow { margin-bottom: 1rem; }
 .room-badge { width: 245px; background: var(--ink); color: white; border-left: 5px solid #7fa3ff; padding: 1rem 1.15rem; margin-bottom: .8rem; transition: background .35s ease, border-color .35s ease; }
 .room-badge[data-audience="team"] { background: var(--blue); border-left-color: var(--ink); }

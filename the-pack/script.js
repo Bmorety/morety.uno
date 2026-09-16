@@ -72,21 +72,21 @@ function storyBeats() {
   const m = model(), currentMonths = Math.ceil(m.currentPayback), targetMonths = Math.ceil(m.targetPayback), gained = Math.max(0, Math.round(m.monthsGained));
   if (selectedAudience === "team") return [
     ["WHAT IS", "France now has customers, pipeline, local hiring and visible market activity.", "The signals are real, but they still sit in different parts of the update."],
-    ["FINANCIAL OPPORTUNITY", `What if one monthly bridge showed exactly how France ARR moves payback from ${currentMonths} to ${targetMonths} months?`, "Now everyone can see the same economic path."],
-    ["THE GAP", `The illustrative model closes ${gained} months between the current and target paths.`, "This is the distance the next update needs to explain."],
-    ["WHAT IS", "Investment, signed ARR and gross margin can be reported correctly without forming one decision-ready story.", "Correct numbers are not yet a financial narrative."],
+    ["FINANCIAL OPPORTUNITY", `Imagine France ARR at ${formatEuroK(m.targetArr)}. At the selected margin, gross-profit payback moves from ${currentMonths} to ${targetMonths} months.`, "The next update can show a future worth working towards."],
+    ["THE GAP", `That is ${gained} months of capital recovery to earn. Every customer win needs to show how much it moves us along that path.`, "The room should see what each win changes."],
+    ["WHAT IS", "We could report investment, signed ARR and margin correctly and still leave the Board unsure what to support next.", "Correct numbers need a decision story."],
     ["WHAT COULD BE", "One definition connects every customer win to cumulative gross profit, payback and the next resource decision.", "The monthly update finally shows what changed and why it matters."],
-    ["LEADERSHIP DECISION", "Agree the KPI definition, data owner and monthly bridge from France investment to ARR, margin and payback.", "Bring the real inputs; the story will carry them."],
-    ["BUSINESS OUTCOME", `France activity becomes a consistent growth narrative, with a ${targetMonths}-month target payback visible to every decision-maker.`, "The next Board conversation starts with evidence, not interpretation gaps."]
+    ["LEADERSHIP DECISION", "I need us to agree one payback definition, one data owner and a monthly bridge from France investment to ARR, margin and payback.", "Let us put the same financial story in every update."],
+    ["BUSINESS OUTCOME", `With that shared view, we can show the Board how ${formatEuroK(m.targetArr)} in France ARR could bring gross-profit payback to ${targetMonths} months. Let us agree the bridge before the next update.`, "The room can see both the opportunity and the decision."],
   ];
   return [
     ["WHAT IS", "Pack enters France with funding, European momentum, local leadership and an established enterprise product.", "The market-entry case is credible. The capital question comes next."],
-    ["FINANCIAL OPPORTUNITY", `What if France becomes the repeatable economic model for Pack’s next European markets? At the target ARR, payback falls to ${targetMonths} months.`, "France can prove more than growth. It can prove repeatability."],
-    ["THE GAP", `The illustrative model moves from ${currentMonths} to ${targetMonths} months of gross-profit payback.`, "This is the financial distance the next investment must close."],
+    ["FINANCIAL OPPORTUNITY", `Imagine France reaching ${formatEuroK(m.targetArr)} in ARR. At the selected margin, gross-profit payback falls from ${currentMonths} to ${targetMonths} months.`, "France could prove more than growth. It could prove repeatability."],
+    ["THE GAP", `That is ${gained} months of capital recovery to earn. It will not happen just because we add customers and hire locally.`, "The next investment needs clear economic proof."],
     ["WHAT IS", "Customers, pipeline and hiring show movement, but market investment arrives before recurring gross profit.", "Activity alone does not show when growth begins to fund itself."],
     ["WHAT COULD BE", "One payback curve connects France ARR to margin, capital recovery and runway visibility.", "Now the room can see the economic future behind each win."],
-    ["BOARD DECISION", "Release the next resource tranche against a payback threshold and help open qualified senior CHRO introductions.", "This is where the Board becomes part of the growth outcome."],
-    ["BUSINESS OUTCOME", `The target path recovers the illustrative investment ${gained} months earlier and gives Pack a clearer template for European expansion.`, "France begins to fund its own growth."]
+    ["BOARD DECISION", "I am asking you to release the next resources against a clear payback threshold and help us meet qualified senior CHRO buyers.", "Your capital and access can move the next customer wins."],
+    ["BUSINESS OUTCOME", `At ${formatEuroK(m.targetArr)} in France ARR, gross-profit payback reaches ${targetMonths} months, ${gained} months earlier than the ${formatEuroK(m.currentArr)} path. Please back the next measured step.`, "France can become a model for the next market."],
   ];
 }
 const pathProgress = [.101, .19, .29, .46, .64, .765, 1], contourPath = document.getElementById("contourLive"), contourLength = contourPath.getTotalLength();

@@ -117,21 +117,21 @@ function storyBeats() {
   const currentCoverage = `${Math.round(m.currentCoverage)}%`, targetCoverage = `${Math.round(m.targetCoverage)}%`;
   if (selectedAudience === "team") return [
     ["WHAT IS", `Today’s committed volume covers about ${currentCoverage} of the factory cost.`, "We are producing. But the factory is not paying for itself yet."],
-    ["WHAT COULD BE", `At ${parts(m.targetVolume)} contracted parts, coverage rises to ${targetCoverage}.`, "Imagine every additional serial program adding profit, not just activity."],
+    ["WHAT COULD BE", `Imagine ${parts(m.targetVolume)} contracted parts. That moves factory-cost coverage to ${targetCoverage} and leaves ${money(m.targetProfit)} after annual factory cost.`, "Every strong serial program can add profit, not just activity."],
     ["THE GAP", `We still need enough profitable serial volume to move from ${currentCoverage} to ${targetCoverage}.`, "This is the distance we have to close together."],
     ["WHAT IS", "Some programs use scarce engineering and production time without closing that gap fast enough.", "Being busy can hide the work that really matters."],
     ["WHAT COULD BE", "Commercial and production focus on the programs with the strongest contribution and clearest path to volume.", "If we choose together, the same effort moves the business further."],
-    ["DECISION REQUIRED", "Prioritize the programs that close the gap, give each one an owner and remove its next constraint.", "This only happens if you make the priorities real."],
-    ["BUSINESS OUTCOME", `The factory reaches ${targetCoverage} coverage and leaves ${money(m.targetProfit)} after annual factory cost.`, "You turn a promising factory into a repeatable, profitable operation."]
+    ["DECISION REQUIRED", "I need us to prioritise the programs that close the gap, give each one an owner and remove its next constraint.", "Let us leave with the priorities agreed."],
+    ["BUSINESS OUTCOME", `At ${targetCoverage} coverage, the factory leaves ${money(m.targetProfit)} after annual cost. Let us put the strongest programs first.`, "We can turn a promising factory into a profitable operation."]
   ];
   return [
     ["WHAT IS", `Today’s committed volume covers about ${currentCoverage} of the factory cost.`, "We have built the capacity. The revenue still needs to catch up."],
-    ["WHAT COULD BE", `At ${parts(m.targetVolume)} contracted parts, coverage rises to ${targetCoverage}.`, "Imagine the factory beyond break-even, with every new program widening profit."],
+    ["WHAT COULD BE", `Imagine ${parts(m.targetVolume)} contracted parts. Coverage rises to ${targetCoverage} and the factory leaves ${money(m.targetProfit)} after annual cost.`, "Every new program can widen profit after break-even."],
     ["THE GAP", `We still need enough profitable serial volume to move from ${currentCoverage} to ${targetCoverage}.`, "This is the value still waiting to be unlocked."],
     ["WHAT IS", "Without focus, new capacity and complex programs can add cost faster than contribution.", "Growth alone will not save the economics."],
     ["WHAT COULD BE", "A focused conversion plan secures anchor programs before the next layer of capacity is added.", "We can make scale fund the next step."],
-    ["DECISION REQUIRED", "Back the conversion plan, tie new investment to coverage milestones and help open the right customer and financing doors.", "This is where we need you."],
-    ["BUSINESS OUTCOME", `The factory reaches ${targetCoverage} coverage and leaves ${money(m.targetProfit)} after annual factory cost.`, "Your support turns proven technology into profitable scale."]
+    ["DECISION REQUIRED", "I am asking you to back the conversion plan, link new investment to coverage milestones and help us reach the right customers and financing partners.", "This is where your support matters."],
+    ["BUSINESS OUTCOME", `At ${targetCoverage} coverage, the factory leaves ${money(m.targetProfit)} after annual cost. Please back the plan that gets us there.`, "Your support can turn proven technology into profitable scale."]
   ];
 }
 

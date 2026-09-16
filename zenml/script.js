@@ -115,21 +115,21 @@ function storyBeats() {
   const currentRate = `${Math.round(m.currentRate * 100)}%`, targetRate = `${Math.round(m.targetRate * 100)}%`;
   if (selectedAudience === "team") return [
     ["WHAT IS", "Teams already evaluate agents, but many still rely on spreadsheets, Slack channels and manual replay.", "The problem is real. The workflow is still improvised."],
-    ["OPERATING OPPORTUNITY", `What if every team that proves value with production traces enters a clear path toward Pro? At ${targetRate} conversion, this cohort creates ${money(m.targetArr)} in new ARR.`, "Imagine every successful replay opening the right next step."],
-    ["THE GAP", `The example moves from ${currentRate} to ${targetRate} Production-to-Pro conversion.`, "Technical success still needs a clear commercial next step."],
+    ["OPERATING OPPORTUNITY", `Imagine moving Production-to-Pro conversion from ${currentRate} to ${targetRate}. The same production cohort could create ${money(m.targetArr)} in new ARR.`, "Every successful replay can open a clear next step."],
+    ["THE GAP", "That move is hard. A team can get value from its first replay without being ready to buy Pro.", "Technical success still needs a commercial moment."],
     ["WHAT IS", "A successful first replay does not automatically create a repeatable workflow or a Pro buying moment.", "Product value can appear before commercial intent is visible."],
     ["WHAT COULD BE", "One activation event tells Product and GTM when a production team is ready for Pro.", "We can make the buying moment visible and repeatable."],
-    ["TEAM ACTION", "Define the activation event, connect it to a Pro buying moment, assign every qualified cohort an owner and track conversion monthly.", "You are the team that can connect adoption to revenue."],
-    ["BUSINESS OUTCOME", `Target conversion adds ${money(m.arrGap)} in ARR above the current path.`, "Two products become one measurable growth engine."]
+    ["TEAM ACTION", "I need us to define the activation event, connect it to a Pro buying moment, give every qualified cohort an owner and track conversion each month.", "We are the team that can connect adoption to revenue."],
+    ["BUSINESS OUTCOME", `At ${targetRate} conversion, the cohort creates ${money(m.targetArr)} in new ARR, ${money(m.arrGap)} above the ${currentRate} path. Let us agree the activation test today.`, "Two products can become one growth engine."]
   ];
   return [
     ["WHAT IS", "Hundreds of customer calls show the same pain: agent evaluation exists, but it is fragmented and manual.", "Adam has already found the problem. Now the business must capture it."],
-    ["FINANCIAL OPPORTUNITY", `What if Kitaru turns new production-agent demand into Pro customers without requiring a second commercial engine? At ${targetRate} conversion, this cohort creates ${money(m.targetArr)} in new ARR.`, "Imagine every production success making the paid platform stronger."],
-    ["THE GAP", `The example moves from ${currentRate} to ${targetRate} Production-to-Pro conversion.`, "This is the value the new entry point still has to prove."],
+    ["FINANCIAL OPPORTUNITY", `Imagine moving Production-to-Pro conversion from ${currentRate} to ${targetRate}. The same cohort could create ${money(m.targetArr)} in new ARR, without a second commercial engine.`, "Every production success can strengthen the paid platform."],
+    ["THE GAP", "That is not automatic. Product value can appear long before the customer is ready to buy Pro.", "Kitaru still has to prove it can open the paid path."],
     ["WHAT IS", "Kitaru is early: the SDK is functional, while integrations and product primitives are still taking shape.", "A second product can expand the market or divide the focus."],
     ["WHAT COULD BE", "A shared control plane lets ZenML and Kitaru create two routes into one commercial relationship.", "Kitaru becomes expansion, not distraction."],
-    ["BOARD DECISION", "Back a two-quarter conversion test, give the team the resources to prove it and require one Production-to-Pro milestone before scaling further.", "This is where we need your focus and discipline."],
-    ["BUSINESS OUTCOME", `Target conversion adds ${money(m.arrGap)} in ARR above the current path.`, "You prove that the second product compounds the first."]
+    ["BOARD DECISION", "I am asking you to back a two-quarter conversion test, give the team the resources to prove it and require one clear Production-to-Pro milestone before we scale further.", "Your focus can keep the second product on a path to revenue."],
+    ["BUSINESS OUTCOME", `At ${targetRate} conversion, this cohort creates ${money(m.targetArr)} in new ARR, ${money(m.arrGap)} above the ${currentRate} path. Please back the test that can prove it.`, "The second product can compound the first."]
   ];
 }
 

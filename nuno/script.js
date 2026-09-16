@@ -76,21 +76,21 @@ function storyBeats() {
   const m = model(), value = formatMoney(m.annualValue), valuePerMw = formatMoney(m.valuePerMw), avoided = formatNumber(m.avoidedVolume);
   if (selectedAudience === "investor") return [
     ["WHAT IS","Nuno has more than 25 projects in Germany, live operating proof and fresh investor capital.","The technology has left the lab. The commercial system now matters."],
-    ["FINANCIAL OPPORTUNITY",`What if each successful park becomes the evidence for a wider portfolio? The illustration creates ${valuePerMw} of annual customer value per MW.`,"One verified number can make the next rollout easier to fund."],
-    ["THE GAP","Public proof shows better forecasts, but not yet the recurring value created by each productive MW.","Investors can see activity. They still need to see the growth engine."],
+    ["FINANCIAL OPPORTUNITY",`Imagine every successful park opening the next portfolio. At this value per MWh, each productive MW can create ${valuePerMw} a year for the customer.`,"That is a reason to expand, not just a better forecast."],
+    ["THE GAP","We have proof of better forecasts. We still need to verify the customer value of each productive MW with trading and settlement data.","That is the number that can turn pilots into a growth case."],
     ["WHAT IS","Hardware, installation and data integration require capacity before every portfolio produces recurring revenue.","More projects can still consume cash faster than they prove scale."],
     ["WHAT COULD BE","A standard value-verification and deployment model connects productive MW to customer value, revenue quality and data advantage.","The same proof can improve growth and capital efficiency."],
-    ["INVESTOR DECISION","Fund the installation and integration capacity required for contracted MW, released against productive-MW and verified-value milestones.","Capital now has a clear job and a measurable release point."],
-    ["BUSINESS OUTCOME",`Nuno converts pilot evidence into repeatable portfolio expansion. In this illustration, every 500 MW rollout carries ${value} of annual customer value.`,"The business scales because the customer economics are visible and repeatable."]
+    ["INVESTOR DECISION","I am asking you to fund installation and integration for contracted MW, with capital released as MW become productive and customer value is verified.","Give us the capacity to turn signed demand into operating proof."],
+    ["BUSINESS OUTCOME",`A ${formatNumber(m.mw)} MW rollout could create ${value} of annual customer value at these assumptions. Prove that value, repeat the deployment and give Nuno a stronger basis for recurring revenue.`,"That is the expansion case I want your support for."]
   ];
   return [
     ["WHAT IS","Nuno’s Sensor Hubs already create more accurate short-term forecasts in operating solar parks.","The pilot has done its first job: prove the signal."],
-    ["FINANCIAL OPPORTUNITY",`What if the next rollout decision starts with ${valuePerMw} of annual value per forecasted MW?`,"Now the customer can compare the value with the cost of expansion."],
-    ["THE GAP",`In this illustration, Nuno corrects ${avoided} MWh of costly forecast volume and creates ${value} per year.`,"The real settlement and trading data will turn the illustration into evidence."],
+    ["FINANCIAL OPPORTUNITY",`Imagine each forecasted MW creating ${valuePerMw} of annual value for your portfolio. That gives us a financial case for expanding beyond one park.`,"We can put a euro value beside the next MW tranche."],
+    ["THE GAP",`At these assumptions, better forecasts correct ${avoided} MWh of costly volume and create ${value} a year for your portfolio. We need your actual trading and settlement data to verify it.`,"Make the value credible enough to decide on."],
     ["WHAT IS","Forecast accuracy alone does not tell trading, asset management and operations how many parks to approve.","A better model still needs a decision rule."],
     ["WHAT COULD BE","One shared verification method links forecast improvement to settlement, intraday and operating outcomes across the portfolio.","Every function can see the same economic result."],
-    ["CUSTOMER DECISION","Approve the next MW tranche, share the data needed to verify value and agree the threshold that triggers further expansion.","The customer becomes the partner who proves and scales the value."],
-    ["BUSINESS OUTCOME",`More value from the same solar assets, a defensible rollout and a repeatable path from one successful park to the next.`,"The forecast becomes infrastructure for a portfolio decision."]
+    ["CUSTOMER DECISION","I am asking you to approve the next MW tranche, share the data needed to verify value and agree the threshold for further expansion.","This is the decision that turns one successful park into a portfolio plan."],
+    ["BUSINESS OUTCOME",`That gives your existing solar assets a path to ${value} of annual value across ${formatNumber(m.mw)} MW at these assumptions, with each further rollout backed by measured results.`,"Let us agree the next tranche and prove the number together."]
   ];
 }
 const pathProgress = [.101,.19,.29,.46,.64,.765,1], contourPath = document.getElementById("contourLive"), contourLength = contourPath.getTotalLength();

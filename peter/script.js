@@ -90,21 +90,21 @@ function storyBeats() {
   const gainPerMillion = m.revenue ? (m.gain / m.revenue) * 1000000 : 0;
   if (selectedAudience === "team") return [
     ["WHAT IS", "Mapular delivers ready-to-use solutions and custom projects through the same small, expert team.", "The range is a strength. It can also make repeatable delivery harder."],
-    ["THE BUSINESS GAP · CALL TO ADVENTURE", "What if we used one complete Opportunity Mapping delivery to see exactly where repeatability improves the margin?", "Take one real project apart. Find what should not be rebuilt."],
+    ["THE BUSINESS GAP · CALL TO ADVENTURE", "Imagine the next Opportunity Mapping project leaving behind a reusable asset, so the following project earns more without repeating the same work.", "One delivery can make the next one more profitable."],
     ["WHAT IT COULD BE", "Split every step into three groups: automate, template or expert-only.", "Reuse what already works. Keep the team focused on the judgement calls."],
     ["WHAT IS", "Small exceptions can turn a repeatable offer back into a custom project.", "One ‘small request’ at a time, the margin disappears."],
     ["WHAT IT COULD BE", "Track delivery hours and gross margin for each offer. Then the team can see which exceptions are worth it.", "Some custom work pays. Some just adds work."],
-    ["THE DECISION · CALL TO ACTION", "Map every delivery step. Track the hours, define the exception rule and capture one reusable asset after every delivery.", "Make the next job easier because this one happened."],
-    ["BUSINESS OUTCOME · WHAT IT COULD BE", "The same team can support more revenue. Each project improves the next one.", "The work gets smarter as it grows."]
+    ["THE DECISION · CALL TO ACTION", "I need us to map one delivery end to end, track the hours, agree which exceptions we accept and save one reusable asset from every project.", "Make the next job easier because this one happened."],
+    ["BUSINESS OUTCOME · WHAT IT COULD BE", "If we do this consistently, the same team can support more revenue without rebuilding each solution. Let us start with the next project.", "Our expertise should grow in value each time we use it."]
   ];
   return [
     ["WHAT IS", "Mapular already combines tailored project work with products, fixed-price packages and reusable data.", "The strategic shift has started."],
-    ["THE BUSINESS GAP · CALL TO ADVENTURE", "What if Mapular moved more revenue onto reusable IP and kept the value of its custom work?", "Could the same knowledge earn more than once?"],
+    ["THE BUSINESS GAP · CALL TO ADVENTURE", `Imagine moving reusable-IP revenue from ${m.currentShare}% to ${m.targetShare}% while keeping the value of our custom work.`, "The same knowledge could earn more than once."],
     ["WHAT IT COULD BE", `Moving productized share from ${m.currentShare}% to ${m.targetShare}% lifts gross contribution by ${money(m.gain)}. That is ${money(gainPerMillion)} for every €1m of revenue.`, "The gap widens before adding another euro of sales."],
     ["WHAT IS", "Calling an offer productized does not make it scalable. Custom requests can push delivery cost straight back up.", "Recurring work can still be custom work."],
     ["WHAT IT COULD BE", "Standard methods, shared data pipelines and clear limits on exceptions let revenue grow faster than delivery cost.", "Use what Mapular has already learned."],
-    ["THE DECISION · CALL TO ACTION", "Approve a 90-day test for one proven offer. Set a margin floor, limit exceptions and review the results before expanding.", "Give repeatability room to win."],
-    ["BUSINESS OUTCOME · WHAT IT COULD BE", "Reusable IP becomes a larger part of revenue. Custom work keeps creating ideas for the next product.", "Expertise no longer resets after each project."]
+    ["THE DECISION · CALL TO ACTION", "I am asking you to approve a 90-day test for one proven offer, with a margin floor and clear limits on exceptions.", "Give us a focused test we can measure."],
+    ["BUSINESS OUTCOME · WHAT IT COULD BE", `At ${m.targetShare}% reusable-IP revenue, the same sales mix could add ${money(m.gain)} in gross contribution. Please back the 90-day test.`, "Our expertise no longer resets after every project."]
   ];
 }
 

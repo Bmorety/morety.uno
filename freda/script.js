@@ -157,21 +157,21 @@ function storyBeats() {
   const target = `${m.targetVelocity} units`;
   if (selectedAudience === "buyer") return [
     ["WHAT IS", "Freda earned attention through restaurant-quality frozen food and now reaches more than 1,000 retail points.", "The product has earned a place in the freezer."],
-    ["CATEGORY OPPORTUNITY", `What if Freda reaches ${target} per point each week while staying reliably available?`, "Better food can also be productive shelf space."],
-    ["THE GAP", `The illustrative sell-through gap is ${current} to ${target} per point per week.`, "The listing is real. The wider rollout still needs proof."],
+    ["CATEGORY OPPORTUNITY", `Imagine moving from ${current} to ${target} per point each week while keeping the freezers stocked. That is ${compact(m.unitGap)} more units a year across this footprint.`, "Better food can earn more productive shelf space."],
+    ["THE GAP", "That improvement is difficult to hold if availability or quality slips as the range grows.", "The wider rollout needs proof week after week."],
     ["WHAT IS", "Frozen space is scarce. More SKUs only help when each one turns quickly and arrives consistently.", "A great product still has to earn every facing."],
     ["WHAT COULD BE", "A measured rollout links stores, SKUs, facings and availability to one weekly velocity threshold.", "Make the next decision visible before the test starts."],
-    ["BUYER DECISION", "Approve a wider rollout with agreed points, range, facings and review date.", "Give Freda the space and a fair test to prove the category value."],
-    ["BUSINESS OUTCOME", `At the target path, the example footprint sells ${compact(m.targetUnits)} units a year while quality and availability remain protected.`, "The quality story becomes productive distribution."]
+    ["BUYER DECISION", "I am asking you to approve a measured rollout with agreed stores, range, facings and a review date.", "Give us the space and a fair test to prove the category value."],
+    ["BUSINESS OUTCOME", `At ${target} per point each week, this footprint could sell ${compact(m.targetUnits)} units a year while we protect quality and availability. Let us agree the rollout and review date.`, "The shelf earns its space through real customer demand."],
   ];
   return [
     ["WHAT IS", "Freda has raised €2.319m after proving demand, quality and an initial retail footprint of more than 1,000 points.", "The capital is in. The operating proof comes next."],
-    ["FINANCIAL OPPORTUNITY", `What if the current footprint moves from ${current} to ${target} per point per week? The example adds ${compact(m.unitGap)} annual units.`, "Improve the value of the footprint before complexity compounds."],
-    ["THE GAP", `The illustrative path creates ${money(m.contributionGap)} more annual contribution, before funding more doors.`, "This is what productive distribution can finance."],
+    ["FINANCIAL OPPORTUNITY", `Imagine moving from ${current} to ${target} per retail point each week. Across the current footprint, that could add ${compact(m.unitGap)} annual units and ${money(m.contributionGap)} in annual contribution.`, "Earn more from the doors we already have."],
+    ["THE GAP", "That move is hard. Each new door adds inventory and production pressure before it proves sell-through.", "We need productive distribution, not just a longer store list."],
     ["WHAT IS", "Every rollout adds inventory, production load and trade investment. In-house quality makes that pace a deliberate choice.", "Growth can run ahead of the system that protects the product."],
     ["WHAT COULD BE", "One scorecard joins sell-through with on-shelf availability and quality complaints.", "Growth, service and product promise move together."],
-    ["BOARD DECISION", "Release capacity, inventory and trade investment against shared quarterly thresholds.", "Fund the expansion when the operating evidence says accelerate."],
-    ["BUSINESS OUTCOME", `The target path produces ${compact(m.targetUnits)} annual units and ${money(m.targetContribution)} illustrative contribution without lowering the quality guardrails.`, "Scale the shelf without scaling away what earned it."]
+    ["BOARD DECISION", "I am asking you to release capacity, inventory and trade investment against shared quarterly sell-through, availability and quality thresholds.", "Fund the next step when the shelf earns it."],
+    ["BUSINESS OUTCOME", `At ${target} per point each week, the footprint could sell ${compact(m.targetUnits)} units a year and create ${money(m.targetContribution)} in contribution while quality holds. Please back the measured rollout.`, "We can grow the shelf without losing what earned it."],
   ];
 }
 

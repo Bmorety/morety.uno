@@ -195,21 +195,21 @@ function storyBeats() {
   const targetPayback = paybackText(m.targetPayback);
   if (selectedAudience === "team") return [
     ["CURRENT ECONOMICS", "Each B2B launch begins with catalogue ingestion, product mapping, branding and QA before recurring margin can build.", "The partner sees one experience. We carry all the work behind it."],
-    ["FINANCIAL OPPORTUNITY", `Bring partner payback forward from ${currentPayback} to ${targetPayback}, without reducing contract value.`, "Same client value. Less repeated work."],
+    ["FINANCIAL OPPORTUNITY", `Imagine bringing partner payback forward from ${currentPayback} to ${targetPayback} without reducing contract value. Across ${m.partners} new partners, that could add ${money(m.portfolioGain)} in first-year contribution.`, "Same client value. Less repeated work."],
     ["TARGET ECONOMICS", `Reducing integration cost from ${money(m.currentSetup)} to ${money(m.targetSetup)} adds ${money(m.targetProfit - m.currentProfit)} of first-year profit per partner.`, "The fastest route to margin is work we only do once."],
     ["CURRENT CONSTRAINT", "Partner-specific exceptions can quietly turn the reusable product back into a custom implementation.", "Every exception needs an economic reason."],
     ["TARGET ECONOMICS", "Standard catalogue intake, reusable mappings and a fixed QA gate shorten launch time while preserving the branded experience.", "Custom on the outside. Repeatable underneath."],
-    ["DECISION REQUIRED", "Map the integration workflow, assign an owner to each bottleneck and track hours, exceptions and payback on every launch.", "Make the next integration cheaper because this one happened."],
-    ["EXPECTED BUSINESS IMPACT", `At ${m.partners} new partners, the target model creates ${money(m.portfolioGain)} more first-year contribution profit.`, "The integration process becomes an asset, not a recurring cost reset."]
+    ["DECISION REQUIRED", "I need us to map the integration workflow, name an owner for each delay and track hours, exceptions and payback on every launch.", "The next integration should cost less because this one happened."],
+    ["EXPECTED BUSINESS IMPACT", `At ${m.partners} new partners, this path adds ${money(m.portfolioGain)} in first-year contribution. Let us commit to the integration work now.`, "The process becomes an asset we can reuse."]
   ];
   return [
     ["CURRENT ECONOMICS", "Each new B2B partner starts with a tailored catalogue integration before recurring economics can compound.", "The contracts can be attractive. The margin arrives later."],
-    ["FINANCIAL OPPORTUNITY", `Reduce time to profitable partner from ${currentPayback} to ${targetPayback}, while preserving contract value.`, "Can we improve the economics without asking the client to pay more?"],
-    ["TARGET ECONOMICS", `Productizing catalogue ingestion, mapping and QA reduces the example integration cost by ${money(m.currentSetup - m.targetSetup)}.`, "The white-glove edge stays. The repeated work goes."],
+    ["FINANCIAL OPPORTUNITY", `Imagine moving partner payback from ${currentPayback} to ${targetPayback} while keeping contract value. Across ${m.partners} new partners, that could add ${money(m.portfolioGain)} in first-year contribution.`, "Growth can reach profit sooner."],
+    ["TARGET ECONOMICS", `Reusing catalogue intake, mapping and QA would cut integration cost by ${money(m.currentSetup - m.targetSetup)} per partner.`, "The tailored experience stays. The repeated work goes."],
     ["CURRENT CONSTRAINT", "White-glove implementation helps close partners, but unmanaged exceptions can reset the economics on every deal.", "B2B growth is not enough if delivery cost follows it."],
     ["TARGET ECONOMICS", `After payback, each partner produces ${money(m.monthlyContribution)} of recurring monthly contribution before central overhead.`, "This is where partner revenue starts compounding into profit."],
-    ["DECISION REQUIRED", "Back a six-month catalogue-integration program with a below-three-month payback target, and help secure the next anchor retail partners.", "Give the team a financial target and enough qualified volume to prove it."],
-    ["EXPECTED BUSINESS IMPACT", `At ${m.partners} new partners, the target model creates ${money(m.portfolioGain)} more first-year contribution profit.`, "More partners reach recurring margin sooner. B2B growth becomes more predictable."]
+    ["DECISION REQUIRED", "I am asking you to back a six-month catalogue-integration program with a payback target below three months, and help us secure the next anchor retail partners.", "Give the team a financial target and enough volume to prove it."],
+    ["EXPECTED BUSINESS IMPACT", `At ${m.partners} new partners, this path adds ${money(m.portfolioGain)} in first-year contribution. Please back the program that makes this repeatable.`, "More partners reach recurring margin sooner."]
   ];
 }
 
