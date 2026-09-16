@@ -18,6 +18,8 @@
 .room-panel header small { line-height: 1.35; }
 .room-panel dd { font-size: .67rem; }
 .contour-labels text { font-size: 12px; }
+.story-example-note { color: var(--muted); font-size: .6rem; line-height: 1.4; margin: 0 0 .5rem; }
+.story-header h2 { font-size: clamp(1.9rem, 3.35vw, 3.35rem); }
 @media (max-width: 900px) { .forecaster { grid-template-columns: 300px 1fr; } }
 @media (max-width: 720px) { .forecaster { display: block; } }
 @media (max-width: 620px) { .scene--opening h1 { font-size: clamp(2.55rem, 11vw, 3.2rem); } .audience-card strong { font-size: 1.35rem; } .model-result strong { font-size: .9rem; } }
