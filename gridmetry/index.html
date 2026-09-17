@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8f9fb">
+  <meta name="description" content="A financial narrative exercise for Lukas Pfeiffer and Gridmetry: turning operating proof into a fundable deployment portfolio.">
+  <title>Who makes the next MW possible? | Gridmetry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="icon" type="image/jpeg" href="../favicon.jpg">
+</head>
+<body>
+  <a class="skip-link" href="#experience">Skip to the experience</a>
+  <header class="topbar">
+    <a class="brand" href="https://morety.uno" target="_blank" rel="noopener" aria-label="Open Morety in a new tab"><span class="brand-mark">M.</span><span class="brand-lockup">FINANCE ×<br>NARRATIVE</span></a>
+    <p class="prepared">PREPARED FOR LUKAS PFEIFFER · GRIDMETRY</p>
+    <div class="header-actions"><a class="site-link" href="https://morety.uno" target="_blank" rel="noopener">morety.uno ↗</a><button id="resetExperience" class="reset-button" type="button">Restart</button></div>
+  </header>
+
+  <main id="experience" class="experience">
+    <div class="scene-track" id="sceneTrack">
+      <section class="scene scene--opening is-active" data-scene="0" aria-labelledby="opening-title">
+        <div class="scene-inner opening-layout">
+          <div class="opening-copy">
+            <p class="welcome-line"><span>01</span><strong>Hey Lukas.</strong> <em>Picture a meeting with a partner who could finance the next Gridbox deployments.</em></p>
+            <h1 id="opening-title">The next MW costs money.<br><em>What makes it fundable?</em></h1>
+            <p class="lede">Gridmetry has operating proof. Expanding a physical fleet still requires capital. The partner needs to see how cash from each project could repay that capital, even when market income falls.</p>
+            <button class="primary-action" type="button" data-next>Find the financial story <span>→</span></button>
+          </div>
+          <aside class="opening-note" aria-label="The narrative gap">
+            <span class="micro-label">THE NARRATIVE GAP · PROJECT FINANCE MEETING</span>
+            <div><small>THE UPDATE HAS THE NUMBERS</small><strong>62 MW live in Sweden.<br>Market settlements.<br>Costs and performance.</strong></div>
+            <div class="note-divider" aria-hidden="true"></div>
+            <div><small>THE FINANCIAL STORY IS MISSING</small><strong>Which cash flow pays the debt?<br>What happens in a weak year?<br>What can this partner enable?</strong></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--signal" data-scene="1" aria-labelledby="signal-title" inert>
+        <div class="scene-inner signal-layout">
+          <div>
+            <p class="eyebrow"><span>02</span> Public operating signals</p>
+            <h2 id="signal-title">The proof exists.<br><em>The financing case has to connect it.</em></h2>
+            <p class="lede compact">Gridmetry reports live capacity and a large renewable pipeline. Lukas also says capital and perception are barriers to scaling in Europe. Those facts point to a specific task: turn site performance into a repeatable repayment case.</p>
+            <div class="evidence-stack">
+              <p><span>01</span><strong>62 MW</strong> of Gridboxes reported live in Sweden.</p>
+              <p><span>02</span><strong>&gt;2.5 GW</strong> of renewable projects in the pipeline. This is project capacity, not contracted Gridbox MW.</p>
+              <p><span>03</span>Gridmetry says its dashboard tracks revenue, costs, gross profit and settlements at 15-minute intervals.</p>
+            </div>
+            <p class="source-row">Public signals: <a href="https://www.gridmetry.com/about-us.html" target="_blank" rel="noopener">Gridmetry scale ↗</a> · <a href="https://www.gridmetry.com/data-centres.html" target="_blank" rel="noopener">Operating data ↗</a> · <a href="https://www.linkedin.com/posts/gridmetry_why-scandinavia-is-bitcoin-minings-next-activity-7485226471511277568-eVuT" target="_blank" rel="noopener">Lukas on scale ↗</a></p>
+          </div>
+          <aside class="kpi-card">
+            <span class="micro-label">THE NUMBER TO LEAD</span>
+            <h3>Debt service coverage</h3>
+            <p class="formula">CASH AVAILABLE FOR DEBT ÷ ANNUAL DEBT PAYMENT</p>
+            <p>Can the cash left after project costs and contractual shares cover the lender's principal and interest?</p>
+            <div class="kpi-pair"><div><small>OPERATING SIGNAL</small><strong>Settlement data</strong></div><span>→</span><div><small>FINANCIAL DECISION</small><strong>Fundable cash flow</strong></div></div>
+            <p class="fine-print">This is a proposed financing KPI. Gridmetry has not published a project debt model.</p>
+            <button class="primary-action full" type="button" data-next>Test a portfolio <span>→</span></button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="scene scene--model" data-scene="2" aria-labelledby="model-title" inert>
+        <div class="scene-inner model-layout">
+          <div class="model-head"><div><p class="eyebrow"><span>03</span> Test the repayment path</p><h2 id="model-title">How much cash is left<br><em>for the capital partner?</em></h2></div><p class="lede compact">Change the assumptions. The model shows annual debt payment, cash available after project costs, and coverage in a weaker market.</p></div>
+          <div class="model-grid">
+            <form id="modelForm" class="model-form">
+              <div class="form-heading"><span>ILLUSTRATIVE PROJECT PORTFOLIO</span><small>Editable assumptions · not Gridmetry financials</small></div>
+              <div class="field-grid">
+                <label><span>New capacity</span><span class="field"><input id="mw" type="number" min="1" max="1000" step="1" value="10"><b>MW</b></span></label>
+                <label><span>Installed cost per MW</span><span class="field"><b>€</b><input id="cost" type="number" min="1" max="10000000" step="10000" value="450000"></span></label>
+                <label><span>Cash available for debt per MW / year</span><span class="field"><b>€</b><input id="cash" type="number" min="0" max="10000000" step="5000" value="130000"></span></label>
+                <label><span>Share funded by debt</span><span class="field"><input id="debtShare" type="number" min="1" max="100" step="5" value="70"><b>%</b></span></label>
+              </div>
+              <details class="loan-terms"><summary>Loan terms <span>9% interest · 5 years</span></summary><div class="field-grid two"><label><span>Annual interest</span><span class="field"><input id="interest" type="number" min="0" max="50" step="0.5" value="9"><b>%</b></span></label><label><span>Repayment period</span><span class="field"><input id="term" type="number" min="1" max="30" step="1" value="5"><b>years</b></span></label></div></details>
+              <p class="assumption-note">“Cash available for debt” must already account for power, operations, taxes where relevant, and all contractual revenue shares. The real number and debt terms require project records and a signed financing structure.</p>
+            </form>
+            <div class="model-output" aria-live="polite">
+              <div class="scenario-switch" role="group" aria-label="Choose revenue scenario"><button type="button" class="is-active" data-scenario="base">Base case</button><button type="button" data-scenario="downside">25% less cash</button></div>
+              <div class="coverage-display"><span class="micro-label">ANNUAL DEBT SERVICE COVERAGE</span><strong id="coverageValue">1.61×</strong><p id="coverageExplanation">€1.61 available for each €1 due.</p></div>
+              <div class="money-bars" role="img" aria-label="Annual cash available compared with annual debt payment"><div><span>Cash available</span><div class="bar-track"><i id="cashBar"></i></div><b id="cashTotal">€1.30m</b></div><div><span>Principal + interest</span><div class="bar-track"><i id="debtBar"></i></div><b id="annualPayment">€0.81m</b></div></div>
+              <div class="output-footer"><span><small>INITIAL DEBT</small><strong id="loanAmount">€3.15m</strong></span><span><small>ANNUAL HEADROOM</small><strong id="headroom">€0.49m</strong></span></div>
+            </div>
+          </div>
+          <div class="model-bottom"><p id="modelTakeaway">The base case covers the annual payment, subject to real contracts and verified project costs.</p><button class="primary-action" type="button" data-next>Enter the room <span>→</span></button></div>
+        </div>
+      </section>
+
+      <section class="scene scene--room" data-scene="3" aria-labelledby="room-title" inert>
+        <div class="scene-inner room-layout">
+          <div><p class="eyebrow"><span>04</span> One audience · one decision</p><h2 id="room-title">Give the capital partner<br><em>a role in the outcome.</em></h2><p class="lede compact">The partner is not being asked to admire a technology. They are being asked to define the conditions under which a first portfolio can be financed and repaid.</p><button class="primary-action" type="button" data-next>Hear Lukas's argument <span>→</span></button></div>
+          <div class="room-card"><span class="micro-label">THE ROOM TO WIN</span><strong>Project finance partner</strong><div><small>THE FINANCIAL OPPORTUNITY</small><p>Fund a defined portfolio of flexible capacity with measurable project cash flow and a disciplined repayment test.</p></div><div><small>THE DECISION REQUIRED</small><p>Agree the evidence, risk limits and financing terms for a first set of eligible projects.</p></div><div class="room-card-end">CAPITAL ENABLES THE NEXT MW <span>↗</span></div></div>
+        </div>
+      </section>
+
+      <section class="scene scene--story" data-scene="4" aria-labelledby="story-title" inert>
+        <div class="scene-inner story-layout">
+          <div class="story-header"><div><p class="eyebrow"><span>05</span> The narrative in the room</p><h2 id="story-title">From operating proof<br><em>to a financing decision.</em></h2><p class="scenario-note">The editable amounts are scenario assumptions, not Gridmetry results. The speech below uses them conditionally.</p></div><div class="room-badge"><span>SPEAKING TO</span><strong>Project finance partner</strong><small>Capital · repayment · measured risk</small></div></div>
+          <div class="contour-shell"><svg class="contour" viewBox="0 0 1000 330" role="img" aria-labelledby="contourTitle contourDesc"><title id="contourTitle">The contour of the financial narrative</title><desc id="contourDesc">A stepped line moves between present reality and future opportunity, ending at a higher business outcome.</desc><line class="turning-guide" x1="205" y1="22" x2="205" y2="288"></line><line class="turning-guide" x1="765" y1="22" x2="765" y2="288"></line><path class="contour-ghost" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path><path class="contour-live" id="contourLive" d="M24 250 H205 V92 H390 V250 H535 V92 H690 V250 H765 V40 H976"></path><circle class="outcome-dot" cx="976" cy="40" r="7"></circle><g class="contour-labels"><text x="24" y="280">WHAT IS</text><text x="226" y="76">WHAT COULD BE</text><text x="410" y="280">WHAT IS</text><text x="552" y="76">WHAT COULD BE</text><text x="698" y="280">WHAT IS</text><text class="label-blue" x="788" y="25">WHAT COULD BE · BUSINESS OUTCOME</text></g><g class="turning-labels"><text x="205" y="312" text-anchor="middle">FINANCIAL OPPORTUNITY</text><text x="765" y="312" text-anchor="middle">DECISION REQUIRED</text></g></svg>
+            <div class="story-beat" id="storyBeat" aria-live="polite"><span class="beat-number" id="beatNumber">01 / 07</span><div><div class="beat-meta"><span class="beat-audience">PROJECT FINANCE PARTNER</span><span class="micro-label" id="beatFramework">WHAT IS</span></div><p id="beatText"></p><p class="beat-thought" id="beatThought"></p></div></div>
+            <div class="beat-controls"><button class="text-action" id="beatBack" type="button" disabled>← Previous</button><div class="beat-dots" id="beatDots" aria-label="Narrative steps"></div><button class="primary-action small" id="beatNext" type="button">Next contrast <span>→</span></button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--decision" data-scene="5" aria-labelledby="decision-title" inert>
+        <div class="scene-inner decision-layout"><div><p class="eyebrow"><span>06</span> What changes in the room</p><h2 id="decision-title">Same data.<br><em>A decision they can own.</em></h2><p class="lede compact">Operating numbers become persuasive when they show the partner how capital could be repaid and exactly what must be verified before committing it.</p></div><div class="decision-comparison"><article><span>WITHOUT THE FINANCIAL THREAD</span><strong>“Our flexible assets earned more.”</strong><p>A result, but no clear link to project costs, repayment or downside risk.</p></article><div class="comparison-arrow">→</div><article class="decision-positive"><span>WITH THE FINANCIAL THREAD</span><strong>“Here is the cash available for your debt.”</strong><p>One proposed portfolio, an annual payment, a lower-income case and the conditions to proceed.</p></article><button id="replayNarrative" class="replay-button" type="button">Replay the financing narrative from the start <span>↗</span></button></div><div class="decision-footer"><span class="micro-label">THE PARTNER'S MOVE</span><p>Set the financing criteria. Review the first eligible projects. Commit capital when the evidence supports the case.</p><button class="primary-action" type="button" data-next>See the method <span>→</span></button></div></div>
+      </section>
+
+      <section class="scene scene--method" data-scene="6" aria-labelledby="method-title" inert>
+        <div class="scene-inner method-layout"><div class="method-intro"><p class="eyebrow"><span>07</span> What just happened</p><h2 id="method-title">The numbers were there.<br><em>The decision needed a story.</em></h2><p class="lede compact">A Finance Brief finds the economic thread in your real operating data, shapes it for the room you need to convince, and helps you ask for a decision that room can actually make.</p></div><div class="method-chain"><article><span>01 · SIGNAL</span><strong>Start with operating proof.</strong><p>Live MW, settlements, costs and project readiness.</p></article><i>→</i><article><span>02 · ECONOMICS</span><strong>Show the repayment path.</strong><p>Cash available, debt payment and a weaker market.</p></article><i>→</i><article><span>03 · NARRATIVE</span><strong>Give capital a role.</strong><p>Make the conditions and decision explicit.</p></article></div><div class="hero-principle"><span class="principle-mark">M.</span><div><span class="micro-label">THE ROOM IS THE HERO</span><p>Your partner can turn proven operations into more installed capacity, if the cash flow and risk meet an agreed standard.</p></div></div><aside class="real-call"><span class="micro-label">THE REAL VERSION</span><h3>Build the case for your next financing room.</h3><p>Bring the actual projects, contracts and financing question. We will find the lead number, test the economic path and shape the story Lukas needs to tell.</p><a class="primary-action full" href="https://calls.morety.uno/discovery" target="_blank" rel="noopener">Discuss your next room <span>↗</span></a></aside></div>
+      </section>
+    </div>
+  </main>
+  <footer class="experience-footer"><button class="back-button" id="sceneBack" type="button" aria-label="Go to previous scene">←</button><div class="progress-wrap"><span class="progress-label" id="progressLabel">THE PREMISE</span><div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div><span class="progress-count"><span id="progressCurrent">01</span> / 07</span></div></div><p class="credit">Bruno Morety · Financial Narrative Partner</p></footer>
+  <noscript><p class="noscript">This guided exercise requires JavaScript.</p></noscript>
+  <script src="script.js?v=1"></script>
+</body>
+</html>
