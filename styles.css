@@ -1167,6 +1167,83 @@ p {
   color: #fff;
 }
 
+/* ─── INSIGHT PARTNER ──────────────────────────────────────────── */
+#insight-partner {
+  padding: clamp(3.5rem, 7vh, 5.5rem) 0;
+  background: var(--surface-2);
+  border-top: 1px solid rgba(0, 73, 209, 0.1);
+  border-bottom: 1px solid rgba(0, 73, 209, 0.1);
+}
+#insight-partner .insight-partner-metaphor {
+  margin-top: 0.5rem;
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 700;
+  line-height: 1.15em;
+  font-style: italic;
+}
+#insight-partner .insight-partner-road {
+  display: grid;
+  margin-top: 1rem;
+  max-width: 580px;
+  white-space: normal;
+  color: var(--primary);
+}
+#insight-partner .insight-partner-road > span {
+  grid-area: 1 / 1;
+  width: auto;
+  margin-top: 0;
+}
+#insight-partner .insight-partner-road-reserve { visibility: hidden; }
+
+#insight-partner .insight-partner-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.5rem 3rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+#insight-partner .insight-partner-header .section-label {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+#insight-partner .insight-partner-cadence {
+  margin-top: 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--primary);
+}
+#insight-partner .about-portrait-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 2rem;
+}
+#insight-partner .insight-partner-road { margin-bottom: 0; }
+#insight-partner .insight-partner-footer {
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 0 0;
+  margin-top: 2rem;
+}
+#insight-partner .insight-partner-footer .brief-scope { margin-top: 0; }
+#insight-partner .insight-partner-footer .engagement-cta {
+  flex-shrink: 0;
+  margin-top: 0;
+  align-self: center;
+}
+@media (max-width: 767px) {
+  #insight-partner .insight-partner-header {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  #insight-partner .about-portrait-row { grid-template-columns: 1fr; gap: 1.25rem; }
+  #insight-partner .insight-partner-footer { flex-direction: column; align-items: stretch; }
+}
+
 /* ─── ABOUT ────────────────────────────────────────────────────── */
 #about {
   padding: clamp(3.5rem, 7vh, 5.5rem) 0;
