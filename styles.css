@@ -162,6 +162,20 @@ p {
 .nav-links a.nav-featured,
 .nav-links a.nav-featured:visited { color: var(--primary); }
 
+.nav-links a { position: relative; }
+.nav-links a[aria-current="location"]::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -0.55rem;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--primary);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
 .nav-cta {
   display: inline-flex;
   align-items: center;

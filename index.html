@@ -40,7 +40,7 @@
     rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=24" />
+  <link rel="stylesheet" href="styles.css?v=25" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="favicon.jpg" />
@@ -362,7 +362,7 @@
           </div>
           <div class="insight-partner-identity">
             <h2 class="about-sidebar-heading" id="insightPartnerTitle">Business Insight Partner.</h2>
-            <p class="brief-sub insight-partner-metaphor">Your rally co-driver.</p>
+            <p class="brief-sub insight-partner-metaphor">Your road from this round to break-even — and beyond.</p>
           </div>
           <p class="brief-scope insight-partner-cadence">
             <span class="brief-note-label">ONGOING RETAINER</span><br>
@@ -373,27 +373,27 @@
         <div class="about-main">
           <div class="about-portrait-row reveal">
             <div>
-              <h3 class="about-portrait-name">You steer. I read what's coming.</h3>
-              <p class="brief-value insight-partner-road" aria-label="The sharp turn. The hazard. The straight where you can go full gas.">
-                <span class="insight-partner-road-reserve" aria-hidden="true">The straight where you can go full gas.</span>
-                <span class="hero-rotating" id="insightPartnerRoad" aria-hidden="true">The sharp turn.</span>
+              <h3 class="about-portrait-name">Investors don't fund one round. They fund a path.</h3>
+              <p class="brief-value insight-partner-road" aria-label="I map yours: the commercial milestones your business has to hit, translated into the milestones investors measure at every raise.">
+                <span class="insight-partner-road-reserve" aria-hidden="true">I map yours: the commercial milestones your business has to hit, translated into the milestones investors measure at every raise.</span>
+                <span class="hero-rotating" id="insightPartnerRoad" aria-hidden="true">I map yours: the commercial milestones your business has to hit, translated into the milestones investors measure at every raise.</span>
               </p>
             </div>
-            <p class="brief-sub">I keep building my understanding of your business between sessions. In our weekly live session, we put your numbers in context and work through what matters next.</p>
+            <p class="brief-sub">Then, like a rally co-driver, I keep reading the road with you. Every week, we put your numbers in context: what's coming, what matters, and when you can go full gas.</p>
           </div>
 
           <div class="about-items">
             <div class="about-item reveal">
-              <div class="about-item-title">Signal vs. noise</div>
-              <p class="about-item-desc">which KPI movement actually matters, and which doesn't</p>
-            </div>
-            <div class="about-item reveal">
               <div class="about-item-title">The full path</div>
-              <p class="about-item-desc">every round, what each one has to unlock, through to break-even</p>
+              <p class="about-item-desc">every round to break-even, and what each one has to unlock</p>
             </div>
             <div class="about-item reveal">
-              <div class="about-item-title">A sparring partner</div>
-              <p class="about-item-desc">I challenge your thinking so your own calls get sharper</p>
+              <div class="about-item-title">Investor-measurable milestones</div>
+              <p class="about-item-desc">customers, contracts and margins turned into proof investors can measure</p>
+            </div>
+            <div class="about-item reveal">
+              <div class="about-item-title">Signal vs. noise</div>
+              <p class="about-item-desc">the nuance behind your KPIs, so you and your board know which movement matters</p>
             </div>
           </div>
 
@@ -573,9 +573,9 @@
 
     // Retainer road cues use the hero's existing fade and timing.
     const roadCues = [
-      'The sharp turn.',
-      'The hazard.',
-      'The straight where you can go full gas.'
+      'I map yours: the commercial milestones your business has to hit, translated into the milestones investors measure at every raise.',
+      'I map yours: the commercial milestones your business has to hit, translated into the milestones investors measure at every raise.',
+      'I map yours: the commercial milestones your business has to hit, translated into the milestones investors measure at every raise.'
     ];
     const roadEl = document.getElementById('insightPartnerRoad');
     if (roadEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -600,6 +600,35 @@
         scrollBar.style.width = (window.scrollY / total * 100) + '%';
       }
     }, { passive: true });
+
+    // Keep the featured offer blue; mark the current section separately.
+    const sectionNav = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'))
+      .map(link => ({ link, section: document.querySelector(link.getAttribute('href')) }))
+      .filter(item => item.section);
+    function updateSectionNav() {
+      const readingLine = nav.getBoundingClientRect().bottom + Math.min(window.innerHeight * 0.2, 160);
+      let current = null;
+      sectionNav.forEach(item => {
+        if (item.section.getBoundingClientRect().top <= readingLine) current = item.link;
+      });
+      sectionNav.forEach(({ link }) => {
+        if (link === current) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }
+    let sectionNavPending = false;
+    function scheduleSectionNav() {
+      if (sectionNavPending) return;
+      sectionNavPending = true;
+      requestAnimationFrame(() => {
+        updateSectionNav();
+        sectionNavPending = false;
+      });
+    }
+    window.addEventListener('scroll', scheduleSectionNav, { passive: true });
+    window.addEventListener('resize', scheduleSectionNav);
+    window.addEventListener('load', scheduleSectionNav);
+    updateSectionNav();
 
     // ── 3. SCROLL REVEAL ─────────────────────────────────────────────
     const revealObs = new IntersectionObserver((entries) => {
