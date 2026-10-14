@@ -798,7 +798,9 @@ p {
   border-left: 1px solid rgba(0, 73, 209, 0.14);
 }
 .gap-card:first-child { border-left: 0; padding-left: 0; }
-.gap-card-num {
+.gap-card-num,
+.accordion-number,
+.about-num {
   font-size: clamp(32px, 3.8vw, 52px);
   font-weight: 700;
   line-height: 0.9;
@@ -806,8 +808,8 @@ p {
   text-transform: uppercase;
   color: var(--primary);
   opacity: 0.52;
-  margin-bottom: 1.5rem;
 }
+.gap-card-num { margin-bottom: 1.5rem; }
 .gap-card-title {
   font-size: clamp(20px, 2.1vw, 25px);
   font-weight: 700;
@@ -988,6 +990,7 @@ p {
 }
 
 .accordion-item {
+  --step-number-width: clamp(2.5rem, 4.5vw, 3.5rem);
   max-height: var(--accordion-header-height, 7.5rem);
   overflow: hidden;
   border-bottom: 1px solid rgba(0, 73, 209, 0.15);
@@ -1008,14 +1011,9 @@ p {
   user-select: none;
 }
 .accordion-number {
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  color: var(--primary);
   flex-shrink: 0;
-  width: 2.5rem;
-  opacity: 0.7;
-  padding-top: 0.3em;
+  width: var(--step-number-width);
+  padding-top: 0.1em;
 }
 .accordion-title-group {
   flex: 1;
@@ -1076,7 +1074,7 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem 5rem;
-  padding-left: calc(2.5rem + 2rem);
+  padding-left: calc(var(--step-number-width) + 2rem);
 }
 
 .accordion-session {
@@ -1385,14 +1383,9 @@ p {
   border-left: 1px solid rgba(0, 73, 209, 0.14);
 }
 .about-num {
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  color: var(--primary);
   display: block;
   padding-top: 0;
-  margin-bottom: 1rem;
-  opacity: 0.7;
+  margin-bottom: 1.5rem;
 }
 .about-item-title {
   font-size: clamp(16px, 1.8vw, 19px);
