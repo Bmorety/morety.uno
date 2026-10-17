@@ -1799,3 +1799,10 @@ body.sheet-open { overflow: hidden; }
   color: var(--muted);
 }
 .legal-meta a { color: var(--primary); }
+
+/* Contact icons */
+.contact-email-link .link-icon { width: 1.1em; height: 1.1em; flex-shrink: 0; }
+.cta-circle-icon { width: 24px; height: 24px; transition: transform 0.3s var(--ease); }
+.cta-circle:hover .cta-circle-icon { transform: scale(1.08); }
+.footer-contact-link { display: flex; align-items: center; gap: 0.5rem; width: fit-content; }
+.footer-contact-link .link-icon { width: 1.1em; height: 1.1em; flex-shrink: 0; }
